@@ -13,3 +13,7 @@ El proyecto seguirá versionado semántico cuando alcance su primera versión es
 - Estructura inicial del repositorio.
 - Normas para agentes y colaboradores.
 - Organización documental de FORJA.
+
+### Modificado
+
+- Se sustituye la visión provisional por la primera versión estable de la visión de FORJA.

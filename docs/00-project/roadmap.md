@@ -13,7 +13,7 @@
 
 ## Fase 1 — Fundamentos científicos
 
-- Crecimiento y maduración.
+- [Crecimiento y maduración del joven deportista](../02-science/growth-and-maturation.md) — En desarrollo.
 - Entrenamiento de fuerza en jóvenes.
 - Aprendizaje motor.
 - Desarrollo de la velocidad.

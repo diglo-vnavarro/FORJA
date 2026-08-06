@@ -2,6 +2,7 @@
 
 ## Fase 0 — Fundamentos
 
+- [Cómo leer FORJA](../01-foundations/how-to-read-forja.md).
 - Visión.
 - Alcance.
 - Manifiesto.

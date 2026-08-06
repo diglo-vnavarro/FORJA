@@ -8,7 +8,7 @@
 - Manifiesto.
 - Principios.
 - Glosario.
-- Niveles de evidencia.
+- [Niveles de evidencia en FORJA](../01-foundations/evidence-levels.md).
 - Normas editoriales.
 
 ## Fase 1 — Fundamentos científicos

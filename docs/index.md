@@ -9,7 +9,7 @@ Esta carpeta contiene la documentación oficial de la metodología.
 3. [Alcance](00-project/scope.md)
 4. [Manifiesto](01-foundations/manifesto.md)
 5. [Principios](01-foundations/principles.md)
-6. [Niveles de evidencia](01-foundations/evidence-levels.md)
+6. [Niveles de evidencia en FORJA](01-foundations/evidence-levels.md)
 7. [Glosario](01-foundations/glossary.md)
 
 Los módulos científicos, metodológicos y prácticos se incorporarán progresivamente.

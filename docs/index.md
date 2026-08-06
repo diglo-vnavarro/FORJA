@@ -4,11 +4,12 @@ Esta carpeta contiene la documentación oficial de la metodología.
 
 ## Orden recomendado de lectura
 
-1. [Visión](00-project/vision.md)
-2. [Alcance](00-project/scope.md)
-3. [Manifiesto](01-foundations/manifesto.md)
-4. [Principios](01-foundations/principles.md)
-5. [Niveles de evidencia](01-foundations/evidence-levels.md)
-6. [Glosario](01-foundations/glossary.md)
+1. [Cómo leer FORJA](01-foundations/how-to-read-forja.md)
+2. [Visión](00-project/vision.md)
+3. [Alcance](00-project/scope.md)
+4. [Manifiesto](01-foundations/manifesto.md)
+5. [Principios](01-foundations/principles.md)
+6. [Niveles de evidencia](01-foundations/evidence-levels.md)
+7. [Glosario](01-foundations/glossary.md)
 
 Los módulos científicos, metodológicos y prácticos se incorporarán progresivamente.

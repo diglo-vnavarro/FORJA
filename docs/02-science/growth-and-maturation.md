@@ -20,17 +20,6 @@ Comprender esta variabilidad permite diseñar entrenamientos más seguros, más 
 
 ---
 
-## Ideas clave
-
-- Crecimiento, desarrollo y maduración son procesos diferentes y no deben utilizarse como sinónimos.
-- La edad cronológica no describe por sí sola el estado biológico de un joven deportista.
-- Durante la adolescencia existe una gran variabilidad individual en el ritmo de maduración.
-- Dos deportistas nacidos el mismo año pueden presentar capacidades físicas y necesidades de entrenamiento muy distintas.
-- El objetivo del entrenador no es igualar el rendimiento de todos los jugadores, sino adaptar el entrenamiento al momento de desarrollo de cada uno.
-- Las etapas de crecimiento acelerado requieren una observación más cuidadosa del entrenamiento, pero no justifican eliminar el trabajo de fuerza, coordinación o técnica cuando estos están correctamente planificados y supervisados.
-
----
-
 ## Fundamentos científicos
 
 ### Crecimiento, desarrollo y maduración
@@ -87,36 +76,6 @@ Esta variabilidad explica por qué dos jugadores de trece años pueden presentar
 - coordinación;
 - resistencia a la fatiga;
 - capacidad para tolerar determinadas cargas de entrenamiento.
-
----
-
-## Qué significa para el entrenador
-
-Antes de planificar una sesión conviene responder una pregunta sencilla:
-
-> ¿Estoy entrenando a un grupo de jugadores de la misma edad o a un grupo de deportistas con momentos de desarrollo diferentes?
-
-La respuesta condiciona prácticamente todas las decisiones posteriores.
-
-Diseñar el mismo entrenamiento para todos no siempre significa entrenar de forma equitativa.
-
-En muchas ocasiones, la decisión más adecuada consiste en mantener un objetivo común para el grupo, pero adaptar el volumen, la complejidad, el nivel de ayuda o los criterios de progresión según las características de cada deportista.
-
-Esta idea constituye uno de los principios metodológicos fundamentales de FORJA.
-
----
-
-## Resumen del módulo
-
-Antes de hablar de fuerza, velocidad, potencia o prevención de lesiones es imprescindible distinguir entre crecimiento, desarrollo y maduración.
-
-La edad cronológica representa únicamente una parte de la información necesaria para planificar el entrenamiento.
-
-Cuanto mayor sea la capacidad del entrenador para identificar las diferencias individuales en el proceso de desarrollo, mayor será su capacidad para adaptar el entrenamiento de forma segura y eficaz.
-
-> En FORJA no entrenamos edades.
->
-> Entrenamos personas en diferentes momentos de su desarrollo.
 
 ---
 
@@ -485,16 +444,16 @@ Si solo recuerdas seis ideas de este documento:
 
 ### Referencias principales
 
-Bergeron MF, Mountjoy M, Armstrong N, et al. International Olympic Committee consensus statement on youth athletic development. *British Journal of Sports Medicine*. 2015;49:843–851. doi:10.1136/bjsports-2015-094962.
+Bergeron MF, Mountjoy M, Armstrong N, et al. International Olympic Committee consensus statement on youth athletic development. *British Journal of Sports Medicine*. 2015;49(13):843–851. doi:10.1136/bjsports-2015-094962.
 
-Malina RM, Rogol AD, Cumming SP, Coelho-e-Silva MJ, Figueiredo AJ. Biological maturation of youth athletes: assessment and implications. *British Journal of Sports Medicine*. 2015;49:852–859.
+Malina RM, Rogol AD, Cumming SP, Coelho-e-Silva MJ, Figueiredo AJ. Biological maturation of youth athletes: assessment and implications. *British Journal of Sports Medicine*. 2015;49(13):852–859. doi:10.1136/bjsports-2015-094623.
 
-Towlson C, Salter J, Ade JD, et al. Maturity-associated considerations for training load, injury risk, and physical performance in youth soccer: One size does not fit all. *Journal of Sport and Health Science*. 2021;10(4):403–412.
+Towlson C, Salter J, Ade JD, et al. Maturity-associated considerations for training load, injury risk, and physical performance in youth soccer: One size does not fit all. *Journal of Sport and Health Science*. 2021;10(4):403–412. doi:10.1016/j.jshs.2020.09.003.
+
+Malina RM, Kozieł SM, Králik M, Chrzanowska M, Suder A. Prediction of maturity offset and age at peak height velocity in a longitudinal series of boys and girls. *American Journal of Human Biology*. 2021;33(6):e23551. doi:10.1002/ajhb.23551.
+
+Pakarinen O, Ponkilainen VT, Kuitunen I. Association of Peak Height Velocity and Skeletal Maturity to Injury Incidence in Male Elite Adolescent Football (Soccer) Players: A Systematic Review. *Health Science Reports*. 2025;8(7):e71096. doi:10.1002/hsr2.71096.
 
 ### Evidencia complementaria
 
-Kemper GLJ, van der Sluis A, Brink MS, Visscher C, Frencken WGP, Elferink-Gemser MT. Anthropometric injury risk factors in elite-standard youth soccer. Literature sobre crecimiento, maduración y riesgo de lesión utilizada como contexto del presente documento.
-
-Malina RM, Choh AC, Kozieł SM, et al. Prediction of maturity offset and age at peak height velocity in a longitudinal series of boys and girls. *American Journal of Human Biology*. 2021. El trabajo muestra limitaciones importantes de las ecuaciones predictivas, especialmente en jóvenes de maduración temprana y tardía.
-
-La evidencia reciente sobre crecimiento, maduración y lesión en fútbol juvenil presenta heterogeneidad metodológica. Por este motivo, FORJA interpreta estas asociaciones como información relevante para contextualizar la carga y aumentar la vigilancia, pero no como herramientas suficientemente precisas para predecir lesiones individuales.
+Kemper GLJ, van der Sluis A, Brink MS, Visscher C, Frencken WGP, Elferink-Gemser MT. Anthropometric injury risk factors in elite-standard youth soccer. *International Journal of Sports Medicine*. 2015;36(13):1112–1117. doi:10.1055/s-0035-1555778.

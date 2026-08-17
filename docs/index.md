@@ -31,3 +31,7 @@ Los módulos científicos, metodológicos y prácticos se incorporarán progresi
 - [MET-003 — Construcción de sesiones FORJA](03-methodology/session-construction.md) — Primera versión completa, en revisión.
 - [MET-004 — Dosificación y prescripción FORJA](03-methodology/dosage-and-prescription.md) — Primera versión completa, en revisión.
 - [MET-005 — Planificación semanal y relación con el deporte](03-methodology/weekly-planning-and-sport-integration.md) — Primera versión completa, en revisión.
+
+## 04 — Patrones y ejercicios
+
+- [PAT-001 — Modelo de patrones de movimiento FORJA](04-movement-patterns/movement-pattern-model.md) — Primera versión completa, en revisión.

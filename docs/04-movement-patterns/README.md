@@ -1,5 +1,7 @@
 # Patrones de movimiento
 
-Este módulo se encuentra pendiente de desarrollo.
+Este módulo establece el vocabulario de patrones y atributos con el que FORJA organizará ejercicios, capacidades, progresiones y cobertura de programas.
 
-Su contenido se incorporará progresivamente mediante documentos revisados y pull requests específicas.
+## Documentos de patrones
+
+- [PAT-001 — Modelo de patrones de movimiento FORJA](movement-pattern-model.md) — Primera versión completa, en revisión.

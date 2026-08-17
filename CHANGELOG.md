@@ -8,6 +8,7 @@ El proyecto seguirá versionado semántico cuando alcance su primera versión es
 
 ### Añadido
 
+- Primera versión completa de SCI-004 "Desarrollo de la velocidad en jóvenes".
 - Primera versión completa de SCI-003 "Aprendizaje y competencia motriz en jóvenes".
 - Primera versión completa de SCI-002 "Entrenamiento de fuerza en jóvenes".
 - Primera sección del documento científico "Crecimiento y maduración del joven deportista".

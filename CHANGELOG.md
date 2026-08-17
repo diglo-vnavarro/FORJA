@@ -17,4 +17,5 @@ El proyecto seguirá versionado semántico cuando alcance su primera versión es
 
 ### Modificado
 
+- Se completa la primera versión del documento científico "Crecimiento y maduración del joven deportista".
 - Se sustituye la visión provisional por la primera versión estable de la visión de FORJA.

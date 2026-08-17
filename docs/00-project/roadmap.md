@@ -14,7 +14,7 @@
 ## Fase 1 — Fundamentos científicos
 
 - [Crecimiento y maduración del joven deportista](../02-science/growth-and-maturation.md) — Primera versión completa, en revisión.
-- Entrenamiento de fuerza en jóvenes.
+- [SCI-002 — Entrenamiento de fuerza en jóvenes](../02-science/youth-strength-training.md) — Primera versión completa, en revisión.
 - Aprendizaje motor.
 - Desarrollo de la velocidad.
 - Potencia y pliometría.

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 64" role="img" aria-labelledby="title">
+  <title id="title">Wordmark FORJA</title>
+  <g id="forja-wordmark" fill="currentColor">
+    <path d="M4 8h42v10H17v12h24v10H17v16H4V8Z"/>
+    <path fill-rule="evenodd" d="M76 7c18 0 28 10 28 25S94 57 76 57 48 47 48 32 58 7 76 7Zm0 11c-9.7 0-15 5.2-15 14s5.3 14 15 14 15-5.2 15-14-5.3-14-15-14Z"/>
+    <path fill-rule="evenodd" d="M109 8h27c13 0 21 6.4 21 17 0 7-3.5 12.1-9.5 14.7L160 56h-15.5l-10.3-14H122v14h-13V8Zm13 10v14h13c5.7 0 8.5-2.3 8.5-7s-2.8-7-8.5-7h-13Z"/>
+    <path d="M181 8h13v31.5c0 11.4-7.2 17.5-20 17.5-5.2 0-9.5-1-13-3.1l4.6-9.3c2.3 1.2 4.7 1.8 7.2 1.8 5.7 0 8.2-2.4 8.2-7.7V8Z"/>
+    <path fill-rule="evenodd" d="m219 8 27 48h-14l-4.7-9h-25.6l-4.7 9h-14l27-48h9Zm-4.5 14.5L207 37h15l-7.5-14.5Z"/>
+  </g>
+</svg>

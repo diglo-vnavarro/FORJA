@@ -293,7 +293,9 @@ Documentación operativa:
 
 - [Activos de marca FJ/FORJA](../../assets/brand/README.md);
 - [Integración de activos de EX-002](../../assets/exercises/ex-002/README.md);
-- [Manifest de activos visuales](../../assets/manifest.md).
+- [Biblioteca iconográfica FORJA](../../assets/icons/README.md);
+- [Manifest de activos visuales](../../assets/manifest.md);
+- [Referencias visuales de EX-002](../../assets/references/visual/ex-002/README.md).
 
 La estructura conceptual es:
 
@@ -451,6 +453,18 @@ EX-001–EX-007 validan primero el sistema. Después continuará EX-008–EX-015
 ### F-VPROD-017 — El sistema visual debe funcionar en web, móvil, documentos y sesión
 
 ### F-VPROD-018 — Git conserva la trazabilidad de cambios visuales
+
+### F-VPROD-019 — Las referencias rasterizadas no son masters
+
+### F-VPROD-020 — Logo e iconos se mantienen como vectores independientes
+
+### F-VPROD-021 — Los SVG individuales son fuente de verdad de iconografía
+
+### F-VPROD-022 — La iconografía FORJA será propia y no dependerá de librerías externas
+
+### F-VPROD-023 — Los masters candidatos requieren revisión visual humana
+
+### F-VPROD-024 — Las ilustraciones humanas no se vectorizarán automáticamente desde imágenes generadas
 
 ---
 

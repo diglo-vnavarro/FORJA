@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 72" role="img" aria-labelledby="title">
+  <title id="title">Símbolo FJ de FORJA</title>
+  <g id="forja-symbol" fill="currentColor">
+    <path fill-rule="evenodd" d="M32 2 58 10v25c0 17-10.8 27.8-26 35C16.8 62.8 6 52 6 35V10L32 2Zm0 7.4L13 15.2V35c0 12.6 7.2 21.1 19 27.2C43.8 56.1 51 47.6 51 35V15.2L32 9.4Z"/>
+    <path d="M17 19h29v8H27v8h13v8H27v13h-10V19Z"/>
+    <path d="M37 31h10v17.5c0 6.7-4.2 10.5-11 10.5h-5v-8h4.5c1 0 1.5-.5 1.5-1.6V31Z"/>
+  </g>
+</svg>

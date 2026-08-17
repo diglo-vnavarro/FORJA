@@ -5,3 +5,4 @@ Este módulo transforma los fundamentos científicos de FORJA en criterios opera
 ## Documentos metodológicos
 
 - [MET-001 — Evaluación inicial del joven deportista](initial-athlete-assessment.md) — Primera versión completa, en revisión.
+- [MET-002 — Sistema de progresión FORJA](progression-system.md) — Primera versión completa, en revisión.

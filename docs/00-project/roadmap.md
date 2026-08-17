@@ -47,7 +47,8 @@ El núcleo científico inicial SCI-001 → SCI-007 dispone de una primera versi�
 - [EX-006 — Zancada hacia atrás](../05-exercises/library/ex-006-reverse-lunge.md) — Utilizable, primera versión.
 - [EX-007 — Step-up](../05-exercises/library/ex-007-step-up.md) — Utilizable, primera versión.
 - Lote A — Fuerza y control (EX-008 a EX-015) — Pendiente.
-- [VIS-001 — Estándar visual de ejercicios FORJA](../05-exercises/visual-standard.md) — Primera versión para validación.
+- [VIS-001 — Estándar visual de ejercicios FORJA](../05-exercises/visual-standard.md) — Primera versión aprobada.
+- Siguiente validación visual: infografía web de EX-002.
 - Lotes posteriores de fichas: potencia y velocidad; desaceleración y multidireccional.
 
 ## Fase 4 — Sesiones y programas

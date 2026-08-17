@@ -39,6 +39,307 @@ Pero no debe ser la única fuente para comprender:
 - seguridad;
 - criterios de competencia.
 
+Una única ficha metodológica puede producir diferentes representaciones visuales según el contexto de uso.
+
+La ficha EX continúa siendo la única fuente metodológica de verdad.
+
+No existirán tres versiones independientes del conocimiento.
+
+---
+
+# Arquitectura visual FORJA
+
+FORJA utilizará tres niveles visuales complementarios.
+
+Los términos Nivel 1, Nivel 2 y Nivel 3 describen exclusivamente tipos de recurso visual.
+
+No representan dificultad del ejercicio ni del deportista.
+
+## Nivel 1 — Ilustración maestra
+
+### Función
+
+Representar visualmente el ejercicio base de forma limpia y técnicamente comprensible.
+
+### Características
+
+- estilo editorial y técnico;
+- apariencia profesional;
+- deportista juvenil genérico;
+- anatomía plausible;
+- ropa neutra;
+- ausencia de marcas;
+- fondo limpio;
+- ausencia de decoración innecesaria;
+- pocas fases;
+- texto mínimo;
+- perspectiva elegida por claridad;
+- material coherente con la ficha;
+- ausencia de criterios técnicos no presentes en la ficha.
+
+### Uso
+
+- ficha maestra;
+- documentación;
+- web;
+- base para futuras composiciones visuales;
+- referencia para derivaciones gráficas.
+
+El estilo visual principal será una ilustración editorial deportiva, técnica, limpia y contemporánea, semi-realista o estilizada con anatomía plausible.
+
+No necesita ser fotográfica.
+
+No utilizará estética de cartoon infantil, culturismo, representación clínica ni hiperrealismo innecesario.
+
+El deportista debe transmitir:
+
+> joven deportista.
+
+No:
+
+> adulto fitness profesional.
+
+El Prototipo A de [EX-002 — Sentadilla goblet](library/ex-002-goblet-squat.md) ha validado conceptualmente este lenguaje mediante:
+
+- aspecto profesional;
+- joven deportista;
+- fondo limpio;
+- dos fases;
+- lectura clara;
+- estética editorial deportiva.
+
+La representación aprobada conceptualmente contiene:
+
+- posición inicial;
+- posición inferior.
+
+La ilustración maestra no intenta mostrar toda la ficha.
+
+Su función es enseñar visualmente la tarea.
+
+## Nivel 2 — Infografía web
+
+### Función
+
+Permitir comprender rápidamente el ejercicio dentro de la web o aplicación FORJA.
+
+Debe reutilizar el lenguaje visual del Nivel 1.
+
+No creará un personaje ni un estilo completamente diferente.
+
+Puede combinar, según utilidad y legibilidad:
+
+- ilustración maestra;
+- nombre;
+- identificador;
+- objetivo;
+- patrón principal;
+- capacidades;
+- material;
+- secuencia;
+- consignas seleccionadas;
+- indicadores de competencia;
+- errores relevantes;
+- regresión o progresión;
+- variables de prescripción.
+
+No todos estos elementos deben mostrarse simultáneamente.
+
+La ficha EX continúa siendo la fuente completa.
+
+La infografía web no debe:
+
+- inventar niveles;
+- añadir clasificaciones absolutas como básico, intermedio o avanzado;
+- inventar técnica;
+- crear nuevas reglas;
+- convertir ejemplos en prescripciones universales;
+- introducir información no aprobada en la ficha.
+
+Su objetivo es permitir que un entrenador comprenda la tarea y sus claves principales en pocos segundos sin reemplazar la ficha completa.
+
+La infografía web se compone:
+
+> **VISUAL + INFORMACIÓN DE LA FICHA**
+
+No se genera como un bloque independiente de conocimiento.
+
+La maquetación futura podrá mostrar módulos como:
+
+- identidad;
+- objetivo;
+- movimiento;
+- claves;
+- competencia;
+- prescripción;
+- relaciones.
+
+VIS-001 no fija todavía una plantilla de interfaz definitiva.
+
+La primera infografía web definitiva será [EX-002 — Sentadilla goblet](library/ex-002-goblet-squat.md).
+
+Utilizará:
+
+- ilustración maestra de Nivel 1;
+- únicamente contenido aprobado de EX-002;
+- una arquitectura informativa coherente con VIS-001.
+
+No se crea en esta revisión.
+
+## Nivel 3 — Ficha rápida de sesión
+
+### Función
+
+Ofrecer una representación extremadamente compacta del ejercicio cuando forma parte de una sesión.
+
+Puede utilizar un lenguaje vectorial simplificado derivado del Prototipo B.
+
+### Características
+
+- dibujo más simple;
+- máxima legibilidad a tamaño pequeño;
+- poco detalle;
+- mismas fases esenciales del ejercicio;
+- mismo material;
+- perspectiva coherente cuando sea posible;
+- mismo lenguaje general de identidad FORJA.
+
+Debe ser una simplificación del Nivel 1, no una reinterpretación técnica diferente.
+
+Priorizará:
+
+- silueta;
+- posición;
+- secuencia;
+- carga;
+- lectura rápida.
+
+Podrá reducir:
+
+- detalle facial;
+- texturas;
+- sombras;
+- anatomía secundaria.
+
+No reducirá la claridad técnica.
+
+Según la sesión, puede contener:
+
+- identificador o nombre;
+- miniatura del ejercicio;
+- objetivo inmediato;
+- entre dos y cuatro consignas;
+- dosis concreta prescrita para esa sesión;
+- recuperación;
+- criterio de parada relevante;
+- regresión o progresión inmediata cuando aporte valor.
+
+La dosis procede de la sesión y de la programación.
+
+No pertenece permanentemente a la imagen ni a la ficha base EX.
+
+El Prototipo B ha validado únicamente el potencial del lenguaje vectorial y simplificado para el Nivel 3.
+
+No se considera aprobado su contenido textual ni las etiquetas generadas durante la prueba.
+
+La primera prueba posterior de Nivel 3 utilizará EX-002 dentro de una sesión real o simulada, con miniatura simplificada, contenido contextual y texto mínimo.
+
+No se crea en esta revisión.
+
+## Una fuente de verdad
+
+La arquitectura conceptual será:
+
+> **FICHA EX**
+>
+> ↓
+>
+> **CONOCIMIENTO APROBADO**
+>
+> ↓
+>
+> **REPRESENTACIÓN VISUAL**
+>
+> ├── Nivel 1 — Ilustración maestra
+>
+> ├── Nivel 2 — Infografía web
+>
+> └── Nivel 3 — Ficha rápida de sesión
+
+No se mantendrán manualmente tres versiones diferentes de:
+
+- consignas;
+- objetivos;
+- patrones;
+- criterios;
+- progresiones.
+
+Cada representación selecciona información de la misma ficha.
+
+## Coherencia entre Nivel 1 y Nivel 3
+
+Cuando sea posible, ambos niveles conservarán:
+
+- el mismo personaje conceptual;
+- la misma ropa;
+- los mismos colores generales;
+- el mismo material;
+- la misma perspectiva;
+- las mismas fases principales.
+
+El Nivel 3 simplifica.
+
+No cambia la ejecución.
+
+## Contenido estable y contenido contextual
+
+### Contenido estable del ejercicio
+
+- nombre;
+- patrones;
+- objetivos posibles;
+- ejecución;
+- indicadores;
+- material;
+- relaciones.
+
+### Contenido contextual de sesión
+
+- series;
+- repeticiones;
+- carga;
+- distancia;
+- descanso;
+- RPE objetivo;
+- variante elegida;
+- criterio de parada específico del día.
+
+La ficha rápida de sesión puede mostrar ambos, pero debe diferenciarlos conceptualmente.
+
+## Cantidad de texto
+
+- Nivel 1: texto mínimo o inexistente.
+- Nivel 2: texto suficiente para una comprensión rápida.
+- Nivel 3: texto extremadamente reducido.
+
+No se colocarán párrafos largos dentro de recursos gráficos.
+
+## Representación de errores
+
+No se generará de forma predeterminada una galería de correcto frente a incorrecto.
+
+Si un error merece representación visual, deberá derivarse de la sección «Errores relevantes» de la ficha EX.
+
+No se inventará visualmente.
+
+## Los niveles visuales no son dificultad
+
+Las representaciones visuales no mostrarán básico, intermedio o avanzado como clasificación absoluta del ejercicio.
+
+Tampoco utilizarán Nivel 1, Nivel 2 o Nivel 3 para expresar dificultad.
+
+En VIS-001 estos términos describen únicamente formatos de representación.
+
 ---
 
 # 2. Estilo visual FORJA
@@ -746,10 +1047,52 @@ Primero fuerza y después tarea espacial.
 
 Las imágenes futuras tendrán descripción alternativa.
 
+### F-VIS-019 — FORJA utilizará tres niveles visuales
+
+Ilustración maestra, infografía web y ficha rápida de sesión.
+
+### F-VIS-020 — La ficha EX es la fuente metodológica de verdad
+
+Los recursos visuales derivan de ella.
+
+### F-VIS-021 — Nivel 1 utiliza el lenguaje editorial técnico aprobado
+
+Será la representación visual maestra del ejercicio.
+
+### F-VIS-022 — Nivel 2 reutiliza el lenguaje del Nivel 1
+
+La infografía añade información, no una nueva interpretación técnica.
+
+### F-VIS-023 — Nivel 3 prioriza legibilidad compacta
+
+Utilizará una simplificación gráfica coherente con el ejercicio maestro.
+
+### F-VIS-024 — La dosis de sesión es contextual
+
+No se almacenará como propiedad fija del recurso visual del ejercicio.
+
+### F-VIS-025 — Las tres representaciones no duplican conocimiento
+
+Seleccionan información de una misma fuente.
+
+### F-VIS-026 — Los prototipos visuales no validan automáticamente su texto
+
+Solo se consideran aprobadas las decisiones explícitamente incorporadas al estándar.
+
+### F-VIS-027 — Los niveles visuales no representan dificultad
+
+Nivel 1, 2 y 3 describen únicamente formatos de representación.
+
+### F-VIS-028 — La primera infografía web definitiva será EX-002
+
+Servirá para validar el Nivel 2 antes de escalar.
+
 ---
 
 ## Estado
 
-**Primera versión para validación.**
+**Primera versión aprobada.**
 
-El estándar debe probarse con los primeros prototipos visuales antes de considerarse consolidado.
+La arquitectura de tres niveles ha sido validada conceptualmente mediante prototipos de EX-002.
+
+Esto no implica que toda la biblioteca visual esté validada.

@@ -33,6 +33,7 @@ El proyecto seguirá versionado semántico cuando alcance su primera versión es
 
 ### Modificado
 
+- VIS-001 consolidado con arquitectura visual de tres niveles: ilustración maestra, infografía web y ficha rápida de sesión.
 - Revisión de consolidación científica y bibliográfica de SCI-001 "Crecimiento y maduración del joven deportista".
 - Se completa la primera versión del documento científico "Crecimiento y maduración del joven deportista".
 - Se sustituye la visión provisional por la primera versión estable de la visión de FORJA.

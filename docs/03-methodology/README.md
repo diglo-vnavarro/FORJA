@@ -8,3 +8,4 @@ Este módulo transforma los fundamentos científicos de FORJA en criterios opera
 - [MET-002 — Sistema de progresión FORJA](progression-system.md) — Primera versión completa, en revisión.
 - [MET-003 — Construcción de sesiones FORJA](session-construction.md) — Primera versión completa, en revisión.
 - [MET-004 — Dosificación y prescripción FORJA](dosage-and-prescription.md) — Primera versión completa, en revisión.
+- [MET-005 — Planificación semanal y relación con el deporte](weekly-planning-and-sport-integration.md) — Primera versión completa, en revisión.

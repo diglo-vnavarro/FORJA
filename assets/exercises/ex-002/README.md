@@ -41,4 +41,16 @@ Los nombres quedan reservados, pero los archivos definitivos no existen
 todavía. No deben sustituirse por binarios placeholder ni por imágenes
 reconstruidas desde Markdown o screenshots.
 
+Las referencias visuales aprobadas se conservan separadamente en
+[`assets/references/visual/ex-002/`](../../references/visual/ex-002/). Son
+material de revisión, no activos de producción.
+
+Permanece pendiente incorporar y aprobar:
+
+- la ilustración definitiva de Nivel 1;
+- la infografía definitiva de Nivel 2;
+- la ficha rápida definitiva de Nivel 3.
+
+No se ha vectorizado automáticamente al deportista de las referencias.
+
 El estado común se registra en el [manifest de activos](../../manifest.md).

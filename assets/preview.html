@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>FORJA — Preview de assets candidatos</title>
+  <style>
+    :root { color: #0b2a4a; background: #f2f4f7; font: 16px/1.5 system-ui, sans-serif; }
+    body { max-width: 1180px; margin: auto; padding: 32px; }
+    h1, h2 { margin: 0 0 16px; }
+    section { margin: 0 0 32px; }
+    .notice { border-left: 4px solid #1f5a9d; padding: 12px 16px; background: white; }
+    .brand, .grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap: 16px; }
+    .card { background: white; border: 1px solid #d0d5dd; border-radius: 8px; padding: 16px; }
+    .card.dark { color: white; background: #0b2a4a; }
+    .brand img { display: block; width: 100%; height: 72px; object-fit: contain; }
+    .dark img { filter: brightness(0) invert(1); }
+    .icon-row { display: flex; align-items: end; gap: 12px; min-height: 56px; }
+    .icon-row img { display: block; }
+    code { font-size: 12px; word-break: break-word; }
+  </style>
+</head>
+<body>
+  <h1>FORJA — Preview de assets candidatos</h1>
+  <p class="notice"><strong>MASTER CANDIDATE.</strong> Esta página sirve para revisión humana; no implica aprobación definitiva.</p>
+  <section>
+    <h2>Marca sobre fondos claros y oscuros</h2>
+    <div class="brand">
+      <div class="card"><img src="brand/master/forja-symbol.svg" alt="Símbolo FJ"><code>forja-symbol.svg</code></div>
+      <div class="card"><img src="brand/master/forja-wordmark.svg" alt="Wordmark FORJA"><code>forja-wordmark.svg</code></div>
+      <div class="card"><img src="brand/master/forja-lockup-horizontal.svg" alt="Lockup FJ FORJA"><code>forja-lockup-horizontal.svg</code></div>
+      <div class="card dark"><img src="brand/master/forja-symbol.svg" alt="Símbolo FJ claro sobre oscuro"><code>light-on-dark</code></div>
+      <div class="card dark"><img src="brand/master/forja-wordmark.svg" alt="Wordmark FORJA claro sobre oscuro"><code>light-on-dark</code></div>
+      <div class="card dark"><img src="brand/master/forja-lockup-horizontal.svg" alt="Lockup claro sobre oscuro"><code>light-on-dark</code></div>
+    </div>
+  </section>
+  <section>
+    <h2>Iconos a 16 / 24 / 32 / 48 px</h2>
+    <div id="icons" class="grid"></div>
+  </section>
+  <script>
+    const groups = {
+      capabilities: ['strength','speed','power','mobility','coordination','balance-stability','change-of-direction','acceleration','deceleration','jump','throw','endurance','technique','aerobic','anaerobic'],
+      equipment: ['external-load','bodyweight','dumbbell','kettlebell','resistance-band','medicine-ball','cone','hurdle','box','sled'],
+      prescription: ['time','distance','repetitions','sets','recovery','rpe','rir','range','intention','quality'],
+      decisions: ['competency','observe','modify-task','make-accessible','increase-demand','warning']
+    };
+    const host = document.querySelector('#icons');
+    for (const [group, names] of Object.entries(groups)) for (const name of names) {
+      const card = document.createElement('div'); card.className = 'card';
+      const row = document.createElement('div'); row.className = 'icon-row';
+      for (const size of [16,24,32,48]) { const img = new Image(size,size); img.src = `icons/${group}/${name}.svg`; img.alt = `${name}, ${size}px`; row.append(img); }
+      card.append(row, Object.assign(document.createElement('code'), {textContent:`${group}/${name}.svg`})); host.append(card);
+    }
+  </script>
+</body>
+</html>

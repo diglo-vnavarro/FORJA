@@ -8,6 +8,7 @@ El proyecto seguirá versionado semántico cuando alcance su primera versión es
 
 ### Añadido
 
+- Primera versión completa de MET-005 "Planificación semanal y relación con el deporte".
 - Primera versión completa de MET-004 "Dosificación y prescripción FORJA".
 - Primera versión completa de MET-003 "Construcción de sesiones FORJA".
 - Primera versión completa de MET-002 "Sistema de progresión FORJA".

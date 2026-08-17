@@ -42,3 +42,4 @@ Los módulos científicos, metodológicos y prácticos se incorporarán progresi
 - [LIB-001 — Biblioteca inicial de ejercicios FORJA](05-exercises/initial-exercise-library.md) — Primera versión completa, en revisión.
 - [Primer lote piloto de fichas: EX-001 a EX-007](05-exercises/README.md) — Utilizable, primera versión.
 - [VIS-001 — Estándar visual de ejercicios FORJA](05-exercises/visual-standard.md) — Primera versión aprobada.
+- [VIS-002 — Sistema de producción visual de ejercicios FORJA](05-exercises/visual-production-system.md) — Primera versión para validación.

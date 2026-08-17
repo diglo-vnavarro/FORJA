@@ -7,6 +7,8 @@ Este módulo define cómo se describirán y relacionarán los ejercicios de FORJ
 - [EX-STD-001 — Estándar de ficha de ejercicio FORJA](exercise-card-standard.md) — Primera versión completa, en revisión.
 - [LIB-001 — Biblioteca inicial de ejercicios FORJA](initial-exercise-library.md) — Primera versión completa, en revisión.
 - [VIS-001 — Estándar visual de ejercicios FORJA](visual-standard.md) — Primera versión aprobada.
+- [VIS-002 — Sistema de producción visual de ejercicios FORJA](visual-production-system.md) — Primera versión para validación.
+- [Briefs visuales y estado inicial](visual-briefs/README.md) — EX-001 a EX-007 listos.
 
 ## Lote A — Fuerza y control
 

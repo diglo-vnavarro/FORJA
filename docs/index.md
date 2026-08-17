@@ -13,3 +13,7 @@ Esta carpeta contiene la documentación oficial de la metodología.
 7. [Glosario](01-foundations/glossary.md)
 
 Los módulos científicos, metodológicos y prácticos se incorporarán progresivamente.
+
+## Documentos científicos en desarrollo
+
+- [Crecimiento y maduración del joven deportista](02-science/growth-and-maturation.md) — En desarrollo.

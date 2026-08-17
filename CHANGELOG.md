@@ -8,6 +8,7 @@ El proyecto seguirá versionado semántico cuando alcance su primera versión es
 
 ### Añadido
 
+- Primera versión completa de MET-003 "Construcción de sesiones FORJA".
 - Primera versión completa de MET-002 "Sistema de progresión FORJA".
 - Primera versión completa de MET-001 "Evaluación inicial del joven deportista".
 - Primera versión completa de SCI-007 "Cambio de dirección, desaceleración y agilidad en jóvenes".

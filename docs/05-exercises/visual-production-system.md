@@ -289,6 +289,12 @@ No existe una única progresión obligatoria.
 
 # 10. Estructura y naming de activos
 
+Documentación operativa:
+
+- [Activos de marca FJ/FORJA](../../assets/brand/README.md);
+- [Integración de activos de EX-002](../../assets/exercises/ex-002/README.md);
+- [Manifest de activos visuales](../../assets/manifest.md).
+
 La estructura conceptual es:
 
 ```text

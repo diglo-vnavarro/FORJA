@@ -31,9 +31,10 @@ El núcleo científico inicial SCI-001 → SCI-007 dispone de una primera versi�
 - [MET-001 — Evaluación inicial del joven deportista](../03-methodology/initial-athlete-assessment.md) — Primera versión completa, en revisión.
 - Individualización.
 - [MET-002 — Sistema de progresión FORJA](../03-methodology/progression-system.md) — Primera versión completa, en revisión.
-- Dosificación.
+- [MET-004 — Dosificación y prescripción FORJA](../03-methodology/dosage-and-prescription.md) — Primera versión completa, en revisión.
 - Selección de ejercicios.
 - [MET-003 — Construcción de sesiones FORJA](../03-methodology/session-construction.md) — Primera versión completa, en revisión.
+- MET-005 — Planificación semanal y relación con el deporte — Siguiente.
 - Planificación.
 
 ## Fase 3 — Patrones y ejercicios

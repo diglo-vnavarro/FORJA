@@ -20,3 +20,4 @@ Los módulos científicos, metodológicos y prácticos se incorporarán progresi
 - [SCI-002 — Entrenamiento de fuerza en jóvenes](02-science/youth-strength-training.md) — Primera versión completa, en revisión.
 - [SCI-003 — Aprendizaje y competencia motriz en jóvenes](02-science/motor-learning-and-competence.md) — Primera versión completa, en revisión.
 - [SCI-004 — Desarrollo de la velocidad en jóvenes](02-science/youth-speed-development.md) — Primera versión completa, en revisión.
+- [SCI-005 — Carga, fatiga y recuperación en jóvenes](02-science/youth-load-fatigue-recovery.md) — Primera versión completa, en revisión.

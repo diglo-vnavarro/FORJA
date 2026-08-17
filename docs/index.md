@@ -14,6 +14,6 @@ Esta carpeta contiene la documentación oficial de la metodología.
 
 Los módulos científicos, metodológicos y prácticos se incorporarán progresivamente.
 
-## Documentos científicos en desarrollo
+## Documentos científicos
 
-- [Crecimiento y maduración del joven deportista](02-science/growth-and-maturation.md) — En desarrollo.
+- [Crecimiento y maduración del joven deportista](02-science/growth-and-maturation.md) — Primera versión completa, en revisión.

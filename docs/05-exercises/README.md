@@ -1,5 +1,7 @@
 # Biblioteca de ejercicios
 
-Este módulo se encuentra pendiente de desarrollo.
+Este módulo define cómo se describirán y relacionarán los ejercicios de FORJA antes de construir su biblioteca inicial.
 
-Su contenido se incorporará progresivamente mediante documentos revisados y pull requests específicas.
+## Documentos
+
+- [EX-STD-001 — Estándar de ficha de ejercicio FORJA](exercise-card-standard.md) — Primera versión completa, en revisión.

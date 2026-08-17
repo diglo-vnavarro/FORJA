@@ -35,3 +35,7 @@ Los módulos científicos, metodológicos y prácticos se incorporarán progresi
 ## 04 — Patrones y ejercicios
 
 - [PAT-001 — Modelo de patrones de movimiento FORJA](04-movement-patterns/movement-pattern-model.md) — Primera versión completa, en revisión.
+
+## 05 — Ejercicios
+
+- [EX-STD-001 — Estándar de ficha de ejercicio FORJA](05-exercises/exercise-card-standard.md) — Primera versión completa, en revisión.

@@ -17,3 +17,4 @@ Los módulos científicos, metodológicos y prácticos se incorporarán progresi
 ## Documentos científicos
 
 - [Crecimiento y maduración del joven deportista](02-science/growth-and-maturation.md) — Primera versión completa, en revisión.
+- [SCI-002 — Entrenamiento de fuerza en jóvenes](02-science/youth-strength-training.md) — Primera versión completa, en revisión.

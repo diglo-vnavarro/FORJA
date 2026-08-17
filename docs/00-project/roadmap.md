@@ -33,7 +33,7 @@ El núcleo científico inicial SCI-001 → SCI-007 dispone de una primera versi�
 - [MET-002 — Sistema de progresión FORJA](../03-methodology/progression-system.md) — Primera versión completa, en revisión.
 - Dosificación.
 - Selección de ejercicios.
-- MET-003 — Construcción de sesiones FORJA.
+- [MET-003 — Construcción de sesiones FORJA](../03-methodology/session-construction.md) — Primera versión completa, en revisión.
 - Planificación.
 
 ## Fase 3 — Patrones y ejercicios

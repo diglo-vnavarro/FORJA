@@ -8,6 +8,8 @@ El proyecto seguirá versionado semántico cuando alcance su primera versión es
 
 ### Añadido
 
+- Primer lote piloto de fichas FORJA: EX-001 a EX-007.
+- Primera versión de VIS-001 "Estándar visual de ejercicios FORJA".
 - Primera versión completa de LIB-001 "Biblioteca inicial de ejercicios FORJA", con una selección inicial de 25 ejercicios base.
 - Primera versión completa de EX-STD-001 "Estándar de ficha de ejercicio FORJA".
 - Primera versión completa de PAT-001 "Modelo de patrones de movimiento FORJA".

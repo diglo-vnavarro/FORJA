@@ -8,6 +8,9 @@ El proyecto seguirá versionado semántico cuando alcance su primera versión es
 
 ### Añadido
 
+- Sistema de producción visual FORJA para los tres niveles de representación.
+- Estructura de briefs visuales y seguimiento de activos.
+- Dirección conceptual de marca FJ/FORJA incorporada al estándar de producción.
 - Primer lote piloto de fichas FORJA: EX-001 a EX-007.
 - Primera versión de VIS-001 "Estándar visual de ejercicios FORJA".
 - Primera versión completa de LIB-001 "Biblioteca inicial de ejercicios FORJA", con una selección inicial de 25 ejercicios base.

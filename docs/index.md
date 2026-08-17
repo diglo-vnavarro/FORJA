@@ -14,7 +14,7 @@ Esta carpeta contiene la documentación oficial de la metodología.
 
 Los módulos científicos, metodológicos y prácticos se incorporarán progresivamente.
 
-## Documentos científicos
+## 02 — Ciencia
 
 - [Crecimiento y maduración del joven deportista](02-science/growth-and-maturation.md) — Primera versión completa, en revisión.
 - [SCI-002 — Entrenamiento de fuerza en jóvenes](02-science/youth-strength-training.md) — Primera versión completa, en revisión.
@@ -23,3 +23,7 @@ Los módulos científicos, metodológicos y prácticos se incorporarán progresi
 - [SCI-005 — Carga, fatiga y recuperación en jóvenes](02-science/youth-load-fatigue-recovery.md) — Primera versión completa, en revisión.
 - [SCI-006 — Potencia y pliometría en jóvenes](02-science/youth-power-and-plyometrics.md) — Primera versión completa, en revisión.
 - [SCI-007 — Cambio de dirección, desaceleración y agilidad en jóvenes](02-science/youth-change-of-direction-agility.md) — Primera versión completa, en revisión.
+
+## 03 — Metodología
+
+- [MET-001 — Evaluación inicial del joven deportista](03-methodology/initial-athlete-assessment.md) — Primera versión completa, en revisión.

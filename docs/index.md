@@ -40,3 +40,5 @@ Los módulos científicos, metodológicos y prácticos se incorporarán progresi
 
 - [EX-STD-001 — Estándar de ficha de ejercicio FORJA](05-exercises/exercise-card-standard.md) — Primera versión completa, en revisión.
 - [LIB-001 — Biblioteca inicial de ejercicios FORJA](05-exercises/initial-exercise-library.md) — Primera versión completa, en revisión.
+- [Primer lote piloto de fichas: EX-001 a EX-007](05-exercises/README.md) — Utilizable, primera versión.
+- [VIS-001 — Estándar visual de ejercicios FORJA](05-exercises/visual-standard.md) — Primera versión para validación.

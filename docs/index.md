@@ -22,3 +22,4 @@ Los módulos científicos, metodológicos y prácticos se incorporarán progresi
 - [SCI-004 — Desarrollo de la velocidad en jóvenes](02-science/youth-speed-development.md) — Primera versión completa, en revisión.
 - [SCI-005 — Carga, fatiga y recuperación en jóvenes](02-science/youth-load-fatigue-recovery.md) — Primera versión completa, en revisión.
 - [SCI-006 — Potencia y pliometría en jóvenes](02-science/youth-power-and-plyometrics.md) — Primera versión completa, en revisión.
+- [SCI-007 — Cambio de dirección, desaceleración y agilidad en jóvenes](02-science/youth-change-of-direction-agility.md) — Primera versión completa, en revisión.

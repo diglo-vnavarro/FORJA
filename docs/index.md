@@ -39,3 +39,4 @@ Los módulos científicos, metodológicos y prácticos se incorporarán progresi
 ## 05 — Ejercicios
 
 - [EX-STD-001 — Estándar de ficha de ejercicio FORJA](05-exercises/exercise-card-standard.md) — Primera versión completa, en revisión.
+- [LIB-001 — Biblioteca inicial de ejercicios FORJA](05-exercises/initial-exercise-library.md) — Primera versión completa, en revisión.

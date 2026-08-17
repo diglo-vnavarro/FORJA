@@ -29,3 +29,4 @@ Los módulos científicos, metodológicos y prácticos se incorporarán progresi
 - [MET-001 — Evaluación inicial del joven deportista](03-methodology/initial-athlete-assessment.md) — Primera versión completa, en revisión.
 - [MET-002 — Sistema de progresión FORJA](03-methodology/progression-system.md) — Primera versión completa, en revisión.
 - [MET-003 — Construcción de sesiones FORJA](03-methodology/session-construction.md) — Primera versión completa, en revisión.
+- [MET-004 — Dosificación y prescripción FORJA](03-methodology/dosage-and-prescription.md) — Primera versión completa, en revisión.

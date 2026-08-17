@@ -38,8 +38,9 @@ El núcleo científico inicial SCI-001 → SCI-007 dispone de una primera versi�
 
 - [PAT-001 — Modelo de patrones de movimiento FORJA](../04-movement-patterns/movement-pattern-model.md) — Primera versión completa, en revisión.
 - [EX-STD-001 — Estándar de ficha de ejercicio FORJA](../05-exercises/exercise-card-standard.md) — Primera versión completa, en revisión.
-- Biblioteca inicial de ejercicios FORJA.
-- Progresiones y regresiones.
+- [LIB-001 — Biblioteca inicial de ejercicios FORJA](../05-exercises/initial-exercise-library.md) — Primera versión completa, en revisión.
+- Lote A — Fuerza y control (EX-001 a EX-015) — Siguiente paso.
+- Lotes posteriores de fichas: potencia y velocidad; desaceleración y multidireccional.
 
 ## Fase 4 — Sesiones y programas
 

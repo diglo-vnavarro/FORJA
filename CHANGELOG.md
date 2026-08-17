@@ -8,6 +8,7 @@ El proyecto seguirá versionado semántico cuando alcance su primera versión es
 
 ### Añadido
 
+- Primera versión completa de LIB-001 "Biblioteca inicial de ejercicios FORJA", con una selección inicial de 25 ejercicios base.
 - Primera versión completa de EX-STD-001 "Estándar de ficha de ejercicio FORJA".
 - Primera versión completa de PAT-001 "Modelo de patrones de movimiento FORJA".
 - Primera versión completa de MET-005 "Planificación semanal y relación con el deporte".

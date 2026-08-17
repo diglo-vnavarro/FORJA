@@ -8,6 +8,7 @@ El proyecto seguirá versionado semántico cuando alcance su primera versión es
 
 ### Añadido
 
+- Primera versión completa de SCI-006 "Potencia y pliometría en jóvenes".
 - Primera versión completa de SCI-005 "Carga, fatiga y recuperación en jóvenes".
 - Primera versión completa de SCI-004 "Desarrollo de la velocidad en jóvenes".
 - Primera versión completa de SCI-003 "Aprendizaje y competencia motriz en jóvenes".

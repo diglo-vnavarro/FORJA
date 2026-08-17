@@ -13,6 +13,8 @@
 
 ## Fase 1 — Fundamentos científicos
 
+El núcleo científico inicial SCI-001 → SCI-007 dispone de una primera versión completa y permanece en revisión.
+
 - [Crecimiento y maduración del joven deportista](../02-science/growth-and-maturation.md) — Primera versión completa, en revisión.
 - [SCI-002 — Entrenamiento de fuerza en jóvenes](../02-science/youth-strength-training.md) — Primera versión completa, en revisión.
 - [SCI-003 — Aprendizaje y competencia motriz en jóvenes](../02-science/motor-learning-and-competence.md) — Primera versión completa, en revisión.
@@ -26,11 +28,12 @@
 
 ## Fase 2 — Metodología
 
+- [MET-001 — Evaluación inicial del joven deportista](../03-methodology/initial-athlete-assessment.md) — Primera versión completa, en revisión.
 - Individualización.
-- Progresión.
+- MET-002 — Sistema de progresión FORJA.
 - Dosificación.
 - Selección de ejercicios.
-- Construcción de sesiones.
+- MET-003 — Construcción de sesiones FORJA.
 - Planificación.
 
 ## Fase 3 — Patrones y ejercicios

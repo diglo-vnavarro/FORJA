@@ -8,6 +8,7 @@ El proyecto seguirá versionado semántico cuando alcance su primera versión es
 
 ### Añadido
 
+- Fichas utilizables EX-008 a EX-012 para los patrones de empuje y tracción.
 - Sistema de producción visual FORJA para los tres niveles de representación.
 - Estructura de briefs visuales y seguimiento de activos.
 - Dirección conceptual de marca FJ/FORJA incorporada al estándar de producción.

@@ -271,7 +271,7 @@ Estos valores no son una prescripción permanente.
 
 [EX-002 — Sentadilla goblet](library/ex-002-goblet-squat.md) es la referencia visual inicial.
 
-- Nivel 1: validación conceptual completada; activo no almacenado.
+- Nivel 1: candidato de producción almacenado; revisión visual pendiente.
 - Nivel 2: validación conceptual completada; activo no almacenado.
 - Nivel 3: siguiente prototipo.
 
@@ -392,13 +392,13 @@ No constituyen todavía un workflow técnico.
 | EX | Ficha | Brief | Nivel 1 | Nivel 2 | Nivel 3 |
 |---|---|---|---|---|---|
 | EX-001 | Utilizable | Brief listo | Pendiente | Pendiente | Pendiente |
-| EX-002 | Utilizable | Brief listo | Validación conceptual; sin asset | Validación conceptual; sin asset | Siguiente prototipo |
+| EX-002 | Utilizable | Brief listo | Candidato almacenado; revisar | Validación conceptual; sin asset | Pendiente tras aprobar Nivel 1 |
 | EX-003 | Utilizable | Brief listo | Pendiente | Pendiente | Pendiente |
 | EX-004 | Utilizable | Brief listo | Pendiente | Pendiente | Pendiente |
 | EX-005 | Utilizable | Brief listo | Pendiente | Pendiente | Pendiente |
 | EX-006 | Utilizable | Brief listo | Pendiente | Pendiente | Pendiente |
 | EX-007 | Utilizable | Brief listo | Pendiente | Pendiente | Pendiente |
-| EX-008–EX-015 | Pendiente de ficha EX | Pendiente | Pendiente | Pendiente | Pendiente |
+| EX-008–EX-015 | Utilizable | Pendiente | Pendiente | Pendiente | Pendiente |
 | EX-016–EX-021 | Pendiente de ficha EX | Pendiente | Pendiente | Pendiente | Pendiente |
 | EX-022–EX-025 | Pendiente de ficha EX | Pendiente | Pendiente | Pendiente | Pendiente |
 

@@ -14,8 +14,8 @@ decisiones, prescripciones ni criterios que no estén respaldados por ella.
 
 Representación maestra del ejercicio.
 
-- **Estado:** aprobado conceptualmente; asset definitivo pendiente de
-  incorporar.
+- **Estado:** candidato de producción incorporado; revisión visual humana
+  pendiente.
 - **Nombre reservado:**
   `assets/exercises/ex-002/master/ex-002-goblet-squat-master.webp`.
 
@@ -37,19 +37,35 @@ Representación compacta para consulta durante la sesión.
 - **Nombre reservado:**
   `assets/exercises/ex-002/session/ex-002-goblet-squat-session.webp`.
 
-Los nombres quedan reservados, pero los archivos definitivos no existen
-todavía. No deben sustituirse por binarios placeholder ni por imágenes
-reconstruidas desde Markdown o screenshots.
+El candidato de Nivel 1 existe en la ruta reservada. Los archivos definitivos
+de Nivel 2 y Nivel 3 todavía no existen y no deben sustituirse por binarios
+placeholder ni por imágenes reconstruidas desde Markdown o screenshots.
 
 Las referencias visuales aprobadas se conservan separadamente en
 [`assets/references/visual/ex-002/`](../../references/visual/ex-002/). Son
 material de revisión, no activos de producción.
 
-Permanece pendiente incorporar y aprobar:
+Permanece pendiente:
 
-- la ilustración definitiva de Nivel 1;
+- revisar y aprobar la ilustración candidata de Nivel 1;
 - la infografía definitiva de Nivel 2;
 - la ficha rápida definitiva de Nivel 3.
+
+## Revisión del candidato de Nivel 1
+
+El archivo
+[`ex-002-goblet-squat-master.webp`](master/ex-002-goblet-squat-master.webp)
+es una ilustración original generada específicamente para FORJA a partir del
+brief aprobado. Utiliza fondo blanco editorial; no contiene transparencia.
+
+Antes de promoverlo a `APPROVED` deben revisarse expresamente:
+
+- agarre y posición de la mancuerna;
+- manos, pies y apoyos;
+- coherencia entre las dos fases;
+- anatomía y edad visual del deportista;
+- legibilidad al reducirlo;
+- fidelidad al brief y ausencia de reglas técnicas añadidas.
 
 No se ha vectorizado automáticamente al deportista de las referencias.
 

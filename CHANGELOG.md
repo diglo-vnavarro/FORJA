@@ -8,6 +8,7 @@ El proyecto seguirá versionado semántico cuando alcance su primera versión es
 
 ### Añadido
 
+- Candidato visual de Nivel 1 para EX-002 — Sentadilla goblet.
 - Fichas utilizables EX-013 — Plancha frontal, EX-014 — Pallof press y EX-015 — Suitcase carry para el lote de fuerza y control.
 - Fichas utilizables EX-008 a EX-012 para los patrones de empuje y tracción.
 - Sistema de producción visual FORJA para los tres niveles de representación.
@@ -38,6 +39,7 @@ El proyecto seguirá versionado semántico cuando alcance su primera versión es
 
 ### Modificado
 
+- Refinamiento del símbolo FJ candidato para aproximarlo al concepto de marca aprobado.
 - Precisión del nombre de EX-009 a "Press unilateral por encima de la cabeza con mancuerna", manteniendo su identidad metodológica y variante base de pie.
 - VIS-001 consolidado con arquitectura visual de tres niveles: ilustración maestra, infografía web y ficha rápida de sesión.
 - Revisión de consolidación científica y bibliográfica de SCI-001 "Crecimiento y maduración del joven deportista".

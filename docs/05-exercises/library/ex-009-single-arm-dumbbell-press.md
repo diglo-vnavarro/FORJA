@@ -1,10 +1,10 @@
-# EX-009 — Press unilateral con mancuerna
+# EX-009 — Press unilateral por encima de la cabeza con mancuerna
 
 ## Identidad
 
 ### Nombre
 
-Press unilateral con mancuerna.
+Press unilateral por encima de la cabeza con mancuerna.
 
 ### Sinónimos
 
@@ -276,5 +276,4 @@ colocar y retirar la mancuerna.
 
 **Utilizable — primera versión.**
 
-La elección de la variante base de pie y dirección vertical requiere revisión
-metodológica explícita dentro de esta PR.
+Pendiente de validación mediante uso real.

@@ -47,11 +47,15 @@ El núcleo científico inicial SCI-001 → SCI-007 dispone de una primera versi�
 - [EX-006 — Zancada hacia atrás](../05-exercises/library/ex-006-reverse-lunge.md) — Utilizable, primera versión.
 - [EX-007 — Step-up](../05-exercises/library/ex-007-step-up.md) — Utilizable, primera versión.
 - [EX-008 — Flexión](../05-exercises/library/ex-008-push-up.md) — Utilizable, primera versión.
-- [EX-009 — Press unilateral con mancuerna](../05-exercises/library/ex-009-single-arm-dumbbell-press.md) — Utilizable, primera versión; variante base pendiente de revisión.
+- [EX-009 — Press unilateral por encima de la cabeza con mancuerna](../05-exercises/library/ex-009-single-arm-dumbbell-press.md) — Utilizable, primera versión.
 - [EX-010 — Remo con banda](../05-exercises/library/ex-010-band-row.md) — Utilizable, primera versión.
 - [EX-011 — Remo en suspensión](../05-exercises/library/ex-011-suspension-row.md) — Utilizable, primera versión.
 - [EX-012 — Remo unilateral con mancuerna](../05-exercises/library/ex-012-single-arm-dumbbell-row.md) — Utilizable, primera versión.
-- Lote A — Tronco, estabilización y transporte (EX-013 a EX-015) — Pendiente.
+- [EX-013 — Plancha frontal](../05-exercises/library/ex-013-front-plank.md) — Utilizable, primera versión.
+- [EX-014 — Pallof press](../05-exercises/library/ex-014-pallof-press.md) — Utilizable, primera versión.
+- [EX-015 — Suitcase carry](../05-exercises/library/ex-015-suitcase-carry.md) — Utilizable, primera versión.
+- Lote A — Fuerza y control (EX-001 a EX-015) — Primera versión completada.
+- Siguiente paso propuesto: definición del primer lote de sesiones base.
 - [VIS-001 — Estándar visual de ejercicios FORJA](../05-exercises/visual-standard.md) — Primera versión aprobada.
 - [VIS-002 — Sistema de producción visual de ejercicios FORJA](../05-exercises/visual-production-system.md) — Primera versión para validación.
 - Logo master FORJA — Pendiente.

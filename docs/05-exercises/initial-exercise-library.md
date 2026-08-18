@@ -346,7 +346,7 @@ no necesita material y dispone de múltiples regresiones y progresiones.
 
 ---
 
-### EX-009 — Press unilateral con mancuerna
+### EX-009 — Press unilateral por encima de la cabeza con mancuerna
 
 Función inicial:
 
@@ -1462,7 +1462,7 @@ No se fusionarán tareas artificialmente para cumplir una cifra predeterminada.
 | EX-006 | Reverse lunge | Unilateral / zancada |
 | EX-007 | Step-up | Unilateral / zancada |
 | EX-008 | Flexión | Empuje |
-| EX-009 | Press unilateral con mancuerna | Empuje |
+| EX-009 | Press unilateral por encima de la cabeza con mancuerna | Empuje |
 | EX-010 | Remo con banda | Tracción |
 | EX-011 | Remo en suspensión | Tracción |
 | EX-012 | Remo unilateral con mancuerna | Tracción |

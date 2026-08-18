@@ -1,8 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 72" role="img" aria-labelledby="title">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 72" role="img" aria-labelledby="title desc">
   <title id="title">Símbolo FJ de FORJA</title>
+  <desc id="desc">Escudo apuntado con monograma FJ entrelazado.</desc>
+  <defs>
+    <mask id="forja-symbol-cutout" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="72">
+      <rect width="64" height="72" fill="white"/>
+      <path d="M16.5 16h30v7.7L42.4 27H27v7.2h13v8.6H27v13.4H16.5V16Z" fill="black"/>
+      <path d="M38.2 29h10.3v15.5c0 9.1-5.8 14.4-15.8 14.4h-4.1v-8.7h4.1c3.8 0 5.5-1.8 5.5-5.8v-6.8h-7.7V29h7.7Z" fill="black"/>
+    </mask>
+  </defs>
   <g id="forja-symbol" fill="currentColor">
-    <path fill-rule="evenodd" d="M5 4h54v31.5C59 52 48.5 63 32 70 15.5 63 5 52 5 35.5V4Zm8 8v23.5c0 11.6 6.5 19.8 19 25.8 12.5-6 19-14.2 19-25.8V12H13Z"/>
-    <path d="M16 16h30v8H26v9h14v8H26v15H16V16Z"/>
-    <path d="M39 29h10v17c0 8.2-5.6 13-14.5 13H30v-8h4.5c3 0 4.5-1.7 4.5-5V37h-8v-8h8Z"/>
+    <path d="M5 3h54v31.2c0 16.8-10.4 28.8-27 35C15.4 63 5 51 5 34.2V3Z" mask="url(#forja-symbol-cutout)"/>
   </g>
 </svg>

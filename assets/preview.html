@@ -17,12 +17,26 @@
     .dark img { filter: brightness(0) invert(1); }
     .icon-row { display: flex; align-items: end; gap: 12px; min-height: 56px; }
     .icon-row img { display: block; }
+    .reference { display: grid; grid-template-columns: minmax(260px,2fr) minmax(180px,1fr); gap: 16px; }
+    .reference > img { display: block; width: 100%; border-radius: 8px; }
+    .reference .card img { display: block; width: 100%; height: 240px; object-fit: contain; }
+    .sizes { display: flex; align-items: end; justify-content: space-around; gap: 20px; min-height: 180px; }
+    .sizes figure { margin: 0; text-align: center; }
+    .sizes img { display: block; margin: 0 auto 8px; }
+    figcaption, code { font-size: 12px; }
     code { font-size: 12px; word-break: break-word; }
   </style>
 </head>
 <body>
   <h1>FORJA — Preview de assets candidatos</h1>
   <p class="notice"><strong>MASTER CANDIDATE.</strong> Esta página sirve para revisión humana; no implica aprobación definitiva.</p>
+  <section>
+    <h2>Referencia conceptual y candidato vectorial</h2>
+    <div class="reference">
+      <img src="references/visual/ex-002/extracted/forja_visual_pack_ex002/brand/prototypes/forja-brand-and-session-concept-v1.png" alt="Concepto visual aprobado de marca y ficha EX-002">
+      <div class="card dark"><img src="brand/master/forja-symbol.svg" alt="Candidato vectorial del símbolo FJ"><code>candidato vectorial actual</code></div>
+    </div>
+  </section>
   <section>
     <h2>Marca sobre fondos claros y oscuros</h2>
     <div class="brand">
@@ -32,6 +46,29 @@
       <div class="card dark"><img src="brand/master/forja-symbol.svg" alt="Símbolo FJ claro sobre oscuro"><code>light-on-dark</code></div>
       <div class="card dark"><img src="brand/master/forja-wordmark.svg" alt="Wordmark FORJA claro sobre oscuro"><code>light-on-dark</code></div>
       <div class="card dark"><img src="brand/master/forja-lockup-horizontal.svg" alt="Lockup claro sobre oscuro"><code>light-on-dark</code></div>
+    </div>
+  </section>
+  <section>
+    <h2>EX-002 — Candidato Nivel 1</h2>
+    <div class="card">
+      <img src="exercises/ex-002/master/ex-002-goblet-squat-master.webp" style="display:block;width:100%;height:auto" alt="Joven deportista en las fases inicial e inferior de una sentadilla goblet">
+      <code>exercises/ex-002/master/ex-002-goblet-squat-master.webp · DRAFT</code>
+    </div>
+  </section>
+  <section>
+    <h2>EX-002 — Candidato Nivel 2</h2>
+    <div class="card">
+      <img src="exercises/ex-002/web/ex-002-goblet-squat-web.webp" style="display:block;width:100%;height:auto" alt="Infografía web de la sentadilla goblet">
+      <code>exercises/ex-002/web/ex-002-goblet-squat-web.webp · DRAFT</code>
+    </div>
+  </section>
+  <section>
+    <h2>Legibilidad del símbolo</h2>
+    <div class="card sizes">
+      <figure><img src="brand/master/forja-symbol.svg" width="20" height="23" alt="Símbolo FJ a 20 px"><figcaption>20 px</figcaption></figure>
+      <figure><img src="brand/master/forja-symbol.svg" width="32" height="36" alt="Símbolo FJ a 32 px"><figcaption>32 px</figcaption></figure>
+      <figure><img src="brand/master/forja-symbol.svg" width="64" height="72" alt="Símbolo FJ a 64 px"><figcaption>64 px</figcaption></figure>
+      <figure><img src="brand/master/forja-symbol.svg" width="128" height="144" alt="Símbolo FJ a 128 px"><figcaption>128 px</figcaption></figure>
     </div>
   </section>
   <section>

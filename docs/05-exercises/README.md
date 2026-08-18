@@ -19,5 +19,10 @@ Este módulo define cómo se describirán y relacionarán los ejercicios de FORJ
 - [EX-005 — Split squat](library/ex-005-split-squat.md) — Utilizable, primera versión.
 - [EX-006 — Zancada hacia atrás](library/ex-006-reverse-lunge.md) — Utilizable, primera versión.
 - [EX-007 — Step-up](library/ex-007-step-up.md) — Utilizable, primera versión.
+- [EX-008 — Flexión](library/ex-008-push-up.md) — Utilizable, primera versión.
+- [EX-009 — Press unilateral con mancuerna](library/ex-009-single-arm-dumbbell-press.md) — Utilizable, primera versión; variante base pendiente de revisión.
+- [EX-010 — Remo con banda](library/ex-010-band-row.md) — Utilizable, primera versión.
+- [EX-011 — Remo en suspensión](library/ex-011-suspension-row.md) — Utilizable, primera versión.
+- [EX-012 — Remo unilateral con mancuerna](library/ex-012-single-arm-dumbbell-row.md) — Utilizable, primera versión.
 
-EX-008 a EX-015 permanecen pendientes.
+EX-013 a EX-015 permanecen pendientes.

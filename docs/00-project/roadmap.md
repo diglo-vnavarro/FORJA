@@ -46,7 +46,12 @@ El núcleo científico inicial SCI-001 → SCI-007 dispone de una primera versi�
 - [EX-005 — Split squat](../05-exercises/library/ex-005-split-squat.md) — Utilizable, primera versión.
 - [EX-006 — Zancada hacia atrás](../05-exercises/library/ex-006-reverse-lunge.md) — Utilizable, primera versión.
 - [EX-007 — Step-up](../05-exercises/library/ex-007-step-up.md) — Utilizable, primera versión.
-- Lote A — Fuerza y control (EX-008 a EX-015) — Pendiente.
+- [EX-008 — Flexión](../05-exercises/library/ex-008-push-up.md) — Utilizable, primera versión.
+- [EX-009 — Press unilateral con mancuerna](../05-exercises/library/ex-009-single-arm-dumbbell-press.md) — Utilizable, primera versión; variante base pendiente de revisión.
+- [EX-010 — Remo con banda](../05-exercises/library/ex-010-band-row.md) — Utilizable, primera versión.
+- [EX-011 — Remo en suspensión](../05-exercises/library/ex-011-suspension-row.md) — Utilizable, primera versión.
+- [EX-012 — Remo unilateral con mancuerna](../05-exercises/library/ex-012-single-arm-dumbbell-row.md) — Utilizable, primera versión.
+- Lote A — Tronco, estabilización y transporte (EX-013 a EX-015) — Pendiente.
 - [VIS-001 — Estándar visual de ejercicios FORJA](../05-exercises/visual-standard.md) — Primera versión aprobada.
 - [VIS-002 — Sistema de producción visual de ejercicios FORJA](../05-exercises/visual-production-system.md) — Primera versión para validación.
 - Logo master FORJA — Pendiente.

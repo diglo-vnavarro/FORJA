@@ -1,12 +1,17 @@
-# Biblioteca iconográfica FORJA
+# Biblioteca iconográfica estática heredada
 
-Los SVG individuales son la fuente de verdad. La biblioteca es propia de
-FORJA, no utiliza paquetes, fuentes iconográficas ni assets externos.
+Estos SVG se conservan temporalmente para artefactos HTML estáticos existentes.
+No son la fuente de verdad de la iconografía de aplicación.
+
+La API canónica es `src/design-system/forja/src/icons/ForjaIcon.tsx`; su mapa
+semántico se documenta en `src/design-system/forja/docs/ICON_MAP.md`. Los nuevos
+componentes de negocio deben usar `ForjaIcon` y no enlazar directamente estos
+archivos.
 
 ## Reglas de uso
 
 - cuadrícula y `viewBox`: 24 × 24;
-- trazo: 1.75, `currentColor`;
+- trazo heredado: 1.75, `currentColor`;
 - extremos y uniones: redondeados;
 - tamaño recomendado: 16, 24, 32 o 48 px;
 - color: heredado del contexto con contraste suficiente;
@@ -61,6 +66,6 @@ FORJA, no utiliza paquetes, fuentes iconográficas ni assets externos.
 | Increase demand | Aumentar demanda | Decisions | [`increase-demand.svg`](decisions/increase-demand.svg) |
 | Warning | Aviso o parada | Decisions | [`warning.svg`](decisions/warning.svg) |
 
-No se crea un sprite en esta versión: sin un pipeline de generación añadiría
-una segunda fuente que podría divergir. Los SVG individuales siguen siendo la
-única fuente de verdad.
+No se ampliará esta colección. Su retirada queda condicionada a que los
+consumidores estáticos puedan renderizar el sistema semántico oficial sin crear
+una segunda fuente divergente.

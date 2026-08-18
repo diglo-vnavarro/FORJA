@@ -5,107 +5,131 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>EX-002 — Sentadilla goblet · Nivel 2</title>
   <style>
+    @import url("../../../../src/design-system/forja/src/styles/index.css");
     :root {
-      --navy: #0b2a4a;
-      --blue: #1f5a9d;
-      --blue-soft: #e6f0fb;
-      --ink: #1a1f26;
-      --muted: #667085;
-      --line: #cbd9e8;
-      --paper: #ffffff;
-      --canvas: #f2f4f7;
-      --mint: #e8f7f1;
-      --red: #c6283d;
-      --red-soft: #fff1f2;
+      --navy:var(--forja-primary);
+      --blue:var(--forja-secondary);
+      --pale:color-mix(in srgb,var(--forja-secondary) 9%,var(--forja-white));
+      --line:color-mix(in srgb,var(--forja-primary) 22%,var(--forja-white));
+      --ink:var(--forja-gray-dark);
+      --muted:var(--forja-gray-mid);
+      --green:var(--forja-success);
+      --green-bg:color-mix(in srgb,var(--forja-success) 8%,var(--forja-white));
+      --red:var(--forja-danger);
+      --red-bg:color-mix(in srgb,var(--forja-danger) 7%,var(--forja-white));
     }
-    * { box-sizing: border-box; }
-    html, body { margin: 0; width: 1440px; height: 990px; overflow: hidden; }
-    body { background: var(--canvas); color: var(--ink); font-family: Inter, "Segoe UI", Arial, sans-serif; }
-    main { display: grid; grid-template-rows: 96px 1fr 58px; width: 100%; height: 100%; background: var(--paper); }
-    header { display: flex; align-items: center; justify-content: space-between; padding: 18px 44px; color: white; background: var(--navy); }
-    header img { width: 226px; height: 56px; object-fit: contain; filter: brightness(0) invert(1); }
-    header span { font-size: 15px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; }
-    .content { display: grid; grid-template-columns: 760px 1fr; gap: 22px; padding: 24px 34px 20px; min-height: 0; }
-    .left { display: grid; grid-template-rows: auto 1fr auto; min-height: 0; }
-    .identity { display: flex; align-items: center; gap: 18px; }
-    .id { padding: 10px 24px; border-radius: 10px; color: white; background: var(--blue); font-size: 25px; font-weight: 800; }
-    h1 { margin: 0; color: var(--navy); font-size: 38px; line-height: 1; text-transform: uppercase; }
-    .hero { display: flex; align-items: center; justify-content: center; min-height: 0; padding: 4px 0; }
-    .hero img { display: block; width: 100%; max-height: 570px; object-fit: contain; }
-    .phases { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 0 88px; }
-    .phase { display: flex; align-items: center; justify-content: center; gap: 10px; color: var(--navy); font-size: 17px; font-weight: 750; }
-    .phase b { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; color: white; background: var(--navy); }
-    .right { display: grid; grid-template-rows: auto auto 1fr auto; gap: 12px; min-height: 0; }
-    .summary { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
-    .pill { min-height: 86px; padding: 13px 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--blue-soft); }
-    .pill small, .card h2 { display: block; margin: 0 0 7px; color: var(--blue); font-size: 13px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
-    .pill strong { color: var(--navy); font-size: 17px; line-height: 1.15; }
-    .keys { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; }
-    .key { display: grid; place-items: center; min-height: 82px; padding: 8px; border: 1px solid var(--line); border-radius: 10px; color: var(--navy); background: white; text-align: center; font-size: 14px; font-weight: 750; }
-    .key img { width: 26px; height: 26px; margin-bottom: 4px; }
-    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; min-height: 0; }
-    .card { padding: 14px 16px; border: 1px solid var(--line); border-radius: 10px; background: white; }
-    .card ul { margin: 0; padding-left: 18px; font-size: 14px; line-height: 1.35; }
-    .card li + li { margin-top: 4px; }
-    .modify { border-color: #efb6be; background: var(--red-soft); }
-    .modify h2 { color: var(--red); }
-    .adapt { background: var(--mint); }
-    .example { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 10px; color: var(--navy); background: var(--blue-soft); }
-    .example strong { font-size: 16px; }
-    .example span { color: var(--muted); font-size: 12px; font-weight: 700; text-transform: uppercase; }
-    footer { display: flex; align-items: center; justify-content: space-between; padding: 0 42px; color: var(--navy); background: #e4edf7; font-size: 14px; font-weight: 700; }
-    footer img { width: 160px; height: 38px; object-fit: contain; }
+    * { box-sizing:border-box; }
+    html,body { margin:0; width:1200px; height:1840px; overflow:hidden; background:color-mix(in srgb,var(--forja-gray-light) 65%,var(--forja-white)); color:var(--ink); font-family:Inter,"Segoe UI",Arial,sans-serif; }
+    main { width:1160px; height:1800px; margin:20px; padding:22px; border:1px solid color-mix(in srgb,var(--forja-primary) 16%,var(--forja-white)); border-radius:18px; background:var(--forja-white); box-shadow:0 8px 28px color-mix(in srgb,var(--forja-primary) 8%,transparent); }
+    header { display:grid; grid-template-columns:auto 1fr 270px; align-items:center; gap:24px; min-height:104px; }
+    .id { padding:18px 24px; border-radius:12px; color:white; background:var(--navy); font-size:38px; font-weight:900; }
+    h1 { margin:0 0 8px; color:var(--navy); font-size:44px; line-height:1; text-transform:uppercase; }
+    .subtitle { margin:0; color:var(--forja-gray-dark); font-size:18px; line-height:1.35; }
+    header img { width:270px; height:74px; object-fit:contain; }
+    .meta { display:grid; grid-template-columns:repeat(5,1fr); margin:18px 0; border:1px solid var(--line); border-radius:12px; background:color-mix(in srgb,var(--forja-secondary) 3%,var(--forja-white)); }
+    .meta div { display:flex; align-items:center; justify-content:center; gap:10px; min-height:84px; padding:10px 14px; border-right:1px solid var(--line); color:var(--navy); font-size:16px; font-weight:800; text-align:center; }
+    .meta div:last-child { border:0; }
+    .meta img { width:30px; height:30px; }
+    .top { display:grid; grid-template-columns:3fr 2fr; gap:16px; }
+    .visual,.how,.panel,.adapt,.prescription,.remember { border:1px solid var(--line); border-radius:12px; background:var(--forja-white); }
+    .visual { display:grid; grid-template-rows:1fr auto; min-height:570px; padding:12px 14px 16px; }
+    .visual>img { width:100%; height:480px; object-fit:contain; }
+    .phases { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+    .phase { display:flex; align-items:center; justify-content:center; gap:10px; color:var(--navy); font-size:18px; font-weight:850; }
+    .num { display:grid; place-items:center; width:32px; height:32px; border-radius:50%; color:white; background:var(--navy); }
+    .keys { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-top:12px; }
+    .key { display:flex; align-items:center; justify-content:center; gap:7px; color:var(--navy); font-size:14px; font-weight:800; }
+    .key img { width:24px; height:24px; }
+    h2 { margin:0 0 12px; color:var(--navy); font-size:18px; text-transform:uppercase; letter-spacing:.03em; }
+    .how { padding:18px; background:color-mix(in srgb,var(--forja-secondary) 2%,var(--forja-white)); }
+    .step { display:grid; grid-template-columns:48px 1fr; gap:12px; margin:14px 0; }
+    .step b { display:grid; place-items:center; width:46px; height:46px; border-radius:50%; color:white; background:var(--navy); font-size:21px; }
+    .step strong { display:block; margin-bottom:3px; color:var(--navy); font-size:16px; }
+    .step p { margin:0; font-size:14px; line-height:1.35; }
+    .decision-grid { display:grid; grid-template-columns:1fr 1fr 1.12fr; gap:14px; margin-top:16px; }
+    .panel { min-height:342px; padding:18px; }
+    .panel ul { margin:0; padding-left:21px; font-size:14px; line-height:1.4; }
+    .panel li+li { margin-top:8px; }
+    .good { border-color:color-mix(in srgb,var(--forja-success) 28%,var(--forja-white)); background:var(--green-bg); }
+    .good h2 { color:var(--green); }
+    .bad { border-color:color-mix(in srgb,var(--forja-danger) 28%,var(--forja-white)); background:var(--red-bg); }
+    .bad h2 { color:var(--red); }
+    .variation { border-color:color-mix(in srgb,var(--forja-warning) 30%,var(--forja-white)); background:color-mix(in srgb,var(--forja-warning) 7%,var(--forja-white)); }
+    .variation h2 { color:var(--forja-warning); }
+    .note { display:flex; gap:8px; align-items:flex-start; margin-top:14px; color:var(--navy); font-size:13px; font-weight:750; }
+    .adapt { margin-top:16px; padding:18px; }
+    .adapt h2 { text-align:center; }
+    .branches { display:grid; grid-template-columns:1fr 260px 1fr; align-items:stretch; gap:14px; }
+    .branch { padding:16px 18px; border-radius:10px; }
+    .branch h3 { margin:0 0 10px; font-size:15px; text-transform:uppercase; }
+    .branch ul { margin:0; padding-left:18px; font-size:14px; line-height:1.45; }
+    .accessible { color:var(--forja-success); background:var(--green-bg); }
+    .demand { color:var(--forja-secondary); background:var(--pale); }
+    .core { display:grid; place-items:center; padding:14px; border:1px solid var(--line); border-radius:10px; color:var(--navy); text-align:center; font-weight:850; }
+    .core img { width:66px; height:74px; margin:6px; }
+    .network { margin:11px 0 0; color:var(--navy); font-size:13px; font-weight:750; text-align:center; }
+    .bottom { display:grid; grid-template-columns:1.15fr 1fr; gap:14px; margin-top:16px; }
+    .prescription { padding:18px; }
+    .vars { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+    .variable { display:grid; place-items:center; min-height:76px; padding:8px; border-radius:8px; background:color-mix(in srgb,var(--forja-gray-light) 38%,var(--forja-white)); color:var(--navy); text-align:center; font-size:12px; font-weight:800; text-transform:uppercase; }
+    .variable img { width:27px; height:27px; margin-bottom:6px; }
+    .example { padding:18px; border:1px solid var(--line); border-radius:12px; background:var(--pale); }
+    .example h2 { color:var(--blue); }
+    .dose { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin:12px 0; }
+    .dose div { padding:12px 8px; border-radius:8px; background:var(--forja-white); color:var(--navy); text-align:center; }
+    .dose strong { display:block; font-size:21px; }
+    .dose small { font-size:10px; font-weight:800; text-transform:uppercase; }
+    .example p { margin:9px 0 0; color:var(--forja-gray-dark); font-size:13px; text-align:center; }
+    .remember { display:grid; grid-template-columns:auto 1fr 190px; align-items:center; gap:14px; margin-top:16px; padding:13px 18px; color:var(--navy); background:color-mix(in srgb,var(--forja-primary) 10%,var(--forja-white)); }
+    .remember strong { font-size:16px; text-transform:uppercase; }
+    .remember p { margin:0; font-size:14px; line-height:1.35; }
+    .remember img { width:180px; height:44px; object-fit:contain; }
   </style>
 </head>
 <body>
-  <main>
-    <header>
-      <img src="../../../brand/master/forja-lockup-horizontal.svg" alt="FORJA">
-      <span>Ficha visual de ejercicio · Nivel 2</span>
-    </header>
-    <section class="content">
-      <div class="left">
-        <div class="identity"><span class="id">EX-002</span><h1>Sentadilla goblet</h1></div>
-        <div class="hero"><img src="../master/ex-002-goblet-squat-master.webp" alt="Joven deportista en posición inicial e inferior de una sentadilla goblet"></div>
-        <div class="phases"><div class="phase"><b>1</b>Inicio</div><div class="phase"><b>2</b>Descenso</div></div>
-      </div>
-      <aside class="right">
-        <div class="summary">
-          <div class="pill"><small>Objetivo</small><strong>Desarrollar fuerza</strong></div>
-          <div class="pill"><small>Patrón</small><strong>Dominante de rodilla</strong></div>
-          <div class="pill"><small>Material</small><strong>Mancuerna o kettlebell</strong></div>
-        </div>
-        <div class="keys">
-          <div class="key"><img src="../../../icons/equipment/dumbbell.svg" alt="">Carga cerca</div>
-          <div class="key"><img src="../../../icons/decisions/competency.svg" alt="">Apoyo estable</div>
-          <div class="key"><img src="../../../icons/prescription/quality.svg" alt="">Baja con control</div>
-          <div class="key"><img src="../../../icons/decisions/increase-demand.svg" alt="">Empuja el suelo</div>
-        </div>
-        <div class="grid">
-          <section class="card">
-            <h2>Competencia observable</h2>
-            <ul><li>Sostiene la carga con seguridad.</li><li>Mantiene apoyo estable.</li><li>Controla descenso y ascenso.</li><li>Utiliza un rango apropiado.</li><li>Repite sin molestias relevantes.</li></ul>
-          </section>
-          <section class="card modify">
-            <h2>Modifica la tarea si…</h2>
-            <ul><li>La carga impide mantener competencia.</li><li>Pierde repetidamente equilibrio o control.</li><li>La fatiga cambia claramente la ejecución.</li><li>Aparece dolor.</li></ul>
-          </section>
-          <section class="card">
-            <h2>No corrijas automáticamente</h2>
-            <ul><li>Anchura u orientación individual de los pies.</li><li>Inclinación razonable del tronco.</li><li>Diferencias de profundidad apropiadas.</li></ul>
-          </section>
-          <section class="card adapt">
-            <h2>Adapta según el problema</h2>
-            <ul><li>Más accesible: reduce carga o dosis.</li><li>Puede usarse sentadilla libre o EX-001.</li><li>Cambia carga, rango, volumen o intención cuando aporte valor.</li></ul>
-          </section>
-        </div>
-        <div class="example">
-          <strong>Ejemplo contextual: 2–3 series · 6–8 repeticiones · margen antes del fallo · recuperación suficiente</strong>
-          <span>No es una receta universal</span>
-        </div>
-      </aside>
+<main>
+  <header>
+    <div class="id">EX-002</div>
+    <div><h1>Sentadilla goblet</h1><p class="subtitle">Fuerza utilizando el patrón dominante de rodilla en una variante accesible y fácilmente graduable.</p></div>
+    <img src="../../../brand/master/forja-lockup-horizontal.svg" alt="FORJA">
+  </header>
+  <section class="meta">
+    <div><img src="../../../icons/capabilities/strength.svg" alt="">Fuerza</div>
+    <div><img src="../../../icons/decisions/competency.svg" alt="">Dominante<br>de rodilla</div>
+    <div><img src="../../../icons/equipment/bodyweight.svg" alt="">Bilateral</div>
+    <div><img src="../../../icons/equipment/external-load.svg" alt="">Carga externa</div>
+    <div><img src="../../../icons/equipment/dumbbell.svg" alt="">Material:<br>mancuerna o kettlebell</div>
+  </section>
+  <section class="top">
+    <div class="visual">
+      <img src="../master/ex-002-goblet-squat-master.webp" alt="Inicio y posición inferior de la sentadilla goblet">
+      <div><div class="phases"><div class="phase"><span class="num">1</span>Inicio</div><div class="phase"><span class="num">2</span>Descenso</div></div>
+      <div class="keys"><div class="key"><img src="../../../icons/equipment/dumbbell.svg" alt="">Carga cerca</div><div class="key"><img src="../../../icons/decisions/competency.svg" alt="">Apoyo estable</div><div class="key"><img src="../../../icons/prescription/quality.svg" alt="">Descenso controlado</div><div class="key"><img src="../../../icons/decisions/increase-demand.svg" alt="">Empuja el suelo</div></div></div>
+    </div>
+    <section class="how"><h2>Cómo realizarla</h2>
+      <div class="step"><b>1</b><div><strong>Prepara</strong><p>Sostén la carga de forma segura frente al pecho y adopta una base cómoda y estable.</p></div></div>
+      <div class="step"><b>↓</b><div><strong>Desciende</strong><p>Flexiona rodillas y cadera manteniendo el apoyo estable de los pies.</p></div></div>
+      <div class="step"><b>Ⅱ</b><div><strong>Controla</strong><p>Alcanza un rango apropiado manteniendo la carga estable.</p></div></div>
+      <div class="step"><b>↑</b><div><strong>Sube</strong><p>Produce fuerza contra el suelo y vuelve con control a la posición inicial.</p></div></div>
     </section>
-    <footer><span>Calidad antes que cantidad · detener o modificar ante dolor</span><img src="../../../brand/master/forja-lockup-horizontal.svg" alt="FORJA"></footer>
-  </main>
+  </section>
+  <section class="decision-grid">
+    <article class="panel good"><h2>Competencia</h2><ul><li>Carga sostenida con seguridad.</li><li>Apoyo estable.</li><li>Descenso y ascenso controlados.</li><li>Rango apropiado.</li><li>Repeticiones razonablemente consistentes.</li><li>Tarea tolerada sin molestias relevantes.</li></ul><p class="note">No buscamos una sentadilla idéntica entre deportistas.</p></article>
+    <article class="panel bad"><h2>Modifica la tarea si…</h2><ul><li>La carga impide mantener competencia.</li><li>Se pierde repetidamente el equilibrio o el control.</li><li>La carga reduce significativamente el rango apropiado.</li><li>La fatiga cambia claramente la ejecución.</li><li>Aparece dolor.</li></ul></article>
+    <article class="panel variation"><h2>No corrijas automáticamente</h2><p>Anchura u orientación de pies, inclinación razonable del tronco o diferencias de profundidad cuando la solución sigue siendo estable y apropiada para el deportista.</p><p class="note">La morfología y la competencia individual pueden producir soluciones diferentes.</p></article>
+  </section>
+  <section class="adapt"><h2>Adaptar la tarea</h2><div class="branches">
+    <div class="branch accessible"><h3>Hazla más accesible</h3><ul><li>Reduce la carga.</li><li>Reduce la dosis.</li><li>Utiliza sentadilla libre.</li><li>Usa EX-001 — Sentadilla asistida.</li></ul></div>
+    <div class="core"><span>EX-002</span><img src="../../../brand/master/forja-symbol.svg" alt="FJ"><span>Sentadilla goblet</span></div>
+    <div class="branch demand"><h3>Cambia la demanda</h3><ul><li>Aumenta carga cuando proceda.</li><li>Modifica volumen o rango.</li><li>Introduce intención cuando corresponda.</li><li>Selecciona otra variante.</li></ul></div>
+  </div><p class="network">No existe una única progresión obligatoria.</p></section>
+  <section class="bottom">
+    <section class="prescription"><h2>Variables de prescripción</h2><div class="vars">
+      <div class="variable"><img src="../../../icons/equipment/external-load.svg" alt="">Carga</div><div class="variable"><img src="../../../icons/prescription/sets.svg" alt="">Series</div><div class="variable"><img src="../../../icons/prescription/repetitions.svg" alt="">Repeticiones</div><div class="variable"><img src="../../../icons/prescription/range.svg" alt="">Rango</div><div class="variable"><img src="../../../icons/prescription/rpe.svg" alt="">RPE / RIR</div><div class="variable"><img src="../../../icons/prescription/intention.svg" alt="">Intención</div><div class="variable"><img src="../../../icons/prescription/recovery.svg" alt="">Recuperación</div><div class="variable"><img src="../../../icons/prescription/quality.svg" alt="">Calidad</div>
+    </div></section>
+    <section class="example"><h2>Ejemplo contextual · fuerza inicial</h2><div class="dose"><div><strong>2–3</strong><small>Series</small></div><div><strong>6–8</strong><small>Repeticiones</small></div><div><strong>RIR</strong><small>Margen antes del fallo</small></div><div><strong>✓</strong><small>Recuperación suficiente</small></div></div><p>Ajusta según el objetivo y la competencia del deportista.<br><strong>No es una receta universal.</strong></p></section>
+  </section>
+  <footer class="remember"><strong>Recuerda</strong><p>La competencia manda. Adapta la tarea al deportista y al objetivo.<br>Entrena con calidad; progresa con intención.</p><img src="../../../brand/master/forja-lockup-horizontal.svg" alt="FORJA"></footer>
+</main>
 </body>
 </html>

@@ -3,16 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>FORJA — Preview de assets candidatos</title>
+  <title>FORJA — Preview del sistema visual</title>
   <style>
-    :root { color: #0b2a4a; background: #f2f4f7; font: 16px/1.5 system-ui, sans-serif; }
+    @import url("../src/design-system/forja/src/styles/index.css");
+    :root { color: var(--forja-primary); background: var(--forja-gray-light); font: 16px/1.5 system-ui, sans-serif; }
     body { max-width: 1180px; margin: auto; padding: 32px; }
     h1, h2 { margin: 0 0 16px; }
     section { margin: 0 0 32px; }
-    .notice { border-left: 4px solid #1f5a9d; padding: 12px 16px; background: white; }
+    .notice { border-left: 4px solid var(--forja-secondary); padding: 12px 16px; background: var(--forja-white); }
     .brand, .grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap: 16px; }
-    .card { background: white; border: 1px solid #d0d5dd; border-radius: 8px; padding: 16px; }
-    .card.dark { color: white; background: #0b2a4a; }
+    .card { background: var(--forja-white); border: 1px solid var(--forja-gray-light); border-radius: 8px; padding: 16px; }
+    .card.dark { color: var(--forja-white); background: var(--forja-primary); }
     .brand img { display: block; width: 100%; height: 72px; object-fit: contain; }
     .dark img { filter: brightness(0) invert(1); }
     .icon-row { display: flex; align-items: end; gap: 12px; min-height: 56px; }
@@ -28,13 +29,13 @@
   </style>
 </head>
 <body>
-  <h1>FORJA — Preview de assets candidatos</h1>
-  <p class="notice"><strong>MASTER CANDIDATE.</strong> Esta página sirve para revisión humana; no implica aprobación definitiva.</p>
+  <h1>FORJA — Preview del sistema visual</h1>
+  <p class="notice"><strong>DESIGN SYSTEM V1.</strong> La marca mostrada procede de los masters canónicos; los niveles visuales de ejercicios conservan su propio estado de revisión.</p>
   <section>
-    <h2>Referencia conceptual y candidato vectorial</h2>
+    <h2>Referencia conceptual y master oficial</h2>
     <div class="reference">
       <img src="references/visual/ex-002/extracted/forja_visual_pack_ex002/brand/prototypes/forja-brand-and-session-concept-v1.png" alt="Concepto visual aprobado de marca y ficha EX-002">
-      <div class="card dark"><img src="brand/master/forja-symbol.svg" alt="Candidato vectorial del símbolo FJ"><code>candidato vectorial actual</code></div>
+      <div class="card dark"><img src="brand/master/forja-symbol.svg" alt="Símbolo oficial FJ"><code>master oficial v1</code></div>
     </div>
   </section>
   <section>

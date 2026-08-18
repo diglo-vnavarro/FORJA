@@ -74,6 +74,12 @@ El candidato visual es
 editable es
 [`ex-002-goblet-squat-web.html`](web/ex-002-goblet-squat-web.html).
 
+La iconografía histórica integrada en esta infografía HTML se conserva como
+parte del material visual y no constituye la fuente canónica de iconos FORJA.
+Mientras EX-002 continúe siendo una infografía HTML puede mantener esos SVG.
+Las futuras pantallas de aplicación deben utilizar exclusivamente `ForjaIcon`
+y el mapa semántico del design system.
+
 Antes de promoverlo a `APPROVED` deben revisarse:
 
 - jerarquía y lectura rápida;
@@ -83,6 +89,10 @@ Antes de promoverlo a `APPROVED` deben revisarse:
 - representación no normativa de la variabilidad individual;
 - legibilidad del aviso de ejemplo contextual no universal.
 
-No se ha vectorizado automáticamente al deportista de las referencias.
+No se ha vectorizado automáticamente al deportista de las referencias. El
+símbolo visible en su camiseta forma parte de una imagen raster histórica y no
+debe extraerse, reconstruirse ni utilizarse como fuente del logo. Los únicos
+masters de marca son `forja-symbol.svg`, `forja-wordmark.svg` y
+`forja-lockup-horizontal.svg` dentro del design system.
 
 El estado común se registra en el [manifest de activos](../../manifest.md).

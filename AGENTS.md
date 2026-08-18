@@ -81,3 +81,27 @@ En caso de conflicto, se aplicará el siguiente orden:
 4. Decisiones registradas en el repositorio.
 5. Instrucción concreta de la tarea.
 6. Preferencias de formato.
+
+## Sistema visual FORJA
+
+Estas reglas se aplican a cualquier interfaz, ficha o activo visual del
+repositorio:
+
+- Los archivos de `src/design-system/forja/brand/` son los masters canónicos
+  de la identidad FORJA. No deben redibujarse, regenerarse, sustituirse ni
+  reconstruirse desde capturas de pantalla.
+- `ForjaIcon`, en `src/design-system/forja/src/icons/`, es la API oficial para
+  la iconografía semántica de aplicación.
+- Los componentes de negocio no deben importar iconos de Tabler directamente.
+  Deben solicitar el concepto mediante `ForjaIcon` y su mapa oficial.
+- No se incorporarán nuevas bibliotecas de iconos sin una decisión explícita
+  del sistema de diseño.
+- Los colores de identidad e iconografía deben utilizar los tokens de
+  `forja-tokens.css`; no deben repetirse como valores hardcodeados cuando
+  exista un token equivalente.
+- La geometría de marca e iconos aprobados es inmutable; el color es
+  tematizable mediante `currentColor` y tokens.
+- Si falta un concepto en el mapa oficial, debe registrarse como
+  `MISSING_FORJA_ASSET`. No se improvisará un icono en el consumidor.
+- El trazo predeterminado de la iconografía FORJA es `1.8`, salvo una
+  especificación visual explícita.

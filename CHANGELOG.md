@@ -8,6 +8,7 @@ El proyecto seguirá versionado semántico cuando alcance su primera versión es
 
 ### Añadido
 
+- Fichas utilizables EX-013 — Plancha frontal, EX-014 — Pallof press y EX-015 — Suitcase carry para el lote de fuerza y control.
 - Fichas utilizables EX-008 a EX-012 para los patrones de empuje y tracción.
 - Sistema de producción visual FORJA para los tres niveles de representación.
 - Estructura de briefs visuales y seguimiento de activos.
@@ -37,6 +38,7 @@ El proyecto seguirá versionado semántico cuando alcance su primera versión es
 
 ### Modificado
 
+- Precisión del nombre de EX-009 a "Press unilateral por encima de la cabeza con mancuerna", manteniendo su identidad metodológica y variante base de pie.
 - VIS-001 consolidado con arquitectura visual de tres niveles: ilustración maestra, infografía web y ficha rápida de sesión.
 - Revisión de consolidación científica y bibliográfica de SCI-001 "Crecimiento y maduración del joven deportista".
 - Se completa la primera versión del documento científico "Crecimiento y maduración del joven deportista".

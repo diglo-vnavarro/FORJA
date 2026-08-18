@@ -20,9 +20,11 @@ Este módulo define cómo se describirán y relacionarán los ejercicios de FORJ
 - [EX-006 — Zancada hacia atrás](library/ex-006-reverse-lunge.md) — Utilizable, primera versión.
 - [EX-007 — Step-up](library/ex-007-step-up.md) — Utilizable, primera versión.
 - [EX-008 — Flexión](library/ex-008-push-up.md) — Utilizable, primera versión.
-- [EX-009 — Press unilateral con mancuerna](library/ex-009-single-arm-dumbbell-press.md) — Utilizable, primera versión; variante base pendiente de revisión.
+- [EX-009 — Press unilateral por encima de la cabeza con mancuerna](library/ex-009-single-arm-dumbbell-press.md) — Utilizable, primera versión.
 - [EX-010 — Remo con banda](library/ex-010-band-row.md) — Utilizable, primera versión.
 - [EX-011 — Remo en suspensión](library/ex-011-suspension-row.md) — Utilizable, primera versión.
 - [EX-012 — Remo unilateral con mancuerna](library/ex-012-single-arm-dumbbell-row.md) — Utilizable, primera versión.
 
-EX-013 a EX-015 permanecen pendientes.
+- [EX-013 — Plancha frontal](library/ex-013-front-plank.md) — Utilizable, primera versión.
+- [EX-014 — Pallof press](library/ex-014-pallof-press.md) — Utilizable, primera versión.
+- [EX-015 — Suitcase carry](library/ex-015-suitcase-carry.md) — Utilizable, primera versión.

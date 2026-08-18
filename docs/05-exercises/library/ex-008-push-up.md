@@ -243,7 +243,7 @@ No son equivalentes perfectos.
 
 ## Relaciones iniciales
 
-Puede relacionarse con [EX-009 — Press unilateral con mancuerna](ex-009-single-arm-dumbbell-press.md) como otra rama de empuje.
+Puede relacionarse con [EX-009 — Press unilateral por encima de la cabeza con mancuerna](ex-009-single-arm-dumbbell-press.md) como otra rama de empuje.
 
 ---
 

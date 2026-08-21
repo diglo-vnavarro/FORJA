@@ -43,7 +43,15 @@ import {
   ForjaSledIcon,
 } from "./ForjaCustomIcons";
 
-type IconComponent = ComponentType<any>;
+type IconComponent = ComponentType<{
+  size?: number | string;
+  stroke?: number;
+  className?: string;
+  style?: CSSProperties;
+  "aria-hidden"?: boolean;
+  "aria-label"?: string;
+  role?: string;
+}>;
 
 export const FORJA_ICON_MAP = {
   strength: IconBarbell,
@@ -107,7 +115,7 @@ export function ForjaIcon({
   className,
   style,
 }: ForjaIconProps) {
-  const Component = FORJA_ICON_MAP[name];
+  const Component = FORJA_ICON_MAP[name] as IconComponent;
 
   return (
     <Component

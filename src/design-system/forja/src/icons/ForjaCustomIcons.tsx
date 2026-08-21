@@ -1,6 +1,6 @@
 import type { SVGProps } from "react";
 
-export type ForjaCustomIconProps = SVGProps<SVGSVGElement> & {
+export type ForjaCustomIconProps = Omit<SVGProps<SVGSVGElement>, "stroke"> & {
   size?: number | string;
   stroke?: number;
 };

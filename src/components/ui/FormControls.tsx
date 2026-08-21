@@ -1,0 +1,4 @@
+import type { ChangeEventHandler } from "react";
+import { ForjaIcon } from "@/design-system/forja/src/icons";
+export function SearchInput({ value, onChange }: { value: string; onChange: ChangeEventHandler<HTMLInputElement> }) { return <label className="search-control"><span className="sr-only">Buscar ejercicios</span><ForjaIcon name="observe" size={20} /><input type="search" value={value} onChange={onChange} placeholder="Buscar ejercicios" /></label>; }
+export function SelectFilter({ label, value, options, onChange }: { label: string; value: string; options: { value: string; label: string }[]; onChange: ChangeEventHandler<HTMLSelectElement> }) { return <label className="select-control"><span>{label}</span><select value={value} onChange={onChange}>{options.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}</select></label>; }

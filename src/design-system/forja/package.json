@@ -1,0 +1,14 @@
+{
+  "name": "@forja/design-system",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "peerDependencies": {
+    "react": ">=18",
+    "@tabler/icons-react": ">=3"
+  },
+  "exports": {
+    "./icons": "./src/icons/index.ts",
+    "./styles": "./src/styles/index.css"
+  }
+}

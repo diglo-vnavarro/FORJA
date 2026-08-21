@@ -1,19 +1,19 @@
 # Tokens de marca FORJA
 
-Los valores de esta primera extracción son **PROVISIONALES** hasta completar
-la revisión visual humana de los masters candidatos. Las referencias
-rasterizadas orientan la paleta, pero no fijan por sí solas un estándar
-colorimétrico definitivo.
+La fuente canónica de estos valores es
+`src/design-system/forja/src/styles/forja-tokens.css`. Los componentes deben
+consumir las variables CSS y no repetir los valores hexadecimales.
 
-| Token | Valor provisional | Uso conceptual |
+| Token CSS | Valor v1 | Uso conceptual |
 |---|---|---|
-| FORJA navy | `#0B2A4A` | Identidad principal y fondos oscuros |
-| FORJA blue | `#1F5A9D` | Acentos y jerarquía secundaria |
-| Neutral dark | `#1A1F26` | Texto oscuro |
-| Neutral mid | `#667085` | Información secundaria |
-| Neutral light | `#F2F4F7` | Fondos claros |
-| Success | `#2E7D32` | Estados favorables |
-| Warning/error | `#C6283D` | Avisos y modificación de tarea |
+| `--forja-primary` | `#0B2A4A` | Identidad principal y fondos oscuros |
+| `--forja-secondary` | `#1D5AD8` | Acentos y jerarquía secundaria |
+| `--forja-gray-dark` | `#1F2937` | Texto oscuro |
+| `--forja-gray-mid` | `#6B7780` | Información secundaria |
+| `--forja-gray-light` | `#E5E7EB` | Fondos claros |
+| `--forja-success` | `#16A34A` | Estados favorables |
+| `--forja-danger` | `#DC2626` | Avisos y modificación de tarea |
+| `--forja-warning` | `#986318` | Advertencias y revisión contextual |
 
 Los SVG de marca e iconografía utilizan `currentColor` siempre que resulta
 apropiado, por lo que estas variantes no requieren duplicar masters:
@@ -22,4 +22,4 @@ apropiado, por lo que estas variantes no requieren duplicar masters:
 - light-on-dark;
 - monochrome.
 
-Ningún valor de esta tabla debe considerarse definitivo antes de su aprobación.
+La geometría permanece inmutable; el color se tematiza mediante estos tokens.

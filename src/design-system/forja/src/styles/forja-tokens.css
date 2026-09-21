@@ -1,0 +1,31 @@
+:root {
+  --forja-navy: #0B2A4A;
+  --forja-blue: #1D5AD8;
+  --forja-gray-dark: #1F2937;
+  --forja-gray-mid: #6B7780;
+  --forja-gray-light: #E5E7EB;
+  --forja-green: #16A34A;
+  --forja-red: #DC2626;
+  --forja-white: #FFFFFF;
+
+  --forja-primary: var(--forja-navy);
+  --forja-secondary: var(--forja-blue);
+  --forja-icon-color: var(--forja-primary);
+  --forja-success: var(--forja-green);
+  --forja-danger: var(--forja-red);
+  --forja-warning: #986318;
+
+  --forja-icon-stroke: 1.8;
+  --forja-icon-sm: 16px;
+  --forja-icon-md: 24px;
+  --forja-icon-lg: 32px;
+}
+
+.forja-icon {
+  color: var(--forja-icon-color);
+  flex: none;
+}
+
+.forja-icon--inverse { color: var(--forja-white); }
+.forja-icon--success { color: var(--forja-success); }
+.forja-icon--danger { color: var(--forja-danger); }

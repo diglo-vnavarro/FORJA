@@ -14,8 +14,7 @@ decisiones, prescripciones ni criterios que no estén respaldados por ella.
 
 Representación maestra del ejercicio.
 
-- **Estado:** aprobado conceptualmente; asset definitivo pendiente de
-  incorporar.
+- **Estado:** aprobado para continuar la validación del sistema visual.
 - **Nombre reservado:**
   `assets/exercises/ex-002/master/ex-002-goblet-squat-master.webp`.
 
@@ -23,8 +22,8 @@ Representación maestra del ejercicio.
 
 Representación explicativa para web o aplicación basada en el Nivel 1.
 
-- **Estado:** aprobado conceptualmente; asset definitivo pendiente de
-  incorporar.
+- **Estado:** candidato de producción incorporado; revisión visual humana
+  pendiente.
 - **Nombre reservado:**
   `assets/exercises/ex-002/web/ex-002-goblet-squat-web.webp`.
 
@@ -37,20 +36,63 @@ Representación compacta para consulta durante la sesión.
 - **Nombre reservado:**
   `assets/exercises/ex-002/session/ex-002-goblet-squat-session.webp`.
 
-Los nombres quedan reservados, pero los archivos definitivos no existen
-todavía. No deben sustituirse por binarios placeholder ni por imágenes
-reconstruidas desde Markdown o screenshots.
+Los activos de Nivel 1 y el candidato de Nivel 2 existen en sus rutas
+reservadas. El archivo definitivo de Nivel 3 todavía no existe y no debe
+sustituirse por un binario placeholder ni por una imagen reconstruida desde
+Markdown o screenshots.
 
 Las referencias visuales aprobadas se conservan separadamente en
 [`assets/references/visual/ex-002/`](../../references/visual/ex-002/). Son
 material de revisión, no activos de producción.
 
-Permanece pendiente incorporar y aprobar:
+Permanece pendiente:
 
-- la ilustración definitiva de Nivel 1;
-- la infografía definitiva de Nivel 2;
+- revisar y aprobar la infografía candidata de Nivel 2;
 - la ficha rápida definitiva de Nivel 3.
 
-No se ha vectorizado automáticamente al deportista de las referencias.
+## Nivel 1 aprobado
+
+El archivo
+[`ex-002-goblet-squat-master.webp`](master/ex-002-goblet-squat-master.webp)
+es una ilustración original generada específicamente para FORJA a partir del
+brief aprobado. Utiliza fondo blanco editorial, incorpora el símbolo FJ
+candidato en la manga y no contiene transparencia.
+
+La revisión humana ha aprobado:
+
+- agarre y posición de la mancuerna;
+- manos, pies y apoyos;
+- coherencia entre las dos fases;
+- anatomía y edad visual del deportista;
+- legibilidad al reducirlo;
+- fidelidad al brief y ausencia de reglas técnicas añadidas.
+
+## Revisión del candidato de Nivel 2
+
+El candidato visual es
+[`ex-002-goblet-squat-web.webp`](web/ex-002-goblet-squat-web.webp) y su fuente
+editable es
+[`ex-002-goblet-squat-web.html`](web/ex-002-goblet-squat-web.html).
+
+La iconografía histórica integrada en esta infografía HTML se conserva como
+parte del material visual y no constituye la fuente canónica de iconos FORJA.
+Mientras EX-002 continúe siendo una infografía HTML puede mantener esos SVG.
+Las futuras pantallas de aplicación deben utilizar exclusivamente `ForjaIcon`
+y el mapa semántico del design system.
+
+Antes de promoverlo a `APPROVED` deben revisarse:
+
+- jerarquía y lectura rápida;
+- fidelidad del texto a la ficha EX-002;
+- tamaño y utilidad de la ilustración;
+- selección de competencia y criterios de modificación;
+- representación no normativa de la variabilidad individual;
+- legibilidad del aviso de ejemplo contextual no universal.
+
+No se ha vectorizado automáticamente al deportista de las referencias. El
+símbolo visible en su camiseta forma parte de una imagen raster histórica y no
+debe extraerse, reconstruirse ni utilizarse como fuente del logo. Los únicos
+masters de marca son `forja-symbol.svg`, `forja-wordmark.svg` y
+`forja-lockup-horizontal.svg` dentro del design system.
 
 El estado común se registra en el [manifest de activos](../../manifest.md).

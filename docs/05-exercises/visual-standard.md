@@ -1,5 +1,7 @@
 # Estándar visual de ejercicios FORJA
 
+> **LEGACY / SUPERSEDED.** Este documento se conserva por su valor histórico y conceptual, pero ya no es el estándar operativo vigente. En caso de contradicción —incluidas identidad del atleta, sexo, fenotipo o número de fases— prevalece [FORJA Exercise Visual Standard](visual-production/FORJA-EXERCISE-VISUAL-STANDARD.md). La referencia oficial actual es `FORJA ATHLETE MASTER = EX-002` y `ATHLETE CONSISTENCY = MANDATORY`.
+
 ## Propósito
 
 Definir cómo representará FORJA visualmente los ejercicios de su biblioteca para mantener:

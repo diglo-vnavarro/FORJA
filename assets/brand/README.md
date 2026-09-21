@@ -1,8 +1,9 @@
 # FORJA Brand Assets
 
-Los SVG de esta carpeta son **MASTER CANDIDATE** hasta completar su revisión
-visual humana. Se han reconstruido como vectores limpios a partir del concepto
-aprobado, sin bitmap embebido, fuentes externas ni efectos raster.
+Los SVG de esta carpeta son copias de consumo estático de los masters oficiales
+incluidos en `src/design-system/forja/brand/`. Esa carpeta del sistema de diseño
+es la fuente canónica; estas copias deben mantenerse idénticas y no editarse de
+forma independiente.
 
 ## Symbol
 
@@ -55,8 +56,9 @@ dentro de esa zona.
 ## Backgrounds
 
 Usar color oscuro sobre fondo claro y color claro sobre fondo oscuro.
-Comprobar contraste y legibilidad antes de publicar. Los tokens actuales son
-[provisionales](tokens.md).
+Comprobar contraste y legibilidad antes de publicar. Los tokens oficiales se
+definen en `src/design-system/forja/src/styles/forja-tokens.css` y se resumen
+en [`tokens.md`](tokens.md).
 
 ## Prohibited modifications
 
@@ -72,6 +74,6 @@ No:
 - reconstruir desde screenshots, infografías o raster;
 - incorporar fuentes propietarias.
 
-Los PNG transparentes permanecen pendientes hasta disponer de una
-renderización fiable y revisión visual. El estado completo se registra en el
+Los PNG transparentes permanecen pendientes. No deben generarse nuevos masters
+raster a partir de capturas. El estado completo se registra en el
 [manifest de activos](../manifest.md).

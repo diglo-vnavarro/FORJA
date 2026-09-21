@@ -1,0 +1,242 @@
+[
+  {
+    "name": "strength",
+    "label": "Fuerza",
+    "component": "IconBarbell",
+    "source": "Tabler Icons"
+  },
+  {
+    "name": "speed",
+    "label": "Velocidad",
+    "component": "IconRun",
+    "source": "Tabler Icons"
+  },
+  {
+    "name": "power",
+    "label": "Potencia",
+    "component": "IconBolt",
+    "source": "Tabler Icons"
+  },
+  {
+    "name": "mobility",
+    "label": "Movilidad",
+    "component": "IconStretching",
+    "source": "Tabler Icons"
+  },
+  {
+    "name": "coordination",
+    "label": "Coordinación",
+    "component": "IconAffiliate",
+    "source": "Tabler Icons"
+  },
+  {
+    "name": "balanceStability",
+    "label": "Equilibrio / Estabilidad",
+    "component": "IconYoga",
+    "source": "Tabler Icons"
+  },
+  {
+    "name": "changeOfDirection",
+    "label": "Cambio de dirección",
+    "component": "IconArrowsExchange",
+    "source": "Tabler Icons"
+  },
+  {
+    "name": "acceleration",
+    "label": "Aceleración",
+    "component": "IconArrowBigRightLines",
+    "source": "Tabler Icons"
+  },
+  {
+    "name": "deceleration",
+    "label": "Deceleración",
+    "component": "IconArrowBigLeftLines",
+    "source": "Tabler Icons"
+  },
+  {
+    "name": "jump",
+    "label": "Salto",
+    "component": "IconJumpRope",
+    "source": "Tabler Icons"
+  },
+  {
+    "name": "throw",
+    "label": "Lanzamiento",
+    "component": "IconBallFootball",
+    "source": "Tabler Icons"
+  },
+  {
+    "name": "endurance",
+    "label": "Resistencia",
+    "component": "IconRefresh",
+    "source": "Tabler Icons"
+  },
+  {
+    "name": "technique",
+    "label": "Técnica",
+    "component": "IconTarget",
+    "source": "Tabler Icons"
+  },
+  {
+    "name": "aerobicCapacity",
+    "label": "Capacidad aeróbica",
+    "component": "IconHeartRateMonitor",
+    "source": "Tabler Icons"
+  },
+  {
+    "name": "anaerobicCapacity",
+    "label": "Capacidad anaeróbica",
+    "component": "IconHeartBolt",
+    "source": "Tabler Icons"
+  },
+  {
+    "name": "externalLoad",
+    "label": "Carga externa",
+    "component": "IconWeight",
+    "source": "Tabler Icons"
+  },
+  {
+    "name": "bodyweight",
+    "label": "Peso corporal",
+    "component": "IconUser",
+    "source": "Tabler Icons"
+  },
+  {
+    "name": "dumbbell",
+    "label": "Mancuerna",
+    "component": "IconBarbell",
+    "source": "Tabler Icons"
+  },
+  {
+    "name": "kettlebell",
+    "label": "Kettlebell",
+    "component": "ForjaKettlebellIcon",
+    "source": "FORJA custom"
+  },
+  {
+    "name": "medicineBall",
+    "label": "Balón medicinal",
+    "component": "IconBallBasketball",
+    "source": "Tabler Icons"
+  },
+  {
+    "name": "cone",
+    "label": "Cono",
+    "component": "IconCone",
+    "source": "Tabler Icons"
+  },
+  {
+    "name": "hurdleObstacle",
+    "label": "Valla / Obstáculo",
+    "component": "IconBarrierBlock",
+    "source": "Tabler Icons"
+  },
+  {
+    "name": "box",
+    "label": "Cajón",
+    "component": "IconBox",
+    "source": "Tabler Icons"
+  },
+  {
+    "name": "time",
+    "label": "Tiempo",
+    "component": "IconClock",
+    "source": "Tabler Icons"
+  },
+  {
+    "name": "distance",
+    "label": "Distancia",
+    "component": "IconRulerMeasure",
+    "source": "Tabler Icons"
+  },
+  {
+    "name": "repetitions",
+    "label": "Repeticiones",
+    "component": "IconRepeat",
+    "source": "Tabler Icons"
+  },
+  {
+    "name": "sets",
+    "label": "Series",
+    "component": "IconListNumbers",
+    "source": "Tabler Icons"
+  },
+  {
+    "name": "recovery",
+    "label": "Recuperación",
+    "component": "IconClockPause",
+    "source": "Tabler Icons"
+  },
+  {
+    "name": "rpe",
+    "label": "RPE",
+    "component": "IconGauge",
+    "source": "Tabler Icons"
+  },
+  {
+    "name": "rir",
+    "label": "RIR",
+    "component": "IconGaugeOff",
+    "source": "Tabler Icons"
+  },
+  {
+    "name": "range",
+    "label": "Rango",
+    "component": "IconArrowsMove",
+    "source": "Tabler Icons"
+  },
+  {
+    "name": "intention",
+    "label": "Intención",
+    "component": "IconTargetArrow",
+    "source": "Tabler Icons"
+  },
+  {
+    "name": "quality",
+    "label": "Calidad",
+    "component": "IconRosetteDiscountCheck",
+    "source": "Tabler Icons"
+  },
+  {
+    "name": "competence",
+    "label": "Competencia",
+    "component": "IconTrophy",
+    "source": "Tabler Icons"
+  },
+  {
+    "name": "observe",
+    "label": "Observar",
+    "component": "IconEye",
+    "source": "Tabler Icons"
+  },
+  {
+    "name": "modifyTask",
+    "label": "Modificar tarea",
+    "component": "IconAdjustments",
+    "source": "Tabler Icons"
+  },
+  {
+    "name": "makeMoreAccessible",
+    "label": "Hacer más accesible",
+    "component": "IconAccessible",
+    "source": "Tabler Icons"
+  },
+  {
+    "name": "increaseDemand",
+    "label": "Aumentar demanda",
+    "component": "IconArrowBigUpLines",
+    "source": "Tabler Icons"
+  },
+  {
+    "name": "resistanceBand",
+    "label": "Goma elástica",
+    "component": "ForjaResistanceBandIcon",
+    "source": "FORJA custom"
+  },
+  {
+    "name": "sled",
+    "label": "Trineo",
+    "component": "ForjaSledIcon",
+    "source": "FORJA custom"
+  }
+]

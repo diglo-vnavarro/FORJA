@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "typecheck": "tsc -b --pretty false",
     "lint": "eslint .",
-    "test": "vitest run"
+    "test": "vitest run",
+    "generate:exercise-assets": "node scripts/generate-exercise-assets.mjs"
   },
   "dependencies": {
     "@tabler/icons-react": "^3.46.0",

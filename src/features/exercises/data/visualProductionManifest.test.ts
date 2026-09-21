@@ -32,7 +32,7 @@ describe("visual production manifest", () => {
     for (const entry of visualProductionManifest) {
       expect(entry.slug).toBeTruthy();
       expect(entry.name).toBeTruthy();
-      for (const status of [entry.briefStatus, entry.productionSpecStatus, entry.masterImageStatus, entry.infographicStatus, entry.sessionCardStatus]) expect(allowedStatuses).toContain(status);
+      for (const status of [entry.briefStatus, entry.productionSpecStatus, entry.masterImageStatus, entry.thumbnailStatus, entry.infographicStatus, entry.sessionCardStatus]) expect(allowedStatuses).toContain(status);
     }
   });
 
@@ -40,6 +40,13 @@ describe("visual production manifest", () => {
     expect(FORJA_ATHLETE_MASTER.referenceExercise).toBe("EX-002");
     expect(visualProductionManifest.find((entry) => entry.id === "EX-002")?.athleteMaster).toBe(true);
     expect(existsSync(resolve(process.cwd(), FORJA_ATHLETE_MASTER.standardPath))).toBe(true);
+  });
+
+  it("records final human visual approval for the complete master library", () => {
+    expect(visualProductionManifest).toHaveLength(15);
+    expect(visualProductionManifest.every((entry) => entry.masterImageStatus === "approved")).toBe(true);
+    expect(visualProductionManifest.every((entry) => entry.visualQaStatus === "APPROVED")).toBe(true);
+    expect(visualProductionManifest.filter((entry) => ["PENDING_REVIEW", "REGENERATE", "REJECTED"].includes(entry.visualQaStatus))).toEqual([]);
   });
 
   it("only declares available briefs and production specs that exist", () => {
@@ -66,9 +73,29 @@ describe("visual production manifest", () => {
   });
 
   it("keeps declared asset paths unique and physically valid", () => {
-    const paths = visualProductionManifest.flatMap((entry) => [entry.briefPath, entry.productionSpecPath, entry.masterImagePath, entry.infographicPath, entry.sessionCardPath].filter((path): path is string => Boolean(path)));
+    const paths = visualProductionManifest.flatMap((entry) => [entry.briefPath, entry.productionSpecPath, entry.masterImagePath, entry.thumbnailPath, entry.infographicPath, entry.infographicReferencePath, entry.infographicV1Path, entry.sessionCardPath].filter((path): path is string => Boolean(path)));
     expect(new Set(paths).size).toBe(paths.length);
     expect(paths.filter((path) => !existsSync(resolve(process.cwd(), path)))).toEqual([]);
+  });
+
+  it("registers EX-002 derivative candidates only after physical export", () => {
+    const entry = visualProductionManifest.find((item) => item.id === "EX-002")!;
+    expect([entry.thumbnailStatus, entry.infographicStatus, entry.sessionCardStatus]).toEqual(["approved", "draft", "draft"]);
+    expect(entry.derivativeQaStatus).toEqual({ thumbnail: "APPROVED", infographic: "PENDING_REVIEW", sessionCard: "PENDING_REVIEW" });
+    for (const path of [entry.thumbnailPath, entry.infographicPath, entry.sessionCardPath]) expect(path && existsSync(resolve(process.cwd(), path))).toBe(true);
+    expect(readWebpDimensions(resolve(process.cwd(), entry.thumbnailPath!))).toEqual({ width: 768, height: 512 });
+    expect(readWebpDimensions(resolve(process.cwd(), entry.infographicPath!))).toEqual({ width: 1200, height: 1360 });
+    expect(readWebpDimensions(resolve(process.cwd(), entry.sessionCardPath!))).toEqual({ width: 1080, height: 1350 });
+    expect(entry.media.thumbnail.sourcePath).toBe(entry.thumbnailPath);
+  });
+
+  it("registers the EX-007 V2.1 infographic as a pending reusable-renderer candidate", () => {
+    const entry = visualProductionManifest.find((item) => item.id === "EX-007")!;
+    expect(entry.infographicStatus).toBe("draft");
+    expect(entry.derivativeQaStatus).toEqual({ infographic: "PENDING_REVIEW" });
+    expect(entry.infographicPath && existsSync(resolve(process.cwd(), entry.infographicPath))).toBe(true);
+    expect(readWebpDimensions(resolve(process.cwd(), entry.infographicPath!))).toEqual({ width: 1200, height: 1360 });
+    expect(entry.media.masterImage.phases).toEqual(["Inicio", "Apoyo", "Subida"]);
   });
 
   it("makes all 15 briefs and production specs or reference equivalents available", () => {

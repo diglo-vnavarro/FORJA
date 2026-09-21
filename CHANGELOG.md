@@ -8,6 +8,8 @@ El proyecto seguirá versionado semántico cuando alcance su primera versión es
 
 ### Añadido
 
+- Biblioteca canónica de masters visuales EX-001–EX-015, índice QA y renderer reutilizable para derivados de ejercicios.
+- Primeros derivados web y de sesión para EX-002, con validación de la plantilla reutilizable en EX-007.
 - Candidato visual de Nivel 2 para EX-002 — Sentadilla goblet.
 - Candidato visual de Nivel 1 para EX-002 — Sentadilla goblet.
 - Fichas utilizables EX-013 — Plancha frontal, EX-014 — Pallof press y EX-015 — Suitcase carry para el lote de fuerza y control.

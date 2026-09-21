@@ -70,4 +70,4 @@ No text, letters, numbers, captions, arrows, generated logos, FORJA word, shield
 
 `assets/exercises/ex-005/master/ex-005-split-squat-master.webp`
 
-Hasta aprobación e incorporación física: `masterImageStatus = missing`.
+Estado actual: master físico incorporado y `masterImageStatus = approved`; `visualQaStatus = APPROVED` tras revisión humana.

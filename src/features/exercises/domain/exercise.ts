@@ -6,7 +6,7 @@ export type LabeledContent = { label: string; content: string[] };
 export type ExerciseIdentity = { id: string; slug: string; name: string; displayName: string; aliases: string[]; description: string; objective: string; contentStatus: ExerciseContentStatus };
 export type ExerciseClassification = { category: string; movementPattern: TaxonomyTerm<MovementPatternId>; secondaryPatterns: string[]; capabilities: TaxonomyTerm<CapabilityId>[]; attributes: LabeledContent[] };
 export type ExerciseContext = { equipment: TaxonomyTerm<EquipmentId>[]; environment: string[]; space: string[]; surface: string[]; requirements: string[] };
-export type MediaAsset = { status: AssetStatus; src?: string; sourcePath?: string; alt?: string };
+export type MediaAsset = { status: AssetStatus; src?: string; sourcePath?: string; alt?: string; phases?: string[] };
 export type ExerciseMedia = { status: ExerciseMediaStatus; masterImage: MediaAsset; thumbnail: MediaAsset; infographic: MediaAsset; sessionCard: MediaAsset; visualBrief: MediaAsset };
 
 export type StandardPrescriptionKey = "sets" | "repetitions" | "time" | "distance" | "load" | "recovery" | "rpe" | "rir" | "range" | "tempo" | "intention" | "quality";

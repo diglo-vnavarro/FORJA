@@ -65,4 +65,4 @@ No text, letters, numbers, captions, arrows, generated logos, FORJA word, shield
 
 `assets/exercises/ex-007/master/ex-007-step-up-master.webp`
 
-Hasta aprobación e incorporación física: `masterImageStatus = missing`.
+Estado actual: master físico incorporado y `masterImageStatus = approved`; `visualQaStatus = APPROVED` tras revisión humana.

@@ -66,4 +66,4 @@ No text, letters, numbers, captions, arrows, alignment line, generated logos, FO
 
 `assets/exercises/ex-008/master/ex-008-push-up-master.webp`
 
-Hasta aprobación e incorporación física: `masterImageStatus = missing`.
+Estado actual: master físico incorporado y `masterImageStatus = approved`; `visualQaStatus = APPROVED` tras revisión humana.

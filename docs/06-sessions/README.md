@@ -1,5 +1,14 @@
 # Biblioteca de sesiones
 
-Este módulo se encuentra pendiente de desarrollo.
+Este módulo transforma la metodología FORJA en sesiones comprensibles,
+adaptables y trazables.
 
-Su contenido se incorporará progresivamente mediante documentos revisados y pull requests específicas.
+## Estándar
+
+- [SES-STD-001 — Estándar de sesión FORJA](session-standard.md) — Primera
+  versión completa, en revisión.
+
+## Próximo hito
+
+Crear el primer lote piloto de sesiones base aplicando SES-STD-001 y utilizando
+exclusivamente ejercicios documentados en la biblioteca FORJA.

@@ -55,18 +55,20 @@ El núcleo científico inicial SCI-001 → SCI-007 dispone de una primera versi�
 - [EX-014 — Pallof press](../05-exercises/library/ex-014-pallof-press.md) — Utilizable, primera versión.
 - [EX-015 — Suitcase carry](../05-exercises/library/ex-015-suitcase-carry.md) — Utilizable, primera versión.
 - Lote A — Fuerza y control (EX-001 a EX-015) — Primera versión completada.
-- Siguiente paso propuesto: definición del primer lote de sesiones base.
-- [VIS-001 — Estándar visual de ejercicios FORJA](../05-exercises/visual-standard.md) — Primera versión aprobada.
-- [VIS-002 — Sistema de producción visual de ejercicios FORJA](../05-exercises/visual-production-system.md) — Primera versión para validación.
-- Logo master FORJA — Pendiente.
-- EX-002 Nivel 1 — Validación conceptual completada; activo no almacenado.
-- EX-002 Nivel 2 — Validación conceptual completada; activo no almacenado.
-- EX-002 Nivel 3 — Siguiente prototipo.
+- Siguiente paso: creación del primer lote piloto de sesiones base mediante SES-STD-001.
+- [VIS-001 — Estándar visual de ejercicios FORJA](../05-exercises/visual-standard.md) — Versión histórica, sustituida por el estándar operativo de producción.
+- [VIS-002 — Sistema de producción visual de ejercicios FORJA](../05-exercises/visual-production-system.md) — Sistema operativo integrado.
+- Masters de marca FORJA — Integrados como fuente canónica.
+- Biblioteca visual EX-001–EX-015 — Masters aprobados y congelados.
+- EX-002 Nivel 1 — Master aprobado e integrado.
+- EX-002 Nivel 2 — Candidato V2.1 integrado, pendiente de aprobación visual final.
+- EX-002 Nivel 3 — Candidato de ficha de sesión integrado, pendiente de aprobación visual final.
 - Lotes posteriores de fichas: potencia y velocidad; desaceleración y multidireccional.
 
 ## Fase 4 — Sesiones y programas
 
-- Sesiones base.
+- [SES-STD-001 — Estándar de sesión FORJA](../06-sessions/session-standard.md) — Primera versión completa, en revisión.
+- Primer lote piloto de sesiones base — Próximo hito.
 - Pretemporada.
 - Temporada.
 - Periodos vacacionales.

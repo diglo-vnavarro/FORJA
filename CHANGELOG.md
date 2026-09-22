@@ -8,6 +8,7 @@ El proyecto seguirá versionado semántico cuando alcance su primera versión es
 
 ### Añadido
 
+- Biblioteca local de borradores de sesión con reapertura, duplicado y eliminación confirmada.
 - Constructor manual MVP para preparar, adaptar, guardar e imprimir borradores de sesiones sin generación automática.
 - Biblioteca de sesiones integrada en la aplicación con catálogo, detalle y referencias verificadas a ejercicios.
 - Primer lote piloto de sesiones base FORJA: SES-001, SES-002 y SES-003.

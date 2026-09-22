@@ -1,7 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { MemoryRouter } from "react-router-dom";
-import { SESSION_DRAFT_STORAGE_KEY } from "@/features/session-builder/data/sessionDraftStorage";
+import { MemoryRouter, Route, Routes } from "react-router-dom";
+import { saveSessionDraft, SESSION_DRAFTS_STORAGE_KEY } from "@/features/session-builder/data/sessionDraftStorage";
+import { createSessionDraft } from "@/features/session-builder/domain/sessionDraft";
+import { sessions } from "@/features/sessions/data/sessions";
 import { SessionBuilderPage } from "./SessionBuilderPage";
 
 describe("SessionBuilderPage", () => {
@@ -20,7 +22,7 @@ describe("SessionBuilderPage", () => {
 
     expect(screen.getByRole("status")).toHaveTextContent("Borrador guardado");
     expect(screen.getByText("1/5 tareas con criterios revisados")).toBeInTheDocument();
-    expect(localStorage.getItem(SESSION_DRAFT_STORAGE_KEY)).toContain("Grupo sub-16");
+    expect(localStorage.getItem(SESSION_DRAFTS_STORAGE_KEY)).toContain("Grupo sub-16");
   });
 
   it("keeps source quality and stop criteria visible when an exercise is changed", async () => {
@@ -31,5 +33,13 @@ describe("SessionBuilderPage", () => {
     expect(screen.getAllByText("Parar o modificar").length).toBeGreaterThan(0);
     expect(screen.getByText(/La sustitución requiere revisar también/i)).toBeInTheDocument();
     expect(screen.getByText(/Los cambios del borrador no modifican la sesión canónica/i)).toBeInTheDocument();
+  });
+
+  it("reopens a saved draft by its stable identifier", () => {
+    const stored = { ...createSessionDraft(sessions[2], new Date(), "reopen-me"), groupContext: "Grupo guardado" };
+    saveSessionDraft(stored);
+    render(<MemoryRouter initialEntries={["/sessions/prepare/reopen-me"]}><Routes><Route path="/sessions/prepare/:draftId" element={<SessionBuilderPage />} /></Routes></MemoryRouter>);
+    expect(screen.getByLabelText("Plantilla FORJA")).toHaveValue("SES-003");
+    expect(screen.getByLabelText("Contexto del grupo")).toHaveValue("Grupo guardado");
   });
 });

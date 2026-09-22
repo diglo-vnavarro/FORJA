@@ -55,7 +55,7 @@ El núcleo científico inicial SCI-001 → SCI-007 dispone de una primera versi�
 - [EX-014 — Pallof press](../05-exercises/library/ex-014-pallof-press.md) — Utilizable, primera versión.
 - [EX-015 — Suitcase carry](../05-exercises/library/ex-015-suitcase-carry.md) — Utilizable, primera versión.
 - Lote A — Fuerza y control (EX-001 a EX-015) — Primera versión completada.
-- Siguiente paso: creación del primer lote piloto de sesiones base mediante SES-STD-001.
+- Primer lote piloto de sesiones base mediante SES-STD-001 — Completado, pendiente de validación práctica.
 - [VIS-001 — Estándar visual de ejercicios FORJA](../05-exercises/visual-standard.md) — Versión histórica, sustituida por el estándar operativo de producción.
 - [VIS-002 — Sistema de producción visual de ejercicios FORJA](../05-exercises/visual-production-system.md) — Sistema operativo integrado.
 - Masters de marca FORJA — Integrados como fuente canónica.
@@ -68,7 +68,10 @@ El núcleo científico inicial SCI-001 → SCI-007 dispone de una primera versi�
 ## Fase 4 — Sesiones y programas
 
 - [SES-STD-001 — Estándar de sesión FORJA](../06-sessions/session-standard.md) — Primera versión completa, en revisión.
-- Primer lote piloto de sesiones base — Próximo hito.
+- [SES-001 — Fuerza inicial y aprendizaje de patrones](../06-sessions/ses-001-initial-strength-and-movement-learning.md) — Utilizable, primera versión.
+- [SES-002 — Fuerza general con carga externa](../06-sessions/ses-002-general-strength.md) — Utilizable, primera versión.
+- [SES-003 — Fuerza breve compatible con una semana de fútbol](../06-sessions/ses-003-short-football-compatible-strength.md) — Utilizable, primera versión.
+- Validación práctica del primer lote de sesiones — Próximo hito.
 - Pretemporada.
 - Temporada.
 - Periodos vacacionales.

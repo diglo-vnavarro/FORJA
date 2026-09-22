@@ -9,6 +9,7 @@ import { ExerciseVisualProductionPage } from "@/features/exercises/pages/Exercis
 import { SessionCatalogPage } from "@/features/sessions/pages/SessionCatalogPage";
 import { SessionDetailPage } from "@/features/sessions/pages/SessionDetailPage";
 import { SessionBuilderPage } from "@/features/session-builder/pages/SessionBuilderPage";
+import { SavedSessionsPage } from "@/features/session-builder/pages/SavedSessionsPage";
 
 export const router = createBrowserRouter([
 {
@@ -17,7 +18,9 @@ export const router = createBrowserRouter([
     { path: "exercises", element: <ExerciseCatalogPage /> },
     { path: "exercises/:exerciseId", element: <ExerciseDetailPage /> },
     { path: "sessions", element: <SessionCatalogPage /> },
+    { path: "sessions/saved", element: <SavedSessionsPage /> },
     { path: "sessions/prepare", element: <SessionBuilderPage /> },
+    { path: "sessions/prepare/:draftId", element: <SessionBuilderPage /> },
     { path: "sessions/:sessionId", element: <SessionDetailPage /> },
     ...["planning", "athletes", "library"].map((path) => ({ path, element: <ComingSoonPage /> })),
     { path: "*", element: <NotFoundPage /> },

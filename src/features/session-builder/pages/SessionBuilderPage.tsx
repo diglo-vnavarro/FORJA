@@ -1,8 +1,8 @@
 import { useMemo, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { ForjaIcon } from "@/design-system/forja/src/icons";
 import { exercises, getExerciseById } from "@/features/exercises/data/exercises";
-import { loadSessionDraft, removeSessionDraft, saveSessionDraft } from "@/features/session-builder/data/sessionDraftStorage";
+import { loadSessionDraftById, saveSessionDraft } from "@/features/session-builder/data/sessionDraftStorage";
 import { createSessionDraft, type SessionDraft } from "@/features/session-builder/domain/sessionDraft";
 import { sessions } from "@/features/sessions/data/sessions";
 
@@ -17,8 +17,10 @@ function isCompatibleDraft(draft: SessionDraft) {
 }
 
 export function SessionBuilderPage() {
+  const { draftId } = useParams();
+  const navigate = useNavigate();
   const [draft, setDraft] = useState<SessionDraft>(() => {
-    const stored = loadSessionDraft();
+    const stored = draftId ? loadSessionDraftById(draftId) : null;
     return stored && isCompatibleDraft(stored) ? stored : createSessionDraft(sessions[0]);
   });
   const [saveMessage, setSaveMessage] = useState("");
@@ -42,7 +44,8 @@ export function SessionBuilderPage() {
 
   const selectTemplate = (templateId: string) => {
     const nextTemplate = findTemplate(templateId);
-    setDraft(createSessionDraft(nextTemplate));
+    const replacement = createSessionDraft(nextTemplate, new Date(), draft.id);
+    setDraft({ ...replacement, createdAt: draft.createdAt });
     setSaveMessage("Plantilla cargada. Guarda el borrador para conservar este cambio.");
   };
 
@@ -51,19 +54,20 @@ export function SessionBuilderPage() {
     saveSessionDraft(saved);
     setDraft(saved);
     setSaveMessage("Borrador guardado en este navegador.");
+    navigate(`/sessions/prepare/${saved.id}`, { replace: true });
   };
 
   const reset = () => {
-    removeSessionDraft();
-    setDraft(createSessionDraft(template));
+    const replacement = createSessionDraft(template, new Date(), draft.id);
+    setDraft({ ...replacement, createdAt: draft.createdAt });
     setSaveMessage("Se ha restaurado la plantilla original.");
   };
 
   return <div className="page session-builder-page">
-    <nav className="breadcrumbs" aria-label="Migas de pan"><Link to="/sessions">Sesiones</Link><span aria-hidden="true">/</span><span>Preparar sesión</span></nav>
+    <nav className="breadcrumbs" aria-label="Migas de pan"><Link to="/sessions">Sesiones</Link><span aria-hidden="true">/</span><Link to="/sessions/saved">Guardadas</Link><span aria-hidden="true">/</span><span>Preparar sesión</span></nav>
     <header className="builder-header">
       <div><p className="eyebrow">Constructor manual MVP</p><h1>Preparar una sesión</h1><p className="page-lead">Adapta una sesión revisada a un contexto concreto sin perder su fuente, sus criterios de calidad ni sus límites.</p></div>
-      <div className="builder-header__actions"><button className="button button--secondary" type="button" onClick={reset}>Restaurar</button><button className="button" type="button" onClick={save}>Guardar borrador</button></div>
+      <div className="builder-header__actions"><Link className="button button--secondary" to="/sessions/saved">Ver guardadas</Link><button className="button button--secondary" type="button" onClick={reset}>Restaurar</button><button className="button" type="button" onClick={save}>Guardar borrador</button></div>
     </header>
 
     <p className="builder-boundary"><ForjaIcon name="observe" size={20} />Esta herramienta organiza decisiones del entrenador. No evalúa al deportista ni determina automáticamente qué sesión es apropiada.</p>

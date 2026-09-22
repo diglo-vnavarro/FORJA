@@ -15,7 +15,7 @@ export function SessionCatalogPage() {
   }, [query]);
 
   return <div className="page">
-    <PageHeader eyebrow="Biblioteca de aplicación" title="Sesiones" description="Sesiones base con contexto, prioridad, dosis, adaptaciones y criterios de parada trazables." actions={<Link className="button" to="/sessions/prepare">Preparar sesión <span aria-hidden="true">→</span></Link>} />
+    <PageHeader eyebrow="Biblioteca de aplicación" title="Sesiones" description="Sesiones base con contexto, prioridad, dosis, adaptaciones y criterios de parada trazables." actions={<><Link className="button button--secondary" to="/sessions/saved">Ver guardadas</Link><Link className="button" to="/sessions/prepare">Preparar sesión <span aria-hidden="true">→</span></Link></>} />
     <section className="session-catalog-controls" aria-label="Búsqueda de sesiones"><SearchInput value={query} onChange={(event) => setQuery(event.target.value)} label="Buscar sesiones" placeholder="Buscar sesiones" /></section>
     <div className="result-summary" aria-live="polite"><strong>{filtered.length}</strong> {filtered.length === 1 ? "sesión" : "sesiones"}<span>3 fichas utilizables · primera versión</span></div>
     {filtered.length ? <section className="session-grid" aria-label="Resultados">{filtered.map((session) => <SessionCard key={session.identity.id} session={session} />)}</section> : <EmptyState title="No hay coincidencias" description="Prueba con otro término de búsqueda." />}

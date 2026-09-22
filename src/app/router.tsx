@@ -1,30 +1,23 @@
 import { createBrowserRouter } from "react-router-dom";
 import { AppShell } from "@/app/shell/AppShell";
-import { DashboardPage } from "@/pages/DashboardPage";
-import { ComingSoonPage } from "@/pages/ComingSoonPage";
-import { NotFoundPage } from "@/pages/NotFoundPage";
-import { ExerciseCatalogPage } from "@/features/exercises/pages/ExerciseCatalogPage";
-import { ExerciseDetailPage } from "@/features/exercises/pages/ExerciseDetailPage";
-import { ExerciseVisualProductionPage } from "@/features/exercises/pages/ExerciseVisualProductionPage";
-import { SessionCatalogPage } from "@/features/sessions/pages/SessionCatalogPage";
-import { SessionDetailPage } from "@/features/sessions/pages/SessionDetailPage";
-import { SessionBuilderPage } from "@/features/session-builder/pages/SessionBuilderPage";
-import { SavedSessionsPage } from "@/features/session-builder/pages/SavedSessionsPage";
+import { lazyComponent } from "@/app/lazyComponent";
+
+const comingSoon = lazyComponent(() => import("@/pages/ComingSoonPage"), "ComingSoonPage");
 
 export const router = createBrowserRouter([
 {
   path: "/", element: <AppShell />, children: [
-    { index: true, element: <DashboardPage /> },
-    { path: "exercises", element: <ExerciseCatalogPage /> },
-    { path: "exercises/:exerciseId", element: <ExerciseDetailPage /> },
-    { path: "sessions", element: <SessionCatalogPage /> },
-    { path: "sessions/saved", element: <SavedSessionsPage /> },
-    { path: "sessions/prepare", element: <SessionBuilderPage /> },
-    { path: "sessions/prepare/:draftId", element: <SessionBuilderPage /> },
-    { path: "sessions/:sessionId", element: <SessionDetailPage /> },
-    ...["planning", "athletes", "library"].map((path) => ({ path, element: <ComingSoonPage /> })),
-    { path: "*", element: <NotFoundPage /> },
+    { index: true, lazy: lazyComponent(() => import("@/pages/DashboardPage"), "DashboardPage") },
+    { path: "exercises", lazy: lazyComponent(() => import("@/features/exercises/pages/ExerciseCatalogPage"), "ExerciseCatalogPage") },
+    { path: "exercises/:exerciseId", lazy: lazyComponent(() => import("@/features/exercises/pages/ExerciseDetailPage"), "ExerciseDetailPage") },
+    { path: "sessions", lazy: lazyComponent(() => import("@/features/sessions/pages/SessionCatalogPage"), "SessionCatalogPage") },
+    { path: "sessions/saved", lazy: lazyComponent(() => import("@/features/session-builder/pages/SavedSessionsPage"), "SavedSessionsPage") },
+    { path: "sessions/prepare", lazy: lazyComponent(() => import("@/features/session-builder/pages/SessionBuilderPage"), "SessionBuilderPage") },
+    { path: "sessions/prepare/:draftId", lazy: lazyComponent(() => import("@/features/session-builder/pages/SessionBuilderPage"), "SessionBuilderPage") },
+    { path: "sessions/:sessionId", lazy: lazyComponent(() => import("@/features/sessions/pages/SessionDetailPage"), "SessionDetailPage") },
+    ...["planning", "athletes", "library"].map((path) => ({ path, lazy: comingSoon })),
+    { path: "*", lazy: lazyComponent(() => import("@/pages/NotFoundPage"), "NotFoundPage") },
   ],
 },
-{ path: "/visual-production/:exerciseId", element: <ExerciseVisualProductionPage /> },
+{ path: "/visual-production/:exerciseId", lazy: lazyComponent(() => import("@/features/exercises/pages/ExerciseVisualProductionPage"), "ExerciseVisualProductionPage") },
 ]);

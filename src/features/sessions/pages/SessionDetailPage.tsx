@@ -13,7 +13,7 @@ export function SessionDetailPage() {
   if (!session) return <div className="page"><EmptyState title="Sesión no encontrada" description="El identificador solicitado no existe entre las sesiones utilizables." /><Link className="button" to="/sessions">Volver a sesiones</Link></div>;
 
   return <article className="page session-detail">
-    <nav className="breadcrumbs" aria-label="Migas de pan"><Link to="/sessions">Sesiones</Link><span aria-hidden="true">/</span><span>{session.identity.id}</span></nav>
+    <nav className="breadcrumbs" aria-label="Migas de pan"><Link to="/sessions">Sesiones</Link><span aria-hidden="true">/</span><span>{session.identity.id}</span><Link className="breadcrumbs__action" to="/sessions/prepare">Preparar una sesión</Link></nav>
     <header className="session-hero">
       <div><p className="eyebrow">{session.identity.id} · {session.identity.version}</p><h1>{session.identity.name}</h1><p className="hero-objective">{session.purpose}</p></div>
       <div className="session-hero__priority"><ForjaIcon name="strength" size={28} /><span>Prioridad principal</span><strong>{session.primaryPriority}</strong></div>

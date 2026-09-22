@@ -88,5 +88,5 @@ El núcleo científico inicial SCI-001 → SCI-007 dispone de una primera versi�
 
 - Web documental con bibliotecas navegables de ejercicios y sesiones — Primera integración completada.
 - Buscador.
-- Aplicación interactiva.
+- Aplicación interactiva — Constructor manual de sesiones MVP en desarrollo.
 - Motor de generación y adaptación de sesiones.

@@ -47,6 +47,7 @@ El proyecto seguirá versionado semántico cuando alcance su primera versión es
 
 ### Modificado
 
+- Las páginas de la aplicación se cargan por ruta para reducir el JavaScript inicial.
 - Nivel 1 de EX-002 aprobado con aplicación provisional del símbolo FJ en la manga.
 - Refinamiento del símbolo FJ candidato para aproximarlo al concepto de marca aprobado.
 - Precisión del nombre de EX-009 a "Press unilateral por encima de la cabeza con mancuerna", manteniendo su identidad metodológica y variante base de pie.

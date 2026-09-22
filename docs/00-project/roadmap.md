@@ -86,7 +86,7 @@ El núcleo científico inicial SCI-001 → SCI-007 dispone de una primera versi�
 
 ## Fase 6 — Producto digital
 
-- Web documental.
+- Web documental con bibliotecas navegables de ejercicios y sesiones — Primera integración completada.
 - Buscador.
 - Aplicación interactiva.
 - Motor de generación y adaptación de sesiones.

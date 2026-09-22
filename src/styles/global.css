@@ -61,14 +61,69 @@ button, a, input, select { -webkit-tap-highlight-color: transparent; }
 .coaching-panel h3 { display: flex; align-items: center; gap: 8px; margin: 0 0 12px; color: var(--forja-primary); font-size: 16px; }.coaching-panel h3 .forja-icon { color: currentColor; }.coaching-panel li { overflow-wrap: anywhere; }.coaching-panel--success h3 { color: var(--forja-success); }.coaching-panel--danger h3 { color: var(--forja-danger); }.coaching-panel--warning h3 { color: var(--forja-warning); }.coaching-grid--two { grid-template-columns: repeat(2,1fr); }.relations-grid--adaptive { grid-template-columns: repeat(auto-fit,minmax(230px,1fr)); }.relation a { color: var(--forja-secondary); text-decoration: none; }
 .nav-scrim { display: none; }
 
+/* Session library: context and decisions before exercise accumulation. */
+.session-catalog-controls { max-width: 620px; margin-bottom: 20px; padding: 15px; border: 1px solid color-mix(in srgb, var(--forja-primary) 12%, var(--forja-white)); border-radius: 10px; background: var(--forja-white); }
+.session-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.session-card { display: flex; min-height: 430px; flex-direction: column; overflow: hidden; border: 1px solid color-mix(in srgb, var(--forja-primary) 14%, var(--forja-white)); border-radius: 10px; background: var(--forja-white); box-shadow: 0 7px 22px color-mix(in srgb, var(--forja-primary) 5%, transparent); }
+.session-card > header { display: flex; align-items: center; justify-content: space-between; min-height: 64px; padding: 0 20px; color: var(--forja-white); background: var(--forja-primary); }
+.session-card > header > span { font-size: 13px; font-weight: 850; letter-spacing: .08em; }
+.session-card__body { display: flex; flex: 1; flex-direction: column; padding: 22px; }
+.session-card h2 { margin: 6px 0 10px; color: var(--forja-primary); font-size: 22px; line-height: 1.18; }
+.session-card h2 a { text-decoration: none; }
+.session-card__body > p:not(.card-kicker) { min-height: 78px; margin: 0 0 17px; color: var(--forja-gray-mid); font-size: 13px; line-height: 1.5; }
+.session-card__priority { display: grid; gap: 4px; margin-top: 18px; padding: 14px; border-left: 3px solid var(--forja-secondary); background: color-mix(in srgb, var(--forja-secondary) 6%, var(--forja-white)); }
+.session-card__priority strong { color: var(--forja-secondary); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
+.session-card__priority span { color: var(--forja-primary); font-size: 13px; line-height: 1.4; }
+.session-card .card-footer { margin-top: auto; }
+.session-detail { max-width: 1120px; }
+.session-hero { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(280px, .65fr); gap: 1px; overflow: hidden; border: 1px solid color-mix(in srgb, var(--forja-primary) 12%, var(--forja-white)); border-radius: 12px; background: color-mix(in srgb, var(--forja-primary) 10%, var(--forja-white)); }
+.session-hero > div:first-child { padding: clamp(28px, 4vw, 46px); background: var(--forja-white); }
+.session-hero h1 { margin: 4px 0 13px; color: var(--forja-primary); font-size: clamp(34px, 4vw, 50px); line-height: 1.06; letter-spacing: -.035em; }
+.session-hero__priority { display: grid; align-content: center; gap: 9px; padding: 30px; color: var(--forja-white); background: var(--forja-primary); }
+.session-hero__priority span { margin-top: 8px; color: color-mix(in srgb, var(--forja-white) 68%, transparent); font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.session-hero__priority strong { font-size: 18px; line-height: 1.35; }
+.session-summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; margin-top: 12px; overflow: hidden; border: 1px solid color-mix(in srgb, var(--forja-primary) 11%, var(--forja-white)); border-radius: 9px; background: color-mix(in srgb, var(--forja-primary) 10%, var(--forja-white)); }
+.session-summary > div { display: grid; gap: 4px; padding: 14px 16px; background: var(--forja-white); }
+.session-summary span { color: var(--forja-gray-mid); font-size: 9px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.session-summary strong { color: var(--forja-primary); font-size: 13px; }
+.session-info-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.session-info-panel { padding: 17px; border: 1px solid color-mix(in srgb, var(--forja-primary) 10%, var(--forja-white)); border-radius: 8px; background: color-mix(in srgb, var(--forja-gray-light) 24%, var(--forja-white)); }
+.session-info-panel h3 { display: flex; align-items: center; gap: 8px; margin: 0 0 10px; color: var(--forja-primary); font-size: 15px; }
+.session-info-panel ul, .session-task ul, .session-adaptation ul { display: grid; gap: 5px; margin: 0; padding-left: 18px; }
+.session-info-panel li, .session-task li, .session-adaptation li { font-size: 12px; line-height: 1.42; }
+.session-blocks { display: grid; gap: 18px; }
+.session-block { overflow: hidden; border: 1px solid color-mix(in srgb, var(--forja-primary) 13%, var(--forja-white)); border-radius: 9px; }
+.session-block > header { display: grid; grid-template-columns: 48px 1fr; align-items: center; gap: 13px; padding: 14px 17px; color: var(--forja-primary); background: color-mix(in srgb, var(--forja-secondary) 6%, var(--forja-white)); }
+.session-block > header > span { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; color: var(--forja-white); background: var(--forja-primary); font-size: 12px; font-weight: 850; }
+.session-block h3 { margin: 0 0 3px; font-size: 18px; }
+.session-block header p { margin: 0; color: var(--forja-gray-mid); font-size: 12px; }
+.session-tasks { display: grid; gap: 1px; background: color-mix(in srgb, var(--forja-primary) 9%, var(--forja-white)); }
+.session-task { display: grid; grid-template-columns: minmax(150px, .72fr) minmax(210px, 1.25fr) repeat(3, minmax(145px, 1fr)); gap: 1px; background: color-mix(in srgb, var(--forja-primary) 9%, var(--forja-white)); }
+.session-task > div { min-width: 0; padding: 14px; background: var(--forja-white); }
+.session-task__identity span, .session-task > div > strong { display: block; margin-bottom: 6px; color: var(--forja-gray-mid); font-size: 9px; font-weight: 850; letter-spacing: .07em; text-transform: uppercase; }
+.session-task__identity h4 { margin: 0; color: var(--forja-primary); font-size: 15px; line-height: 1.3; }
+.session-task__identity a { text-decoration-color: color-mix(in srgb, var(--forja-secondary) 45%, transparent); text-underline-offset: 3px; }
+.session-task p { margin: 0; font-size: 12px; line-height: 1.45; }
+.session-adaptation-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.session-adaptation { padding: 17px; border: 1px solid color-mix(in srgb, var(--forja-primary) 11%, var(--forja-white)); border-radius: 8px; }
+.session-adaptation h3 { margin: 0 0 11px; color: var(--forja-primary); font-size: 15px; }
+.session-adaptation--minor { background: color-mix(in srgb, var(--forja-secondary) 5%, var(--forja-white)); }
+.session-adaptation--task { background: color-mix(in srgb, var(--forja-warning) 5%, var(--forja-white)); }
+.session-adaptation--objective { background: color-mix(in srgb, var(--forja-danger) 4%, var(--forja-white)); }
+.session-usage-note { display: flex; align-items: flex-start; gap: 10px; margin: 14px 0 0; padding: 14px; border-left: 3px solid var(--forja-warning); color: var(--forja-primary); background: color-mix(in srgb, var(--forja-warning) 6%, var(--forja-white)); font-size: 13px; font-weight: 700; line-height: 1.45; }
+.session-usage-note .forja-icon { flex: none; }
+
 @media (max-width: 1020px) {
-  .app-shell { grid-template-columns: 210px minmax(0, 1fr); }.app-content { padding-inline: 28px; }.dashboard-grid { grid-template-columns: repeat(2, 1fr); }.exercise-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }.exercise-hero { grid-template-columns: 1fr 1fr; }.exercise-hero__copy { padding: 30px; }.metrics-grid { grid-template-columns: repeat(2, 1fr); }.coaching-grid { grid-template-columns: 1fr 1fr; }.coaching-grid > :last-child { grid-column: 1 / -1; }
+  .app-shell { grid-template-columns: 210px minmax(0, 1fr); }.app-content { padding-inline: 28px; }.dashboard-grid { grid-template-columns: repeat(2, 1fr); }.exercise-grid, .session-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }.exercise-hero { grid-template-columns: 1fr 1fr; }.exercise-hero__copy { padding: 30px; }.metrics-grid { grid-template-columns: repeat(2, 1fr); }.coaching-grid { grid-template-columns: 1fr 1fr; }.coaching-grid > :last-child { grid-column: 1 / -1; }
+  .session-task { grid-template-columns: minmax(150px, .8fr) repeat(2, minmax(180px, 1fr)); }.session-task > div:nth-child(4), .session-task > div:nth-child(5) { grid-column: span 1; }
 }
 @media (max-width: 760px) {
   .app-shell { display: block; padding-top: 64px; }.app-bar { position: fixed; width: 100%; height: 64px; padding: 0 16px; }.profile-placeholder div { display: none; }.profile-placeholder > span { width: 34px; height: 34px; }.menu-button { display: block; order: -1; }.brand-link { position: absolute; left: 50%; transform: translateX(-50%); }.forja-logo--lockup.forja-logo--md { width: 108px; height: 28px; }.sidebar { position: fixed; z-index: 40; top: 64px; left: 0; width: min(300px, 86vw); height: calc(100vh - 64px); transform: translateX(-102%); transition: transform .2s ease; }.sidebar--open { transform: translateX(0); }.nav-scrim { position: fixed; z-index: 35; inset: 64px 0 0; display: block; border: 0; background: color-mix(in srgb, var(--forja-primary) 60%, transparent); }.app-content { padding: 28px 16px 48px; }.page-header { margin-bottom: 24px; }.page-header h1 { font-size: 34px; }.page-lead { font-size: 15px; }.dashboard-grid { grid-template-columns: 1fr; }.area-card { min-height: 0; flex-direction: row; }.catalog-controls { grid-template-columns: 1fr 1fr; }.search-control { grid-column: 1 / -1; }.exercise-grid { grid-template-columns: 1fr; }.exercise-card { display: grid; grid-template-columns: 34% 66%; }.exercise-card__media { height: auto; min-height: 260px; }.exercise-card__body > p:not(.card-kicker) { min-height: 0; }.exercise-hero { display: flex; flex-direction: column-reverse; }.exercise-hero__media { min-height: 340px; height: 44vh; max-height: 440px; }.exercise-hero__copy { padding: 26px; }.exercise-hero h1 { font-size: 40px; }.section-heading { display: block; }.section-heading h2 { margin-bottom: 4px; }.instruction-layout { grid-template-columns: 1fr; }.coaching-grid, .relations-grid { grid-template-columns: 1fr; }.coaching-grid > :last-child { grid-column: auto; }
+  .session-grid { grid-template-columns: 1fr; }.session-card { min-height: 0; }.session-hero { grid-template-columns: 1fr; }.session-hero__priority { padding: 23px 28px; }.session-summary { grid-template-columns: repeat(2, 1fr); }.session-task { grid-template-columns: 1fr 1fr; }.session-task__identity { grid-column: 1 / -1; }.session-adaptation-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 520px) {
   .profile-placeholder { visibility: hidden; }.profile-placeholder > span { display: none; }.page-header h1 { font-size: 31px; }.dashboard-intro { margin-inline: -4px; }.catalog-controls { grid-template-columns: 1fr; }.search-control { grid-column: auto; }.select-control select { height: 44px; }.result-summary span { display: none; }.exercise-card { display: block; }.exercise-card__media { height: 215px; min-height: 0; }.card-footer { align-items: flex-end; }.exercise-hero__media { min-height: 275px; }.exercise-hero__copy { padding: 23px 19px 27px; }.exercise-hero h1 { font-size: 34px; }.identity-list { display: grid; gap: 14px; }.detail-section { padding: 22px 16px; }.metrics-grid { grid-template-columns: 1fr 1fr; }.metric { min-height: 116px; }.instruction-steps li { grid-template-columns: 36px 1fr; padding: 12px 8px; }.instruction-steps span { width: 32px; height: 32px; }.relations-grid > div { padding: 16px; }
+  .session-info-grid, .session-task { grid-template-columns: 1fr; }.session-task__identity { grid-column: auto; }.session-hero h1 { font-size: 32px; }.session-hero > div:first-child { padding: 25px 20px; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
 

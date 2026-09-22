@@ -8,6 +8,7 @@ El proyecto seguirá versionado semántico cuando alcance su primera versión es
 
 ### Añadido
 
+- Registro local de ejecución para comparar dosis planificada y realizada, documentar modificaciones y cerrar sesiones.
 - Biblioteca local de borradores de sesión con reapertura, duplicado y eliminación confirmada.
 - Constructor manual MVP para preparar, adaptar, guardar e imprimir borradores de sesiones sin generación automática.
 - Biblioteca de sesiones integrada en la aplicación con catálogo, detalle y referencias verificadas a ejercicios.

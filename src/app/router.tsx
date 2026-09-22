@@ -6,6 +6,8 @@ import { NotFoundPage } from "@/pages/NotFoundPage";
 import { ExerciseCatalogPage } from "@/features/exercises/pages/ExerciseCatalogPage";
 import { ExerciseDetailPage } from "@/features/exercises/pages/ExerciseDetailPage";
 import { ExerciseVisualProductionPage } from "@/features/exercises/pages/ExerciseVisualProductionPage";
+import { SessionCatalogPage } from "@/features/sessions/pages/SessionCatalogPage";
+import { SessionDetailPage } from "@/features/sessions/pages/SessionDetailPage";
 
 export const router = createBrowserRouter([
 {
@@ -13,7 +15,9 @@ export const router = createBrowserRouter([
     { index: true, element: <DashboardPage /> },
     { path: "exercises", element: <ExerciseCatalogPage /> },
     { path: "exercises/:exerciseId", element: <ExerciseDetailPage /> },
-    ...["sessions", "planning", "athletes", "library"].map((path) => ({ path, element: <ComingSoonPage /> })),
+    { path: "sessions", element: <SessionCatalogPage /> },
+    { path: "sessions/:sessionId", element: <SessionDetailPage /> },
+    ...["planning", "athletes", "library"].map((path) => ({ path, element: <ComingSoonPage /> })),
     { path: "*", element: <NotFoundPage /> },
   ],
 },

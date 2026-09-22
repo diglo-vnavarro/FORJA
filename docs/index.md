@@ -47,4 +47,6 @@ Los módulos científicos, metodológicos y prácticos se incorporarán progresi
 ## 06 — Sesiones
 
 - [SES-STD-001 — Estándar de sesión FORJA](06-sessions/session-standard.md) — Primera versión completa, en revisión.
-- Primer lote de sesiones base — Próximo hito.
+- [SES-001 — Fuerza inicial y aprendizaje de patrones](06-sessions/ses-001-initial-strength-and-movement-learning.md) — Utilizable, primera versión.
+- [SES-002 — Fuerza general con carga externa](06-sessions/ses-002-general-strength.md) — Utilizable, primera versión.
+- [SES-003 — Fuerza breve compatible con una semana de fútbol](06-sessions/ses-003-short-football-compatible-strength.md) — Utilizable, primera versión.

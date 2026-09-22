@@ -8,6 +8,7 @@ El proyecto seguirá versionado semántico cuando alcance su primera versión es
 
 ### Añadido
 
+- Primer lote piloto de sesiones base FORJA: SES-001, SES-002 y SES-003.
 - Primera versión completa de SES-STD-001 "Estándar de sesión FORJA".
 - Biblioteca canónica de masters visuales EX-001–EX-015, índice QA y renderer reutilizable para derivados de ejercicios.
 - Primeros derivados web y de sesión para EX-002, con validación de la plantilla reutilizable en EX-007.

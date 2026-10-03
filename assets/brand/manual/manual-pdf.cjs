@@ -24,7 +24,7 @@ if (!pw) {
 }
 const { chromium } = require(pw);
 
-const VERSION = '0.1';
+const VERSION = '0.2';
 const FECHA = '3 de octubre de 2026';
 const ESTADO = 'Borrador para revisión';
 const SALIDA = path.join(__dirname, `FORJA_Manual_de_Marca_v${VERSION}.pdf`);
@@ -40,9 +40,18 @@ const LOCKUP = leer('forja-lockup-horizontal.svg');
 const conAlto = (svg, alto, extra = '') => svg.replace('<svg ', `<svg style="height:${alto};width:auto;display:block" ${extra} `);
 const SIM = (h) => conAlto(SIMBOLO, h);
 const WM = (h) => conAlto(WORDMARK, h);
-// El lockup se recorta a su contenido real (x 0-865 de 980): el viewBox original deja aire a la derecha.
-const LOCK = (h, recortado = true) => conAlto(recortado ? LOCKUP.replace('viewBox="0 0 980 180"', 'viewBox="0 10 868 148"') : LOCKUP, h);
+const LOCK = (h) => conAlto(LOCKUP, h);
 const IMG = (rel) => furl(path.join(RAIZ, rel));
+// Wordmark v1 (escalonado), leído del historial para mostrar el antes y el después de D-007.
+let WORDMARK_V1 = null;
+try {
+  WORDMARK_V1 = require('child_process').execSync('git show a8336de:src/design-system/forja/brand/forja-wordmark.svg',
+    { cwd: RAIZ, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] });
+} catch { /* sin Git: se omite la comparación */ }
+// Inter (D-006), incrustada para que el PDF no dependa de las fuentes del sistema.
+const FUENTE = path.join(RAIZ, 'node_modules', '@fontsource-variable', 'inter', 'files');
+const INTER = ['latin', 'latin-ext'].map((s) => path.join(FUENTE, `inter-${s}-wght-normal.woff2`)).filter((f) => fs.existsSync(f))
+  .map((f) => `@font-face{font-family:"Inter Variable";font-weight:100 900;font-style:normal;src:url(data:font/woff2;base64,${fs.readFileSync(f).toString('base64')}) format("woff2")}`).join('');
 
 // ---------------------------------------------------------------- color (desde forja-tokens.css)
 const css = fs.readFileSync(path.join(DS, 'src', 'styles', 'forja-tokens.css'), 'utf8');
@@ -162,13 +171,13 @@ pagina('', `<div class="cover">
 // 1 · Resumen
 const tarjetas = [
   [`<div class="mini mini-navy">${SIM('19mm')}</div>`, 'Símbolo FJ', chip('Aprobado', 'ok'), 'Escudo con las iniciales F y J entrelazadas. Pieza preferente en espacios reducidos y en ropa.'],
-  [`<div class="mini">${WM('8mm')}</div>`, 'Wordmark', chip('Aceptado · trazado por revisar', 'rev'), 'FORJA en mayúsculas geométricas, como vector sin fuente. El trazado procede de una imagen y tiene escalones.'],
+  [`<div class="mini">${WM('8mm')}</div>`, 'Wordmark', chip('Aprobado · v2', 'ok'), 'FORJA en mayúsculas geométricas, como vector sin fuente. La v2 sustituye los escalones de la v1 por rectas y curvas (D-007).'],
   [`<div class="mini">${LOCK('11mm')}</div>`, 'Lockup horizontal', chip('Aprobado', 'ok'), 'Símbolo + wordmark. Cabeceras, documentos, fichas e interfaz.'],
   [`<div class="mini mini-pal">${[T.navy, T.blue, T.dark, T.light].map((h) => `<i style="background:${h}"></i>`).join('')}</div>`, 'Paleta v1', chip('En uso · sin cerrar', 'rev'), 'Ocho tokens en forja-tokens.css. El concepto inicial proponía otros tonos secundarios.'],
   [`<div class="mini mini-ico">${['strength', 'speed', 'rpe', 'observe'].map((k) => ICON[k]).join('')}</div>`, 'Iconografía', chip('Aprobada', 'ok'), '40 conceptos semánticos sobre Tabler Icons, trazo 1,8, servidos solo mediante ForjaIcon.'],
-  [`<div class="mini mini-type">Aa</div>`, 'Tipografía', chip('Sin definir', 'no'), 'No hay fuente de marca. La app pide Inter, pero no la carga: en Windows se ve Segoe UI.'],
+  [`<div class="mini mini-type">Aa</div>`, 'Tipografía', chip('Decidida', 'ok'), 'Inter variable, servida desde la propia aplicación, en la app, las fichas y este manual (D-006).'],
 ];
-pagina('Resumen', `${head('Resumen', 'Lo que hay hoy', 'Este borrador recoge la identidad tal como existe en el repositorio: masters SVG, tokens, iconografía y piezas producidas. No introduce cambios de geometría. Lo que falta decidir está en la última sección, «Decisiones a confirmar».')}
+pagina('Resumen', `${head('Resumen', 'Lo que hay hoy', 'Este borrador recoge la identidad tal como existe en el repositorio: masters SVG, tokens, iconografía y piezas producidas. Las decisiones tomadas tras la v0.1 (D-006 a D-009) ya están aplicadas; las que siguen abiertas, con su recomendación, están en «Decisiones».')}
 <div class="cards6">${tarjetas.map(([m, t, c, d]) => `<div class="card">${m}<h3>${t}</h3>${c}<p>${d}</p></div>`).join('')}</div>
 <p class="nota">Fuente canónica: <code>src/design-system/forja/brand/</code> y <code>src/design-system/forja/src/styles/forja-tokens.css</code>. Las copias de <code>assets/brand/master/</code> son idénticas (comprobado byte a byte).</p>`);
 
@@ -213,15 +222,14 @@ pagina('Wordmark y lockup', `${head('03 · Wordmark y lockup', 'FORJA, en mayús
 <div class="two">
   <div>
     <div class="panel">${WM('17mm')}</div>
-    <p class="cap"><b>forja-wordmark.svg</b> · viewBox 1502 × 271 · un solo trazado, sin fuente.</p>
+    <p class="cap"><b>forja-wordmark.svg</b> (v2) · viewBox 1502 × 271 · un solo trazado de rectas y curvas, sin fuente.</p>
     <div class="panel">${LOCK('22mm')}</div>
-    <p class="cap"><b>forja-lockup-horizontal.svg</b> · símbolo (137 de alto) + wordmark (mayúsculas de 120): las letras miden el 88 % del escudo. Separación entre ambos ≈ 1,2 módulos.</p>
+    <p class="cap"><b>forja-lockup-horizontal.svg</b> · viewBox 868 × 144, ajustado al contenido (D-008). Símbolo de 137 de alto y mayúsculas de 120: las letras miden el 88 % del escudo. Separación ≈ 1,2 módulos.</p>
   </div>
   <div>
-    <div class="zoom"><img src="__ZOOM__"></div>
-    <p class="cap"><b>Detalle de la O a 8×.</b> El contorno del wordmark está formado por segmentos de 1 unidad (vectorizado desde una imagen; el propio archivo se titula «approved guide derived master candidate»).</p>
-    ${aviso('A tamaño de pantalla no se aprecia; en impresión grande, rotulación o bordado los escalones serán visibles. Revectorizar el wordmark exige una decisión explícita, porque las reglas del repositorio prohíben redibujar los masters.')}
-    ${aviso('El <code>viewBox</code> del lockup (980 × 180) deja unas 115 unidades vacías a la derecha (12 %). Alineado a la derecha, el logotipo parece desplazado. Este manual lo muestra recortado a su contenido.')}
+    ${WORDMARK_V1 ? `<div class="zooms"><div class="zoom"><img src="__ZOOM1__"><span>v1</span></div><div class="zoom"><img src="__ZOOM__"><span>v2</span></div></div>
+    <p class="cap"><b>Detalle de la O a 8×.</b> La v1 se vectorizó desde una imagen y su contorno era una escalera de segmentos de 1 unidad. La v2 conserva la geometría: la desviación máxima es de 1 unidad (0,4 % de la altura de las mayúsculas).</p>` : '<div class="zoom"><img src="__ZOOM__"></div><p class="cap"><b>Detalle de la O a 8×</b> (v2).</p>'}
+    <div class="ok-n"><b>Resuelto · D-007</b>La revectorización es reproducible con <code>assets/brand/tools/revectorizar-wordmark.py</code>. El wordmark ya sirve para impresión grande, rotulación y bordado.</div>
   </div>
 </div>`);
 
@@ -236,7 +244,7 @@ pagina('Versiones', `${head('04 · Versiones', 'Un solo dibujo, dos colores', 'L
   ${ver(T.navy, T.white, SIM('20mm'), 'Símbolo inverso', 'Sobre navy. También en el azul FORJA: ' + C(T.white, T.blue) + '.')}
   ${ver(T.light, T.navy, WM('8mm'), 'Wordmark solo', 'Usos editoriales donde el símbolo ya está presente.')}
 </div>
-${aviso('En la aplicación, <code>ForjaLogo</code> carga el SVG como <code>&lt;img&gt;</code>: así <code>currentColor</code> no hereda y el logotipo sale <b>negro</b>, no navy (se ve en la ficha EX-002). La versión inversa se consigue con <code>filter: invert(1)</code>. Corregirlo exige incrustar el SVG o usar una máscara CSS.')}`);
+<div class="ok-n"><b>Resuelto · D-008</b><code>ForjaLogo</code> incrusta el SVG en línea: el logotipo toma el navy de <code>--forja-primary</code> y, en la versión inversa, el blanco de <code>--forja-white</code>, sin filtros.</div>`);
 
 // 6 · Color
 const sw = (p, grande) => `<div class="sw ${grande ? 'sw-g' : ''}"><div class="sw-c" style="background:${p.hex};${p.hex === T.white ? 'box-shadow:inset 0 0 0 1px #d8dee6' : ''}"><span style="color:${ctr(p.hex, T.white) > ctr(p.hex, T.navy) ? '#fff' : T.navy}">${p.hex.toUpperCase()}</span></div>
@@ -281,37 +289,42 @@ pagina('Espacio y tamaño', `${head('06 · Espacio y tamaño', 'Un asta de aire 
     </tbody></table>
     <p class="nota">Medidas de <code>assets/brand/README.md</code>, marcadas allí como pendientes de validación humana y de producción.</p>
     <div class="escala">${[20, 32, 48].map((h) => `<div><span style="color:${T.navy}">${SIM(h + 'px')}</span><small>${h} px</small></div>`).join('')}
-      <div><span style="color:${T.navy}">${LOCK('25px')}</span><small>lockup 96 px</small></div></div>
+      <div><span style="color:${T.navy}">${LOCK('16px')}</span><small>lockup 96 px</small></div></div>
   </div>
 </div>`);
 
 // 8 · Tipografía
-pagina('Tipografía', `${head('07 · Tipografía', 'Todavía no hay una tipografía de marca')}
+const pesos = [[400, 'Regular · texto'], [600, 'Semibold · énfasis'], [700, 'Bold · títulos de bloque'], [800, 'ExtraBold · títulos y etiquetas']];
+pagina('Tipografía', `${head('07 · Tipografía', 'Inter, en toda la aplicación', 'Decisión D-006. Una sola familia, variable, servida desde la propia aplicación (<code>@fontsource-variable/inter</code>) y no desde un servicio externo.')}
 <div class="two">
-  <div class="txt">
-    <h3>Estado actual</h3>
-    <ul>
-      <li>La app declara <code>Inter, "Segoe UI", Arial, sans-serif</code> en <code>src/styles/global.css</code>, pero <b>no carga Inter</b>: no hay <code>@font-face</code> ni paquete de fuente. Cada equipo ve la fuente de su sistema (Segoe UI en Windows, Helvetica/SF en Apple, Roboto en Android).</li>
-      <li>Las fichas exportadas (EX-002, EX-007) se rasterizan en la máquina que las genera, así que su tipografía depende de esa máquina.</li>
-      <li>El wordmark no depende de fuentes: es un trazado.</li>
-    </ul>
-    <h3>Jerarquía observada en la app</h3>
-    <table class="tb tb-s"><tbody>
-      <tr><td>Título de página</td><td>34–50 px · negrita · interletra −0,035 em · navy</td></tr>
-      <tr><td>Título de bloque</td><td>15–18 px · negrita · navy</td></tr>
-      <tr><td>Texto</td><td>12–13 px · interlineado 1,45 · gris oscuro</td></tr>
-      <tr><td>Etiqueta</td><td>9 px · peso 850 · versalitas +0,07 em · gris medio</td></tr>
-    </tbody></table>
-  </div>
   <div class="txt">
     <div class="spec">
       <div style="font-size:30pt;font-weight:800;letter-spacing:-.035em;color:${T.navy}">Sentadilla goblet</div>
       <div style="font-size:12pt;font-weight:700;color:${T.navy};margin-top:2mm">Cómo realizarla</div>
       <div style="font-size:10pt;line-height:1.45;color:${T.dark};margin-top:1.5mm">Producir fuerza contra el suelo para volver a la posición inicial.</div>
       <div style="font-size:7pt;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:${T.mid};margin-top:3mm">Variables de prescripción</div>
-      <p class="cap" style="margin-top:4mm">Muestra con la pila actual, renderizada en esta máquina.</p>
+      <div class="pesos">${pesos.map(([w, t]) => `<div><span style="font-weight:${w}">Aa Ññ 0123</span><small>${t}</small></div>`).join('')}</div>
+      <div class="tab"><span>Cifras tabulares</span><b>3 × 8 · 90 s · RIR 2–3</b><b>2 × 12 · 60 s · RIR 3–4</b></div>
     </div>
-    ${aviso('Elegir una familia y cargarla en la app y en las fichas. Criterios: libre (OFL), buena lectura en tamaños pequeños, cifras tabulares para series, repeticiones y tiempos, y acentos del español. Inter cumple todos y es la que el código ya pide; no se adopta en este borrador.')}
+  </div>
+  <div class="txt">
+    <h3>Por qué Inter</h3>
+    <ul>
+      <li>Licencia libre (SIL OFL): se puede incrustar en la app, en las fichas y en PDF.</li>
+      <li>Diseñada para pantalla: se lee bien entre 9 y 13 px, el tamaño de etiquetas y tablas.</li>
+      <li>Cifras tabulares (<code>font-variant-numeric: tabular-nums</code>) para alinear series, repeticiones y tiempos.</li>
+      <li>Cobertura completa del español. Es la fuente que el código ya pedía.</li>
+      <li>Neutra: deja el carácter al wordmark, que es un trazado propio y no depende de ninguna fuente.</li>
+      <li>Servida en local: sin dependencia de terceros ni envío de datos de los usuarios a otro servicio.</li>
+    </ul>
+    <h3>Jerarquía</h3>
+    <table class="tb tb-s"><tbody>
+      <tr><td>Título de página</td><td>34–50 px · 800 · interletra −0,035 em · navy</td></tr>
+      <tr><td>Título de bloque</td><td>15–18 px · 700 · navy</td></tr>
+      <tr><td>Texto</td><td>12–13 px · 400 · interlineado 1,45 · gris oscuro</td></tr>
+      <tr><td>Etiqueta</td><td>9 px · 800 · mayúsculas +0,07 em · gris medio</td></tr>
+    </tbody></table>
+    <p class="nota">Token: <code>--forja-font-sans: "Inter Variable", Inter, "Segoe UI", Arial, sans-serif</code>.</p>
   </div>
 </div>`);
 
@@ -397,47 +410,53 @@ pagina('Uso incorrecto', `${head('12 · Uso incorrecto', 'Lo que no se hace')}
 
 // 14 · Kit e implantación
 const fila = (estado, pieza, detalle) => `<tr><td>${estado}</td><td><b>${pieza}</b></td><td>${detalle}</td></tr>`;
-pagina('Kit', `${head('13 · Kit', 'Qué existe y qué falta')}
-<table class="tb kit"><thead><tr><th>Estado</th><th>Pieza</th><th>Detalle</th></tr></thead><tbody>
-${fila(chip('Existe', 'ok'), 'Masters SVG', '<code>src/design-system/forja/brand/</code>: símbolo, wordmark y lockup. Copias idénticas en <code>assets/brand/master/</code>.')}
-${fila(chip('Existe', 'ok'), 'Tokens de color', '<code>forja-tokens.css</code>, resumidos en <code>assets/brand/tokens.md</code>.')}
-${fila(chip('Existe', 'ok'), 'Iconografía', '<code>ForjaIcon</code> + <code>icon-map.json</code> (40 conceptos, 3 propios).')}
-${fila(chip('Existe', 'ok'), 'Ilustración', 'Masters EX-001 a EX-015 y derivados web/sesión de EX-002 y EX-007.')}
-${fila(chip('Corregir', 'rev'), 'Logotipo en la app', 'Sale negro en lugar de navy (SVG como <code>&lt;img&gt;</code>); la versión inversa usa <code>invert()</code>.')}
-${fila(chip('Corregir', 'rev'), 'viewBox del lockup', '12 % de aire a la derecha que descuadra la alineación.')}
-${fila(chip('Corregir', 'rev'), 'Trazado del wordmark', 'Escalonado; revectorizar antes de imprenta, rotulación o bordado (requiere decisión).')}
-${fila(chip('Falta', 'no'), 'Favicon e iconos de app', '<code>index.html</code> no declara favicon ni manifiesto; no hay carpeta <code>public/</code>.')}
-${fila(chip('Falta', 'no'), 'PNG transparentes', 'Pendientes según <code>assets/brand/README.md</code>; necesarios para Office, redes y terceros.')}
-${fila(chip('Falta', 'no'), 'Tipografía', 'Sin fuente de marca cargada.')}
-${fila(chip('Falta', 'no'), 'Imagen para compartir', 'Sin <code>og:image</code> ni avatar para redes.')}
-</tbody></table>`);
+pagina('Kit', `${head('13 · Kit', 'Qué hay y dónde está', 'Todo se genera desde los masters con <code>node assets/brand/kit/generar-kit.cjs</code> (D-009). Guía de uso en <code>assets/brand/kit/README.md</code>.')}
+<div class="two two-kit">
+<table class="tb kit"><thead><tr><th>Estado</th><th>Pieza</th><th>Dónde</th></tr></thead><tbody>
+${fila(chip('Listo', 'ok'), 'Masters SVG', '<code>src/design-system/forja/brand/</code>; copias idénticas, comprobadas por un test, en <code>assets/brand/master/</code>.')}
+${fila(chip('Listo', 'ok'), 'Wordmark v2', 'Sin escalones (D-007).')}
+${fila(chip('Listo', 'ok'), 'Logotipo en la app', 'En línea, navy o blanco por token (D-008).')}
+${fila(chip('Listo', 'ok'), 'Tipografía', 'Inter variable, local (D-006).')}
+${fila(chip('Listo', 'ok'), 'Favicon', '<code>public/favicon.svg</code> (claro y oscuro) y <code>favicon-32.png</code>.')}
+${fila(chip('Listo', 'ok'), 'Iconos de app', 'Apple 180, 192, 512, <i>maskable</i> 512 y <code>manifest.webmanifest</code>.')}
+${fila(chip('Listo', 'ok'), 'PNG transparentes', '<code>assets/brand/kit/png/</code>: símbolo, wordmark y lockup en navy, blanco y negro (2400 px); avatar de 800.')}
+${fila(chip('Listo', 'ok'), 'Imagen para compartir', '<code>public/og-image.png</code>, 1200 × 630, sin claim.')}
+${fila(chip('Pendiente', 'rev'), 'URL de og:image', 'Relativa hasta que exista un dominio público.')}
+${fila(chip('Pendiente', 'rev'), 'Pruebas físicas', 'Impresión y bordado del símbolo (D8).')}
+</tbody></table>
+<div class="kitprev">
+  <img src="${IMG('public/og-image.png')}" class="kp-og">
+  <div class="kp-row"><img src="${IMG('public/icon-512.png')}"><img src="${IMG('public/icon-maskable-512.png')}"><img src="${IMG('public/apple-touch-icon.png')}"><span class="kp-fav">${SIM('9mm')}</span></div>
+</div>
+</div>`);
 
 // 15 · Decisiones
 const D = [
-  ['Lectura del símbolo', 'Aprobar, corregir o descartar la lectura «escudo = protección; letras construidas dentro = desarrollo con tiempo».'],
-  ['Paleta definitiva', 'Mantener los tokens actuales (azul <code>' + T.blue + '</code>) o adoptar el azul del concepto (<code>#1F5A9D</code>); añadir o no un token de azul claro de superficie.'],
-  ['Claim', '¿Se adopta «Entrena · Aprende · Progresa», otro, o ninguno? Hoy solo aparece en el concepto generado.'],
-  ['Tipografía', 'Elegir familia (recomendación: Inter, que el código ya pide) y cargarla en la app y en las fichas.'],
-  ['Wordmark', 'Autorizar una revectorización limpia con la misma geometría, para impresión y bordado.'],
-  ['Color del logotipo en la app', 'Autorizar que <code>ForjaLogo</code> pinte en navy (SVG incrustado o máscara) en lugar de negro.'],
-  ['Kit mínimo', 'Favicon, iconos de app (192/512/maskable), PNG transparentes y <code>og:image</code>, derivados de los masters sin redibujar.'],
-  ['Tamaños mínimos y ropa', 'Validar las medidas provisionales con una prueba impresa y una de bordado.'],
+  ['Lectura del símbolo', 'abierta', 'Aprobar solo lo que se sostiene: el escudo representa la protección y el bienestar del deportista, y FJ son las iniciales de FORJA. No convertir en relato oficial la idea de las «letras construidas dentro», que es interpretación.'],
+  ['Paleta definitiva', 'abierta', `Mantener los tokens actuales, que ya usa toda la app y cumplen AA (azul ${coma(ctr(T.blue, T.white))}:1 sobre blanco). Del concepto, incorporar solo <code>#E6F0FB</code> como <code>--forja-blue-light</code> de superficie, y dar nombre propio al ocre (<code>--forja-ochre</code>). Descartar el resto.`],
+  ['Claim', 'abierta', 'Sin claim en la v1.0. Donde haga falta texto, usar el descriptor «Sistema de conocimiento para el desarrollo físico de jóvenes deportistas». «Entrena · Aprende · Progresa» salió de una imagen generada, es genérico y pone el foco en entrenar, no en decidir.'],
+  ['Tipografía', 'D-006', 'Inter variable, servida en local, en app, fichas, kit y manual.'],
+  ['Wordmark', 'D-007', 'Revectorizado con la misma geometría; desviación máxima de 1 unidad.'],
+  ['Color del logotipo en la app', 'D-008', 'SVG en línea con color por token; <code>viewBox</code> del lockup ajustado.'],
+  ['Kit mínimo', 'D-009', 'Favicon, iconos de app, manifiesto, <code>og:image</code>, PNG transparentes y avatar.'],
+  ['Tamaños mínimos y ropa', 'abierta', 'Mantener 20 px para el símbolo y 96 px para el lockup en pantalla. En ropa, 20 mm para serigrafía o vinilo y 25 mm para bordado: el hueco más estrecho del símbolo mide el 11 % de su altura (≈ 2,2 mm a 20 mm). Confirmar con una muestra física de cada técnica.'],
 ];
-pagina('Decisiones', `${head('Decisiones a confirmar', 'Ocho decisiones para cerrar la v1.0', 'Ninguna se ha tomado en este borrador. Cuando se aprueben, deben registrarse en <code>docs/00-project/decisions.md</code>.')}
-<div class="decs">${D.map(([t, d], i) => `<div class="dec"><span class="num">D${i + 1}</span><div><h4>${t}</h4><p>${d}</p></div></div>`).join('')}</div>`);
+pagina('Decisiones', `${head('Decisiones', 'Cuatro resueltas, cuatro con recomendación', 'Las resueltas están registradas en <code>docs/00-project/decisions.md</code>. Las abiertas llevan una recomendación que no se aplica hasta que se apruebe.')}
+<div class="decs">${D.map(([t, e, d], i) => `<div class="dec ${e === 'abierta' ? '' : 'dec-ok'}"><span class="num">D${i + 1}</span><div><h4>${t} ${e === 'abierta' ? chip('Recomendación', 'rev') : chip('Resuelta · ' + e, 'ok')}</h4><p>${d}</p></div></div>`).join('')}</div>`);
 
 // 16 · Historial
 pagina('Historial', `${head('Historial', 'Versiones del manual')}
 <table class="tb"><thead><tr><th>Versión</th><th>Fecha</th><th>Estado</th><th>Cambios</th></tr></thead><tbody>
-<tr><td><b>${VERSION}</b></td><td>${FECHA}</td><td>${ESTADO}</td><td>Primera recopilación de la identidad existente: masters, construcción medida, paleta y contrastes, iconografía, ilustración, voz, usos incorrectos, estado del kit y decisiones abiertas.</td></tr>
+<tr><td><b>0.2</b></td><td>${FECHA}</td><td>${ESTADO}</td><td>Wordmark v2 (D-007), logotipo en línea y lockup ajustado (D-008), kit mínimo (D-009) e Inter como tipografía (D-006). Recomendaciones para D1, D2, D3 y D8.</td></tr>
+<tr><td><b>0.1</b></td><td>${FECHA}</td><td>Borrador</td><td>Primera recopilación de la identidad existente: masters, construcción medida, paleta y contrastes, iconografía, ilustración, voz, usos incorrectos, estado del kit y decisiones abiertas.</td></tr>
 </tbody></table>
 <p class="nota" style="margin-top:8mm">Se regenera con <code>node assets/brand/manual/manual-pdf.cjs</code>. El generador lee los masters y los tokens del repositorio: si cambian, el manual cambia con ellos.</p>`);
 
 // ---------------------------------------------------------------- estilos
-const CSS = `
+const CSS = `${INTER}
 @page { size: 297mm 210mm; margin: 0 }
 * { box-sizing: border-box }
-body { margin: 0; font-family: Inter, "Segoe UI", Arial, sans-serif; color: ${T.dark}; -webkit-print-color-adjust: exact; print-color-adjust: exact }
+body { margin: 0; font-family: "Inter Variable", Inter, "Segoe UI", Arial, sans-serif; color: ${T.dark}; -webkit-print-color-adjust: exact; print-color-adjust: exact }
 .pg { width: 297mm; height: 210mm; position: relative; overflow: hidden; page-break-after: always; padding: 15mm 16mm 13mm; background: #fff }
 .pg-h { position: absolute; top: 7mm; left: 16mm; right: 16mm; display: flex; align-items: center; gap: 2.5mm; font-size: 6.5pt; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: ${T.navy}; padding-bottom: 2mm; border-bottom: .3mm solid ${T.light} }
 .pg-s { color: ${T.navy} } .pg-t { margin-left: auto; color: ${T.blue} }
@@ -470,7 +489,15 @@ code { font-family: Consolas, monospace; font-size: .92em; color: ${T.navy}; bac
 .mini svg { max-width: 100% } .mini-navy { background: ${T.navy}; color: #fff }
 .mini-pal { gap: 1.5mm } .mini-pal i { width: 7mm; height: 16mm; border-radius: 1mm; box-shadow: inset 0 0 0 .2mm #0001 }
 .mini-ico { gap: 2.5mm } .mini-ico svg { width: 7mm; height: 7mm }
-.mini-type { font-size: 30pt; font-weight: 800; color: ${T.mid}; letter-spacing: -.03em }
+.mini-type { font-size: 30pt; font-weight: 800; color: ${T.navy}; letter-spacing: -.03em }
+.zooms { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm } .zooms .zoom { position: relative } .zooms span { position: absolute; top: 1.5mm; left: 2mm; font-size: 7pt; font-weight: 800; color: ${T.mid} }
+.ok-n { border-left: 1mm solid ${T.green}; background: #eef8f1; padding: 2.5mm 3.5mm; font-size: 7.8pt; line-height: 1.45; margin: 2.5mm 0 }
+.ok-n > b:first-child { display: block; font-size: 6.5pt; letter-spacing: .1em; text-transform: uppercase; color: #0f6b33; margin-bottom: .6mm }
+.pesos { display: grid; grid-template-columns: 1fr 1fr; gap: 2mm 4mm; margin-top: 5mm; color: ${T.navy} } .pesos span { font-size: 15pt; display: block } .pesos small { font-size: 6.8pt; color: ${T.mid} }
+.tab { margin-top: 5mm; display: grid; gap: 1mm; color: ${T.navy}; font-variant-numeric: tabular-nums } .tab span { font-size: 6.5pt; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: ${T.mid} } .tab b { font-size: 12pt; font-weight: 600 }
+.two-kit { grid-template-columns: 1.25fr 1fr; gap: 8mm }
+.kitprev { display: grid; gap: 4mm } .kp-og { width: 100%; border-radius: 2mm } .kp-row { display: flex; gap: 4mm; align-items: center } .kp-row img { width: 22mm; height: 22mm; border-radius: 3mm } .kp-fav { color: ${T.navy}; padding: 2mm; border: .3mm solid #dde3ea; border-radius: 2mm }
+.dec-ok .num { background: ${T.green} } .dec h4 .chip { margin-left: 1.5mm; vertical-align: 1px }
 .big-sym { color: ${T.navy}; display: flex; justify-content: center; padding-top: 4mm }
 .dgbox { border: .3mm solid #dde3ea; border-radius: 2mm; overflow: hidden } .dg { display: block; width: 100%; height: auto }
 .dgbox-s { max-width: 95mm; margin: 0 auto }
@@ -514,14 +541,19 @@ code { font-family: Consolas, monospace; font-size: .92em; color: ${T.navy}; bac
 (async () => {
   const total = paginas.length;
   const zoomTmp = path.join(os.tmpdir(), 'forja-wordmark-zoom.png');
+  const zoomTmp1 = path.join(os.tmpdir(), 'forja-wordmark-zoom-v1.png');
   const html = `<!doctype html><html lang="es"><head><meta charset="utf-8"><title>FORJA · Manual de marca v${VERSION}</title><style>${CSS}</style></head><body>${paginas.join('')
-    .replace(/__N(\d+)__/g, (_, n) => `${n} / ${total}`).replace('__ZOOM__', furl(zoomTmp))}</body></html>`;
+    .replace(/__N(\d+)__/g, (_, n) => `${n} / ${total}`).replace('__ZOOM__', furl(zoomTmp)).replace('__ZOOM1__', furl(zoomTmp1))}</body></html>`;
   const navegador = await chromium.launch();
   const p = await navegador.newPage({ deviceScaleFactor: 2 });
   // Detalle real del wordmark a 8×: se renderiza el propio master, sin retocar.
   await p.setViewportSize({ width: 1440, height: 720 });
   await p.setContent(`<body style="margin:0;background:#fff;color:${T.navy}">${WORDMARK.replace('<svg ', '<svg style="position:absolute;left:-1920px;top:0;width:12016px;height:2168px" ')}</body>`);
   await p.screenshot({ path: zoomTmp, clip: { x: 0, y: 0, width: 1440, height: 720 } });
+  if (WORDMARK_V1) {
+    await p.setContent(`<body style="margin:0;background:#fff;color:${T.navy}">${WORDMARK_V1.replace('<svg', '<svg style="position:absolute;left:-1920px;top:0;width:12016px;height:2168px"')}</body>`);
+    await p.screenshot({ path: zoomTmp1, clip: { x: 0, y: 0, width: 1440, height: 720 } });
+  }
   const tmp = path.join(os.tmpdir(), 'forja-manual-marca.html');
   fs.writeFileSync(tmp, html, 'utf8');
   await p.goto(furl(tmp), { waitUntil: 'networkidle' });

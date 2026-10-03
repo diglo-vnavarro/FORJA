@@ -1,5 +1,9 @@
 # FORJA Brand Assets
 
+El manual de marca (v1.0, aprobado) está en
+[`manual/`](manual/README.md). Los PNG, el favicon y los iconos de aplicación
+están en [`kit/`](kit/README.md).
+
 Los SVG de esta carpeta son copias de consumo estático de los masters oficiales
 incluidos en `src/design-system/forja/brand/`. Esa carpeta del sistema de diseño
 es la fuente canónica; estas copias deben mantenerse idénticas y no editarse de
@@ -13,14 +17,19 @@ Es la variante preferida cuando el espacio es reducido.
 ## Wordmark
 
 [`forja-wordmark.svg`](master/forja-wordmark.svg) contiene FORJA como geometría
-vectorial independiente de fuentes externas.
+vectorial independiente de fuentes externas. La versión v2 sustituye el trazado
+escalonado de v1 por rectas y curvas con la misma geometría
+([D-007](../../docs/00-project/decisions.md)).
 
 ## Horizontal lockup
 
 [`forja-lockup-horizontal.svg`](master/forja-lockup-horizontal.svg) compone
 `[FJ] FORJA` mediante copias exactas de los paths de símbolo y wordmark para
 que el archivo sea autónomo en navegadores. No mantiene geometrías alternativas
-ni bitmaps; la coincidencia se valida antes de publicar.
+ni bitmaps; la coincidencia se valida antes de publicar. Su `viewBox`
+(`0 12 868 144`) se ajusta al contenido, sin aire a la derecha
+([D-008](../../docs/00-project/decisions.md)). Se compone automáticamente con
+[`kit/generar-kit.cjs`](kit/generar-kit.cjs).
 
 ## Usage
 
@@ -31,6 +40,18 @@ ni bitmaps; la coincidencia se valida antes de publicar.
 Las variantes dark-on-light, light-on-dark y monochrome se resuelven mediante
 `currentColor`; no requieren duplicar SVG.
 
+## Meaning
+
+El escudo representa la protección y el bienestar del deportista; FJ son las
+iniciales de FORJA ([D-010](../../docs/00-project/decisions.md)). No se
+atribuyen otros significados a la geometría.
+
+## Descriptor
+
+FORJA no usa claim. Donde haga falta acompañar a la marca con texto se usa el
+descriptor «Sistema de conocimiento para el desarrollo físico de jóvenes
+deportistas» ([D-012](../../docs/00-project/decisions.md)).
+
 ## Clothing
 
 El símbolo FJ es la variante preferida para camisetas. Debe ser discreto,
@@ -39,13 +60,17 @@ camiseta salvo una decisión posterior explícita.
 
 ## Minimum size
 
-Hasta completar pruebas de reproducción, usar como orientación provisional:
+Medidas aprobadas ([D-013](../../docs/00-project/decisions.md)):
 
 - símbolo digital: no menos de 20 px de alto;
 - lockup digital: no menos de 96 px de ancho;
-- símbolo en ropa: aproximadamente 20–30 mm de alto.
+- símbolo en ropa, serigrafía o vinilo: no menos de 20 mm de alto;
+- símbolo en ropa, bordado: no menos de 25 mm de alto.
 
-Estas medidas requieren validación humana y de producción.
+El hueco más estrecho del símbolo mide el 11 % de su altura (unos 2,2 mm a
+20 mm). Antes de la primera producción de cada técnica se valida una muestra
+física; si la muestra no reproduce bien los huecos, se sube el mínimo y se
+registra el cambio.
 
 ## Clear space
 
@@ -74,6 +99,13 @@ No:
 - reconstruir desde screenshots, infografías o raster;
 - incorporar fuentes propietarias.
 
-Los PNG transparentes permanecen pendientes. No deben generarse nuevos masters
+Los PNG transparentes se derivan de los masters con
+[`kit/generar-kit.cjs`](kit/generar-kit.cjs). No deben generarse nuevos masters
 raster a partir de capturas. El estado completo se registra en el
 [manifest de activos](../manifest.md).
+
+## Typography
+
+La aplicación y las piezas generadas desde ella usan Inter (variable, servida
+localmente) mediante el token `--forja-font-sans`
+([D-006](../../docs/00-project/decisions.md)).

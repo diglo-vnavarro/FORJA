@@ -62,6 +62,9 @@ el mecanismo SVG-as-component que ya use el proyecto (SVGR, Vite SVG React plugi
 Si se cargan con `<img>`, la geometría seguirá siendo correcta, pero `currentColor`
 no heredará el color CSS exterior.
 
+En esta aplicación, `src/components/ui/ForjaLogo.tsx` los importa con `?raw` y los
+incrusta en línea: navy por defecto y blanco con `inverse`.
+
 ## 7. Sustitución del código existente
 Pide a Codex que:
 - localice imports de Lucide/Material/FontAwesome/Phosphor;

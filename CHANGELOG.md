@@ -8,7 +8,11 @@ El proyecto seguirá versionado semántico cuando alcance su primera versión es
 
 ### Añadido
 
-- Registro local de ejecución para comparar dosis planificada y realizada, documentar modificaciones y cerrar sesiones.
+- Manual de marca FORJA v1.0 aprobado, generado desde los masters y los tokens (D-006 a D-013).
+- Tokens `--forja-blue-light` y `--forja-ochre`; paleta cerrada sin claim (D-011, D-012).
+- Significado del símbolo y tamaños mínimos de la marca registrados (D-010, D-013).
+- Kit de marca: favicon, iconos de aplicación, manifiesto web, imagen para compartir, PNG transparentes y avatar (D-009).
+- Inter variable, servida localmente, como tipografía de la aplicación y de las fichas (D-006).
 - Biblioteca local de borradores de sesión con reapertura, duplicado y eliminación confirmada.
 - Constructor manual MVP para preparar, adaptar, guardar e imprimir borradores de sesiones sin generación automática.
 - Biblioteca de sesiones integrada en la aplicación con catálogo, detalle y referencias verificadas a ejercicios.
@@ -48,6 +52,9 @@ El proyecto seguirá versionado semántico cuando alcance su primera versión es
 
 ### Modificado
 
+- Wordmark v2: revectorizado sin escalones con la misma geometría (D-007).
+- El logotipo se incrusta en línea y toma el navy o el blanco de los tokens; el lockup ajusta su `viewBox` al contenido (D-008).
+- Fichas EX-002 y EX-007 regeneradas con el logotipo en navy y la tipografía Inter.
 - Las páginas de la aplicación se cargan por ruta para reducir el JavaScript inicial.
 - Nivel 1 de EX-002 aprobado con aplicación provisional del símbolo FJ en la manga.
 - Refinamiento del símbolo FJ candidato para aproximarlo al concepto de marca aprobado.

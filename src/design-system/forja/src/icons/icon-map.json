@@ -56,13 +56,13 @@
   {
     "name": "jump",
     "label": "Salto",
-    "component": "IconJumpRope",
+    "component": "IconArrowBounce",
     "source": "Tabler Icons"
   },
   {
     "name": "throw",
     "label": "Lanzamiento",
-    "component": "IconBallFootball",
+    "component": "IconPlayHandball",
     "source": "Tabler Icons"
   },
   {
@@ -104,8 +104,8 @@
   {
     "name": "dumbbell",
     "label": "Mancuerna",
-    "component": "IconBarbell",
-    "source": "Tabler Icons"
+    "component": "ForjaDumbbellIcon",
+    "source": "FORJA custom"
   },
   {
     "name": "kettlebell",
@@ -116,7 +116,7 @@
   {
     "name": "medicineBall",
     "label": "Balón medicinal",
-    "component": "IconBallBasketball",
+    "component": "IconExerciseBall",
     "source": "Tabler Icons"
   },
   {
@@ -176,7 +176,7 @@
   {
     "name": "rir",
     "label": "RIR",
-    "component": "IconGaugeOff",
+    "component": "IconBattery2",
     "source": "Tabler Icons"
   },
   {

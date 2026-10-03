@@ -8,6 +8,8 @@ El proyecto seguirá versionado semántico cuando alcance su primera versión es
 
 ### Añadido
 
+- Primera versión de los principios FORJA: trece principios que resumen las decisiones existentes, cada uno enlazado a las decisiones en que se apoya.
+- Primera versión del manifiesto FORJA, derivada de la visión y los principios.
 - Primera versión del glosario FORJA: 114 términos definidos a partir de los documentos, con enlace a su fuente, y 12 términos pendientes de definición.
 - Manual de marca FORJA v1.0 aprobado, generado desde los masters y los tokens (D-006 a D-013).
 - Tokens `--forja-blue-light` y `--forja-ochre`; paleta cerrada sin claim (D-011, D-012).

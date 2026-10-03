@@ -5,8 +5,8 @@
 - [Cómo leer FORJA](../01-foundations/how-to-read-forja.md).
 - [Visión de FORJA](vision.md).
 - [Alcance](scope.md).
-- [Manifiesto](../01-foundations/manifesto.md) — Pendiente de redacción.
-- [Principios](../01-foundations/principles.md) — Pendiente de redacción.
+- [Manifiesto](../01-foundations/manifesto.md) — Primera versión, en revisión.
+- [Principios](../01-foundations/principles.md) — Primera versión, en revisión.
 - [Glosario](../01-foundations/glossary.md) — Primera versión, en revisión.
 - [Niveles de evidencia en FORJA](../01-foundations/evidence-levels.md).
 - Normas editoriales — Pendiente de documento propio. Las reglas vigentes

@@ -1,4 +1,4 @@
-// Genera el Manual de Marca FORJA en PDF, A4 apaisado. Borrador para revisión (v0.1).
+// Genera el Manual de Marca FORJA en PDF, A4 apaisado (v1.0, aprobado).
 // Uso: node assets/brand/manual/manual-pdf.cjs
 //
 // Lee los masters canónicos de src/design-system/forja/brand/ y los tokens de forja-tokens.css:
@@ -24,9 +24,9 @@ if (!pw) {
 }
 const { chromium } = require(pw);
 
-const VERSION = '0.2';
+const VERSION = '1.0';
 const FECHA = '3 de octubre de 2026';
-const ESTADO = 'Borrador para revisión';
+const ESTADO = 'Aprobado';
 const SALIDA = path.join(__dirname, `FORJA_Manual_de_Marca_v${VERSION}.pdf`);
 
 const furl = (p) => 'file:///' + p.split(path.sep).join('/');
@@ -58,7 +58,7 @@ const css = fs.readFileSync(path.join(DS, 'src', 'styles', 'forja-tokens.css'), 
 const tok = (n) => (css.match(new RegExp(`--forja-${n}:\\s*(#[0-9A-Fa-f]{6})`)) || [])[1];
 const T = {
   navy: tok('navy'), blue: tok('blue'), dark: tok('gray-dark'), mid: tok('gray-mid'),
-  light: tok('gray-light'), green: tok('green'), red: tok('red'), white: tok('white'), warning: tok('warning'),
+  light: tok('gray-light'), green: tok('green'), red: tok('red'), white: tok('white'), warning: tok('ochre'), blueLight: tok('blue-light'),
 };
 for (const [k, v] of Object.entries(T)) if (!v) throw new Error(`Token no encontrado: ${k}`);
 const rgb = (h) => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16));
@@ -76,15 +76,16 @@ const PALETA = [
   { n: 'Azul FORJA', t: '--forja-blue · --forja-secondary', hex: T.blue, rol: 'Acento y jerarquía secundaria: identificadores, enlaces, foco.' },
   { n: 'Gris oscuro', t: '--forja-gray-dark', hex: T.dark, rol: 'Texto de lectura.' },
   { n: 'Gris medio', t: '--forja-gray-mid', hex: T.mid, rol: 'Información secundaria, etiquetas.' },
+  { n: 'Azul claro', t: '--forja-blue-light', hex: T.blueLight, rol: 'Superficies azul claro: fondos de bloque y resaltes (D-011).' },
   { n: 'Gris claro', t: '--forja-gray-light', hex: T.light, rol: 'Fondos claros, separadores, superficies.' },
   { n: 'Blanco', t: '--forja-white', hex: T.white, rol: 'Fondo de fichas y tarjetas; logotipo sobre navy.' },
 ];
 const ESTADOS = [
   { n: 'Competencia', t: '--forja-success', hex: T.green, rol: 'Estados favorables, criterios de competencia.' },
   { n: 'Modificar tarea', t: '--forja-danger', hex: T.red, rol: 'Avisos y señales para modificar la tarea.' },
-  { n: 'Revisión', t: '--forja-warning', hex: T.warning, rol: 'Advertencias y revisión contextual.' },
+  { n: 'Revisión', t: '--forja-warning · --forja-ochre', hex: T.warning, rol: 'Advertencias y revisión contextual.' },
 ];
-// Paleta que aparece en el concepto inicial (imagen de referencia), no adoptada en tokens.
+// Paleta del concepto inicial (imagen de referencia). D-011: solo se adopta el azul claro.
 const CONCEPTO = [['Azul FORJA', '#0B2A4A', T.navy], ['Azul secundario', '#1F5A9D', T.blue], ['Azul claro', '#E6F0FB', null], ['Gris oscuro', '#1A1F26', T.dark], ['Gris claro', '#F2F4F7', T.light]];
 
 // ---------------------------------------------------------------- iconografía (mapa oficial)
@@ -164,7 +165,7 @@ const aviso = (t) => `<div class="aviso"><b>Por revisar</b>${t}</div>`;
 pagina('', `<div class="cover">
   <div class="cv-top"><span>FORJA</span><span>Manual de marca · versión ${VERSION}</span></div>
   <div class="cv-logo">${LOCK('34mm')}</div>
-  <p class="cv-claim">Herramientas para razonar,<br>no recetas para copiar.</p>
+  <p class="cv-claim">Sistema de conocimiento para el desarrollo físico<br>de jóvenes deportistas</p>
   <div class="cv-bot"><span>${FECHA} · ${ESTADO.toLowerCase()}</span><span>Geometría inmutable · color tematizable · iconografía semántica</span></div>
 </div>`, { cab: false, clase: 'pg-cover' });
 
@@ -173,33 +174,33 @@ const tarjetas = [
   [`<div class="mini mini-navy">${SIM('19mm')}</div>`, 'Símbolo FJ', chip('Aprobado', 'ok'), 'Escudo con las iniciales F y J entrelazadas. Pieza preferente en espacios reducidos y en ropa.'],
   [`<div class="mini">${WM('8mm')}</div>`, 'Wordmark', chip('Aprobado · v2', 'ok'), 'FORJA en mayúsculas geométricas, como vector sin fuente. La v2 sustituye los escalones de la v1 por rectas y curvas (D-007).'],
   [`<div class="mini">${LOCK('11mm')}</div>`, 'Lockup horizontal', chip('Aprobado', 'ok'), 'Símbolo + wordmark. Cabeceras, documentos, fichas e interfaz.'],
-  [`<div class="mini mini-pal">${[T.navy, T.blue, T.dark, T.light].map((h) => `<i style="background:${h}"></i>`).join('')}</div>`, 'Paleta v1', chip('En uso · sin cerrar', 'rev'), 'Ocho tokens en forja-tokens.css. El concepto inicial proponía otros tonos secundarios.'],
+  [`<div class="mini mini-pal">${[T.navy, T.blue, T.dark, T.light].map((h) => `<i style="background:${h}"></i>`).join('')}</div>`, 'Paleta', chip('Cerrada', 'ok'), 'Tokens de forja-tokens.css, con azul claro de superficie y ocre con nombre propio (D-011).'],
   [`<div class="mini mini-ico">${['strength', 'speed', 'rpe', 'observe'].map((k) => ICON[k]).join('')}</div>`, 'Iconografía', chip('Aprobada', 'ok'), '40 conceptos semánticos sobre Tabler Icons, trazo 1,8, servidos solo mediante ForjaIcon.'],
-  [`<div class="mini mini-type">Aa</div>`, 'Tipografía', chip('Decidida', 'ok'), 'Inter variable, servida desde la propia aplicación, en la app, las fichas y este manual (D-006).'],
+  [`<div class="mini mini-type">Aa</div>`, 'Tipografía', chip('Aprobada', 'ok'), 'Inter variable, servida desde la propia aplicación, en la app, las fichas y este manual (D-006).'],
 ];
-pagina('Resumen', `${head('Resumen', 'Lo que hay hoy', 'Este borrador recoge la identidad tal como existe en el repositorio: masters SVG, tokens, iconografía y piezas producidas. Las decisiones tomadas tras la v0.1 (D-006 a D-009) ya están aplicadas; las que siguen abiertas, con su recomendación, están en «Decisiones».')}
+pagina('Resumen', `${head('Resumen', 'La marca en seis piezas', 'Masters SVG, paleta, iconografía y tipografía de FORJA. Todas las decisiones que recoge este manual están registradas en <code>docs/00-project/decisions.md</code> (D-006 a D-013).')}
 <div class="cards6">${tarjetas.map(([m, t, c, d]) => `<div class="card">${m}<h3>${t}</h3>${c}<p>${d}</p></div>`).join('')}</div>
 <p class="nota">Fuente canónica: <code>src/design-system/forja/brand/</code> y <code>src/design-system/forja/src/styles/forja-tokens.css</code>. Las copias de <code>assets/brand/master/</code> son idénticas (comprobado byte a byte).</p>`);
 
 // 2 · La idea
-pagina('La idea', `${head('01 · La idea', 'Un escudo que se construye por dentro')}
+pagina('La idea', `${head('01 · La idea', 'Un escudo con las iniciales de FORJA')}
 <div class="two">
   <div class="big-sym">${SIM('92mm')}</div>
   <div class="txt">
     <p class="lead">FORJA es un sistema de conocimiento para decidir mejor sobre el desarrollo físico de jóvenes deportistas. La marca tiene que transmitir lo mismo que la metodología: <b>solidez, cuidado y criterio</b>, no espectáculo.</p>
-    <h3>Lo que dice el repositorio</h3>
+    <h3>Qué significa (D-010)</h3>
     <ul>
-      <li>El símbolo es un <b>escudo con las letras F y J</b> encajadas; el diseño del sistema lo describe como «escudo FJ compacto».</li>
-      <li>El principio del sistema visual es <b>geometría inmutable · color tematizable · iconografía semántica</b>.</li>
-      <li>En ropa, el símbolo debe ser «discreto, legible, estable y no protagonista».</li>
+      <li><b>El escudo</b> representa la protección y el bienestar del deportista, que en FORJA van por delante del rendimiento inmediato.</li>
+      <li><b>F y J</b> son las iniciales de FORJA, encajadas dentro del escudo.</li>
     </ul>
-    <h3>Lectura propuesta <span class="tag">pendiente de validar</span></h3>
+    <p>No se atribuyen a la geometría otros significados.</p>
+    <h3>Cómo se usa</h3>
     <ul>
-      <li><b>Escudo:</b> protección del deportista y prioridad del bienestar a largo plazo.</li>
-      <li><b>Letras que se construyen dentro del escudo:</b> el desarrollo ocurre desde dentro y con tiempo, como lo que se forja.</li>
-      <li><b>Navy y blanco, sin degradados:</b> una voz tranquila y técnica.</li>
+      <li>Principio del sistema visual: <b>geometría inmutable · color tematizable · iconografía semántica</b>.</li>
+      <li>Navy y blanco, sin degradados ni efectos.</li>
+      <li>En ropa, el símbolo es «discreto, legible, estable y no protagonista».</li>
+      <li>Sin claim (D-012). Si hace falta texto: «Sistema de conocimiento para el desarrollo físico de jóvenes deportistas».</li>
     </ul>
-    <p class="nota">Esta lectura no está registrada como decisión en <code>docs/00-project/decisions.md</code>. Se incluye para que pueda aprobarse, corregirse o descartarse.</p>
   </div>
 </div>`);
 
@@ -255,21 +256,23 @@ pagina('Color', `${head('05 · Color', 'Navy para la marca, azul para señalar',
 <h3 class="sub">Estados de la metodología</h3>
 <div class="pal pal-s">${ESTADOS.map((p) => sw(p)).join('')}</div>`);
 
-pagina('Color: decisiones', `${head('05 · Color', 'Dos paletas en el repositorio')}
-<p class="lead">El concepto visual inicial (imagen de referencia de EX-002) proponía una paleta distinta de la que quedó en los tokens. Solo el navy coincide. Hasta que se decida, <b>manda forja-tokens.css</b>.</p>
-<table class="tb"><thead><tr><th>Concepto inicial</th><th></th><th>Token actual</th><th></th><th>Diferencia</th></tr></thead><tbody>
+pagina('Color: decisiones', `${head('05 · Color', 'Una sola paleta (D-011)')}
+<p class="lead">El concepto visual inicial (imagen de referencia de EX-002) proponía otra paleta. Se mantienen los tokens, que ya usa toda la aplicación, y del concepto solo se adopta el azul claro de superficie. El resto queda descartado.</p>
+<table class="tb"><thead><tr><th>Concepto inicial</th><th></th><th>Token</th><th>Resultado</th></tr></thead><tbody>
 ${CONCEPTO.map(([n, a, b]) => `<tr><td>${n}</td><td><i class="dot" style="background:${a}"></i><code>${a}</code></td>
-<td>${b ? `<i class="dot" style="background:${b}"></i><code>${b}</code>` : '—'}</td><td></td>
-<td>${!b ? 'No existe token. La app lo sustituye mezclando azul y blanco con <code>color-mix()</code>.' : a.toUpperCase() === b.toUpperCase() ? 'Igual.' : `Distinto. Contraste sobre blanco: concepto ${coma(ctr(a, T.white))}:1, token ${coma(ctr(b, T.white))}:1.`}</td></tr>`).join('')}
+<td>${b ? `<i class="dot" style="background:${b}"></i><code>${b}</code>` : `<i class="dot" style="background:${T.blueLight}"></i><code>${T.blueLight}</code>`}</td>
+<td>${!b ? 'Adoptado como <code>--forja-blue-light</code>.' : a.toUpperCase() === b.toUpperCase() ? 'Igual.' : `Se mantiene el token (${coma(ctr(b, T.white))}:1 sobre blanco). El tono del concepto queda descartado.`}</td></tr>`).join('')}
 </tbody></table>
 <div class="two two-s">
-  <div class="figura"><img src="${IMG('assets/references/visual/ex-002/extracted/forja_visual_pack_ex002/brand/prototypes/forja-brand-and-session-concept-v1.png')}"><p class="cap">Concepto inicial (referencia generada, no es master). Incluye además un claim, «Entrena · Aprende · Progresa», que no aparece en ninguna pieza aprobada.</p></div>
+  <div class="figura"><img src="${IMG('assets/references/visual/ex-002/extracted/forja_visual_pack_ex002/brand/prototypes/forja-brand-and-session-concept-v1.png')}"><p class="cap">Concepto inicial: referencia generada, no es master. Su claim, «Entrena · Aprende · Progresa», también queda descartado (D-012).</p></div>
   <div class="txt">
-    <h3>Observaciones</h3>
+    <h3>Reglas de color</h3>
     <ul>
-      <li>El azul de los tokens (<code>${T.blue}</code>) es más saturado que el del concepto (<code>#1F5A9D</code>). Ambos superan AA sobre blanco.</li>
-      <li><code>--forja-warning</code> (<code>${T.warning}</code>) no tiene nombre de color propio en la paleta base, a diferencia de verde y rojo.</li>
-      <li>Falta un azul claro de superficie; hoy se calcula en cada componente con <code>color-mix()</code>.</li>
+      <li>Los componentes usan las variables de <code>forja-tokens.css</code>; no repiten los valores hexadecimales.</li>
+      <li>El navy es la marca. El azul FORJA señala: identificadores, enlaces y foco. No compite con el navy en superficies grandes.</li>
+      <li><code>--forja-blue-light</code> es solo para superficies; nunca para texto.</li>
+      <li>Verde, rojo y ocre son estados de la metodología: competencia, modificar la tarea y revisión. No se usan como decoración.</li>
+      <li>El verde de competencia da 3,3:1 sobre blanco: sirve para títulos e iconos, no para texto pequeño.</li>
     </ul>
   </div>
 </div>`);
@@ -281,13 +284,14 @@ pagina('Espacio y tamaño', `${head('06 · Espacio y tamaño', 'Un asta de aire 
   <div class="txt">
     <h3>Área de respeto</h3>
     <p>Alrededor de la marca queda libre, como mínimo, el ancho del asta vertical de la F (<b>x</b>, 21 unidades: el 19 % del ancho del escudo). Dentro no van textos, bordes ni otros símbolos. Vale para símbolo y lockup.</p>
-    <h3>Tamaño mínimo <span class="tag">provisional</span></h3>
+    <h3>Tamaño mínimo (D-013)</h3>
     <table class="tb tb-s"><tbody>
       <tr><td>Símbolo, pantalla</td><td><b>20 px</b> de alto</td></tr>
       <tr><td>Lockup, pantalla</td><td><b>96 px</b> de ancho</td></tr>
-      <tr><td>Símbolo en ropa</td><td><b>20–30 mm</b> de alto</td></tr>
+      <tr><td>Símbolo en serigrafía o vinilo</td><td><b>20 mm</b> de alto</td></tr>
+      <tr><td>Símbolo bordado</td><td><b>25 mm</b> de alto</td></tr>
     </tbody></table>
-    <p class="nota">Medidas de <code>assets/brand/README.md</code>, marcadas allí como pendientes de validación humana y de producción.</p>
+    <p class="nota">El hueco más estrecho del símbolo mide el 11 % de su altura (≈ 2,2 mm a 20 mm). Antes de la primera producción de cada técnica se valida una muestra física; si no reproduce bien los huecos, se sube el mínimo y se registra.</p>
     <div class="escala">${[20, 32, 48].map((h) => `<div><span style="color:${T.navy}">${SIM(h + 'px')}</span><small>${h} px</small></div>`).join('')}
       <div><span style="color:${T.navy}">${LOCK('16px')}</span><small>lockup 96 px</small></div></div>
   </div>
@@ -422,7 +426,7 @@ ${fila(chip('Listo', 'ok'), 'Iconos de app', 'Apple 180, 192, 512, <i>maskable</
 ${fila(chip('Listo', 'ok'), 'PNG transparentes', '<code>assets/brand/kit/png/</code>: símbolo, wordmark y lockup en navy, blanco y negro (2400 px); avatar de 800.')}
 ${fila(chip('Listo', 'ok'), 'Imagen para compartir', '<code>public/og-image.png</code>, 1200 × 630, sin claim.')}
 ${fila(chip('Pendiente', 'rev'), 'URL de og:image', 'Relativa hasta que exista un dominio público.')}
-${fila(chip('Pendiente', 'rev'), 'Pruebas físicas', 'Impresión y bordado del símbolo (D8).')}
+${fila(chip('Pendiente', 'rev'), 'Pruebas físicas', 'Muestra impresa y bordada del símbolo antes de la primera producción (D-013).')}
 </tbody></table>
 <div class="kitprev">
   <img src="${IMG('public/og-image.png')}" class="kp-og">
@@ -432,22 +436,23 @@ ${fila(chip('Pendiente', 'rev'), 'Pruebas físicas', 'Impresión y bordado del s
 
 // 15 · Decisiones
 const D = [
-  ['Lectura del símbolo', 'abierta', 'Aprobar solo lo que se sostiene: el escudo representa la protección y el bienestar del deportista, y FJ son las iniciales de FORJA. No convertir en relato oficial la idea de las «letras construidas dentro», que es interpretación.'],
-  ['Paleta definitiva', 'abierta', `Mantener los tokens actuales, que ya usa toda la app y cumplen AA (azul ${coma(ctr(T.blue, T.white))}:1 sobre blanco). Del concepto, incorporar solo <code>#E6F0FB</code> como <code>--forja-blue-light</code> de superficie, y dar nombre propio al ocre (<code>--forja-ochre</code>). Descartar el resto.`],
-  ['Claim', 'abierta', 'Sin claim en la v1.0. Donde haga falta texto, usar el descriptor «Sistema de conocimiento para el desarrollo físico de jóvenes deportistas». «Entrena · Aprende · Progresa» salió de una imagen generada, es genérico y pone el foco en entrenar, no en decidir.'],
+  ['Significado del símbolo', 'D-010', 'El escudo representa la protección y el bienestar del deportista; FJ son las iniciales de FORJA. No se atribuyen otros significados.'],
+  ['Paleta', 'D-011', `Se mantienen los tokens (azul ${coma(ctr(T.blue, T.white))}:1 sobre blanco). Se añaden <code>--forja-blue-light</code> (<code>${T.blueLight}</code>) y <code>--forja-ochre</code>. El resto del concepto queda descartado.`],
+  ['Claim', 'D-012', 'Sin claim. Descriptor: «Sistema de conocimiento para el desarrollo físico de jóvenes deportistas».'],
   ['Tipografía', 'D-006', 'Inter variable, servida en local, en app, fichas, kit y manual.'],
   ['Wordmark', 'D-007', 'Revectorizado con la misma geometría; desviación máxima de 1 unidad.'],
   ['Color del logotipo en la app', 'D-008', 'SVG en línea con color por token; <code>viewBox</code> del lockup ajustado.'],
   ['Kit mínimo', 'D-009', 'Favicon, iconos de app, manifiesto, <code>og:image</code>, PNG transparentes y avatar.'],
-  ['Tamaños mínimos y ropa', 'abierta', 'Mantener 20 px para el símbolo y 96 px para el lockup en pantalla. En ropa, 20 mm para serigrafía o vinilo y 25 mm para bordado: el hueco más estrecho del símbolo mide el 11 % de su altura (≈ 2,2 mm a 20 mm). Confirmar con una muestra física de cada técnica.'],
+  ['Tamaños mínimos', 'D-013', '20 px (símbolo) y 96 px (lockup) en pantalla; 20 mm en serigrafía o vinilo y 25 mm bordado, con muestra física antes de la primera producción.'],
 ];
-pagina('Decisiones', `${head('Decisiones', 'Cuatro resueltas, cuatro con recomendación', 'Las resueltas están registradas en <code>docs/00-project/decisions.md</code>. Las abiertas llevan una recomendación que no se aplica hasta que se apruebe.')}
-<div class="decs">${D.map(([t, e, d], i) => `<div class="dec ${e === 'abierta' ? '' : 'dec-ok'}"><span class="num">D${i + 1}</span><div><h4>${t} ${e === 'abierta' ? chip('Recomendación', 'rev') : chip('Resuelta · ' + e, 'ok')}</h4><p>${d}</p></div></div>`).join('')}</div>`);
+pagina('Decisiones', `${head('Decisiones', 'Ocho decisiones, todas registradas', 'Cada una está en <code>docs/00-project/decisions.md</code>. Cambiar cualquiera exige una decisión nueva y una nueva versión de este manual.')}
+<div class="decs">${D.map(([t, e, d], i) => `<div class="dec dec-ok"><span class="num">D${i + 1}</span><div><h4>${t} ${chip(e, 'ok')}</h4><p>${d}</p></div></div>`).join('')}</div>`);
 
 // 16 · Historial
 pagina('Historial', `${head('Historial', 'Versiones del manual')}
 <table class="tb"><thead><tr><th>Versión</th><th>Fecha</th><th>Estado</th><th>Cambios</th></tr></thead><tbody>
-<tr><td><b>0.2</b></td><td>${FECHA}</td><td>${ESTADO}</td><td>Wordmark v2 (D-007), logotipo en línea y lockup ajustado (D-008), kit mínimo (D-009) e Inter como tipografía (D-006). Recomendaciones para D1, D2, D3 y D8.</td></tr>
+<tr><td><b>1.0</b></td><td>${FECHA}</td><td>Aprobado</td><td>Significado del símbolo (D-010), paleta cerrada (D-011), sin claim (D-012) y tamaños mínimos (D-013). Primera versión aprobada.</td></tr>
+<tr><td><b>0.2</b></td><td>${FECHA}</td><td>Borrador</td><td>Wordmark v2 (D-007), logotipo en línea y lockup ajustado (D-008), kit mínimo (D-009) e Inter como tipografía (D-006). Recomendaciones para D1, D2, D3 y D8.</td></tr>
 <tr><td><b>0.1</b></td><td>${FECHA}</td><td>Borrador</td><td>Primera recopilación de la identidad existente: masters, construcción medida, paleta y contrastes, iconografía, ilustración, voz, usos incorrectos, estado del kit y decisiones abiertas.</td></tr>
 </tbody></table>
 <p class="nota" style="margin-top:8mm">Se regenera con <code>node assets/brand/manual/manual-pdf.cjs</code>. El generador lee los masters y los tokens del repositorio: si cambian, el manual cambia con ellos.</p>`);
@@ -508,7 +513,7 @@ code { font-family: Consolas, monospace; font-size: .92em; color: ${T.navy}; bac
 .vers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm 5mm }
 .ver-a { height: 32mm; border-radius: 2mm; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 0 0 .3mm #dde3ea }
 .ver h4 { margin-top: 1.8mm } .ver p { margin: 0; font-size: 7.5pt }
-.pal { display: grid; grid-template-columns: repeat(6, 1fr); gap: 3.5mm } .pal-s { grid-template-columns: repeat(6, 1fr) }
+.pal { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3mm } .pal-s { grid-template-columns: repeat(7, 1fr) }
 .sw-c { height: 22mm; border-radius: 2mm; display: flex; align-items: flex-end; padding: 2mm; font-size: 7.5pt; font-weight: 800; font-family: Consolas, monospace }
 .sw-g .sw-c { height: 30mm } .sw h4 { margin: 2mm 0 .5mm } .sw code { font-size: 6.3pt }
 .sw p { margin: .8mm 0 0; font-size: 7.2pt } .sw .rgb { color: ${T.mid} } .sw .ctr { font-weight: 700; color: ${T.navy} }

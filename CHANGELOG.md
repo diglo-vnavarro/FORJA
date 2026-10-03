@@ -8,7 +8,9 @@ El proyecto seguirá versionado semántico cuando alcance su primera versión es
 
 ### Añadido
 
-- Manual de marca FORJA v0.2 (borrador), generado desde los masters y los tokens, con recomendaciones para las decisiones de marca abiertas.
+- Manual de marca FORJA v1.0 aprobado, generado desde los masters y los tokens (D-006 a D-013).
+- Tokens `--forja-blue-light` y `--forja-ochre`; paleta cerrada sin claim (D-011, D-012).
+- Significado del símbolo y tamaños mínimos de la marca registrados (D-010, D-013).
 - Kit de marca: favicon, iconos de aplicación, manifiesto web, imagen para compartir, PNG transparentes y avatar (D-009).
 - Inter variable, servida localmente, como tipografía de la aplicación y de las fichas (D-006).
 - Biblioteca local de borradores de sesión con reapertura, duplicado y eliminación confirmada.

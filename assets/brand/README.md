@@ -1,6 +1,6 @@
 # FORJA Brand Assets
 
-El manual de marca (borrador v0.2, pendiente de revisión) está en
+El manual de marca (v1.0, aprobado) está en
 [`manual/`](manual/README.md). Los PNG, el favicon y los iconos de aplicación
 están en [`kit/`](kit/README.md).
 
@@ -40,6 +40,18 @@ ni bitmaps; la coincidencia se valida antes de publicar. Su `viewBox`
 Las variantes dark-on-light, light-on-dark y monochrome se resuelven mediante
 `currentColor`; no requieren duplicar SVG.
 
+## Meaning
+
+El escudo representa la protección y el bienestar del deportista; FJ son las
+iniciales de FORJA ([D-010](../../docs/00-project/decisions.md)). No se
+atribuyen otros significados a la geometría.
+
+## Descriptor
+
+FORJA no usa claim. Donde haga falta acompañar a la marca con texto se usa el
+descriptor «Sistema de conocimiento para el desarrollo físico de jóvenes
+deportistas» ([D-012](../../docs/00-project/decisions.md)).
+
 ## Clothing
 
 El símbolo FJ es la variante preferida para camisetas. Debe ser discreto,
@@ -48,13 +60,17 @@ camiseta salvo una decisión posterior explícita.
 
 ## Minimum size
 
-Hasta completar pruebas de reproducción, usar como orientación provisional:
+Medidas aprobadas ([D-013](../../docs/00-project/decisions.md)):
 
 - símbolo digital: no menos de 20 px de alto;
 - lockup digital: no menos de 96 px de ancho;
-- símbolo en ropa: aproximadamente 20–30 mm de alto.
+- símbolo en ropa, serigrafía o vinilo: no menos de 20 mm de alto;
+- símbolo en ropa, bordado: no menos de 25 mm de alto.
 
-Estas medidas requieren validación humana y de producción.
+El hueco más estrecho del símbolo mide el 11 % de su altura (unos 2,2 mm a
+20 mm). Antes de la primera producción de cada técnica se valida una muestra
+física; si la muestra no reproduce bien los huecos, se sube el mínimo y se
+registra el cambio.
 
 ## Clear space
 

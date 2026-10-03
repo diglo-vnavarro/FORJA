@@ -81,3 +81,51 @@ Se generan desde los masters, sin redibujar, con
   visión, sin claim;
 - PNG transparentes de símbolo, wordmark y lockup en navy, blanco y negro, y
   avatar de 800 px.
+
+## D-010 — Significado del símbolo
+
+Fecha: 3 de octubre de 2026.
+
+El escudo representa la protección y el bienestar del deportista. Las letras FJ
+son las iniciales de FORJA.
+
+No se atribuyen a la geometría otros significados. Las lecturas interpretativas
+que aparecían en borradores del manual no forman parte de la marca.
+
+## D-011 — Paleta cerrada
+
+Fecha: 3 de octubre de 2026.
+
+Se mantienen los tokens de `forja-tokens.css`. El azul secundario sigue siendo
+`#1D5AD8`, con un contraste de 6,0:1 sobre blanco.
+
+Del concepto visual inicial solo se incorpora `#E6F0FB` como `--forja-blue-light`,
+para superficies. El ocre de advertencia recibe nombre propio, `--forja-ochre`, y
+`--forja-warning` pasa a apuntar a él.
+
+El resto de colores del concepto queda descartado.
+
+## D-012 — Sin claim
+
+Fecha: 3 de octubre de 2026.
+
+FORJA no usa claim en la versión 1.0 de su marca. «Entrena · Aprende · Progresa»,
+que solo aparecía en una imagen de concepto generada, queda descartado.
+
+Donde haga falta acompañar a la marca con texto se usa el descriptor «Sistema de
+conocimiento para el desarrollo físico de jóvenes deportistas».
+
+## D-013 — Tamaños mínimos de la marca
+
+Fecha: 3 de octubre de 2026.
+
+| Uso | Mínimo |
+|---|---|
+| Símbolo en pantalla | 20 px de alto |
+| Lockup en pantalla | 96 px de ancho |
+| Símbolo en serigrafía o vinilo | 20 mm de alto |
+| Símbolo bordado | 25 mm de alto |
+
+El hueco más estrecho del símbolo mide el 11 % de su altura. Antes de la primera
+producción de cada técnica se valida una muestra física. Si la muestra no
+reproduce bien los huecos, se sube el mínimo y se registra el cambio.

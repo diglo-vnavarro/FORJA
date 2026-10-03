@@ -1,11 +1,13 @@
 :root {
   --forja-navy: #0B2A4A;
   --forja-blue: #1D5AD8;
+  --forja-blue-light: #E6F0FB;
   --forja-gray-dark: #1F2937;
   --forja-gray-mid: #6B7780;
   --forja-gray-light: #E5E7EB;
   --forja-green: #16A34A;
   --forja-red: #DC2626;
+  --forja-ochre: #986318;
   --forja-white: #FFFFFF;
 
   --forja-primary: var(--forja-navy);
@@ -13,7 +15,7 @@
   --forja-icon-color: var(--forja-primary);
   --forja-success: var(--forja-green);
   --forja-danger: var(--forja-red);
-  --forja-warning: #986318;
+  --forja-warning: var(--forja-ochre);
 
   --forja-font-sans: "Inter Variable", Inter, "Segoe UI", Arial, sans-serif;
 

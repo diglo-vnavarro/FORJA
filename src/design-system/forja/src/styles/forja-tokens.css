@@ -15,6 +15,8 @@
   --forja-danger: var(--forja-red);
   --forja-warning: #986318;
 
+  --forja-font-sans: "Inter Variable", Inter, "Segoe UI", Arial, sans-serif;
+
   --forja-icon-stroke: 1.8;
   --forja-icon-sm: 16px;
   --forja-icon-md: 24px;

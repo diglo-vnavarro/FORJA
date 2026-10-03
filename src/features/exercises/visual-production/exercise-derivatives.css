@@ -1,5 +1,5 @@
 .visual-production-page { min-height: 100vh; margin: 0; padding: 0; background: color-mix(in srgb, var(--forja-gray-light) 72%, var(--forja-white)); }
-.exercise-derivative { box-sizing: border-box; overflow: hidden; color: var(--forja-gray-dark); background: var(--forja-white); font-family: Inter, Arial, sans-serif; }
+.exercise-derivative { box-sizing: border-box; overflow: hidden; color: var(--forja-gray-dark); background: var(--forja-white); font-family: var(--forja-font-sans); }
 .exercise-derivative *, .exercise-derivative *::before, .exercise-derivative *::after { box-sizing: border-box; }
 .exercise-derivative h1, .exercise-derivative h2, .exercise-derivative p, .exercise-derivative ul, .exercise-derivative figure { margin: 0; }
 .exercise-derivative ul { padding-left: 20px; }
@@ -11,7 +11,7 @@
 .derivative-header > div > span, .exercise-session-card header span, .derivative-qa header span { color: var(--forja-secondary); font-size: 20px; font-weight: 800; letter-spacing: .08em; }
 .derivative-header h1 { margin-top: 5px; color: var(--forja-primary); font-size: 52px; line-height: 1.05; }
 .derivative-header p { max-width: 740px; margin-top: 12px; color: var(--forja-gray-mid); font-size: 19px; line-height: 1.4; }
-.derivative-header .forja-logo img { width: 180px; height: auto; }
+.derivative-header .forja-logo--lockup { width: 159px; height: 26px; }
 .derivative-classification { display: flex; flex-wrap: wrap; gap: 10px 22px; padding: 20px 0; border-bottom: 1px solid var(--forja-gray-light); color: var(--forja-primary); font-size: 16px; font-weight: 700; }
 .derivative-icon-label { display: inline-flex; align-items: center; gap: 7px; }
 .derivative-hero { display: grid; grid-template-columns: 58% 42%; align-items: center; min-height: 430px; border-bottom: 2px solid var(--forja-primary); }
@@ -60,7 +60,7 @@
 .infographic-v2-header > strong { display: grid; place-items: center; height: 72px; border-radius: 10px; color: var(--forja-white); background: var(--forja-primary); font-size: 30px; letter-spacing: .02em; }
 .infographic-v2-header h1 { color: var(--forja-primary); font-size: 36px; line-height: 1; text-transform: uppercase; }
 .infographic-v2-header p { margin-top: 7px; color: var(--forja-gray-dark); font-size: 14px; line-height: 1.25; }
-.infographic-v2-header .forja-logo img { width: 215px; }
+.infographic-v2-header .forja-logo--lockup { width: 190px; height: 32px; }
 .infographic-v2-classification { display: grid; grid-template-columns: repeat(5, 1fr); height: 64px; margin: 8px 0 12px; overflow: hidden; border: 1px solid var(--v2-line); border-radius: 9px; background: var(--forja-white); }
 .infographic-v2-classification > span { justify-content: center; gap: 8px; padding: 8px 12px; border-right: 1px solid var(--v2-line); color: var(--forja-primary); font-size: 13px; font-weight: 850; text-align: center; }
 .infographic-v2-classification > span:last-child { border-right: 0; }

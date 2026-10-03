@@ -1,7 +1,8 @@
 # FORJA Brand Assets
 
-El manual de marca (borrador v0.1, pendiente de revisión) está en
-[`manual/`](manual/README.md).
+El manual de marca (borrador v0.2, pendiente de revisión) está en
+[`manual/`](manual/README.md). Los PNG, el favicon y los iconos de aplicación
+están en [`kit/`](kit/README.md).
 
 Los SVG de esta carpeta son copias de consumo estático de los masters oficiales
 incluidos en `src/design-system/forja/brand/`. Esa carpeta del sistema de diseño
@@ -16,14 +17,19 @@ Es la variante preferida cuando el espacio es reducido.
 ## Wordmark
 
 [`forja-wordmark.svg`](master/forja-wordmark.svg) contiene FORJA como geometría
-vectorial independiente de fuentes externas.
+vectorial independiente de fuentes externas. La versión v2 sustituye el trazado
+escalonado de v1 por rectas y curvas con la misma geometría
+([D-007](../../docs/00-project/decisions.md)).
 
 ## Horizontal lockup
 
 [`forja-lockup-horizontal.svg`](master/forja-lockup-horizontal.svg) compone
 `[FJ] FORJA` mediante copias exactas de los paths de símbolo y wordmark para
 que el archivo sea autónomo en navegadores. No mantiene geometrías alternativas
-ni bitmaps; la coincidencia se valida antes de publicar.
+ni bitmaps; la coincidencia se valida antes de publicar. Su `viewBox`
+(`0 12 868 144`) se ajusta al contenido, sin aire a la derecha
+([D-008](../../docs/00-project/decisions.md)). Se compone automáticamente con
+[`kit/generar-kit.cjs`](kit/generar-kit.cjs).
 
 ## Usage
 
@@ -77,6 +83,13 @@ No:
 - reconstruir desde screenshots, infografías o raster;
 - incorporar fuentes propietarias.
 
-Los PNG transparentes permanecen pendientes. No deben generarse nuevos masters
+Los PNG transparentes se derivan de los masters con
+[`kit/generar-kit.cjs`](kit/generar-kit.cjs). No deben generarse nuevos masters
 raster a partir de capturas. El estado completo se registra en el
 [manifest de activos](../manifest.md).
+
+## Typography
+
+La aplicación y las piezas generadas desde ella usan Inter (variable, servida
+localmente) mediante el token `--forja-font-sans`
+([D-006](../../docs/00-project/decisions.md)).

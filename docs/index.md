@@ -7,12 +7,13 @@ Esta carpeta contiene la documentación oficial de la metodología.
 1. [Cómo leer FORJA](01-foundations/how-to-read-forja.md)
 2. [Visión de FORJA](00-project/vision.md)
 3. [Alcance](00-project/scope.md)
-4. [Manifiesto](01-foundations/manifesto.md)
-5. [Principios](01-foundations/principles.md)
+4. [Manifiesto](01-foundations/manifesto.md) — Pendiente de redacción.
+5. [Principios](01-foundations/principles.md) — Pendiente de redacción.
 6. [Niveles de evidencia en FORJA](01-foundations/evidence-levels.md)
-7. [Glosario](01-foundations/glossary.md)
+7. [Glosario](01-foundations/glossary.md) — Pendiente de redacción.
 
-Los módulos científicos, metodológicos y prácticos se incorporarán progresivamente.
+Los documentos marcados como pendientes solo contienen su estructura inicial.
+Las secciones siguientes recogen los documentos disponibles y su estado.
 
 ## 02 — Ciencia
 
@@ -40,7 +41,7 @@ Los módulos científicos, metodológicos y prácticos se incorporarán progresi
 
 - [EX-STD-001 — Estándar de ficha de ejercicio FORJA](05-exercises/exercise-card-standard.md) — Primera versión completa, en revisión.
 - [LIB-001 — Biblioteca inicial de ejercicios FORJA](05-exercises/initial-exercise-library.md) — Primera versión completa, en revisión.
-- [Primer lote piloto de fichas: EX-001 a EX-007](05-exercises/README.md) — Utilizable, primera versión.
+- [Lote A — Fuerza y control: EX-001 a EX-015](05-exercises/README.md) — Utilizable, primera versión.
 - [VIS-001 — Estándar visual de ejercicios FORJA](05-exercises/visual-standard.md) — Versión histórica, sustituida por el estándar operativo de producción.
 - [VIS-002 — Sistema de producción visual de ejercicios FORJA](05-exercises/visual-production-system.md) — Sistema operativo integrado.
 
@@ -50,3 +51,14 @@ Los módulos científicos, metodológicos y prácticos se incorporarán progresi
 - [SES-001 — Fuerza inicial y aprendizaje de patrones](06-sessions/ses-001-initial-strength-and-movement-learning.md) — Utilizable, primera versión.
 - [SES-002 — Fuerza general con carga externa](06-sessions/ses-002-general-strength.md) — Utilizable, primera versión.
 - [SES-003 — Fuerza breve compatible con una semana de fútbol](06-sessions/ses-003-short-football-compatible-strength.md) — Utilizable, primera versión.
+
+## 07 a 09 — Programas, evaluación y referencias
+
+- [Programas](07-programs/README.md) — Pendiente de desarrollo.
+- [Evaluación y seguimiento](08-assessments/README.md) — Pendiente de desarrollo.
+- [Referencias](09-references/README.md) — Pendiente de desarrollo. Hasta
+  entonces, cada documento científico incluye sus propias referencias.
+
+## Identidad visual
+
+- [Manual de marca FORJA](../assets/brand/manual/README.md) — v1.1, aprobado.

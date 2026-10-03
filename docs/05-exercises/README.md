@@ -1,14 +1,14 @@
 # Biblioteca de ejercicios
 
-Este módulo define cómo se describirán y relacionarán los ejercicios de FORJA antes de construir su biblioteca inicial.
+Este módulo define cómo se describen y relacionan los ejercicios de FORJA y contiene su biblioteca inicial.
 
 ## Documentos
 
 - [EX-STD-001 — Estándar de ficha de ejercicio FORJA](exercise-card-standard.md) — Primera versión completa, en revisión.
 - [LIB-001 — Biblioteca inicial de ejercicios FORJA](initial-exercise-library.md) — Primera versión completa, en revisión.
-- [VIS-001 — Estándar visual de ejercicios FORJA](visual-standard.md) — Primera versión aprobada.
-- [VIS-002 — Sistema de producción visual de ejercicios FORJA](visual-production-system.md) — Primera versión para validación.
-- [Briefs visuales y estado inicial](visual-briefs/README.md) — EX-001 a EX-007 listos.
+- [VIS-001 — Estándar visual de ejercicios FORJA](visual-standard.md) — Versión histórica, sustituida por el estándar operativo de producción.
+- [VIS-002 — Sistema de producción visual de ejercicios FORJA](visual-production-system.md) — Sistema operativo integrado.
+- [Briefs visuales](visual-briefs/README.md) — EX-001 a EX-015 listos.
 
 ## Lote A — Fuerza y control
 
@@ -24,7 +24,8 @@ Este módulo define cómo se describirán y relacionarán los ejercicios de FORJ
 - [EX-010 — Remo con banda](library/ex-010-band-row.md) — Utilizable, primera versión.
 - [EX-011 — Remo en suspensión](library/ex-011-suspension-row.md) — Utilizable, primera versión.
 - [EX-012 — Remo unilateral con mancuerna](library/ex-012-single-arm-dumbbell-row.md) — Utilizable, primera versión.
-
 - [EX-013 — Plancha frontal](library/ex-013-front-plank.md) — Utilizable, primera versión.
 - [EX-014 — Pallof press](library/ex-014-pallof-press.md) — Utilizable, primera versión.
 - [EX-015 — Suitcase carry](library/ex-015-suitcase-carry.md) — Utilizable, primera versión.
+
+EX-016 a EX-025 están definidos en LIB-001 y pendientes de ficha completa.

@@ -8,7 +8,7 @@ adaptables y trazables.
 - [SES-STD-001 — Estándar de sesión FORJA](session-standard.md) — Primera
   versión completa, en revisión.
 
-## Próximo hito
+## Lote piloto
 
 El primer lote piloto aplica SES-STD-001 utilizando exclusivamente ejercicios
 documentados en la biblioteca FORJA:

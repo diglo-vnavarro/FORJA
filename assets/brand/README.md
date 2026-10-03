@@ -1,5 +1,8 @@
 # FORJA Brand Assets
 
+El manual de marca (borrador v0.1, pendiente de revisión) está en
+[`manual/`](manual/README.md).
+
 Los SVG de esta carpeta son copias de consumo estático de los masters oficiales
 incluidos en `src/design-system/forja/brand/`. Esa carpeta del sistema de diseño
 es la fuente canónica; estas copias deben mantenerse idénticas y no editarse de

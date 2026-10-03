@@ -1,4 +1,4 @@
-// Genera el Manual de Marca FORJA en PDF, A4 apaisado (v1.0, aprobado).
+// Genera el Manual de Marca FORJA en PDF, A4 apaisado (v1.1, aprobado).
 // Uso: node assets/brand/manual/manual-pdf.cjs
 //
 // Lee los masters canónicos de src/design-system/forja/brand/ y los tokens de forja-tokens.css:
@@ -24,7 +24,7 @@ if (!pw) {
 }
 const { chromium } = require(pw);
 
-const VERSION = '1.0';
+const VERSION = '1.1';
 const FECHA = '3 de octubre de 2026';
 const ESTADO = 'Aprobado';
 const SALIDA = path.join(__dirname, `FORJA_Manual_de_Marca_v${VERSION}.pdf`);
@@ -96,9 +96,10 @@ const icono = (componente) => {
   const abre = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">';
   if (componente.startsWith('Forja')) {
     const bloque = custom.split(`export function ${componente}(`)[1].split('export function')[0];
-    return abre + [...bloque.matchAll(/<path d="([^"]+)"/g)].map((m) => `<path d="${m[1]}"/>`).join('') + '</svg>';
+    // El dibujo es el contenido JSX del <svg> (path, rect, g): se copia tal cual.
+    return abre + bloque.split('{...props}')[1].replace(/^\s*>/, '').split('</svg>')[0] + '</svg>';
   }
-  const archivo = path.join(TABLER, componente.replace(/^Icon/, '').replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase() + '.svg');
+  const archivo = path.join(TABLER, componente.replace(/^Icon/, '').replace(/([a-z0-9])([A-Z])/g, '$1-$2').replace(/([a-z])([0-9])/g, '$1-$2').toLowerCase() + '.svg');
   if (!fs.existsSync(archivo)) return null;
   const cuerpo = fs.readFileSync(archivo, 'utf8').replace(/[\s\S]*?<path stroke="none"[^>]*\/>/, '').replace(/<\/svg>[\s\S]*/, '');
   return abre + cuerpo + '</svg>';
@@ -106,14 +107,8 @@ const icono = (componente) => {
 const faltan = MAPA.filter((m) => !icono(m.component));
 if (faltan.length) throw new Error('Faltan SVG de Tabler (¿npm install?): ' + faltan.map((m) => m.component).join(', '));
 const ICON = Object.fromEntries(MAPA.map((m) => [m.name, icono(m.component)]));
-// Coincidencias que conviene revisar: mismo glifo para dos conceptos o glifo de otro deporte.
-const DUDOSOS = {
-  dumbbell: 'mismo glifo que Fuerza',
-  throw: 'balón de fútbol',
-  medicineBall: 'balón de baloncesto',
-  jump: 'comba',
-  rir: 'indicador «apagado»',
-};
+// Conceptos con glifo revisado en D-014.
+const REVISADOS = ['dumbbell', 'throw', 'medicineBall', 'jump', 'rir'];
 
 // ---------------------------------------------------------------- diagramas del símbolo (unidades del viewBox 109 × 131)
 const ROJO = '#d6453b', MUT = '#6B7780';
@@ -333,9 +328,9 @@ pagina('Tipografía', `${head('07 · Tipografía', 'Inter, en toda la aplicació
 </div>`);
 
 // 9 · Iconografía
-pagina('Iconografía', `${head('08 · Iconografía', 'Cuarenta conceptos, un solo trazo', 'Mapa oficial de <code>icon-map.json</code>: base Tabler Icons (MIT) y tres iconos propios FORJA. Rejilla de 24, trazo 1,8, extremos redondeados, <code>currentColor</code>. Solo se usan a través de <code>ForjaIcon</code>.')}
-<div class="icons">${MAPA.map((m) => `<div class="ic ${DUDOSOS[m.name] ? 'ic-d' : ''} ${m.source !== 'Tabler Icons' ? 'ic-f' : ''}">${ICON[m.name]}<span>${m.label}</span></div>`).join('')}</div>
-<div class="leyenda"><span><i class="lg-f"></i>Icono propio FORJA</span><span><i class="lg-d"></i>Por revisar: ${Object.entries(DUDOSOS).map(([k, v]) => `${MAPA.find((m) => m.name === k).label}: ${v}`).join(' · ')}</span></div>
+pagina('Iconografía', `${head('08 · Iconografía', 'Cuarenta conceptos, un solo trazo', 'Mapa oficial de <code>icon-map.json</code>: base Tabler Icons (MIT) y cuatro iconos propios FORJA. Rejilla de 24, trazo 1,8, extremos redondeados, <code>currentColor</code>. Solo se usan a través de <code>ForjaIcon</code>. Cada concepto tiene un glifo distinto.')}
+<div class="icons">${MAPA.map((m) => `<div class="ic ${REVISADOS.includes(m.name) ? 'ic-d' : ''} ${m.source !== 'Tabler Icons' ? 'ic-f' : ''}">${ICON[m.name]}<span>${m.label}</span></div>`).join('')}</div>
+<div class="leyenda"><span><i class="lg-f"></i>Icono propio FORJA</span><span><i class="lg-d"></i>Glifo revisado (D-014): Mancuerna en diagonal, propia, para no repetir la barra de Fuerza · Lanzamiento, figura lanzando · Balón medicinal, balón neutro · Salto, trayectoria de despegue y aterrizaje · RIR, batería con reserva</span></div>
 <p class="nota">Existe además una biblioteca estática heredada en <code>assets/icons/</code> (trazo 1,75, dibujos propios) que solo usan las fichas HTML antiguas. No es la fuente de verdad.</p>`);
 
 // 10 · Ilustración
@@ -451,6 +446,7 @@ pagina('Decisiones', `${head('Decisiones', 'Ocho decisiones, todas registradas',
 // 16 · Historial
 pagina('Historial', `${head('Historial', 'Versiones del manual')}
 <table class="tb"><thead><tr><th>Versión</th><th>Fecha</th><th>Estado</th><th>Cambios</th></tr></thead><tbody>
+<tr><td><b>1.1</b></td><td>${FECHA}</td><td>Aprobado</td><td>Iconografía: glifos revisados para Mancuerna, Lanzamiento, Balón medicinal, Salto y RIR (D-014).</td></tr>
 <tr><td><b>1.0</b></td><td>${FECHA}</td><td>Aprobado</td><td>Significado del símbolo (D-010), paleta cerrada (D-011), sin claim (D-012) y tamaños mínimos (D-013). Primera versión aprobada.</td></tr>
 <tr><td><b>0.2</b></td><td>${FECHA}</td><td>Borrador</td><td>Wordmark v2 (D-007), logotipo en línea y lockup ajustado (D-008), kit mínimo (D-009) e Inter como tipografía (D-006). Recomendaciones para D1, D2, D3 y D8.</td></tr>
 <tr><td><b>0.1</b></td><td>${FECHA}</td><td>Borrador</td><td>Primera recopilación de la identidad existente: masters, construcción medida, paleta y contrastes, iconografía, ilustración, voz, usos incorrectos, estado del kit y decisiones abiertas.</td></tr>
@@ -526,9 +522,9 @@ code { font-family: Consolas, monospace; font-size: .92em; color: ${T.navy}; bac
 .icons { display: grid; grid-template-columns: repeat(10, 1fr); gap: 2mm }
 .ic { border: .3mm solid #e3e8ee; border-radius: 1.5mm; padding: 2.2mm 1mm 1.5mm; text-align: center; color: ${T.navy}; height: 21mm }
 .ic svg { width: 8mm; height: 8mm } .ic span { display: block; font-size: 6pt; line-height: 1.2; margin-top: 1mm; color: ${T.dark} }
-.ic-f { background: #eef3fd; border-color: ${T.blue} } .ic-d { background: #fbf6ee; border-color: ${T.warning} }
+.ic-f { background: #eef3fd; border-color: ${T.blue} } .ic-d { background: #eef8f1; border-color: ${T.green} }
 .leyenda { display: flex; gap: 6mm; font-size: 7pt; margin: 3mm 0 1mm; color: ${T.dark} } .leyenda i { display: inline-block; width: 3mm; height: 3mm; border-radius: .6mm; margin-right: 1.2mm; vertical-align: -.5mm }
-.lg-f { background: #eef3fd; box-shadow: inset 0 0 0 .3mm ${T.blue} } .lg-d { background: #fbf6ee; box-shadow: inset 0 0 0 .3mm ${T.warning} }
+.lg-f { background: #eef3fd; box-shadow: inset 0 0 0 .3mm ${T.blue} } .lg-d { background: #eef8f1; box-shadow: inset 0 0 0 .3mm ${T.green} }
 .apps { display: grid; grid-template-columns: .95fr 1.05fr 1fr; gap: 6mm; align-items: start }
 .apps .figura img { max-height: 120mm; object-fit: contain; background: #f4f6f9 }
 .voz .si, .voz .no { border-radius: 2mm; padding: 4mm 5mm; margin-bottom: 3mm } .voz b { font-size: 7pt; letter-spacing: .12em; text-transform: uppercase }

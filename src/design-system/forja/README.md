@@ -8,7 +8,7 @@ Incluye:
 - lockup horizontal;
 - 40 conceptos semánticos;
 - Tabler Icons como base profesional;
-- 3 iconos específicos FORJA;
+- 4 iconos específicos FORJA;
 - `currentColor` y tokens CSS;
 - componente React `ForjaIcon`;
 - `AGENTS.md` para Codex;

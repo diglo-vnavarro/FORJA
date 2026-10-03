@@ -1,6 +1,6 @@
 # FORJA Brand Assets
 
-El manual de marca (v1.0, aprobado) está en
+El manual de marca (v1.1, aprobado) está en
 [`manual/`](manual/README.md). Los PNG, el favicon y los iconos de aplicación
 están en [`kit/`](kit/README.md).
 

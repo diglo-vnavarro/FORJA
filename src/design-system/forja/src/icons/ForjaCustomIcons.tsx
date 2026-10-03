@@ -84,3 +84,32 @@ export function ForjaSledIcon({
     </svg>
   );
 }
+
+// Mancuerna en diagonal: se distingue de la barra horizontal de «Fuerza» (D-014).
+export function ForjaDumbbellIcon({
+  size = 24,
+  stroke = 1.8,
+  ...props
+}: ForjaCustomIconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={stroke}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      {...props}
+    >
+      <g transform="rotate(-45 12 12)">
+        <path d="M8.5 12h7" />
+        <rect x="4.5" y="8" width="4" height="8" rx="1.2" />
+        <rect x="15.5" y="8" width="4" height="8" rx="1.2" />
+        <path d="M2.5 10.5v3M21.5 10.5v3" />
+      </g>
+    </svg>
+  );
+}

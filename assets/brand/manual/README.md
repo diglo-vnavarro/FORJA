@@ -1,8 +1,8 @@
 # Manual de marca FORJA
 
-Estado: **v1.0, aprobado** el 3 de octubre de 2026.
+Estado: **v1.1, aprobado** el 3 de octubre de 2026.
 
-Manual completo: [`FORJA_Manual_de_Marca_v1.0.pdf`](FORJA_Manual_de_Marca_v1.0.pdf)
+Manual completo: [`FORJA_Manual_de_Marca_v1.1.pdf`](FORJA_Manual_de_Marca_v1.1.pdf)
 (18 páginas, A4 apaisado).
 
 ## Contenido
@@ -17,7 +17,7 @@ Manual completo: [`FORJA_Manual_de_Marca_v1.0.pdf`](FORJA_Manual_de_Marca_v1.0.p
 | 05 · Color | Paleta cerrada con contraste WCAG y reglas de color |
 | 06 · Espacio y tamaño | Área de respeto y tamaños mínimos |
 | 07 · Tipografía | Inter (D-006): pesos, cifras tabulares y jerarquía |
-| 08 · Iconografía | Los 40 conceptos de `icon-map.json` y los que conviene revisar |
+| 08 · Iconografía | Los 40 conceptos de `icon-map.json`, con los glifos revisados en D-014 |
 | 09 · Ilustración | Reglas del FORJA ATHLETE MASTER |
 | 10 · Aplicaciones | Ficha web y tarjeta de sesión de EX-002; ropa |
 | 11 · Voz | Reglas editoriales con ejemplos |
@@ -40,12 +40,6 @@ Manual completo: [`FORJA_Manual_de_Marca_v1.0.pdf`](FORJA_Manual_de_Marca_v1.0.p
 
 Todas están en [`docs/00-project/decisions.md`](../../../docs/00-project/decisions.md).
 Cambiar cualquiera exige una decisión nueva y una nueva versión del manual.
-
-## Pendiente fuera del manual
-
-En el mapa de iconos, Mancuerna y Fuerza comparten glifo. Además, Lanzamiento
-usa un balón de fútbol, Balón medicinal uno de baloncesto, Salto una comba y RIR
-un indicador «apagado».
 
 ## Cómo se regenera
 

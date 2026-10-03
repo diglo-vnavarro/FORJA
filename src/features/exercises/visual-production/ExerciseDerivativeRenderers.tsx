@@ -29,7 +29,7 @@ function InfographicHeader({ exercise }: { exercise: Exercise }) {
 
 function ClassificationStrip({ exercise }: { exercise: Exercise }) {
   const content = buildExerciseDerivativeContent(exercise);
-  const attribute = content.attributes.flatMap((item) => item.content).find((item) => /bilateral|unilateral/i.test(item))
+  const attribute = content.attributes.flatMap((item) => item.content).find((item) => /bilateral|unilateral/i.test(item))?.replace(/\.$/, "")
     ?? `${exercise.identity.description} ${exercise.identity.objective} ${exercise.classification.category}`.match(/\b(?:bilateral|unilateral)\b/i)?.[0];
   return <section className="infographic-v2-classification">
     {content.primaryCapability && <IconLabel term={content.primaryCapability} />}

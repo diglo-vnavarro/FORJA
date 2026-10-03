@@ -10,7 +10,7 @@ Esta carpeta contiene la documentación oficial de la metodología.
 4. [Manifiesto](01-foundations/manifesto.md) — Pendiente de redacción.
 5. [Principios](01-foundations/principles.md) — Pendiente de redacción.
 6. [Niveles de evidencia en FORJA](01-foundations/evidence-levels.md)
-7. [Glosario](01-foundations/glossary.md) — Pendiente de redacción.
+7. [Glosario](01-foundations/glossary.md) — Primera versión, en revisión.
 
 Los documentos marcados como pendientes solo contienen su estructura inicial.
 Las secciones siguientes recogen los documentos disponibles y su estado.

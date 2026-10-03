@@ -11,17 +11,17 @@
 | Cambio de dirección | `changeOfDirection` | `IconArrowsExchange` |
 | Aceleración | `acceleration` | `IconArrowBigRightLines` |
 | Deceleración | `deceleration` | `IconArrowBigLeftLines` |
-| Salto | `jump` | `IconJumpRope` |
-| Lanzamiento | `throw` | `IconBallFootball` |
+| Salto | `jump` | `IconArrowBounce` |
+| Lanzamiento | `throw` | `IconPlayHandball` |
 | Resistencia | `endurance` | `IconRefresh` |
 | Técnica | `technique` | `IconTarget` |
 | Capacidad aeróbica | `aerobicCapacity` | `IconHeartRateMonitor` |
 | Capacidad anaeróbica | `anaerobicCapacity` | `IconHeartBolt` |
 | Carga externa | `externalLoad` | `IconWeight` |
 | Peso corporal | `bodyweight` | `IconUser` |
-| Mancuerna | `dumbbell` | `IconBarbell` |
+| Mancuerna | `dumbbell` | `ForjaDumbbellIcon` |
 | Kettlebell | `kettlebell` | `ForjaKettlebellIcon` |
-| Balón medicinal | `medicineBall` | `IconBallBasketball` |
+| Balón medicinal | `medicineBall` | `IconExerciseBall` |
 | Cono | `cone` | `IconCone` |
 | Valla / Obstáculo | `hurdleObstacle` | `IconBarrierBlock` |
 | Cajón | `box` | `IconBox` |
@@ -31,7 +31,7 @@
 | Series | `sets` | `IconListNumbers` |
 | Recuperación | `recovery` | `IconClockPause` |
 | RPE | `rpe` | `IconGauge` |
-| RIR | `rir` | `IconGaugeOff` |
+| RIR | `rir` | `IconBattery2` |
 | Rango | `range` | `IconArrowsMove` |
 | Intención | `intention` | `IconTargetArrow` |
 | Calidad | `quality` | `IconRosetteDiscountCheck` |

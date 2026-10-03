@@ -129,3 +129,20 @@ Fecha: 3 de octubre de 2026.
 El hueco más estrecho del símbolo mide el 11 % de su altura. Antes de la primera
 producción de cada técnica se valida una muestra física. Si la muestra no
 reproduce bien los huecos, se sube el mínimo y se registra el cambio.
+
+## D-014 — Revisión de glifos de la iconografía
+
+Fecha: 3 de octubre de 2026.
+
+Se corrigen cinco conceptos del mapa de iconos que compartían glifo o usaban el
+glifo de otro deporte:
+
+| Concepto | Antes | Ahora | Motivo |
+|---|---|---|---|
+| Mancuerna (`dumbbell`) | `IconBarbell` | `ForjaDumbbellIcon` | Repetía el glifo de Fuerza. El `dumbbell` de Tabler dibuja una pesa rusa, así que se crea un icono propio: mancuerna en diagonal |
+| Lanzamiento (`throw`) | `IconBallFootball` | `IconPlayHandball` | Figura que lanza, coherente con Velocidad (figura que corre) |
+| Balón medicinal (`medicineBall`) | `IconBallBasketball` | `IconExerciseBall` | Balón neutro, sin deporte |
+| Salto (`jump`) | `IconJumpRope` | `IconArrowBounce` | Trayectoria de despegue y aterrizaje en lugar de comba |
+| RIR (`rir`) | `IconGaugeOff` | `IconBattery2` | Batería con reserva: las repeticiones que quedan |
+
+Un test impide que dos conceptos vuelvan a compartir glifo.

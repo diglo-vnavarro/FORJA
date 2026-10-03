@@ -7,7 +7,7 @@
 - [Alcance](scope.md).
 - [Manifiesto](../01-foundations/manifesto.md) — Pendiente de redacción.
 - [Principios](../01-foundations/principles.md) — Pendiente de redacción.
-- [Glosario](../01-foundations/glossary.md) — Pendiente de redacción.
+- [Glosario](../01-foundations/glossary.md) — Primera versión, en revisión.
 - [Niveles de evidencia en FORJA](../01-foundations/evidence-levels.md).
 - Normas editoriales — Pendiente de documento propio. Las reglas vigentes
   están en [`AGENTS.md`](../../AGENTS.md) y

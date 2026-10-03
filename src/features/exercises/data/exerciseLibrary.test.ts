@@ -35,6 +35,37 @@ describe("exercise library integrity", () => {
     }
   });
 
+  it("parses every required section of each exercise card", () => {
+    const empty = exercises.flatMap((exercise) => Object.entries({
+      description: exercise.identity.description,
+      objective: exercise.identity.objective,
+      attributes: exercise.classification.attributes,
+      environment: exercise.context.environment,
+      requirements: exercise.context.requirements,
+      setup: exercise.coaching.setup,
+      execution: exercise.coaching.execution,
+      cues: exercise.coaching.cues,
+      competencyIndicators: exercise.coaching.competencyIndicators,
+      commonErrors: exercise.coaching.commonErrors,
+      acceptableVariations: exercise.coaching.acceptableVariations,
+      stopCriteria: exercise.coaching.stopCriteria,
+      chooseWhen: exercise.decision.chooseWhen,
+      avoidWhen: exercise.decision.avoidWhen,
+      contextualExample: exercise.prescription.contextualExample,
+      regressions: exercise.relations.regressions,
+      progressions: exercise.relations.progressions,
+      safety: exercise.safety.requirements,
+      whatToRecord: exercise.whatToRecord,
+      traceability: exercise.traceability.methodologicalNotes,
+    }).filter(([, value]) => value.length === 0).map(([field]) => `${exercise.identity.id}: ${field}`));
+    expect(empty).toEqual([]);
+  });
+
+  it("reads each attribute subsection with its content", () => {
+    const goblet = exercises.find((exercise) => exercise.identity.id === "EX-002")!;
+    expect(goblet.classification.attributes).toContainEqual({ label: "Apoyo", content: ["Bilateral."] });
+  });
+
   it("only declares media paths that exist", () => {
     const paths = exercises.flatMap((exercise) => [exercise.media.masterImage,exercise.media.thumbnail,exercise.media.infographic,exercise.media.sessionCard,exercise.media.visualBrief].flatMap((asset) => asset.sourcePath ? [asset.sourcePath] : []));
     expect(paths.length).toBeGreaterThan(0);

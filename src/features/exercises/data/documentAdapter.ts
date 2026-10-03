@@ -48,8 +48,15 @@ export function subsectionItems(markdown: string, ...headings: string[]) {
 
 export function subsections(markdown: string, heading: string): LabeledContent[] {
   const raw = section(markdown, heading);
-  const matches = [...raw.matchAll(/^### (.+)\r?\n([\s\S]*?)(?=^### |$)/gm)];
-  return matches.map((match) => ({ label: cleanMarkdown(match[1]), content: sectionItems(`## value\n${match[2]}`, "value") })).filter((item) => item.content.length);
+  // Con /m, `$` sería fin de línea y cada subsección quedaría vacía: el final se marca con (?![\s\S]).
+  const matches = [...raw.matchAll(/^### (.+)\r?\n([\s\S]*?)(?=^### |(?![\s\S]))/gm)];
+  if (matches.length) return matches.map((match) => ({ label: cleanMarkdown(match[1]), content: sectionItems(`## value\n${match[2]}`, "value") })).filter((item) => item.content.length);
+  // Formato alternativo de las fichas: lista «- **Etiqueta:** valor».
+  return sectionItems(markdown, heading).flatMap((item) => {
+    const [label, ...rest] = item.split(": ");
+    const value = rest.join(": ").trim();
+    return value ? [{ label, content: [value.charAt(0).toLocaleUpperCase("es") + value.slice(1)] }] : [];
+  });
 }
 
 export function relations(markdown: string, ...headings: string[]): ExerciseRelation[] {

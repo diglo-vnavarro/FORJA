@@ -78,6 +78,7 @@ FORJA distingue claramente entre:
 - evidencia científica;
 - consenso profesional;
 - decisiones metodológicas;
+- hipótesis pendientes de validación;
 - aplicaciones específicas.
 
 Siempre que sea posible se indicará el origen de cada recomendación.

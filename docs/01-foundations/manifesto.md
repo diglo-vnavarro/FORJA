@@ -37,8 +37,9 @@ tanto como lo que ocurre en la sesión.
 
 ## Cómo trabajamos
 
-Distinguimos lo que dice la evidencia, lo que acuerdan los profesionales y lo
-que decidimos nosotros. Cuando no sabemos algo, lo decimos.
+Distinguimos lo que dice la evidencia, lo que acuerdan los profesionales, lo
+que decidimos nosotros y lo que todavía estamos comprobando. Cuando no sabemos
+algo, lo decimos.
 
 Explicamos el porqué de cada recomendación. Ofrecemos criterios para razonar,
 no recetas para copiar.

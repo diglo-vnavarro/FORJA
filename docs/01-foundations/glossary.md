@@ -729,6 +729,23 @@ Véase también: [E — Evidencia científica](#e--evidencia-científica).
 
 Fuente: [Niveles de evidencia en FORJA](evidence-levels.md#grado-de-confianza)
 
+## H
+
+### H — Hipótesis pendiente de validación
+
+Tipo de afirmación que FORJA considera plausible pero que todavía no puede respaldar con
+evidencia suficiente ni ha adoptado como decisión metodológica. Orienta qué observar o
+comprobar, no se presenta como recomendación general y debe indicar cómo podría validarse.
+Si se valida, pasa a ser una decisión metodológica o se apoya en evidencia o consenso; si no,
+se descarta.
+
+Decisión FORJA: se incorpora como nivel de evidencia (D-015).
+
+Véase también: [M — Decisión metodológica FORJA](#m--decisión-metodológica-forja),
+[P — Aplicación práctica](#p--aplicación-práctica).
+
+Fuente: [Niveles de evidencia en FORJA](evidence-levels.md#h--hipótesis-pendiente-de-validación)
+
 ## I
 
 ### Indicadores de competencia
@@ -777,6 +794,7 @@ documentos de FORJA reúnen sus decisiones en apartados «Decisiones FORJA», id
 códigos como F-LOAD-004 o F-PROG-003.
 
 Véase también: [C — Consenso profesional](#c--consenso-profesional),
+[H — Hipótesis pendiente de validación](#h--hipótesis-pendiente-de-validación),
 [P — Aplicación práctica](#p--aplicación-práctica).
 
 Fuente: [Niveles de evidencia en FORJA](evidence-levels.md#m--decisión-metodológica-forja)
@@ -886,7 +904,8 @@ Fuente: [SCI-005 — Carga, fatiga y recuperación](../02-science/youth-load-fat
 Tipo de afirmación que corresponde a decisiones específicas para un deportista, equipo o
 contexto concreto. No debe interpretarse automáticamente como recomendación universal.
 
-Véase también: [M — Decisión metodológica FORJA](#m--decisión-metodológica-forja).
+Véase también: [M — Decisión metodológica FORJA](#m--decisión-metodológica-forja),
+[H — Hipótesis pendiente de validación](#h--hipótesis-pendiente-de-validación).
 
 Fuente: [Niveles de evidencia en FORJA](evidence-levels.md#p--aplicación-práctica)
 

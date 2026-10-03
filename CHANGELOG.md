@@ -8,6 +8,7 @@ El proyecto seguirá versionado semántico cuando alcance su primera versión es
 
 ### Añadido
 
+- Nivel de evidencia H — Hipótesis pendiente de validación, incorporado a los niveles de evidencia, el glosario, los principios y el manifiesto (D-015).
 - Primera versión de los principios FORJA: trece principios que resumen las decisiones existentes, cada uno enlazado a las decisiones en que se apoya.
 - Primera versión del manifiesto FORJA, derivada de la visión y los principios.
 - Primera versión del glosario FORJA: 114 términos definidos a partir de los documentos, con enlace a su fuente, y 12 términos pendientes de definición.

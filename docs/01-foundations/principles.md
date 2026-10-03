@@ -14,6 +14,7 @@ contradicción debe corregirse.
 Los principios son, en su mayoría, decisiones metodológicas (**M**). Cuando un
 principio se apoya en evidencia o consenso, se indica el documento científico
 donde se desarrolla. Los niveles se explican en
+[D-015](../00-project/decisions.md#d-015--nivel-h-hipótesis-pendiente-de-validación),
 [Niveles de evidencia en FORJA](evidence-levels.md).
 
 ## Estado
@@ -161,7 +162,8 @@ Se concreta en: [F-EVAL-001](../03-methodology/initial-athlete-assessment.md#f-e
 ## 11. Se distingue lo que se sabe de lo que se decide
 
 FORJA separa la evidencia científica, el consenso profesional, sus propias
-decisiones metodológicas y las aplicaciones a casos concretos. No presenta
+decisiones metodológicas, las hipótesis pendientes de validación y las
+aplicaciones a casos concretos. No presenta
 opiniones como hechos demostrados ni evita reconocer la incertidumbre.
 
 Tipo: M — Decisión metodológica FORJA.

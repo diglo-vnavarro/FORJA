@@ -146,3 +146,19 @@ glifo de otro deporte:
 | RIR (`rir`) | `IconGaugeOff` | `IconBattery2` | Batería con reserva: las repeticiones que quedan |
 
 Un test impide que dos conceptos vuelvan a compartir glifo.
+
+## D-015 — Nivel H: hipótesis pendiente de validación
+
+Fecha: 3 de octubre de 2026.
+
+Se añade a los niveles de evidencia la categoría **H — Hipótesis pendiente de
+validación**, que D-004 y `AGENTS.md` ya exigían distinguir pero que
+[Niveles de evidencia en FORJA](../01-foundations/evidence-levels.md) no
+recogía.
+
+Los niveles quedan así: E (evidencia científica), C (consenso profesional),
+M (decisión metodológica FORJA), H (hipótesis pendiente de validación) y
+P (aplicación práctica).
+
+Una hipótesis no se presenta como recomendación general. Cuando se valide pasa
+a M, E o C; si no se confirma, se descarta, y el cambio se registra.

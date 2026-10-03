@@ -58,6 +58,27 @@ Ejemplo:
 
 ---
 
+## H — Hipótesis pendiente de validación
+
+Es una afirmación que FORJA considera plausible, pero que todavía no puede
+respaldar con evidencia suficiente ni ha adoptado como decisión metodológica.
+
+Sirve para orientar qué observar, registrar o comprobar. No debe presentarse
+como recomendación general ni utilizarse como si estuviera demostrada.
+
+Toda hipótesis debe indicar, cuando sea posible, cómo podría validarse: por
+ejemplo, mediante aplicación práctica observada, registro sistemático o nueva
+evidencia publicada. Cuando se valide, pasará a ser una decisión metodológica
+(**M**) o se apoyará en evidencia (**E**) o consenso (**C**); si no se
+confirma, se descartará. El cambio quedará registrado.
+
+Ejemplo:
+
+> Las sesiones base del primer lote piloto son aplicables en los contextos que
+> declaran. Pendiente de validación práctica.
+
+---
+
 ## P — Aplicación práctica
 
 Corresponde a decisiones específicas para un deportista, equipo o contexto concreto.

@@ -14,9 +14,12 @@ Estados permitidos: `REFERENCE`, `DRAFT`, `MASTER`, `APPROVED` y `PENDING`.
 | EX-002 Level 1 reference | Referencia visual | Nivel 1 | REFERENCE | `assets/references/visual/ex-002/extracted/forja_visual_pack_ex002/exercises/ex-002/master/ex-002-goblet-squat-master-concept-v1.png` |
 | EX-002 Level 2 reference | Referencia visual | Nivel 2 | REFERENCE | `assets/references/visual/ex-002/extracted/forja_visual_pack_ex002/exercises/ex-002/web/ex-002-goblet-squat-web-v1.png` |
 | EX-002 Level 3 reference | Referencia visual | Nivel 3 | REFERENCE | `assets/references/visual/ex-002/extracted/forja_visual_pack_ex002/brand/prototypes/forja-brand-and-session-concept-v1.png` |
-| EX-002 master | Ejercicio | Nivel 1 | APPROVED | `assets/exercises/ex-002/master/ex-002-goblet-squat-master.webp` |
-| EX-002 web | Ejercicio | Nivel 2 | DRAFT | `assets/exercises/ex-002/web/ex-002-goblet-squat-web.webp` |
-| EX-002 session | Ejercicio | Nivel 3 | PENDING | `assets/exercises/ex-002/session/ex-002-goblet-squat-session.webp` |
+| EX-001 a EX-015 masters | Ejercicio | Nivel 1 | APPROVED | `assets/exercises/ex-0NN/master/ex-0NN-*-master.webp` (detalle en [FORJA-MASTERS-QA](../docs/05-exercises/visual-production/qa/FORJA-MASTERS-QA.md)) |
+| EX-002 thumbnail | Ejercicio | Nivel 2 | APPROVED | `assets/exercises/ex-002/web/ex-002-goblet-squat-thumbnail.webp` |
+| EX-002 web (HTML histórico) | Ejercicio | Nivel 2 | DRAFT | `assets/exercises/ex-002/web/ex-002-goblet-squat-web.webp` |
+| EX-002 infografía V2.1 | Ejercicio | Nivel 2 | DRAFT | `assets/exercises/ex-002/web/ex-002-goblet-squat-infographic-v2-1.webp` |
+| EX-002 ficha de sesión | Ejercicio | Nivel 3 | DRAFT | `assets/exercises/ex-002/session/ex-002-goblet-squat-session-card.webp` |
+| EX-007 infografía V2.1 | Ejercicio | Nivel 2 | DRAFT | `assets/exercises/ex-007/web/ex-007-step-up-infographic-v2-1.webp` |
 | Brand PNG derivatives | Marca | Derived | APPROVED | `assets/brand/kit/png/*.png` |
 | App icons, favicon and share image | Marca | Derived | APPROVED | `public/` |
 
@@ -25,3 +28,7 @@ canónicos y deben permanecer idénticos a ellos.
 
 Las referencias rasterizadas no se consumen como producción ni se incrustan
 en los masters SVG.
+
+Los derivados en `DRAFT` son candidatos pendientes de revisión visual humana.
+El estado operativo de cada ejercicio se mantiene también en
+`src/features/exercises/data/visualProductionManifest.ts`.

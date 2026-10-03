@@ -22,24 +22,29 @@ Representación maestra del ejercicio.
 
 Representación explicativa para web o aplicación basada en el Nivel 1.
 
-- **Estado:** candidato de producción incorporado; revisión visual humana
-  pendiente.
-- **Nombre reservado:**
-  `assets/exercises/ex-002/web/ex-002-goblet-squat-web.webp`.
+- **Estado:** candidato V2.1 incorporado; revisión visual humana pendiente.
+- **Candidato actual:**
+  `assets/exercises/ex-002/web/ex-002-goblet-squat-infographic-v2-1.webp`,
+  generado por el renderer de la aplicación.
+- **Versión histórica:**
+  `assets/exercises/ex-002/web/ex-002-goblet-squat-web.webp`, con su fuente
+  HTML.
+- **Miniatura:** `assets/exercises/ex-002/web/ex-002-goblet-squat-thumbnail.webp`,
+  aprobada.
 
 ## Nivel 3 — Ficha rápida de sesión
 
 Representación compacta para consulta durante la sesión.
 
-- **Estado:** aprobado conceptualmente; asset definitivo pendiente de
-  incorporar.
-- **Nombre reservado:**
-  `assets/exercises/ex-002/session/ex-002-goblet-squat-session.webp`.
+- **Estado:** candidato incorporado; revisión visual humana pendiente.
+- **Candidato actual:**
+  `assets/exercises/ex-002/session/ex-002-goblet-squat-session-card.webp`,
+  generado por el renderer de la aplicación.
 
-Los activos de Nivel 1 y el candidato de Nivel 2 existen en sus rutas
-reservadas. El archivo definitivo de Nivel 3 todavía no existe y no debe
-sustituirse por un binario placeholder ni por una imagen reconstruida desde
-Markdown o screenshots.
+El Nivel 1 está aprobado. Los Niveles 2 y 3 disponen de candidatos generados
+desde la ficha EX-002 y siguen pendientes de aprobación visual. Ningún nivel
+debe sustituirse por un binario de relleno ni por una imagen reconstruida
+desde capturas.
 
 Las referencias visuales aprobadas se conservan separadamente en
 [`assets/references/visual/ex-002/`](../../references/visual/ex-002/). Son
@@ -47,8 +52,8 @@ material de revisión, no activos de producción.
 
 Permanece pendiente:
 
-- revisar y aprobar la infografía candidata de Nivel 2;
-- la ficha rápida definitiva de Nivel 3.
+- revisar y aprobar la infografía candidata V2.1 de Nivel 2;
+- revisar y aprobar la ficha rápida candidata de Nivel 3.
 
 ## Nivel 1 aprobado
 
@@ -69,9 +74,11 @@ La revisión humana ha aprobado:
 
 ## Revisión del candidato de Nivel 2
 
-El candidato visual es
-[`ex-002-goblet-squat-web.webp`](web/ex-002-goblet-squat-web.webp) y su fuente
-editable es
+El candidato vigente es
+[`ex-002-goblet-squat-infographic-v2-1.webp`](web/ex-002-goblet-squat-infographic-v2-1.webp),
+generado con `npm run generate:exercise-assets -- EX-002`. La versión anterior,
+[`ex-002-goblet-squat-web.webp`](web/ex-002-goblet-squat-web.webp), se conserva
+con su fuente HTML
 [`ex-002-goblet-squat-web.html`](web/ex-002-goblet-squat-web.html).
 
 La iconografía histórica integrada en esta infografía HTML se conserva como

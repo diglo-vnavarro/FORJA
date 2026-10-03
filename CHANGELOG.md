@@ -52,6 +52,7 @@ El proyecto seguirá versionado semántico cuando alcance su primera versión es
 
 ### Modificado
 
+- Índices, hoja de ruta y manifest de activos alineados con el estado real: fundamentos pendientes señalados, SCI-001 a SCI-007 listados, estados de VIS-001, VIS-002, briefs y derivados de EX-002 y EX-007 corregidos.
 - Iconografía: glifos propios para Mancuerna, Lanzamiento, Balón medicinal, Salto y RIR, y manual de marca v1.1 (D-014).
 - Wordmark v2: revectorizado sin escalones con la misma geometría (D-007).
 - El logotipo se incrusta en línea y toma el navy o el blanco de los tokens; el lockup ajusta su `viewBox` al contenido (D-008).

@@ -4,12 +4,14 @@
 
 - [Cómo leer FORJA](../01-foundations/how-to-read-forja.md).
 - [Visión de FORJA](vision.md).
-- Alcance.
-- Manifiesto.
-- Principios.
-- Glosario.
+- [Alcance](scope.md).
+- [Manifiesto](../01-foundations/manifesto.md) — Pendiente de redacción.
+- [Principios](../01-foundations/principles.md) — Pendiente de redacción.
+- [Glosario](../01-foundations/glossary.md) — Pendiente de redacción.
 - [Niveles de evidencia en FORJA](../01-foundations/evidence-levels.md).
-- Normas editoriales.
+- Normas editoriales — Pendiente de documento propio. Las reglas vigentes
+  están en [`AGENTS.md`](../../AGENTS.md) y
+  [`CONTRIBUTING.md`](../../CONTRIBUTING.md).
 
 ## Fase 1 — Fundamentos científicos
 
@@ -59,10 +61,12 @@ El núcleo científico inicial SCI-001 → SCI-007 dispone de una primera versi�
 - [VIS-001 — Estándar visual de ejercicios FORJA](../05-exercises/visual-standard.md) — Versión histórica, sustituida por el estándar operativo de producción.
 - [VIS-002 — Sistema de producción visual de ejercicios FORJA](../05-exercises/visual-production-system.md) — Sistema operativo integrado.
 - Masters de marca FORJA — Integrados como fuente canónica.
+- [Manual de marca FORJA](../../assets/brand/manual/README.md) — v1.1, aprobado.
 - Biblioteca visual EX-001–EX-015 — Masters aprobados y congelados.
 - EX-002 Nivel 1 — Master aprobado e integrado.
 - EX-002 Nivel 2 — Candidato V2.1 integrado, pendiente de aprobación visual final.
 - EX-002 Nivel 3 — Candidato de ficha de sesión integrado, pendiente de aprobación visual final.
+- EX-007 Nivel 2 — Candidato V2.1 integrado, pendiente de aprobación visual final.
 - Lotes posteriores de fichas: potencia y velocidad; desaceleración y multidireccional.
 
 ## Fase 4 — Sesiones y programas
@@ -87,6 +91,7 @@ El núcleo científico inicial SCI-001 → SCI-007 dispone de una primera versi�
 ## Fase 6 — Producto digital
 
 - Web documental con bibliotecas navegables de ejercicios y sesiones — Primera integración completada.
+- Integración continua: tipos, lint, tests, compilación y enlaces en cada pull request — Integrada.
 - Buscador.
 - Aplicación interactiva — Constructor manual, biblioteca local y registro de ejecución en desarrollo.
 - Motor de generación y adaptación de sesiones.

@@ -9,6 +9,7 @@
     "typecheck": "tsc -b --pretty false",
     "lint": "eslint .",
     "test": "vitest run",
+    "check:links": "node scripts/check-links.mjs",
     "generate:exercise-assets": "node scripts/generate-exercise-assets.mjs"
   },
   "dependencies": {

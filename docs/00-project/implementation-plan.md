@@ -133,7 +133,7 @@ Objetivo: que FORJA funcione en el campo sin cobertura.
 
 | ID | Tarea | Criterio de aceptación |
 | --- | --- | --- |
-| F2-01 | Registrar DEC-C. | Decisión registrada. |
+| F2-01 | Registrar DEC-C. | Decisión registrada. ✅ Hecha en rama docs/f2-01-register-dec-c (D-020). |
 | F2-02 | *Service worker* con caché de la aplicación, el contenido y las imágenes de ejercicios. | La aplicación abre y navega sin conexión tras una primera visita. |
 | F2-03 | Aviso de nueva versión disponible. | La persona usuaria decide cuándo actualizar; un borrador abierto no se pierde. |
 | F2-04 | Exportar e importar borradores y ejecuciones (JSON). | Los datos de `localStorage` pueden salvarse y restaurarse en otro dispositivo. |

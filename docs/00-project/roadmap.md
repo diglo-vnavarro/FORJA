@@ -1,5 +1,8 @@
 # Hoja de ruta
 
+El trabajo pendiente, ordenado en fases ejecutables, está en el
+[plan de implementación](implementation-plan.md).
+
 ## Fase 0 — Fundamentos
 
 - [Cómo leer FORJA](../01-foundations/how-to-read-forja.md).

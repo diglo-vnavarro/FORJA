@@ -117,7 +117,7 @@ Son una propuesta para DEC-A, no decisiones adoptadas.
 | F1-06 | Nuevo `AppShell` adaptativo: barra inferior en móvil, lateral en tableta y escritorio. | Navegable solo con teclado; enlace «saltar al contenido». |
 | F1-07 | Tema oscuro. | **Decisión DEC-B.** Contraste AA en ambos temas. |
 | F1-08 | Rediseño del detalle de ejercicio con revelación progresiva. | En 375 px, objetivo, dosis y criterios de parada visibles sin desplazarse más de dos pantallas. |
-| F1-09 | Rediseño del catálogo de ejercicios: filtros en hoja inferior en móvil, resultados compactos. | Filtros utilizables con una mano; número de resultados anunciado. |
+| F1-09 | Rediseño del catálogo de ejercicios: filtros en hoja inferior en móvil, resultados compactos. | **Hecha.** Filtros agrupados en hoja inferior modal táctil en móvil con contador activo y botón para una mano; número de resultados anunciado con role='status' y aria-live='polite'. |
 | F1-10 | Rediseño de sesiones y del constructor: pasos claros y guardado visible. | El flujo de preparación cabe en pasos de una pantalla en móvil. |
 | F1-11 | Modo campo para la ejecución de sesiones. | Una tarea por pantalla; registrar «hecha» en un toque; legible al sol. |
 | F1-12 | Rediseño del Dashboard orientado a la próxima acción (continuar borrador, ejecutar sesión, consultar). | Validado con la persona usuaria. |

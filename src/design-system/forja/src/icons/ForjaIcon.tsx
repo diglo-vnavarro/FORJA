@@ -29,12 +29,14 @@ import {
   IconRosetteDiscountCheck,
   IconRulerMeasure,
   IconRun,
+  IconSearch,
   IconStretching,
   IconTarget,
   IconTargetArrow,
   IconTrophy,
   IconUser,
   IconWeight,
+  IconX,
   IconYoga
 } from "@tabler/icons-react";
 import {
@@ -95,6 +97,8 @@ export const FORJA_ICON_MAP = {
   increaseDemand: IconArrowBigUpLines,
   resistanceBand: ForjaResistanceBandIcon,
   sled: ForjaSledIcon,
+  search: IconSearch,
+  close: IconX,
 } as const satisfies Record<string, IconComponent>;
 
 export type ForjaIconName = keyof typeof FORJA_ICON_MAP;
@@ -172,4 +176,6 @@ export const FORJA_ICON_LABELS: Record<ForjaIconName, string> = {
   increaseDemand: "Aumentar demanda",
   resistanceBand: "Goma elástica",
   sled: "Trineo",
+  search: "Buscar",
+  close: "Cerrar",
 };

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { ForjaIcon, type ForjaIconName } from "@/design-system/forja/src/icons";
 import { ForjaLogo } from "@/components/ui/ForjaLogo";
+import { GlobalSearch } from "@/features/search/components/GlobalSearch";
 
 const navItems: { to: string; label: string; icon: ForjaIconName; end?: boolean }[] = [
   { to: "/", label: "Dashboard", icon: "competence", end: true },
@@ -17,6 +18,7 @@ export function AppShell() {
   return <div className="app-shell">
     <header className="app-bar">
       <NavLink to="/" className="brand-link" aria-label="FORJA, ir al dashboard"><ForjaLogo variant="lockup" size="md" inverse /></NavLink>
+      <GlobalSearch />
       <button className="menu-button" type="button" aria-label={open ? "Cerrar navegación" : "Abrir navegación"} aria-expanded={open} onClick={() => setOpen(!open)}>
         <span /><span /><span />
       </button>

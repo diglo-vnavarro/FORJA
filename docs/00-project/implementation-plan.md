@@ -114,7 +114,7 @@ Son una propuesta para DEC-A, no decisiones adoptadas.
 | F1-03 | Tokens de diseño ampliados: escala tipográfica fluida (`clamp`), espaciado, radios, sombras, puntos de ruptura y tamaños táctiles, en `forja-tokens.css`. | Sin colores nuevos fuera de D-011; `global.css` sin valores mágicos repetidos. |
 | F1-04 | Separar `global.css` (339 líneas) en estilos base y estilos por componente o funcionalidad. | Mismo aspecto visual; sin reglas huérfanas. |
 | F1-05 | Biblioteca de componentes base en `src/components/ui/`: botón, campo, selector, pestañas, plegable, hoja inferior, tarjeta, barra de navegación inferior. | Cada componente con test de accesibilidad básico (rol, etiqueta, foco). |
-| F1-06 | Nuevo `AppShell` adaptativo: barra inferior en móvil, lateral en tableta y escritorio. | Navegable solo con teclado; enlace «saltar al contenido». |
+| F1-06 | Nuevo `AppShell` adaptativo: barra inferior en móvil, lateral en tableta y escritorio. | **Hecha.** Implementado AppShell adaptativo con barra inferior fija y panel 'Más' en móvil, barra lateral en tableta y escritorio, enlace 'saltar al contenido' accesible y navegabilidad completa por teclado. |
 | F1-07 | Tema oscuro. | **Decisión DEC-B.** Contraste AA en ambos temas. |
 | F1-08 | Rediseño del detalle de ejercicio con revelación progresiva. | En 375 px, objetivo, dosis y criterios de parada visibles sin desplazarse más de dos pantallas. |
 | F1-09 | Rediseño del catálogo de ejercicios: filtros en hoja inferior en móvil, resultados compactos. | Filtros utilizables con una mano; número de resultados anunciado. |

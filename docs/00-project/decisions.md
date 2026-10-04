@@ -189,3 +189,43 @@ Se adoptan además tres normas de trabajo nuevas:
 
 La revisión previa a la pull request comprueba el código contra la lista de
 verificación de `AGENTS.md`.
+
+## D-018 — Tema oscuro y contraste accesible (DEC-B)
+
+Fecha: 4 de octubre de 2026.
+
+La paleta básica de FORJA se definió como cerrada en D-011 para proteger la
+identidad de marca (navy canónico, azul de acento y superficies claras). Sin
+embargo, el uso en campo (horas de baja luz, interiores de pabellones) y la
+preferencia de accesibilidad requieren un modo oscuro que reduzca la fatiga
+visual y preserve la legibilidad.
+
+Se aprueba la especificación del tema oscuro bajo las siguientes reglas:
+
+1. **Tokens contextuales para modo oscuro**:
+   Se aplican mediante el atributo `data-theme="dark"` en el elemento raíz
+   (`<html>`), y automáticamente cuando la preferencia del sistema es oscura
+   (`@media (prefers-color-scheme: dark)`) salvo anulación explícita.
+   - Fondo general: `#0B111E` (navy profundo derivado de la identidad).
+   - Fondo de tarjeta y componentes (`--forja-white` contextual): `#131E31`.
+   - Fondo sutil / contenedor neutro (`--forja-gray-light` contextual): `#1B2A43`.
+   - Texto principal (`--forja-primary` contextual): `#F1F5F9`.
+   - Texto secundario (`--forja-gray-mid` contextual): `#94A3B8`.
+   - Azul de acento / interactivo (`--forja-secondary` contextual): `#3B82F6` (brillo adaptado para contraste en fondo oscuro).
+   - Verde de éxito (`--forja-success` contextual): `#4ADE80`.
+   - Ocre de advertencia (`--forja-warning` contextual): `#FBBF24`.
+   - Rojo de peligro (`--forja-danger` contextual): `#F87171`.
+
+2. **Garantía de contraste WCAG 2.1 AA**:
+   - Todo texto normal cumple el umbral mínimo de 4.5:1.
+   - El texto principal (`#F1F5F9` sobre `#131E31` y `#0B111E`) alcanza un ratio superior a 14:1 (nivel AAA).
+   - El texto secundario (`#94A3B8` sobre `#131E31`) alcanza 4.8:1 (> 4.5:1, nivel AA).
+   - Los colores de estado (`#3B82F6`, `#4ADE80`, `#FBBF24`, `#F87171`) superan 4.5:1 sobre la superficie de tarjeta.
+   - La suite de tests automatizados (`src/design-system/forja/src/styles/themeContrast.test.ts`) verifica matemáticamente los ratios de contraste de ambos temas.
+
+3. **Persistencia y control de usuario**:
+   - Clave en `localStorage`: `forja.theme.v1`.
+   - Valores permitidos: `"light"`, `"dark"`, `"system"` (validados con `isTheme`).
+   - El valor por defecto es `"system"`, sincronizándose con la preferencia del sistema operativo/navegador.
+   - Un botón en la barra de navegación permite alternar entre modos rápidamente.
+

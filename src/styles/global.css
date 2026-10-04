@@ -337,3 +337,95 @@ button, a, input, select { -webkit-tap-highlight-color: transparent; }
   .metric { min-height: 62px; }
   .exercise-media-placeholder b { font-size: 14px; }
 }
+
+/* -------------------------------------------------------------------------
+   Dark theme support (DEC-B / F1-07)
+   ------------------------------------------------------------------------- */
+.app-bar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.theme-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 1px solid color-mix(in srgb, var(--forja-white) 28%, transparent);
+  border-radius: 8px;
+  color: var(--forja-white);
+  background: transparent;
+  cursor: pointer;
+  transition: background .15s ease, border-color .15s ease;
+}
+
+.theme-toggle-btn:hover {
+  background: color-mix(in srgb, var(--forja-white) 12%, transparent);
+  border-color: color-mix(in srgb, var(--forja-white) 48%, transparent);
+}
+
+:root[data-theme="dark"],
+html[data-theme="dark"] {
+  background: #0B111E;
+}
+
+[data-theme="dark"] .app-bar {
+  background: #0B111E;
+  color: #F1F5F9;
+  box-shadow: 0 1px 0 #1B2A43;
+}
+
+[data-theme="dark"] .sidebar {
+  background: #080D17;
+  border-right: 1px solid #1B2A43;
+}
+
+[data-theme="dark"] .forja-logo--inverse {
+  color: #F1F5F9;
+}
+
+[data-theme="dark"] .theme-toggle-btn {
+  color: #F1F5F9;
+  border-color: #273A5B;
+}
+
+[data-theme="dark"] .theme-toggle-btn:hover {
+  background: #1B2A43;
+  border-color: #3B82F6;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]),
+  html:not([data-theme="light"]) {
+    background: #0B111E;
+  }
+
+  :root:not([data-theme="light"]) .app-bar {
+    background: #0B111E;
+    color: #F1F5F9;
+    box-shadow: 0 1px 0 #1B2A43;
+  }
+
+  :root:not([data-theme="light"]) .sidebar {
+    background: #080D17;
+    border-right: 1px solid #1B2A43;
+  }
+
+  :root:not([data-theme="light"]) .forja-logo--inverse {
+    color: #F1F5F9;
+  }
+
+  :root:not([data-theme="light"]) .theme-toggle-btn {
+    color: #F1F5F9;
+    border-color: #273A5B;
+  }
+
+  :root:not([data-theme="light"]) .theme-toggle-btn:hover {
+    background: #1B2A43;
+    border-color: #3B82F6;
+  }
+}
+

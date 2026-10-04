@@ -135,7 +135,7 @@ Objetivo: que FORJA funcione en el campo sin cobertura.
 | --- | --- | --- |
 | F2-01 | Registrar DEC-C. | Decisión registrada. |
 | F2-02 | *Service worker* con caché de la aplicación, el contenido y las imágenes de ejercicios. | La aplicación abre y navega sin conexión tras una primera visita. |
-| F2-03 | Aviso de nueva versión disponible. | La persona usuaria decide cuándo actualizar; un borrador abierto no se pierde. |
+| F2-03 | Aviso de nueva versión disponible. | La persona usuaria decide cuándo actualizar; un borrador abierto no se pierde. ✅ Hecha en rama feat/f2-03-update-available-notice. |
 | F2-04 | Exportar e importar borradores y ejecuciones (JSON). | Los datos de `localStorage` pueden salvarse y restaurarse en otro dispositivo. |
 
 ## Fase 3 — Búsqueda global

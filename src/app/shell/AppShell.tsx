@@ -2,6 +2,7 @@ import { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { ForjaIcon, type ForjaIconName } from "@/design-system/forja/src/icons";
 import { ForjaLogo } from "@/components/ui/ForjaLogo";
+import { UpdatePrompt } from "@/app/shell/UpdatePrompt";
 
 const navItems: { to: string; label: string; icon: ForjaIconName; end?: boolean }[] = [
   { to: "/", label: "Dashboard", icon: "competence", end: true },
@@ -22,6 +23,7 @@ export function AppShell() {
       </button>
       <div className="profile-placeholder" aria-label="Perfil no configurado"><span aria-hidden="true">VN</span><div><strong>Entrenador</strong><small>Perfil en preparación</small></div></div>
     </header>
+    <UpdatePrompt />
     <aside className={`sidebar ${open ? "sidebar--open" : ""}`}>
       <nav aria-label="Navegación principal">{navItems.map((item) => <NavLink key={item.to} to={item.to} end={item.end} onClick={() => setOpen(false)} className={({ isActive }) => `nav-item ${isActive ? "nav-item--active" : ""}`}><ForjaIcon name={item.icon} size={20} /><span>{item.label}</span></NavLink>)}</nav>
       <p className="sidebar-note">Base de producto <strong>v0.1</strong></p>

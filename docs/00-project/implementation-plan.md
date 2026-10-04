@@ -69,7 +69,7 @@ pequeñas e independientes.
 | F0-03 | El catálogo de ejercicios muestra «15 fichas» como texto fijo. | El número sale de los datos; test que lo cubra. |
 | F0-04 | El perfil de la barra superior muestra unas iniciales fijas. | Sustituir por un marcador neutro hasta que exista el módulo de perfil. |
 | F0-05 | Normas editoriales sin documento propio (hoja de ruta, Fase 0). | **Contenido.** Documento en `docs/01-foundations/` que reúna las reglas hoy repartidas entre `AGENTS.md` y `CONTRIBUTING.md`, sin duplicarlas. |
-| F0-06 | Binarios no referenciados en `assets/`. | **Decisión DEC-F.** Inventario de archivos sin referencias y eliminación de los aprobados. |
+| F0-06 | Binarios no referenciados en `assets/`. | **Decisión DEC-F.** Inventario de archivos sin referencias y eliminación de los aprobados. ✅ Hecha en rama fix/f0-06-cleanup-unreferenced-binaries-dec-f. |
 
 ## Fase 1 — Rediseño de la experiencia de uso
 

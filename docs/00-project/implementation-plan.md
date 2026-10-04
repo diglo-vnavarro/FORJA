@@ -116,7 +116,7 @@ Son una propuesta para DEC-A, no decisiones adoptadas.
 | F1-05 | Biblioteca de componentes base en `src/components/ui/`: botón, campo, selector, pestañas, plegable, hoja inferior, tarjeta, barra de navegación inferior. | Cada componente con test de accesibilidad básico (rol, etiqueta, foco). |
 | F1-06 | Nuevo `AppShell` adaptativo: barra inferior en móvil, lateral en tableta y escritorio. | Navegable solo con teclado; enlace «saltar al contenido». |
 | F1-07 | Tema oscuro. | **Decisión DEC-B.** Contraste AA en ambos temas. |
-| F1-08 | Rediseño del detalle de ejercicio con revelación progresiva. | En 375 px, objetivo, dosis y criterios de parada visibles sin desplazarse más de dos pantallas. |
+| F1-08 | Rediseño del detalle de ejercicio con revelación progresiva. | **Hecha.** Implementado patrón de pestañas accesibles (Prescripción y uso, Técnica y claves, Modificaciones y criterio). Objetivo, dosis y criterios de parada visibles de inmediato en móvil en menos de dos pantallas. |
 | F1-09 | Rediseño del catálogo de ejercicios: filtros en hoja inferior en móvil, resultados compactos. | Filtros utilizables con una mano; número de resultados anunciado. |
 | F1-10 | Rediseño de sesiones y del constructor: pasos claros y guardado visible. | El flujo de preparación cabe en pasos de una pantalla en móvil. |
 | F1-11 | Modo campo para la ejecución de sesiones. | Una tarea por pantalla; registrar «hecha» en un toque; legible al sol. |

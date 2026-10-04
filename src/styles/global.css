@@ -337,3 +337,60 @@ button, a, input, select { -webkit-tap-highlight-color: transparent; }
   .metric { min-height: 62px; }
   .exercise-media-placeholder b { font-size: 14px; }
 }
+
+/* ==========================================================================
+   F1-08: Revelación progresiva en la ficha de ejercicio
+   ========================================================================== */
+.detail-tabs-container {
+  display: flex;
+  gap: 8px;
+  margin: 24px 0 20px;
+  padding: 4px;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--forja-gray-light) 50%, var(--forja-white));
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.detail-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 8px 16px;
+  border: 0;
+  border-radius: 7px;
+  color: var(--forja-gray-mid);
+  background: transparent;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+
+.detail-tab:hover {
+  color: var(--forja-primary);
+  background: color-mix(in srgb, var(--forja-white) 60%, transparent);
+}
+
+.detail-tab:focus-visible {
+  outline: 2px solid var(--forja-secondary);
+  outline-offset: 1px;
+}
+
+.detail-tab--active {
+  color: var(--forja-primary);
+  background: var(--forja-white);
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--forja-primary) 10%, transparent);
+}
+
+.tab-panel {
+  display: grid;
+  gap: 20px;
+}
+
+.detail-section--stop-criteria {
+  border-left: 4px solid #D9383A;
+}

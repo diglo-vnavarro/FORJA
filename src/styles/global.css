@@ -254,7 +254,7 @@ button, a, input, select { -webkit-tap-highlight-color: transparent; }
   .saved-session-grid { grid-template-columns: 1fr; }
   .execution-context { grid-template-columns: repeat(2, 1fr); }
 }
-@media (max-width: 760px) {
+@media (max-width: 768px) {
   .app-shell { display: block; padding-top: 64px; }.app-bar { position: fixed; width: 100%; height: 64px; padding: 0 16px; }.profile-placeholder div { display: none; }.profile-placeholder > span { width: 34px; height: 34px; }.menu-button { display: block; order: -1; }.brand-link { position: absolute; left: 50%; transform: translateX(-50%); }.forja-logo--lockup.forja-logo--md { width: 95px; height: 16px; }.sidebar { position: fixed; z-index: 40; top: 64px; left: 0; width: min(300px, 86vw); height: calc(100vh - 64px); transform: translateX(-102%); transition: transform .2s ease; }.sidebar--open { transform: translateX(0); }.nav-scrim { position: fixed; z-index: 35; inset: 64px 0 0; display: block; border: 0; background: color-mix(in srgb, var(--forja-primary) 60%, transparent); }.app-content { padding: 28px 16px 48px; }.page-header { margin-bottom: 24px; }.page-header h1 { font-size: 34px; }.page-lead { font-size: 15px; }.dashboard-grid { grid-template-columns: 1fr; }.area-card { min-height: 0; flex-direction: row; }.catalog-controls { grid-template-columns: 1fr 1fr; }.search-control { grid-column: 1 / -1; }.exercise-grid { grid-template-columns: 1fr; }.exercise-card { display: grid; grid-template-columns: 34% 66%; }.exercise-card__media { height: auto; min-height: 260px; }.exercise-card__body > p:not(.card-kicker) { min-height: 0; }.exercise-hero { display: flex; flex-direction: column-reverse; }.exercise-hero__media { min-height: 340px; height: 44vh; max-height: 440px; }.exercise-hero__copy { padding: 26px; }.exercise-hero h1 { font-size: 40px; }.section-heading { display: block; }.section-heading h2 { margin-bottom: 4px; }.instruction-layout { grid-template-columns: 1fr; }.coaching-grid, .relations-grid { grid-template-columns: 1fr; }.coaching-grid > :last-child { grid-column: auto; }
   .session-grid { grid-template-columns: 1fr; }.session-card { min-height: 0; }.session-hero { grid-template-columns: 1fr; }.session-hero__priority { padding: 23px 28px; }.session-summary { grid-template-columns: repeat(2, 1fr); }.session-task { grid-template-columns: 1fr 1fr; }.session-task__identity { grid-column: 1 / -1; }.session-adaptation-grid { grid-template-columns: 1fr; }
   .page-actions { flex-wrap: wrap; }.builder-header { display: block; }.builder-header__actions { margin-top: 18px; }.builder-form-grid { grid-template-columns: 1fr; }.builder-field--wide { grid-column: auto; }
@@ -323,7 +323,7 @@ button, a, input, select { -webkit-tap-highlight-color: transparent; }
   .exercise-overview { grid-template-columns: repeat(2, 1fr); }
   .exercise-hero { grid-template-columns: 1fr 42%; }
 }
-@media (max-width: 760px) {
+@media (max-width: 768px) {
   .exercise-hero { flex-direction: column-reverse; }
   .exercise-hero__media { min-height: 290px; height: 38vh; }
   .exercise-overview { grid-template-columns: repeat(2, 1fr); }

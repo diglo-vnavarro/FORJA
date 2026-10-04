@@ -119,7 +119,7 @@ Son una propuesta para DEC-A, no decisiones adoptadas.
 | F1-08 | Rediseño del detalle de ejercicio con revelación progresiva. | En 375 px, objetivo, dosis y criterios de parada visibles sin desplazarse más de dos pantallas. |
 | F1-09 | Rediseño del catálogo de ejercicios: filtros en hoja inferior en móvil, resultados compactos. | Filtros utilizables con una mano; número de resultados anunciado. |
 | F1-10 | Rediseño de sesiones y del constructor: pasos claros y guardado visible. | El flujo de preparación cabe en pasos de una pantalla en móvil. |
-| F1-11 | Modo campo para la ejecución de sesiones. | Una tarea por pantalla; registrar «hecha» en un toque; legible al sol. |
+| F1-11 | Modo campo para la ejecución de sesiones. | **Hecha.** Modo campo con una tarea por pantalla, botón rápido de registro «hecha» en un solo toque, contraste optimizado para sol y pista, y navegación por pasos. |
 | F1-12 | Rediseño del Dashboard orientado a la próxima acción (continuar borrador, ejecutar sesión, consultar). | Validado con la persona usuaria. |
 | F1-13 | Pruebas visuales en 375, 768 y 1280 px de todas las rutas. | Sin desbordamiento horizontal; capturas adjuntas a la pull request. |
 

@@ -337,3 +337,111 @@ button, a, input, select { -webkit-tap-highlight-color: transparent; }
   .metric { min-height: 62px; }
   .exercise-media-placeholder b { font-size: 14px; }
 }
+
+/* ==========================================================================
+   F1-11: Modo campo para ejecución de sesiones (sol y pista)
+   ========================================================================== */
+.execution-page--field {
+  background: var(--forja-white);
+}
+
+.execution-page--field .execution-task--hidden {
+  display: none !important;
+}
+
+.execution-page--field .execution-task--active {
+  border: 2px solid var(--forja-primary);
+  border-radius: 12px;
+  padding: 16px;
+  background: var(--forja-white);
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--forja-primary) 12%, transparent);
+}
+
+.field-stepper {
+  margin-bottom: 20px;
+  padding: 14px 16px;
+  border: 2px solid var(--forja-primary);
+  border-radius: 10px;
+  background: var(--forja-white);
+}
+
+.field-stepper__status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.field-stepper__label {
+  color: var(--forja-primary);
+  font-weight: 700;
+}
+
+.field-stepper__actions {
+  display: flex;
+  gap: 8px;
+}
+
+.field-stepper__btn {
+  min-height: 40px;
+  padding: 6px 14px;
+  border: 1px solid var(--forja-primary);
+  border-radius: 6px;
+  background: var(--forja-white);
+  color: var(--forja-primary);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.field-stepper__btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.field-stepper__btn--primary {
+  background: var(--forja-primary);
+  color: var(--forja-white);
+}
+
+.field-stepper__progress {
+  height: 6px;
+  margin-top: 10px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--forja-primary) 15%, var(--forja-white));
+  overflow: hidden;
+}
+
+.field-stepper__bar {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--forja-secondary);
+  transition: width 0.2s ease;
+}
+
+.field-quick-action {
+  margin: 16px 0;
+}
+
+.button--quick-complete {
+  width: 100%;
+  min-height: 52px;
+  font-size: 16px;
+  font-weight: 800;
+  background: var(--forja-secondary);
+  color: var(--forja-white);
+  border: 2px solid var(--forja-secondary);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.1s ease, filter 0.15s ease;
+}
+
+.button--quick-complete:hover,
+.button--quick-complete:focus-visible {
+  filter: brightness(1.1);
+}
+
+.button--quick-complete:active {
+  transform: scale(0.98);
+}

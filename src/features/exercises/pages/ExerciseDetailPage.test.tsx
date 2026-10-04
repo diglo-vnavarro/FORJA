@@ -25,3 +25,30 @@ it("renders integrated media for exercises outside the original pilot", () => {
   expect(screen.getByAltText(/Dos fases de una bisagra de cadera sin carga/i)).toBeInTheDocument();
   expect(screen.queryByRole("img", { name: /Imagen en producción para Bisagra de cadera/i })).not.toBeInTheDocument();
 });
+
+it("allows consulting glossary terms in-place without leaving the exercise sheet", async () => {
+  const { default: userEvent } = await import("@testing-library/user-event");
+  const user = userEvent.setup();
+
+  render(
+    <MemoryRouter initialEntries={["/exercises/EX-002"]}>
+      <Routes>
+        <Route path="/exercises/:exerciseId" element={<ExerciseDetailPage />} />
+      </Routes>
+    </MemoryRouter>
+  );
+
+  expect(screen.getByRole("region", { name: "Glosario metodológico" })).toBeInTheDocument();
+  const termChip = screen.getByRole("button", { name: /Consultar definición de.*RIR/i });
+  expect(termChip).toBeInTheDocument();
+
+  await user.click(termChip);
+
+  expect(screen.getByRole("dialog")).toBeInTheDocument();
+  expect(screen.getByRole("heading", { name: /RIR — Repeticiones en reserva/i })).toBeInTheDocument();
+  expect(screen.getByRole("button", { name: "Cerrar glosario" })).toBeInTheDocument();
+
+  await user.click(screen.getByRole("button", { name: "Cerrar glosario" }));
+  expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+});
+

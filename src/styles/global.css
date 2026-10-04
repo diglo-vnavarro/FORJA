@@ -697,3 +697,379 @@ button, a, input, select { -webkit-tap-highlight-color: transparent; }
     display: none;
   }
 }
+
+/* ==========================================================================
+   Glossary Navigation & In-page Consultation (F3-03)
+   ========================================================================== */
+
+.glossary-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.glossary-drawer {
+  width: min(480px, 100vw);
+  height: 100dvh;
+  background: var(--forja-surface-card);
+  box-shadow: var(--forja-shadow-floating);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: drawer-slide-in 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+}
+
+@keyframes drawer-slide-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.glossary-drawer__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--forja-border-soft);
+  background: var(--forja-surface-ground);
+}
+
+.glossary-drawer__badges {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.glossary-drawer__close-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: var(--forja-radius-sm);
+  background: transparent;
+  color: var(--forja-text-muted);
+  cursor: pointer;
+}
+
+.glossary-drawer__close-btn:hover {
+  background: var(--forja-surface-card-subtle);
+  color: var(--forja-text-title);
+}
+
+.glossary-drawer__content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.glossary-drawer__title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--forja-text-title);
+  line-height: 1.3;
+}
+
+.glossary-drawer__summary {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--forja-text-body);
+}
+
+.glossary-drawer__decision {
+  padding: 14px 16px;
+  border-radius: var(--forja-radius-md);
+  background: color-mix(in srgb, var(--forja-secondary) 8%, var(--forja-surface-ground));
+  border-left: 3px solid var(--forja-secondary);
+}
+
+.glossary-drawer__decision-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--forja-secondary);
+  margin-bottom: 6px;
+}
+
+.glossary-drawer__decision p {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--forja-text-body);
+  margin: 0;
+}
+
+.glossary-drawer__see-also h4 {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--forja-text-muted);
+  margin-bottom: 8px;
+}
+
+.glossary-drawer__see-also-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.glossary-chip {
+  padding: 4px 10px;
+  border-radius: var(--forja-radius-sm);
+  font-size: 12px;
+  border: 1px solid var(--forja-border-soft);
+  background: var(--forja-surface-ground);
+  color: var(--forja-secondary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.glossary-chip:hover {
+  border-color: var(--forja-secondary);
+  background: var(--forja-surface-card-subtle);
+}
+
+.glossary-chip--plain {
+  color: var(--forja-text-muted);
+  cursor: default;
+}
+
+.glossary-drawer__source {
+  font-size: 12px;
+  color: var(--forja-text-muted);
+  padding-top: 12px;
+  border-top: 1px solid var(--forja-border-soft);
+}
+
+.glossary-drawer__footer {
+  padding: 14px 20px;
+  border-top: 1px solid var(--forja-border-soft);
+  background: var(--forja-surface-ground);
+}
+
+.glossary-drawer__full-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--forja-secondary);
+  text-decoration: none;
+}
+
+.glossary-drawer__full-link:hover {
+  text-decoration: underline;
+}
+
+/* Term chips in exercise detail */
+.glossary-chips-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.glossary-term-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--forja-radius-md);
+  border: 1px solid var(--forja-border-soft);
+  background: var(--forja-surface-card);
+  color: var(--forja-text-title);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.glossary-term-chip:hover {
+  border-color: var(--forja-secondary);
+  color: var(--forja-secondary);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.glossary-term-chip__icon {
+  color: var(--forja-secondary);
+}
+
+/* Glossary Page */
+.glossary-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 16px 0 24px;
+}
+
+.glossary-search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 14px;
+  height: 42px;
+  border: 1px solid var(--forja-border-soft);
+  border-radius: var(--forja-radius-md);
+  background: var(--forja-surface-card);
+}
+
+.glossary-search-bar__icon {
+  color: var(--forja-text-muted);
+}
+
+.glossary-search-bar__input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 14px;
+  color: var(--forja-text-title);
+  font-family: inherit;
+}
+
+.glossary-search-bar__clear {
+  border: none;
+  background: transparent;
+  color: var(--forja-text-muted);
+  cursor: pointer;
+}
+
+.glossary-letters-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.glossary-letter-btn {
+  padding: 4px 10px;
+  border-radius: var(--forja-radius-sm);
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid var(--forja-border-soft);
+  background: var(--forja-surface-card);
+  color: var(--forja-text-muted);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.glossary-letter-btn:hover {
+  color: var(--forja-text-title);
+  border-color: var(--forja-border-strong);
+}
+
+.glossary-letter-btn--active {
+  background: var(--forja-secondary);
+  color: var(--forja-white);
+  border-color: var(--forja-secondary);
+}
+
+.glossary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+}
+
+.glossary-card {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  border: 1px solid var(--forja-border-soft);
+  border-radius: var(--forja-radius-md);
+  background: var(--forja-surface-card);
+  gap: 10px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.glossary-card:hover {
+  border-color: var(--forja-border-strong);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.glossary-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.glossary-card__badges {
+  display: flex;
+  gap: 6px;
+}
+
+.glossary-card__open-btn {
+  border: none;
+  background: transparent;
+  color: var(--forja-text-muted);
+  cursor: pointer;
+}
+
+.glossary-card__open-btn:hover {
+  color: var(--forja-secondary);
+}
+
+.glossary-card__title {
+  margin: 0;
+  font-size: 16px;
+}
+
+.glossary-card__title-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--forja-text-title);
+  text-align: left;
+  cursor: pointer;
+}
+
+.glossary-card__title-btn:hover {
+  color: var(--forja-secondary);
+}
+
+.glossary-card__summary {
+  font-size: 13px;
+  color: var(--forja-text-body);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.glossary-card__decision {
+  font-size: 12px;
+  padding: 8px 10px;
+  border-radius: var(--forja-radius-sm);
+  background: color-mix(in srgb, var(--forja-secondary) 8%, transparent);
+  border-left: 2px solid var(--forja-secondary);
+  color: var(--forja-text-body);
+}
+
+.glossary-card__see-also {
+  font-size: 11px;
+  color: var(--forja-text-muted);
+  margin-top: auto;
+}
+
+.glossary-empty {
+  padding: 32px 16px;
+  text-align: center;
+  color: var(--forja-text-muted);
+}
+
+.glossary-empty p {
+  margin-bottom: 12px;
+  font-size: 15px;
+}
+

@@ -17,6 +17,8 @@ export const router = createBrowserRouter([
     { path: "sessions/prepare/:draftId", lazy: lazyComponent(() => import("@/features/session-builder/pages/SessionBuilderPage"), "SessionBuilderPage") },
     { path: "sessions/execute/:draftId", lazy: lazyComponent(() => import("@/features/session-execution/pages/SessionExecutionPage"), "SessionExecutionPage") },
     { path: "sessions/:sessionId", lazy: lazyComponent(() => import("@/features/sessions/pages/SessionDetailPage"), "SessionDetailPage") },
+    { path: "glossary", lazy: lazyComponent(() => import("@/features/search/pages/GlossaryPage"), "GlossaryPage") },
+    { path: "glossary/:slug", lazy: lazyComponent(() => import("@/features/search/pages/GlossaryPage"), "GlossaryPage") },
     ...["planning", "athletes", "library"].map((path) => ({ path, lazy: comingSoon })),
     { path: "*", lazy: lazyComponent(() => import("@/pages/NotFoundPage"), "NotFoundPage") },
   ],

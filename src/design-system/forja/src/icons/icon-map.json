@@ -250,5 +250,11 @@
     "label": "Cerrar",
     "component": "IconX",
     "source": "Tabler Icons"
+  },
+  {
+    "name": "glossary",
+    "label": "Glosario",
+    "component": "IconBook",
+    "source": "Tabler Icons"
   }
 ]

@@ -238,5 +238,17 @@
     "label": "Trineo",
     "component": "ForjaSledIcon",
     "source": "FORJA custom"
+  },
+  {
+    "name": "search",
+    "label": "Buscar",
+    "component": "IconSearch",
+    "source": "Tabler Icons"
+  },
+  {
+    "name": "close",
+    "label": "Cerrar",
+    "component": "IconX",
+    "source": "Tabler Icons"
   }
 ]

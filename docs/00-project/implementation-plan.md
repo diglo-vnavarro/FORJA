@@ -146,7 +146,7 @@ cualquier pantalla (hoja de ruta, Fase 6).
 | ID | Tarea | Criterio de aceptación |
 | --- | --- | --- |
 | F3-01 | Índice de búsqueda generado a partir del Markdown ya cargado, sin servicios externos. | Busca por nombre, alias, patrón, capacidad y material. ✅ Hecha en rama feat/f3-01-search-index. |
-| F3-02 | Interfaz de búsqueda: campo en la barra en escritorio, pantalla completa en móvil, atajo de teclado. | Navegable con teclado; resultados agrupados por tipo. |
+| F3-02 | Interfaz de búsqueda: campo en la barra en escritorio, pantalla completa en móvil, atajo de teclado. | Navegable con teclado; resultados agrupados por tipo. ✅ Hecha en rama feat/f3-02-search-interface. |
 | F3-03 | Glosario navegable en la aplicación, enlazado desde los términos de las fichas. | Los términos del glosario son consultables sin salir de la ficha. |
 
 ## Fase 4 — Evaluación y seguimiento

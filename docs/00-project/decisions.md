@@ -162,3 +162,30 @@ P (aplicación práctica).
 
 Una hipótesis no se presenta como recomendación general. Cuando se valide pasa
 a M, E o C; si no se confirma, se descarta, y el cambio se registra.
+
+## D-016 — Guía técnica para agentes y flujo de módulos
+
+Fecha: 4 de octubre de 2026.
+
+[`AGENTS.md`](../../AGENTS.md) amplía su alcance: además de las reglas de
+contenido, describe el stack, la arquitectura por funcionalidad de la
+aplicación, las convenciones de nombres, el manejo de errores y la estrategia
+de tests. Su objetivo es que cualquier herramienta o persona pueda trabajar en
+un módulo sin desalinearse del repositorio.
+
+Se adoptan además tres normas de trabajo nuevas:
+
+- **Criterios mínimos de tests para módulos nuevos.** No se fija un umbral
+  numérico de cobertura. Se exigen tests de la lógica de `domain/`, de la
+  persistencia en el navegador, del flujo principal de cada página y de la
+  integridad de los documentos que se lean desde `docs/`.
+- **Construcción autocontenida.** Los módulos nuevos y las refactorizaciones
+  amplias se desarrollan en su carpeta de funcionalidad y solo tocan fuera de
+  ella los puntos de integración imprescindibles.
+- **`walkthrough.md`.** Antes de cerrar un módulo se crea un `walkthrough.md`
+  en la carpeta del módulo con el objetivo, las decisiones tomadas, los
+  archivos modificados, la verificación y lo pendiente. Su resumen va también
+  en la descripción de la pull request.
+
+La revisión previa a la pull request comprueba el código contra la lista de
+verificación de `AGENTS.md`.

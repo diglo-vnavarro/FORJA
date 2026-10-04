@@ -337,3 +337,136 @@ button, a, input, select { -webkit-tap-highlight-color: transparent; }
   .metric { min-height: 62px; }
   .exercise-media-placeholder b { font-size: 14px; }
 }
+
+/* ==========================================================================
+   F1-10: Constructor de sesiones con pasos claros y guardado visible
+   ========================================================================== */
+.builder-stepper {
+  margin-bottom: 20px;
+  padding: 12px 16px;
+  border: 1px solid color-mix(in srgb, var(--forja-primary) 12%, var(--forja-white));
+  border-radius: 10px;
+  background: var(--forja-white);
+}
+
+.builder-stepper__track {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.builder-stepper__item {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 6px 14px;
+  border: 0;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--forja-gray-light) 50%, var(--forja-white));
+  color: var(--forja-gray-mid);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+
+.builder-stepper__item--active {
+  background: var(--forja-primary);
+  color: var(--forja-white);
+}
+
+.builder-stepper__status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+  border-top: 1px solid var(--forja-gray-light);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--forja-primary);
+}
+
+.builder-stepper__nav {
+  display: flex;
+  gap: 8px;
+}
+
+.builder-stepper__btn {
+  min-height: 36px;
+  padding: 4px 12px;
+  border: 1px solid color-mix(in srgb, var(--forja-primary) 20%, transparent);
+  border-radius: 6px;
+  background: var(--forja-white);
+  color: var(--forja-primary);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.builder-stepper__btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.builder-stepper__btn--primary {
+  background: var(--forja-secondary);
+  color: var(--forja-white);
+  border-color: var(--forja-secondary);
+}
+
+.builder-sticky-bar {
+  position: sticky;
+  bottom: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 24px;
+  padding: 12px 20px;
+  border: 1px solid color-mix(in srgb, var(--forja-primary) 12%, var(--forja-white));
+  border-radius: 12px;
+  background: var(--forja-white);
+  box-shadow: 0 -4px 16px color-mix(in srgb, var(--forja-primary) 10%, transparent);
+}
+
+.builder-sticky-bar__status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.builder-sticky-bar__badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--forja-secondary) 15%, var(--forja-white));
+  color: var(--forja-secondary);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.builder-sticky-bar__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@media (max-width: 767px) {
+  .session-builder-page .builder-step:not(.builder-step--active) {
+    display: none !important;
+  }
+
+  .builder-sticky-bar {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 12px;
+  }
+
+  .builder-sticky-bar__actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+}

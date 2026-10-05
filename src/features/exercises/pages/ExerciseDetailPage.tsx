@@ -56,15 +56,18 @@ function RelationGroup({
         <ForjaIcon name={icon} size={21} />
         {title}
       </h3>
-      <ul>
-        {items.map((item) => (
-          <li key={`${item.id}-${item.name}`}>
-            <strong>{item.id}</strong>
-            <p>{item.name}</p>
-            {item.note ? <small>{item.note}</small> : null}
-          </li>
-        ))}
-      </ul>
+      {items.map((item, index) => (
+        <div className="relation" key={`${index}-${item.label}`}>
+          {item.targetId ? (
+            <Link to={`/exercises/${item.targetId}`}>
+              <strong>{item.label}</strong>
+            </Link>
+          ) : (
+            <strong>{item.label}</strong>
+          )}
+          {item.description && <p>{item.description}</p>}
+        </div>
+      ))}
     </div>
   );
 }

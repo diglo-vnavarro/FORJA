@@ -27,5 +27,14 @@ describe("project decisions integrity", () => {
     expect(content).toContain("Ciclo de vida del Service Worker y preservación de borradores");
     expect(content).toContain("Persistencia local y portabilidad de datos");
   });
+
+  it("registers D-021 (DEC-D) for athlete data privacy and governance", () => {
+    const content = readFileSync(decisionsPath, "utf8");
+    expect(content).toContain("## D-021 — Privacidad y gobernanza de datos de deportistas menores de edad (DEC-D)");
+    expect(content).toContain("Almacenamiento exclusivo en el cliente");
+    expect(content).toContain("Minimización de datos y seudonomización");
+    expect(content).toContain("Portabilidad y derecho de supresión total");
+    expect(content).toContain("Separación estricta entre metodología canónica y casos personales");
+  });
 });
 

@@ -111,7 +111,7 @@ Son una propuesta para DEC-A, no decisiones adoptadas.
 | --- | --- | --- |
 | F1-01 | Auditoría de UX: recorridos principales (consultar ejercicio, preparar sesión, ejecutar sesión) en 375, 768 y 1280 px, con capturas y problemas priorizados. | **Hecha.** Documento de auditoría en `docs/00-project/ux-audit.md` con capturas reales y matriz priorizada. |
 | F1-02 | Registrar DEC-A con la dirección elegida y prototipos de baja fidelidad de las pantallas clave. | **Hecha.** Registrada como decisión D-017 en `decisions.md` con prototipos de baja fidelidad. |
-| F1-03 | Tokens de diseño ampliados: escala tipográfica fluida (`clamp`), espaciado, radios, sombras, puntos de ruptura y tamaños táctiles, en `forja-tokens.css`. | Sin colores nuevos fuera de D-011; `global.css` sin valores mágicos repetidos. |
+| F1-03 | Tokens de diseño ampliados: escala tipográfica fluida (`clamp`), espaciado, radios, sombras, puntos de ruptura y tamaños táctiles, en `forja-tokens.css`. | **Hecha.** Sin colores nuevos fuera de D-011; `forja-tokens.css` ampliado con escalas fluidas y adaptativas, y `global.css` sin valores mágicos repetidos. |
 | F1-04 | Separar `global.css` (339 líneas) en estilos base y estilos por componente o funcionalidad. | Mismo aspecto visual; sin reglas huérfanas. |
 | F1-05 | Biblioteca de componentes base en `src/components/ui/`: botón, campo, selector, pestañas, plegable, hoja inferior, tarjeta, barra de navegación inferior. | Cada componente con test de accesibilidad básico (rol, etiqueta, foco). |
 | F1-06 | Nuevo `AppShell` adaptativo: barra inferior en móvil, lateral en tableta y escritorio. | Navegable solo con teclado; enlace «saltar al contenido». |

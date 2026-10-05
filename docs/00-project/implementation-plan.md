@@ -49,7 +49,7 @@ toma un agente.
 
 | ID | Decisión | Bloquea |
 | --- | --- | --- |
-| DEC-A | Dirección de UX: patrón de navegación, modelo *mobile-first* y prioridades por pantalla (ver Fase 1). | F1 |
+| DEC-A | Dirección de UX: patrón de navegación, modelo *mobile-first* y prioridades por pantalla (D-017). | **Registrada.** |
 | DEC-B | Modo oscuro. La paleta es cerrada (D-011); un tema oscuro necesita tokens nuevos y aprobación. | F1-07 |
 | DEC-C | Funcionamiento sin conexión: qué se guarda en caché y cómo se avisa de una versión nueva del contenido. | F2 |
 | DEC-D | Datos de deportistas: qué se guarda, dónde (solo en el dispositivo o con servidor), cómo se exporta y borra, y base legal tratándose de menores. | F5 |
@@ -64,12 +64,12 @@ pequeñas e independientes.
 
 | ID | Tarea | Criterio de aceptación |
 | --- | --- | --- |
-| F0-01 | Unificar «Entrenamientos» (tarjeta del Dashboard) y «Sesiones» (navegación). | Un solo término en toda la interfaz, coherente con el glosario. |
-| F0-02 | Las listas dentro de la descripción de un ejercicio se muestran aplanadas («mancuerna; - kettlebell»). Corregir en `documentAdapter.ts`. | La descripción de EX-002 se muestra sin guiones sueltos; test que lo cubra. |
-| F0-03 | El catálogo de ejercicios muestra «15 fichas» como texto fijo. | El número sale de los datos; test que lo cubra. |
-| F0-04 | El perfil de la barra superior muestra unas iniciales fijas. | Sustituir por un marcador neutro hasta que exista el módulo de perfil. |
-| F0-05 | Normas editoriales sin documento propio (hoja de ruta, Fase 0). | **Contenido.** Documento en `docs/01-foundations/` que reúna las reglas hoy repartidas entre `AGENTS.md` y `CONTRIBUTING.md`, sin duplicarlas. |
-| F0-06 | Binarios no referenciados en `assets/`. | **Decisión DEC-F.** Inventario de archivos sin referencias y eliminación de los aprobados. |
+| F0-01 | Unificar «Entrenamientos» (tarjeta del Dashboard) y «Sesiones» (navegación). | **Hecha.** Un solo término en toda la interfaz, coherente con el glosario. |
+| F0-02 | Las listas dentro de la descripción de un ejercicio se muestran aplanadas («mancuerna; - kettlebell»). Corregir en `documentAdapter.ts`. | **Hecha.** La descripción de EX-002 se muestra sin guiones sueltos; test que lo cubra. |
+| F0-03 | El catálogo de ejercicios muestra «15 fichas» como texto fijo. | **Hecha.** El número sale de los datos; test que lo cubra. |
+| F0-04 | El perfil de la barra superior muestra unas iniciales fijas. | **Hecha.** Sustituir por un marcador neutro hasta que exista el módulo de perfil. |
+| F0-05 | Normas editoriales sin documento propio (hoja de ruta, Fase 0). | **Contenido.** Documento en `docs/01-foundations/` que reúna las reglas hoy repartidas entre `AGENTS.md` y `CONTRIBUTING.md`, sin duplicarlas. ✅ Hecha en rama docs/f0-05-editorial-standards. |
+| F0-06 | Binarios no referenciados en `assets/`. | **Decisión DEC-F.** Inventario de archivos sin referencias y eliminación de los aprobados. ✅ Hecha en rama fix/f0-06-cleanup-unreferenced-binaries-dec-f. |
 
 ## Fase 1 — Rediseño de la experiencia de uso
 
@@ -109,19 +109,19 @@ Son una propuesta para DEC-A, no decisiones adoptadas.
 
 | ID | Tarea | Criterio de aceptación |
 | --- | --- | --- |
-| F1-01 | Auditoría de UX: recorridos principales (consultar ejercicio, preparar sesión, ejecutar sesión) en 375, 768 y 1280 px, con capturas y problemas priorizados. | Documento de auditoría aprobado. |
-| F1-02 | Registrar DEC-A con la dirección elegida y prototipos de baja fidelidad de las pantallas clave. | Decisión registrada en `decisions.md`. |
-| F1-03 | Tokens de diseño ampliados: escala tipográfica fluida (`clamp`), espaciado, radios, sombras, puntos de ruptura y tamaños táctiles, en `forja-tokens.css`. | Sin colores nuevos fuera de D-011; `global.css` sin valores mágicos repetidos. |
-| F1-04 | Separar `global.css` (339 líneas) en estilos base y estilos por componente o funcionalidad. | Mismo aspecto visual; sin reglas huérfanas. |
-| F1-05 | Biblioteca de componentes base en `src/components/ui/`: botón, campo, selector, pestañas, plegable, hoja inferior, tarjeta, barra de navegación inferior. | Cada componente con test de accesibilidad básico (rol, etiqueta, foco). |
-| F1-06 | Nuevo `AppShell` adaptativo: barra inferior en móvil, lateral en tableta y escritorio. | Navegable solo con teclado; enlace «saltar al contenido». |
-| F1-07 | Tema oscuro. | **Decisión DEC-B.** Contraste AA en ambos temas. |
-| F1-08 | Rediseño del detalle de ejercicio con revelación progresiva. | En 375 px, objetivo, dosis y criterios de parada visibles sin desplazarse más de dos pantallas. |
-| F1-09 | Rediseño del catálogo de ejercicios: filtros en hoja inferior en móvil, resultados compactos. | Filtros utilizables con una mano; número de resultados anunciado. |
-| F1-10 | Rediseño de sesiones y del constructor: pasos claros y guardado visible. | El flujo de preparación cabe en pasos de una pantalla en móvil. |
-| F1-11 | Modo campo para la ejecución de sesiones. | Una tarea por pantalla; registrar «hecha» en un toque; legible al sol. |
-| F1-12 | Rediseño del Dashboard orientado a la próxima acción (continuar borrador, ejecutar sesión, consultar). | Validado con la persona usuaria. |
-| F1-13 | Pruebas visuales en 375, 768 y 1280 px de todas las rutas. | Sin desbordamiento horizontal; capturas adjuntas a la pull request. |
+| F1-01 | Auditoría de UX: recorridos principales (consultar ejercicio, preparar sesión, ejecutar sesión) en 375, 768 y 1280 px, con capturas y problemas priorizados. | **Hecha.** Documento de auditoría en docs/00-project/ux-audit.md con capturas reales y matriz priorizada. |
+| F1-02 | Registrar DEC-A con la dirección elegida y prototipos de baja fidelidad de las pantallas clave. | **Hecha.** Registrada como decisión D-017 en decisions.md con prototipos de baja fidelidad. |
+| F1-03 | Tokens de diseño ampliados: escala tipográfica fluida (clamp), espaciado, radios, sombras, puntos de ruptura y tamaños táctiles, en orja-tokens.css. | **Hecha.** Sin colores nuevos fuera de D-011; orja-tokens.css ampliado con escalas fluidas y adaptativas, y global.css sin valores mágicos repetidos. |
+| F1-04 | Separar global.css (339 líneas) en estilos base y estilos por componente o funcionalidad. | **Hecha.** Separado en 8 módulos CSS especializados en src/styles/ importados en cascada desde global.css; mismo aspecto visual, sin reglas huérfanas y con tests de arquitectura. |
+| F1-05 | Biblioteca de componentes base en src/components/ui/: botón, campo, selector, pestañas, plegable, hoja inferior, tarjeta, barra de navegación inferior. | **Hecha.** Creados los 8 componentes base accesibles con suite completa de tests de rol, etiqueta y foco, exportación unificada y estilos encapsulados. |
+| F1-06 | Nuevo AppShell adaptativo: barra inferior en móvil, lateral en tableta y escritorio. | **Hecha.** Implementado AppShell adaptativo con barra inferior fija y panel 'Más' en móvil, barra lateral en tableta y escritorio, enlace 'saltar al contenido' accesible y navegabilidad completa por teclado. |
+| F1-07 | Tema oscuro. | **Hecha.** Decisión D-018 (DEC-B) registrada; tokens temáticos, contraste WCAG AA matemáticamente probado, persistencia y selector de tema en interfaz. |
+| F1-08 | Rediseño del detalle de ejercicio con revelación progresiva. | **Hecha.** Implementado patrón de pestañas accesibles (Prescripción y uso, Técnica y claves, Modificaciones y criterio). Objetivo, dosis y criterios de parada visibles de inmediato en móvil en menos de dos pantallas. |
+| F1-09 | Rediseño del catálogo de ejercicios: filtros en hoja inferior en móvil, resultados compactos. | **Hecha.** Filtros táctiles accesibles en hoja inferior modal para móvil con contador de activos, controles completos en escritorio, y anuncio accesible dinámico con role=status y aria-live=polite. |
+| F1-10 | Rediseño de sesiones y del constructor: pasos claros y guardado visible. | **Hecha.** Implementado asistente por pasos (stepper accesible), barra inferior fija con estado de autoguardado en tiempo real y navegación paso a paso adaptada a móvil. |
+| F1-11 | Modo campo para la ejecución de sesiones. | **Hecha.** Modo campo táctil para sol y pista: vista enfocada de una tarea activa por pantalla, botón táctil de completar en un toque, barra de progreso y navegación entre tareas. |
+| F1-12 | Rediseño del Dashboard orientado a la próxima acción (continuar borrador, ejecutar sesión, consultar). | **Hecha.** Tarjeta destacada con la acción inmediata recomendada (continuar último borrador con progreso de tareas o preparar nueva sesión), accesos rápidos y métricas en vivo. |
+| F1-13 | Pruebas visuales en 375, 768 y 1280 px de todas las rutas. | **Hecha.** Suite automatizada con Chrome CDP (scripts/test-visual-regression.mjs), 33/33 comprobaciones sin desbordamiento horizontal y capturas generadas en docs/00-project/visual-regression/. |
 
 Orden: F1-01 → F1-02 → F1-03 → F1-04 → F1-05 → F1-06, y después las
 pantallas (F1-08 a F1-12) en pull requests separadas. F1-07 puede ir en
@@ -133,10 +133,10 @@ Objetivo: que FORJA funcione en el campo sin cobertura.
 
 | ID | Tarea | Criterio de aceptación |
 | --- | --- | --- |
-| F2-01 | Registrar DEC-C. | Decisión registrada. |
-| F2-02 | *Service worker* con caché de la aplicación, el contenido y las imágenes de ejercicios. | La aplicación abre y navega sin conexión tras una primera visita. |
-| F2-03 | Aviso de nueva versión disponible. | La persona usuaria decide cuándo actualizar; un borrador abierto no se pierde. |
-| F2-04 | Exportar e importar borradores y ejecuciones (JSON). | Los datos de `localStorage` pueden salvarse y restaurarse en otro dispositivo. |
+| F2-01 | Registrar DEC-C. | **Hecha.** Registrada como decisión D-020 en `decisions.md`. |
+| F2-02 | *Service worker* con caché de la aplicación, el contenido y las imágenes de ejercicios. | **Hecha.** Service worker nativo (`sw.js`) con estrategias Cache-first (assets inmutables e imágenes) y Network-first con fallback (HTML), ciclo de vida controlado y tests de offline. |
+| F2-03 | Aviso de nueva versión disponible. | **Hecha.** Componente accesible `UpdatePrompt` con `role="status"` y hook reactivo `usePwaUpdate`; la persona usuaria decide cuándo activar la nueva versión sin perder borradores en curso. |
+| F2-04 | Exportar e importar borradores y ejecuciones (JSON). | **Hecha.** Exportación/importación nativa en JSON con validadores de esquema `isBackupData`, fusión idempotente de registros, feedback accesible y tests exhaustivos. |
 
 ## Fase 3 — Búsqueda global
 

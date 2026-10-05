@@ -848,3 +848,171 @@
 .detail-section--stop-criteria {
   border-left: 4px solid var(--forja-danger);
 }
+
+/* ==========================================================================
+   F1-09: Catálogo con filtros en hoja inferior móvil
+   ========================================================================== */
+.catalog-toolbar {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.catalog-toolbar .search-control {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.mobile-filter-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  min-width: 48px;
+  padding: 0 16px;
+  border: 1px solid color-mix(in srgb, var(--forja-primary) 15%, var(--forja-white));
+  border-radius: 8px;
+  background: var(--forja-white);
+  color: var(--forja-primary);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.mobile-filter-trigger:focus-visible {
+  outline: 2px solid var(--forja-secondary);
+}
+
+.mobile-filter-trigger__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--forja-secondary);
+  color: var(--forja-white);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.filter-sheet-portal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.filter-sheet__scrim {
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, var(--forja-primary) 65%, transparent);
+  backdrop-filter: blur(2px);
+}
+
+.filter-sheet {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+  max-height: 85vh;
+  border-radius: 16px 16px 0 0;
+  background: var(--forja-white);
+  box-shadow: 0 -8px 32px color-mix(in srgb, var(--forja-primary) 20%, transparent);
+  padding-bottom: calc(16px + env(safe-area-inset-bottom, 0));
+  overflow-y: auto;
+}
+
+.filter-sheet__handle {
+  width: 36px;
+  height: 4px;
+  margin: 12px auto 4px;
+  border-radius: 2px;
+  background: var(--forja-gray-light);
+}
+
+.filter-sheet__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px 14px;
+  border-bottom: 1px solid var(--forja-gray-light);
+}
+
+.filter-sheet__title {
+  margin: 0;
+  color: var(--forja-primary);
+  font-size: 16px;
+  font-weight: 750;
+}
+
+.filter-sheet__close {
+  display: grid;
+  place-items: center;
+  min-width: 44px;
+  min-height: 44px;
+  border: 0;
+  border-radius: 5px;
+  color: var(--forja-gray-mid);
+  background: transparent;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.filter-sheet__body {
+  display: grid;
+  gap: 16px;
+  padding: 20px;
+}
+
+.filter-sheet__footer {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 16px 20px;
+  border-top: 1px solid var(--forja-gray-light);
+}
+
+.filter-sheet__reset {
+  min-height: 48px;
+  padding: 0 16px;
+  border: 0;
+  background: transparent;
+  color: var(--forja-gray-mid);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.filter-sheet__apply {
+  min-height: 48px;
+  padding: 0 24px;
+  border-radius: 8px;
+  background: var(--forja-secondary);
+  color: var(--forja-white);
+  font-weight: 750;
+  border: 0;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .mobile-filter-trigger,
+  .filter-sheet-portal {
+    display: none !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .catalog-controls--desktop {
+    display: none !important;
+  }
+}

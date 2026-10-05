@@ -117,7 +117,7 @@ Son una propuesta para DEC-A, no decisiones adoptadas.
 | F1-06 | Nuevo AppShell adaptativo: barra inferior en móvil, lateral en tableta y escritorio. | **Hecha.** Implementado AppShell adaptativo con barra inferior fija y panel 'Más' en móvil, barra lateral en tableta y escritorio, enlace 'saltar al contenido' accesible y navegabilidad completa por teclado. |
 | F1-07 | Tema oscuro. | **Hecha.** Decisión D-018 (DEC-B) registrada; tokens temáticos, contraste WCAG AA matemáticamente probado, persistencia y selector de tema en interfaz. |
 | F1-08 | Rediseño del detalle de ejercicio con revelación progresiva. | **Hecha.** Implementado patrón de pestañas accesibles (Prescripción y uso, Técnica y claves, Modificaciones y criterio). Objetivo, dosis y criterios de parada visibles de inmediato en móvil en menos de dos pantallas. |
-| F1-09 | Rediseño del catálogo de ejercicios: filtros en hoja inferior en móvil, resultados compactos. | Filtros utilizables con una mano; número de resultados anunciado. |
+| F1-09 | Rediseño del catálogo de ejercicios: filtros en hoja inferior en móvil, resultados compactos. | **Hecha.** Filtros táctiles accesibles en hoja inferior modal para móvil con contador de activos, controles completos en escritorio, y anuncio accesible dinámico con role=status y aria-live=polite. |
 | F1-10 | Rediseño de sesiones y del constructor: pasos claros y guardado visible. | El flujo de preparación cabe en pasos de una pantalla en móvil. |
 | F1-11 | Modo campo para la ejecución de sesiones. | Una tarea por pantalla; registrar «hecha» en un toque; legible al sol. |
 | F1-12 | Rediseño del Dashboard orientado a la próxima acción (continuar borrador, ejecutar sesión, consultar). | Validado con la persona usuaria. |

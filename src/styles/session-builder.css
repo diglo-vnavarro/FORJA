@@ -851,3 +851,11 @@
     gap: 8px;
   }
 }
+
+/* ==========================================================================
+   F2-04: Exportar e importar borradores y ejecuciones (JSON)
+   ========================================================================== */
+.saved-sessions-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.file-input-label { cursor: pointer; margin: 0; }
+.saved-sessions-feedback { margin: 16px 0; padding: 12px 16px; border-radius: 7px; font-size: 14px; font-weight: 600; color: var(--forja-primary); background: color-mix(in srgb, var(--forja-secondary) 8%, var(--forja-white)); border: 1px solid color-mix(in srgb, var(--forja-secondary) 25%, transparent); }
+.saved-sessions-feedback--error { color: var(--forja-danger); background: color-mix(in srgb, var(--forja-danger) 8%, var(--forja-white)); border-color: color-mix(in srgb, var(--forja-danger) 25%, transparent); }

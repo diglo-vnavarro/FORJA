@@ -1053,3 +1053,156 @@
   margin-bottom: 12px;
   font-size: 15px;
 }
+
+/* Planning and Weekly Calendar View */
+.planning-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--forja-spacing-lg);
+}
+
+.planning-program-nav {
+  margin-bottom: var(--forja-spacing-sm);
+}
+
+.planning-header {
+  margin-bottom: var(--forja-spacing-md);
+}
+
+.planning-header__badges {
+  display: flex;
+  gap: var(--forja-spacing-xs);
+  margin-bottom: var(--forja-spacing-xs);
+}
+
+.planning-purpose {
+  font-size: 15px;
+  color: var(--forja-text-body);
+  line-height: 1.5;
+  margin-top: var(--forja-spacing-xs);
+}
+
+.planning-context-box {
+  margin-bottom: var(--forja-spacing-lg);
+  background: var(--forja-surface-card-subtle);
+}
+
+.planning-context-box h3 {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--forja-text-muted);
+  margin-bottom: var(--forja-spacing-xs);
+}
+
+.planning-context-text p {
+  margin: 4px 0;
+  font-size: 13px;
+  color: var(--forja-text-body);
+}
+
+.weekly-calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--forja-spacing-md);
+  margin-bottom: var(--forja-spacing-xl);
+}
+
+.calendar-day-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-top: 3px solid var(--forja-border-subtle);
+  height: 100%;
+}
+
+.calendar-day-card--match {
+  border-top-color: var(--forja-blue);
+  background: color-mix(in srgb, var(--forja-blue) 4%, var(--forja-surface-card));
+}
+
+.calendar-day-card--session {
+  border-top-color: var(--forja-green);
+}
+
+.calendar-day-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--forja-spacing-sm);
+}
+
+.calendar-day-card__title {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 4px 0;
+}
+
+.calendar-day-block {
+  margin-bottom: var(--forja-spacing-xs);
+}
+
+.calendar-day-block__label {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--forja-text-muted);
+}
+
+.calendar-day-block__val {
+  font-size: 13px;
+  margin: 2px 0 0 0;
+  color: var(--forja-text-body);
+}
+
+.calendar-day-block__val--stimulus {
+  font-weight: 600;
+  color: var(--forja-text-title);
+}
+
+.calendar-day-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 6px 8px;
+  background: var(--forja-surface-card-subtle);
+  border-radius: var(--forja-radius-sm);
+  margin-top: var(--forja-spacing-xs);
+  margin-bottom: var(--forja-spacing-sm);
+  font-size: 11px;
+  color: var(--forja-text-muted);
+}
+
+.calendar-day-card__actions {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: var(--forja-spacing-xs);
+}
+
+.planning-adaptations {
+  margin-top: var(--forja-spacing-md);
+}
+
+.adaptations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--forja-spacing-md);
+  margin-top: var(--forja-spacing-sm);
+}
+
+.adaptation-card h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 var(--forja-spacing-xs) 0;
+  color: var(--forja-text-title);
+}
+
+.adaptation-card p {
+  font-size: 13px;
+  color: var(--forja-text-body);
+  line-height: 1.45;
+  margin: 0;
+}
+

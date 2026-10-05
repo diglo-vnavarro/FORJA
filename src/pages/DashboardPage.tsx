@@ -33,7 +33,7 @@ const areas: Area[] = [
     description: "Organización de estímulos y progresión.",
     icon: "sets",
     to: "/planning",
-    ready: false,
+    ready: true,
   },
   {
     title: "Atletas",

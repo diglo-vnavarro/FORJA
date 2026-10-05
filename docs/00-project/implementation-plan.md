@@ -168,7 +168,7 @@ con la metodología.
 | --- | --- | --- |
 | F5-01 | Registrar DEC-D. | **Hecha.** Decisión D-021 registrada en `docs/00-project/decisions.md`: almacenamiento cliente sin servidor, minimización y seudonomización, portabilidad total y derecho de supresión. |
 | F5-02 | Módulo `athletes`: perfil mínimo, sesiones ejecutadas y evaluaciones asociadas. | **Hecha.** Implementado módulo `athletes` con almacenamiento local `forja.athletes.v1`, exportación e importación JSON, derecho de supresión total (D-021) y vinculación con evaluaciones y sesiones. |
-| F5-03 | Desarrollo del caso en `examples/proyecto-iker/`. | **Contenido.** Sin datos identificables innecesarios. |
+| F5-03 | Desarrollo del caso en `examples/proyecto-iker/`. | **Hecha.** Desarrollada memoria técnica del caso (`caso-iker.md`), integración con EVAL-001, SES-001/002 y ficha JSON exportable/importable conforme a D-021. |
 
 ## Fase 6 — Programación
 

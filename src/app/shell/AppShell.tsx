@@ -20,7 +20,7 @@ export function AppShell() {
       <button className="menu-button" type="button" aria-label={open ? "Cerrar navegación" : "Abrir navegación"} aria-expanded={open} onClick={() => setOpen(!open)}>
         <span /><span /><span />
       </button>
-      <div className="profile-placeholder" aria-label="Perfil no configurado"><span aria-hidden="true">VN</span><div><strong>Entrenador</strong><small>Perfil en preparación</small></div></div>
+      <div className="profile-placeholder" aria-label="Perfil no configurado"><span aria-hidden="true"><ForjaIcon name="bodyweight" size={20} /></span><div><strong>Entrenador</strong><small>Perfil en preparación</small></div></div>
     </header>
     <aside className={`sidebar ${open ? "sidebar--open" : ""}`}>
       <nav aria-label="Navegación principal">{navItems.map((item) => <NavLink key={item.to} to={item.to} end={item.end} onClick={() => setOpen(false)} className={({ isActive }) => `nav-item ${isActive ? "nav-item--active" : ""}`}><ForjaIcon name={item.icon} size={20} /><span>{item.label}</span></NavLink>)}</nav>

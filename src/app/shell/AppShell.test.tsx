@@ -1,11 +1,12 @@
-import { render, screen, within } from "@testing-library/react";
+import { act, render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { MemoryRouter } from "react-router-dom";
 import { beforeEach, describe, expect, it } from "vitest";
-import { AppShell } from "./AppShell";
+import { notifyUpdateAvailable } from "@/app/pwa";
 import { THEME_STORAGE_KEY } from "@/app/theme";
+import { AppShell } from "./AppShell";
 
-describe("Adaptive AppShell component with Theme Toggle (F1-06 / F1-07)", () => {
+describe("Adaptive AppShell component with Theme Toggle and PWA UpdatePrompt (F1-06 / F1-07 / F2-03)", () => {
   beforeEach(() => {
     localStorage.clear();
     document.documentElement.removeAttribute("data-theme");
@@ -121,5 +122,36 @@ describe("Adaptive AppShell component with Theme Toggle (F1-06 / F1-07)", () => 
     await user.click(toggleBtn);
     expect(localStorage.getItem(THEME_STORAGE_KEY)).toBe("light");
     expect(document.documentElement.getAttribute("data-theme")).toBe("light");
+  });
+
+  it("displays UpdatePrompt when a new service worker update is notified", () => {
+    render(
+      <MemoryRouter initialEntries={["/"]}>
+        <AppShell />
+      </MemoryRouter>,
+    );
+
+    // Initial state: no update prompt
+    expect(
+      screen.queryByRole("status", {
+        name: "Aviso de actualización de la aplicación",
+      }),
+    ).not.toBeInTheDocument();
+
+    // Trigger update available notification
+    act(() => {
+      notifyUpdateAvailable({
+        waiting: { postMessage: () => {} },
+      } as unknown as ServiceWorkerRegistration);
+    });
+
+    expect(
+      screen.getByRole("status", {
+        name: "Aviso de actualización de la aplicación",
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("Hay una nueva versión de FORJA disponible."),
+    ).toBeInTheDocument();
   });
 });

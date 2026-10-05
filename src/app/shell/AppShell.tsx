@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { ForjaIcon, type ForjaIconName } from "@/design-system/forja/src/icons";
 import { ForjaLogo } from "@/components/ui/ForjaLogo";
+import { UpdatePrompt } from "@/app/shell/UpdatePrompt";
 import { useTheme } from "@/app/theme";
 
 interface NavItemConfig {
@@ -94,6 +95,9 @@ export function AppShell() {
           </div>
         </div>
       </header>
+
+      {/* Aviso accesible de actualización PWA */}
+      <UpdatePrompt />
 
       {/* Barra lateral fija para tablet y escritorio (>= 768px) */}
       <aside

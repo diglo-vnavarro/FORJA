@@ -12,7 +12,12 @@ export function section(markdown: string, ...headings: string[]) {
 }
 
 export function sectionText(markdown: string, ...headings: string[]) {
-  return cleanMarkdown(section(markdown, ...headings).replace(/^### .+$/gm, "").replace(/^---$/gm, " "));
+  return cleanMarkdown(
+    section(markdown, ...headings)
+      .replace(/^### .+$/gm, "")
+      .replace(/^---$/gm, " ")
+      .replace(/^[ \t]*(?:[-*+]|\d+\.)\s+/gm, "")
+  );
 }
 
 export function sectionItems(markdown: string, ...headings: string[]) {

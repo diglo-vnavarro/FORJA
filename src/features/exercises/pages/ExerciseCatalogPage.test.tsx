@@ -3,6 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { MemoryRouter } from "react-router-dom";
 import { describe, expect, it } from "vitest";
 import { ExerciseCatalogPage } from "./ExerciseCatalogPage";
+import { exercises } from "@/features/exercises/data/exercises";
 
 describe("ExerciseCatalogPage (F1-09: Filtros en hoja inferior móvil y resultados)", () => {
   it("shows the canonical numeric order", () => {
@@ -38,6 +39,15 @@ describe("ExerciseCatalogPage (F1-09: Filtros en hoja inferior móvil y resultad
     expect(screen.queryByRole("img", { name: /Imagen en producción para/i })).not.toBeInTheDocument();
   });
 
+  it("displays the dynamic count of usable exercise cards from data", () => {
+    render(
+      <MemoryRouter>
+        <ExerciseCatalogPage />
+      </MemoryRouter>,
+    );
+    expect(screen.getByText(`${exercises.length} fichas con documentación utilizable`)).toBeInTheDocument();
+  });
+
   it("anuncia el número de resultados dinámicamente con role=status y aria-live=polite", () => {
     render(
       <MemoryRouter>
@@ -46,7 +56,7 @@ describe("ExerciseCatalogPage (F1-09: Filtros en hoja inferior móvil y resultad
     );
     const status = screen.getByRole("status");
     expect(status).toHaveAttribute("aria-live", "polite");
-    expect(status).toHaveTextContent("15 ejercicios disponibles");
+    expect(status).toHaveTextContent(`${exercises.length} ejercicios disponibles`);
   });
 
   it("permite abrir la hoja inferior de filtros en móvil, cambiar opciones y limpiar filtros", async () => {

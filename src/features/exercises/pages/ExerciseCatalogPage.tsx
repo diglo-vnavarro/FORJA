@@ -212,7 +212,7 @@ export function ExerciseCatalogPage() {
       <div className="result-summary" role="status" aria-live="polite">
         <strong>{filtered.length}</strong>{" "}
         {filtered.length === 1 ? "ejercicio disponible" : "ejercicios disponibles"}
-        <span>15 fichas con documentación utilizable</span>
+        <span>{exercises.length} fichas con documentación utilizable</span>
       </div>
 
       {filtered.length ? (

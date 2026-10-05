@@ -124,4 +124,17 @@ describe("visual production manifest", () => {
   it("keeps generated masters free from pending branding review", () => {
     expect(visualProductionManifest.every((entry) => entry.brandingReviewStatus === undefined)).toBe(true);
   });
+
+  it("verifies DEC-F binary hygiene: no redundant zip archives or candidate files in assets", () => {
+    expect(existsSync(resolve(process.cwd(), "assets/references/visual/ex-002/forja-visual-reference-ex002.zip"))).toBe(false);
+    expect(existsSync(resolve(process.cwd(), "assets/references/visual/ex-002/source"))).toBe(false);
+    expect(existsSync(resolve(process.cwd(), "assets/visual"))).toBe(false);
+    expect(existsSync(resolve(process.cwd(), "assets/exercises/ex-005/source/ex-005-split-squat-candidate-2026-08-26.png"))).toBe(false);
+    expect(existsSync(resolve(process.cwd(), "assets/exercises/ex-007/source/ex-007-step-up-candidate-2026-08-26.png"))).toBe(false);
+
+    // References listed in assets/manifest.md remain intact
+    expect(existsSync(resolve(process.cwd(), "assets/references/visual/ex-002/extracted/forja_visual_pack_ex002/exercises/ex-002/master/ex-002-goblet-squat-master-concept-v1.png"))).toBe(true);
+    expect(existsSync(resolve(process.cwd(), "assets/references/visual/ex-002/extracted/forja_visual_pack_ex002/exercises/ex-002/web/ex-002-goblet-squat-web-v1.png"))).toBe(true);
+    expect(existsSync(resolve(process.cwd(), "assets/references/visual/ex-002/extracted/forja_visual_pack_ex002/brand/prototypes/forja-brand-and-session-concept-v1.png"))).toBe(true);
+  });
 });

@@ -1,0 +1,329 @@
+/* ==========================================================================
+   FORJA - Estructura y Navegación (AppShell, Barra Superior, Lateral y Páginas)
+   ========================================================================== */
+
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template: var(--forja-app-bar-height, 72px) 1fr / 248px minmax(0, 1fr);
+}
+
+.app-bar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--forja-app-bar-height, 72px);
+  padding: 0 28px;
+  color: var(--forja-white);
+  background: var(--forja-primary);
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--forja-white) 12%, transparent);
+}
+
+.brand-link {
+  display: inline-flex;
+  border-radius: var(--forja-radius-sm, 6px);
+}
+
+.forja-logo {
+  display: inline-flex;
+  flex: none;
+  color: var(--forja-primary);
+}
+
+.forja-logo svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.forja-logo--lockup.forja-logo--sm { width: 92px; height: 15px; }
+.forja-logo--lockup.forja-logo--md { width: 116px; height: 19px; }
+.forja-logo--lockup.forja-logo--lg { width: 155px; height: 26px; }
+
+.forja-logo--symbol.forja-logo--sm { width: 28px; height: 32px; }
+.forja-logo--symbol.forja-logo--md { width: 38px; height: 44px; }
+.forja-logo--symbol.forja-logo--lg { width: 52px; height: 60px; }
+
+.forja-logo--wordmark.forja-logo--sm { width: 94px; height: 23px; }
+.forja-logo--wordmark.forja-logo--md { width: 126px; height: 31px; }
+.forja-logo--wordmark.forja-logo--lg { width: 168px; height: 41px; }
+
+.forja-logo--inverse {
+  color: var(--forja-white);
+}
+
+.profile-placeholder {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-placeholder > span {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid color-mix(in srgb, var(--forja-white) 32%, transparent);
+  border-radius: var(--forja-radius-circle, 50%);
+  background: color-mix(in srgb, var(--forja-secondary) 42%, var(--forja-primary));
+  font-size: var(--forja-text-xs, 12px);
+  font-weight: 800;
+}
+
+.profile-placeholder div {
+  display: grid;
+  gap: 1px;
+}
+
+.profile-placeholder strong {
+  font-size: var(--forja-text-sm, 13px);
+}
+
+.profile-placeholder small {
+  opacity: 0.68;
+  font-size: var(--forja-text-xs, 11px);
+}
+
+.menu-button {
+  display: none;
+  width: var(--forja-touch-min, 44px);
+  height: var(--forja-touch-min, 44px);
+  border: 0;
+  border-radius: var(--forja-radius-md, 8px);
+  color: inherit;
+  background: transparent;
+  cursor: pointer;
+}
+
+.menu-button span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  margin: 5px auto;
+  background: currentColor;
+}
+
+.sidebar {
+  position: sticky;
+  top: var(--forja-app-bar-height, 72px);
+  height: calc(100vh - var(--forja-app-bar-height, 72px));
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px 16px;
+  color: var(--forja-white);
+  background: color-mix(in srgb, var(--forja-primary) 92%, black);
+}
+
+.sidebar nav {
+  display: grid;
+  gap: 5px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 46px;
+  padding: 0 14px;
+  border-radius: var(--forja-radius-md, 8px);
+  color: color-mix(in srgb, var(--forja-white) 72%, transparent);
+  text-decoration: none;
+  font-size: var(--forja-text-sm, 14px);
+  font-weight: 600;
+}
+
+.nav-item .forja-icon {
+  color: currentColor;
+}
+
+.nav-item:hover {
+  color: var(--forja-white);
+  background: color-mix(in srgb, var(--forja-white) 7%, transparent);
+}
+
+.nav-item--active {
+  color: var(--forja-white);
+  background: var(--forja-secondary);
+}
+
+.sidebar-note {
+  margin: 0 14px;
+  color: color-mix(in srgb, var(--forja-white) 55%, transparent);
+  font-size: var(--forja-text-xs, 11px);
+  text-transform: uppercase;
+  letter-spacing: var(--forja-tracking-wide, 0.08em);
+}
+
+.sidebar-note strong {
+  color: var(--forja-white);
+}
+
+.nav-scrim {
+  display: none;
+}
+
+.app-content {
+  min-width: 0;
+  padding: 42px var(--forja-space-page-inline, clamp(24px, 4vw, 64px)) 64px;
+}
+
+.page {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: 34px;
+}
+
+.page-header h1 {
+  margin: 3px 0 10px;
+  color: var(--forja-primary);
+  font-size: var(--forja-text-hero, clamp(34px, 4vw, 50px));
+  line-height: var(--forja-leading-tight, 1.04);
+  letter-spacing: var(--forja-tracking-tight, -0.035em);
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--forja-secondary);
+  font-size: var(--forja-text-xs, 12px);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.page-lead {
+  max-width: 690px;
+  margin: 0;
+  color: var(--forja-gray-mid);
+  font-size: var(--forja-text-lg, 17px);
+  line-height: var(--forja-leading-normal, 1.55);
+}
+
+.page-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 9px;
+}
+
+/* Responsive: Layout & Shell */
+@media (max-width: 1020px) {
+  .app-shell {
+    grid-template-columns: 210px minmax(0, 1fr);
+  }
+  .app-content {
+    padding-inline: 28px;
+  }
+}
+
+@media (max-width: 760px) {
+  .app-shell {
+    display: block;
+    padding-top: var(--forja-app-bar-mobile-height, 64px);
+  }
+  .app-bar {
+    position: fixed;
+    width: 100%;
+    height: var(--forja-app-bar-mobile-height, 64px);
+    padding: 0 16px;
+  }
+  .profile-placeholder div {
+    display: none;
+  }
+  .profile-placeholder > span {
+    width: 34px;
+    height: 34px;
+  }
+  .menu-button {
+    display: block;
+    order: -1;
+  }
+  .brand-link {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .forja-logo--lockup.forja-logo--md {
+    width: 95px;
+    height: 16px;
+  }
+  .sidebar {
+    position: fixed;
+    z-index: 40;
+    top: var(--forja-app-bar-mobile-height, 64px);
+    left: 0;
+    width: min(300px, 86vw);
+    height: calc(100vh - var(--forja-app-bar-mobile-height, 64px));
+    transform: translateX(-102%);
+    transition: transform 0.2s ease;
+  }
+  .sidebar--open {
+    transform: translateX(0);
+  }
+  .nav-scrim {
+    position: fixed;
+    z-index: 35;
+    inset: var(--forja-app-bar-mobile-height, 64px) 0 0;
+    display: block;
+    border: 0;
+    background: color-mix(in srgb, var(--forja-primary) 60%, transparent);
+  }
+  .app-content {
+    padding: 28px 16px 48px;
+  }
+  .page-header {
+    margin-bottom: 24px;
+  }
+  .page-header h1 {
+    font-size: 34px;
+  }
+  .page-lead {
+    font-size: 15px;
+  }
+  .page-actions {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 520px) {
+  .profile-placeholder {
+    visibility: hidden;
+  }
+  .profile-placeholder > span {
+    display: none;
+  }
+  .page-header {
+    display: block;
+  }
+  .page-header h1 {
+    font-size: 31px;
+  }
+  .page-actions {
+    justify-content: flex-start;
+    margin-top: 17px;
+  }
+}
+
+@media print {
+  .app-bar,
+  .sidebar {
+    display: none !important;
+  }
+  .app-shell {
+    display: block;
+    padding: 0;
+  }
+  .app-content {
+    padding: 0;
+  }
+}

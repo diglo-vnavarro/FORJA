@@ -23,6 +23,7 @@ import {
   IconHeartBolt,
   IconHeartRateMonitor,
   IconListNumbers,
+  IconMoon,
   IconPlayHandball,
   IconRefresh,
   IconRepeat,
@@ -31,6 +32,7 @@ import {
   IconRun,
   IconSearch,
   IconStretching,
+  IconSun,
   IconTarget,
   IconTargetArrow,
   IconTrophy,
@@ -97,6 +99,8 @@ export const FORJA_ICON_MAP = {
   increaseDemand: IconArrowBigUpLines,
   resistanceBand: ForjaResistanceBandIcon,
   sled: ForjaSledIcon,
+  themeLight: IconSun,
+  themeDark: IconMoon,
   search: IconSearch,
   close: IconX,
 } as const satisfies Record<string, IconComponent>;
@@ -176,6 +180,8 @@ export const FORJA_ICON_LABELS: Record<ForjaIconName, string> = {
   increaseDemand: "Aumentar demanda",
   resistanceBand: "Goma elástica",
   sled: "Trineo",
+  themeLight: "Tema claro",
+  themeDark: "Tema oscuro",
   search: "Buscar",
   close: "Cerrar",
 };

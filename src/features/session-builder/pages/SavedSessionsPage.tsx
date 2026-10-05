@@ -5,12 +5,19 @@ import { PageHeader } from "@/components/ui/PageHeader";
 import { duplicateSessionDraft } from "@/features/session-builder/domain/sessionDraft";
 import { loadSessionDrafts, removeSessionDraft, saveSessionDraft } from "@/features/session-builder/data/sessionDraftStorage";
 import { getSessionById } from "@/features/sessions/data/sessions";
+import {
+  exportForjaBackup,
+  importForjaBackup,
+  triggerBackupDownload,
+} from "@/features/session-builder/data/sessionBackupStorage";
+import { parseForjaBackup } from "@/features/session-builder/domain/sessionBackup";
 
 const dateFormatter = new Intl.DateTimeFormat("es-ES", { dateStyle: "medium", timeStyle: "short" });
 
 export function SavedSessionsPage() {
   const [drafts, setDrafts] = useState(loadSessionDrafts);
   const [pendingDeletion, setPendingDeletion] = useState<string | null>(null);
+  const [feedback, setFeedback] = useState<{ text: string; isError?: boolean } | null>(null);
 
   const duplicate = (id: string) => {
     const source = drafts.find((draft) => draft.id === id);
@@ -23,9 +30,78 @@ export function SavedSessionsPage() {
     setPendingDeletion(null);
   };
 
+  const handleExport = () => {
+    const backup = exportForjaBackup();
+    triggerBackupDownload(backup);
+    setFeedback({
+      text: `Respaldo descargado: ${backup.drafts.length} borradores y ${backup.executions.length} ejecuciones exportados en JSON.`,
+      isError: false,
+    });
+  };
+
+  const handleImport = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const content = e.target?.result;
+      if (typeof content !== "string") return;
+
+      const parseResult = parseForjaBackup(content);
+      if (!parseResult.success || !parseResult.data) {
+        setFeedback({
+          text: parseResult.error ?? "No se pudo procesar el archivo seleccionado.",
+          isError: true,
+        });
+        return;
+      }
+
+      const result = importForjaBackup(parseResult.data);
+      setDrafts(result.drafts);
+      setFeedback({
+        text: `Importación completada: ${result.importedDraftsCount} borradores y ${result.importedExecutionsCount} ejecuciones actualizados o añadidos.`,
+        isError: false,
+      });
+    };
+    reader.readAsText(file);
+    event.target.value = "";
+  };
+
   return <div className="page saved-sessions-page">
     <nav className="breadcrumbs" aria-label="Migas de pan"><Link to="/sessions">Sesiones</Link><span aria-hidden="true">/</span><span>Guardadas</span></nav>
-    <PageHeader eyebrow="Trabajo local" title="Sesiones guardadas" description="Borradores preparados en este navegador. No se sincronizan con otros dispositivos ni modifican las sesiones canónicas." actions={<Link className="button" to="/sessions/prepare">Nueva sesión <span aria-hidden="true">→</span></Link>} />
+    <PageHeader
+      eyebrow="Trabajo local"
+      title="Sesiones guardadas"
+      description="Borradores preparados en este navegador. Puedes exportar o importar tus datos en JSON para sincronizar con otro dispositivo."
+      actions={
+        <div className="saved-sessions-actions">
+          <button type="button" className="button button--secondary" onClick={handleExport}>
+            Exportar JSON
+          </button>
+          <label className="button button--secondary file-input-label">
+            Importar JSON
+            <input
+              type="file"
+              accept=".json,application/json"
+              className="sr-only"
+              aria-label="Seleccionar archivo JSON para importar"
+              onChange={handleImport}
+            />
+          </label>
+          <Link className="button" to="/sessions/prepare">Nueva sesión <span aria-hidden="true">→</span></Link>
+        </div>
+      }
+    />
+    {feedback && (
+      <div
+        className={`saved-sessions-feedback ${feedback.isError ? "saved-sessions-feedback--error" : ""}`}
+        role="status"
+        aria-live="polite"
+      >
+        {feedback.text}
+      </div>
+    )}
     {drafts.length ? <section className="saved-session-grid" aria-label="Borradores guardados">{drafts.map((draft) => {
       const template = getSessionById(draft.templateId);
       const reviewed = draft.tasks.filter((task) => task.criteriaReviewed).length;

@@ -49,7 +49,7 @@ toma un agente.
 
 | ID | Decisión | Bloquea |
 | --- | --- | --- |
-| DEC-A | Dirección de UX: patrón de navegación, modelo *mobile-first* y prioridades por pantalla (ver Fase 1). | F1 |
+| DEC-A | Dirección de UX: patrón de navegación, modelo *mobile-first* y prioridades por pantalla (D-017). | **Registrada.** |
 | DEC-B | Modo oscuro. La paleta es cerrada (D-011); un tema oscuro necesita tokens nuevos y aprobación. | F1-07 |
 | DEC-C | Funcionamiento sin conexión: qué se guarda en caché y cómo se avisa de una versión nueva del contenido. | F2 |
 | DEC-D | Datos de deportistas: qué se guarda, dónde (solo en el dispositivo o con servidor), cómo se exporta y borra, y base legal tratándose de menores. | F5 |
@@ -110,7 +110,7 @@ Son una propuesta para DEC-A, no decisiones adoptadas.
 | ID | Tarea | Criterio de aceptación |
 | --- | --- | --- |
 | F1-01 | Auditoría de UX: recorridos principales (consultar ejercicio, preparar sesión, ejecutar sesión) en 375, 768 y 1280 px, con capturas y problemas priorizados. | **Hecha.** Documento de auditoría en `docs/00-project/ux-audit.md` con capturas reales y matriz priorizada. |
-| F1-02 | Registrar DEC-A con la dirección elegida y prototipos de baja fidelidad de las pantallas clave. | Decisión registrada en `decisions.md`. |
+| F1-02 | Registrar DEC-A con la dirección elegida y prototipos de baja fidelidad de las pantallas clave. | **Hecha.** Registrada como decisión D-017 en `decisions.md` con prototipos de baja fidelidad. |
 | F1-03 | Tokens de diseño ampliados: escala tipográfica fluida (`clamp`), espaciado, radios, sombras, puntos de ruptura y tamaños táctiles, en `forja-tokens.css`. | Sin colores nuevos fuera de D-011; `global.css` sin valores mágicos repetidos. |
 | F1-04 | Separar `global.css` (339 líneas) en estilos base y estilos por componente o funcionalidad. | Mismo aspecto visual; sin reglas huérfanas. |
 | F1-05 | Biblioteca de componentes base en `src/components/ui/`: botón, campo, selector, pestañas, plegable, hoja inferior, tarjeta, barra de navegación inferior. | Cada componente con test de accesibilidad básico (rol, etiqueta, foco). |

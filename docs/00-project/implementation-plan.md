@@ -120,7 +120,7 @@ Son una propuesta para DEC-A, no decisiones adoptadas.
 | F1-09 | Rediseño del catálogo de ejercicios: filtros en hoja inferior en móvil, resultados compactos. | **Hecha.** Filtros táctiles accesibles en hoja inferior modal para móvil con contador de activos, controles completos en escritorio, y anuncio accesible dinámico con role=status y aria-live=polite. |
 | F1-10 | Rediseño de sesiones y del constructor: pasos claros y guardado visible. | **Hecha.** Implementado asistente por pasos (stepper accesible), barra inferior fija con estado de autoguardado en tiempo real y navegación paso a paso adaptada a móvil. |
 | F1-11 | Modo campo para la ejecución de sesiones. | **Hecha.** Modo campo táctil para sol y pista: vista enfocada de una tarea activa por pantalla, botón táctil de completar en un toque, barra de progreso y navegación entre tareas. |
-| F1-12 | Rediseño del Dashboard orientado a la próxima acción (continuar borrador, ejecutar sesión, consultar). | Validado con la persona usuaria. |
+| F1-12 | Rediseño del Dashboard orientado a la próxima acción (continuar borrador, ejecutar sesión, consultar). | **Hecha.** Tarjeta destacada con la acción inmediata recomendada (continuar último borrador con progreso de tareas o preparar nueva sesión), accesos rápidos y métricas en vivo. |
 | F1-13 | Pruebas visuales en 375, 768 y 1280 px de todas las rutas. | Sin desbordamiento horizontal; capturas adjuntas a la pull request. |
 
 Orden: F1-01 → F1-02 → F1-03 → F1-04 → F1-05 → F1-06, y después las

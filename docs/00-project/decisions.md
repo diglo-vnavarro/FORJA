@@ -189,3 +189,37 @@ Se adoptan además tres normas de trabajo nuevas:
 
 La revisión previa a la pull request comprueba el código contra la lista de
 verificación de `AGENTS.md`.
+
+## D-019 — Limpieza de binarios no referenciados en assets/ (DEC-F)
+
+Fecha: 4 de octubre de 2026.
+
+El repositorio acumulaba aproximadamente 13 MB de binarios redundantes y no
+referenciados en la carpeta `assets/`, derivados de fases intermedias de
+producción visual y paquetes comprimidos duplicados.
+
+Se aprueba la eliminación de los siguientes binarios no referenciados:
+
+1. **Paquete comprimido redundante de referencias**:
+   - `assets/references/visual/ex-002/forja-visual-reference-ex002.zip` (5,8 MB):
+     su contenido ya se encuentra descomprimido en `extracted/` para inspección.
+   - `assets/references/visual/ex-002/source/` (1,5 MB): duplicado exacto del
+     recurso en `extracted/`.
+   - `assets/references/visual/ex-002/extracted/forja_visual_pack_ex002/references/` (1,5 MB):
+     estilo infográfico de referencia no enlazado ni consumido.
+   - Directorio vacío `assets/visual/`.
+
+2. **Candidatos intermedios obsoletos en fichas de ejercicio**:
+   - `assets/exercises/ex-005/source/*candidate*.png` (3,4 MB).
+   - `assets/exercises/ex-006/source/*candidate*.png` (1,7 MB).
+   - `assets/exercises/ex-007/source/*candidate*.png` (1,8 MB).
+   Todos fueron sustituidos por los masters definitivos en WebP aprobados en QA
+   humano (`assets/exercises/ex-0NN/master/ex-0NN-*-master.webp`).
+
+3. **Criterio de preservación**:
+   Se mantienen intactos todos los masters en WebP (`assets/exercises/*/master/`),
+   los derivados web y miniaturas aprobados, los vectores oficiales de marca
+   (`assets/brand/`) y las 3 referencias de concepto formalmente listadas en
+   `assets/manifest.md` (`master-concept-v1.png`, `web-v1.png`,
+   `forja-brand-and-session-concept-v1.png`).
+

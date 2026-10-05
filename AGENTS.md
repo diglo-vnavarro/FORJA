@@ -97,6 +97,10 @@ quedar incorporadas mediante una pull request.
 
 ## Reglas editoriales
 
+El marco normativo completo está definido en
+[`docs/01-foundations/editorial-standards.md`](docs/01-foundations/editorial-standards.md).
+Pautas operativas clave:
+
 - Idioma principal: español.
 - Formato principal: Markdown.
 - Títulos descriptivos y orientados al contenido.

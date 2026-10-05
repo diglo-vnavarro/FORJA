@@ -384,3 +384,48 @@ Se aprueba la eliminación de los siguientes binarios no referenciados:
    (`assets/brand/`) y las 3 referencias de concepto formalmente listadas en
    `assets/manifest.md` (`master-concept-v1.png`, `web-v1.png`,
    `forja-brand-and-session-concept-v1.png`).
+
+## D-020 — Funcionamiento sin conexión, estrategia de caché y aviso de actualización (DEC-C)
+
+Fecha: 4 de octubre de 2026.
+
+La aplicación web de FORJA debe operar de forma completamente funcional y
+confiable en el campo de entrenamiento, donde la cobertura de red suele ser
+inestable o inexistente.
+
+Se adoptan los siguientes principios de arquitectura para la Fase 2 (PWA):
+
+1. **Estrategia de Service Worker y caché offline**:
+   - **Shell de aplicación (App Shell)**: estrategia `Cache-first` para assets
+     con hash inmutable en su nombre de archivo (JS, CSS, fuentes web WOFF2 y
+     vectores de marca). Se precargan durante la fase de instalación del Service
+     Worker.
+   - **Documento principal (`index.html`)**: estrategia `Network-first` con
+     fallback inmediato a la versión en caché. Si el dispositivo tiene conexión,
+     comprueba si hay un nuevo `index.html` para detectar nuevos despliegues; si
+     está sin conexión, sirve instantáneamente la copia en caché sin bloquear.
+   - **Contenido multimedia de ejercicios (WebP)**: estrategia `Cache-first` con
+     precaché de miniaturas e ilustraciones maestras aprobadas para garantizar
+     la consulta visual completa sin cobertura.
+
+2. **Ciclo de vida del Service Worker y preservación de borradores**:
+   - El Service Worker **no** debe forzar la toma de control destructiva
+     (`skipWaiting()`) de manera silenciosa mientras la persona usuaria está
+     utilizando la aplicación o modificando datos.
+   - Cuando se detecta un Service Worker nuevo en estado `waiting`, la
+     aplicación muestra un aviso de actualización accesible (`role="status"`,
+     `aria-live="polite"`): «Nueva versión de FORJA disponible. [Actualizar ahora]».
+   - La persona usuaria decide explícitamente cuándo activar la actualización.
+     Al pulsar en actualizar, se emite un mensaje `SKIP_WAITING` al Service
+     Worker en espera y se recarga la página de manera limpia.
+   - Si la persona usuaria tiene una sesión en curso o un borrador abierto,
+     puede posponer la actualización sin riesgo de perder cambios en su flujo de
+     trabajo.
+
+3. **Persistencia local y portabilidad de datos**:
+   - `localStorage` se mantiene como la fuente de verdad persistida en el
+     navegador (borradores de sesión, historial de ejecuciones y tema).
+   - Se provee una función nativa de exportación e importación en formato JSON
+     validado mediante esquemas con validador `isX(value: unknown)` para copias
+     de seguridad y transferencia segura entre dispositivos.
+

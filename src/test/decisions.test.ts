@@ -19,4 +19,13 @@ describe("project decisions integrity", () => {
     expect(content).toContain("Constructor de sesiones enfocado");
     expect(content).toContain("Prototipos de baja fidelidad (wireframes)");
   });
+
+  it("registers D-020 (DEC-C) for Phase 2 offline strategy and service worker", () => {
+    const content = readFileSync(decisionsPath, "utf8");
+    expect(content).toContain("## D-020 — Funcionamiento sin conexión, estrategia de caché y aviso de actualización (DEC-C)");
+    expect(content).toContain("Estrategia de Service Worker y caché offline");
+    expect(content).toContain("Ciclo de vida del Service Worker y preservación de borradores");
+    expect(content).toContain("Persistencia local y portabilidad de datos");
+  });
 });
+

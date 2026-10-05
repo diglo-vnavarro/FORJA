@@ -3,6 +3,7 @@ import { NavLink, Outlet } from "react-router-dom";
 import { ForjaIcon, type ForjaIconName } from "@/design-system/forja/src/icons";
 import { ForjaLogo } from "@/components/ui/ForjaLogo";
 import { UpdatePrompt } from "@/app/shell/UpdatePrompt";
+import { GlobalSearch } from "@/features/search/components/GlobalSearch";
 import { useTheme } from "@/app/theme";
 
 interface NavItemConfig {
@@ -64,6 +65,8 @@ export function AppShell() {
         <NavLink to="/" className="brand-link" aria-label="FORJA, ir al inicio">
           <ForjaLogo variant="lockup" size="md" inverse />
         </NavLink>
+
+        <GlobalSearch />
 
         <button
           className="menu-button"

@@ -250,5 +250,17 @@
     "label": "Tema oscuro",
     "component": "IconMoon",
     "source": "Tabler Icons"
+  },
+  {
+    "name": "search",
+    "label": "Buscar",
+    "component": "IconSearch",
+    "source": "Tabler Icons"
+  },
+  {
+    "name": "close",
+    "label": "Cerrar",
+    "component": "IconX",
+    "source": "Tabler Icons"
   }
 ]

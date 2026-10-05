@@ -146,7 +146,7 @@ cualquier pantalla (hoja de ruta, Fase 6).
 | ID | Tarea | Criterio de aceptación |
 | --- | --- | --- |
 | F3-01 | Índice de búsqueda generado a partir del Markdown ya cargado, sin servicios externos. | **Hecha.** Índice de búsqueda local generado en cliente desde Markdown con normalización de diacríticos, coincidencia prefija y por tokens para ejercicios, sesiones y glosario. |
-| F3-02 | Interfaz de búsqueda: campo en la barra en escritorio, pantalla completa en móvil, atajo de teclado. | Navegable con teclado; resultados agrupados por tipo. |
+| F3-02 | Interfaz de búsqueda: campo en la barra en escritorio, pantalla completa en móvil, atajo de teclado. | **Hecha.** Modal global accesible con atajo (`Ctrl+K` / `⌘K`), navegación por teclado, chips rápidos, filtros por tipo y foco trampa (`GlobalSearch`). |
 | F3-03 | Glosario navegable en la aplicación, enlazado desde los términos de las fichas. | Los términos del glosario son consultables sin salir de la ficha. |
 
 ## Fase 4 — Evaluación y seguimiento

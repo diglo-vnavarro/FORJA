@@ -3,7 +3,7 @@ import { PageHeader } from "@/components/ui/PageHeader";
 import { ForjaIcon, type ForjaIconName } from "@/design-system/forja/src/icons";
 const areas: { title: string; description: string; icon: ForjaIconName; to: string; ready: boolean }[] = [
   { title: "Ejercicios", description: "Explora tareas, prescripción y criterios de coaching.", icon: "strength", to: "/exercises", ready: true },
-  { title: "Entrenamientos", description: "Consulta sesiones con contexto, dosis y adaptación.", icon: "time", to: "/sessions", ready: true },
+  { title: "Sesiones", description: "Consulta sesiones con contexto, dosis y adaptación.", icon: "time", to: "/sessions", ready: true },
   { title: "Programación", description: "Organización de estímulos y progresión.", icon: "sets", to: "/planning", ready: false },
   { title: "Atletas", description: "Contexto individual y toma de decisiones.", icon: "bodyweight", to: "/athletes", ready: false },
 ];

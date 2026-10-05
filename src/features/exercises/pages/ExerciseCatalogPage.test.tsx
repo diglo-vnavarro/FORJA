@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { MemoryRouter } from "react-router-dom";
 import { ExerciseCatalogPage } from "./ExerciseCatalogPage";
+import { exercises } from "@/features/exercises/data/exercises";
 
 describe("ExerciseCatalogPage", () => {
   it("shows the canonical numeric order", () => {
@@ -23,5 +24,10 @@ describe("ExerciseCatalogPage", () => {
     const { container } = render(<MemoryRouter><ExerciseCatalogPage /></MemoryRouter>);
     expect(container.querySelectorAll(".exercise-card__media img")).toHaveLength(15);
     expect(screen.queryByRole("img", { name: /Imagen en producción para/i })).not.toBeInTheDocument();
+  });
+
+  it("displays the dynamic count of usable exercise cards from data", () => {
+    render(<MemoryRouter><ExerciseCatalogPage /></MemoryRouter>);
+    expect(screen.getByText(`${exercises.length} fichas con documentación utilizable`)).toBeInTheDocument();
   });
 });

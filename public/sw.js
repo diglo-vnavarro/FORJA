@@ -23,6 +23,7 @@ self.addEventListener("install", (event) => {
       .open(SHELL_CACHE)
       .then((cache) => cache.addAll(PRECACHE_URLS))
       .catch((error) => {
+        // En entornos locales o testing algunos recursos pueden diferir; no bloqueamos la instalación
         console.warn("[SW] Advertencia en precaché inicial:", error);
       }),
   );
@@ -49,6 +50,7 @@ self.addEventListener("message", (event) => {
 self.addEventListener("fetch", (event) => {
   const { request } = event;
 
+  // Solo procesar peticiones GET sobre esquemas HTTP/HTTPS
   if (request.method !== "GET" || !request.url.startsWith("http")) {
     return;
   }
@@ -59,6 +61,7 @@ self.addEventListener("fetch", (event) => {
       request.headers.get("accept").includes("text/html"));
 
   if (isNavigation) {
+    // Network-first con fallback a caché para el documento principal
     event.respondWith(
       fetch(request)
         .then((networkResponse) => {
@@ -87,6 +90,7 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
+  // Cache-first para todos los demás assets estáticos (JS, CSS, WebP, WOFF2, PNG, SVG)
   event.respondWith(
     caches.match(request).then((cachedResponse) => {
       if (cachedResponse) {

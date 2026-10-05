@@ -12,6 +12,12 @@ export type PwaRegistrationOptions = {
   onError?: (error: unknown) => void;
 };
 
+export type PwaState = {
+  isOnline: boolean;
+  isUpdateAvailable: boolean;
+  registration: ServiceWorkerRegistration | null;
+};
+
 export function isServiceWorkerSupported(nav: Navigator = navigator): boolean {
   return typeof nav !== "undefined" && "serviceWorker" in nav;
 }
@@ -60,6 +66,7 @@ export async function registerServiceWorker(
   try {
     const registration = await nav.serviceWorker.register(swUrl);
 
+    // Si ya hay un worker en espera (esperando activación), notificar inmediatamente
     if (registration.waiting) {
       onUpdateAvailable?.(registration);
       notifyUpdateAvailable(registration, win);
@@ -72,9 +79,11 @@ export async function registerServiceWorker(
       newWorker.addEventListener("statechange", () => {
         if (newWorker.state === "installed") {
           if (nav.serviceWorker.controller) {
+            // Ya existía un controlador previo: esto es una actualización disponible
             onUpdateAvailable?.(registration);
             notifyUpdateAvailable(registration, win);
           } else {
+            // Primer registro completado: la app está lista para usarse sin conexión
             onOfflineReady?.();
           }
         }
@@ -95,6 +104,7 @@ export function applyServiceWorkerUpdate(
   if (registration.waiting) {
     registration.waiting.postMessage({ type: "SKIP_WAITING" });
 
+    // Cuando el nuevo Service Worker toma el control, recargar la página limpiamente
     if (win.navigator?.serviceWorker) {
       const handleControllerChange = () => {
         win.navigator.serviceWorker.removeEventListener(

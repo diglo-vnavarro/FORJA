@@ -121,7 +121,7 @@ Son una propuesta para DEC-A, no decisiones adoptadas.
 | F1-10 | Rediseño de sesiones y del constructor: pasos claros y guardado visible. | **Hecha.** Implementado asistente por pasos (stepper accesible), barra inferior fija con estado de autoguardado en tiempo real y navegación paso a paso adaptada a móvil. |
 | F1-11 | Modo campo para la ejecución de sesiones. | **Hecha.** Modo campo táctil para sol y pista: vista enfocada de una tarea activa por pantalla, botón táctil de completar en un toque, barra de progreso y navegación entre tareas. |
 | F1-12 | Rediseño del Dashboard orientado a la próxima acción (continuar borrador, ejecutar sesión, consultar). | **Hecha.** Tarjeta destacada con la acción inmediata recomendada (continuar último borrador con progreso de tareas o preparar nueva sesión), accesos rápidos y métricas en vivo. |
-| F1-13 | Pruebas visuales en 375, 768 y 1280 px de todas las rutas. | Sin desbordamiento horizontal; capturas adjuntas a la pull request. |
+| F1-13 | Pruebas visuales en 375, 768 y 1280 px de todas las rutas. | **Hecha.** Suite automatizada con Chrome CDP (scripts/test-visual-regression.mjs), 33/33 comprobaciones sin desbordamiento horizontal y capturas generadas en docs/00-project/visual-regression/. |
 
 Orden: F1-01 → F1-02 → F1-03 → F1-04 → F1-05 → F1-06, y después las
 pantallas (F1-08 a F1-12) en pull requests separadas. F1-07 puede ir en

@@ -71,4 +71,10 @@ describe("exercise library integrity", () => {
     expect(paths.length).toBeGreaterThan(0);
     expect(paths.filter((path) => !existsSync(resolve(process.cwd(),path)))).toEqual([]);
   });
+
+  it("formats exercise descriptions without loose list hyphens", () => {
+    const goblet = exercises.find((exercise) => exercise.identity.id === "EX-002")!;
+    expect(goblet.identity.description).not.toMatch(/(?:^|\s)-\s/);
+    expect(goblet.identity.description).toContain("mancuerna; kettlebell; implemento similar seguro.");
+  });
 });

@@ -3,12 +3,25 @@ import { MemoryRouter } from "react-router-dom";
 import { describe, expect, it, beforeEach } from "vitest";
 import { saveSessionDraft } from "@/features/session-builder/data/sessionDraftStorage";
 import { createSessionDraft } from "@/features/session-builder/domain/sessionDraft";
+import { exercises } from "@/features/exercises/data/exercises";
 import { sessions } from "@/features/sessions/data/sessions";
 import { DashboardPage } from "./DashboardPage";
 
 describe("DashboardPage (F1-12: Próxima acción orientada al usuario)", () => {
   beforeEach(() => {
     localStorage.clear();
+  });
+
+  it("renders the navigation areas unifying sessions terminology", () => {
+    render(
+      <MemoryRouter>
+        <DashboardPage />
+      </MemoryRouter>,
+    );
+
+    expect(screen.getByRole("heading", { name: "Sesiones" })).toBeInTheDocument();
+    expect(screen.queryByRole("heading", { name: "Entrenamientos" })).not.toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /Ver sesiones base/i })).toHaveAttribute("href", "/sessions");
   });
 
   it("muestra la tarjeta de inicio rápido cuando no hay borradores guardados", () => {
@@ -24,7 +37,7 @@ describe("DashboardPage (F1-12: Próxima acción orientada al usuario)", () => {
     const stats = screen.getByLabelText("Resumen de actividad y biblioteca");
     expect(within(stats).getByText("Borradores guardados")).toBeInTheDocument();
     expect(within(stats).getByText("Ejercicios canónicos")).toBeInTheDocument();
-    expect(within(stats).getByText("15")).toBeInTheDocument();
+    expect(within(stats).getByText(String(exercises.length))).toBeInTheDocument();
   });
 
   it("prioriza y muestra el último borrador guardado como próxima acción", () => {
@@ -58,7 +71,7 @@ describe("DashboardPage (F1-12: Próxima acción orientada al usuario)", () => {
 
     const areas = screen.getByLabelText("Módulos de la plataforma");
     expect(within(areas).getByRole("link", { name: /Ejercicios/i })).toBeInTheDocument();
-    expect(within(areas).getByRole("link", { name: /Entrenamientos/i })).toBeInTheDocument();
+    expect(within(areas).getByRole("link", { name: /Sesiones/i })).toBeInTheDocument();
     expect(within(areas).getByRole("link", { name: /Programación/i })).toBeInTheDocument();
     expect(within(areas).getByRole("link", { name: /Atletas/i })).toBeInTheDocument();
   });

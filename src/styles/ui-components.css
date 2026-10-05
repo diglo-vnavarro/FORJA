@@ -1,0 +1,599 @@
+/* ==========================================================================
+   FORJA - Estilos de la Biblioteca de Componentes UI Base (F1-05)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Botón (.ui-button)
+   -------------------------------------------------------------------------- */
+.ui-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: var(--forja-touch-min, 44px);
+  padding: 0 16px;
+  border: 1px solid transparent;
+  border-radius: var(--forja-radius-sm, 7px);
+  font-family: inherit;
+  font-size: var(--forja-text-sm, 14px);
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+}
+
+.ui-button:focus-visible {
+  outline: 3px solid var(--forja-focus-ring, color-mix(in srgb, var(--forja-secondary) 25%, transparent));
+  outline-offset: 2px;
+}
+
+.ui-button:disabled,
+.ui-button[aria-disabled="true"] {
+  opacity: 0.55;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Variantes */
+.ui-button--primary {
+  color: var(--forja-white);
+  background: var(--forja-secondary);
+}
+
+.ui-button--primary:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--forja-secondary) 85%, var(--forja-primary));
+}
+
+.ui-button--secondary {
+  border-color: color-mix(in srgb, var(--forja-primary) 18%, var(--forja-white));
+  color: var(--forja-primary);
+  background: var(--forja-white);
+}
+
+.ui-button--secondary:hover:not(:disabled) {
+  border-color: var(--forja-secondary);
+  background: color-mix(in srgb, var(--forja-secondary) 5%, var(--forja-white));
+}
+
+.ui-button--danger {
+  color: var(--forja-white);
+  background: var(--forja-danger);
+}
+
+.ui-button--danger:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--forja-danger) 85%, black);
+}
+
+.ui-button--ghost {
+  color: var(--forja-primary);
+  background: transparent;
+}
+
+.ui-button--ghost:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--forja-primary) 6%, transparent);
+}
+
+/* Tamaños */
+.ui-button--sm {
+  min-height: 36px;
+  padding: 0 12px;
+  font-size: var(--forja-text-xs, 12px);
+}
+
+.ui-button--md {
+  min-height: var(--forja-touch-min, 44px);
+  padding: 0 18px;
+  font-size: var(--forja-text-sm, 14px);
+}
+
+.ui-button--lg {
+  min-height: var(--forja-touch-field, 48px);
+  padding: 0 24px;
+  font-size: var(--forja-text-base, 16px);
+}
+
+.ui-button--full {
+  width: 100%;
+}
+
+.ui-button__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --------------------------------------------------------------------------
+   2. Campo de texto y Selector (.ui-field)
+   -------------------------------------------------------------------------- */
+.ui-field {
+  display: grid;
+  gap: 6px;
+  width: 100%;
+}
+
+.ui-field__label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--forja-gray-mid);
+  font-size: var(--forja-text-2xs, 10px);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.ui-field__required {
+  color: var(--forja-danger);
+}
+
+.ui-field__control-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.ui-field__icon {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--forja-gray-mid);
+  pointer-events: none;
+}
+
+.ui-field__icon--start {
+  left: 14px;
+}
+
+.ui-field__icon--end {
+  right: 14px;
+}
+
+.ui-field__input,
+.ui-field__select {
+  width: 100%;
+  height: var(--forja-touch-field, 48px);
+  padding: 0 14px;
+  border: 1px solid color-mix(in srgb, var(--forja-primary) 19%, var(--forja-white));
+  border-radius: var(--forja-radius-sm, 7px);
+  color: var(--forja-gray-dark);
+  background: var(--forja-white);
+  font-family: inherit;
+  font-size: var(--forja-text-sm, 14px);
+  transition: border-color 0.15s ease, outline 0.15s ease;
+}
+
+.ui-field__control-wrapper:has(.ui-field__icon--start) .ui-field__input {
+  padding-left: 44px;
+}
+
+.ui-field__control-wrapper:has(.ui-field__icon--end) .ui-field__input {
+  padding-right: 44px;
+}
+
+.ui-field__input:focus,
+.ui-field__select:focus {
+  outline: 3px solid color-mix(in srgb, var(--forja-secondary) 18%, transparent);
+  border-color: var(--forja-secondary);
+}
+
+.ui-field--error .ui-field__input,
+.ui-field--error .ui-field__select {
+  border-color: var(--forja-danger);
+}
+
+.ui-field__helper {
+  margin: 0;
+  color: var(--forja-gray-mid);
+  font-size: var(--forja-text-xs, 12px);
+  line-height: 1.4;
+}
+
+.ui-field__error {
+  margin: 0;
+  color: var(--forja-danger);
+  font-size: var(--forja-text-xs, 12px);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+/* --------------------------------------------------------------------------
+   3. Pestañas (.ui-tabs)
+   -------------------------------------------------------------------------- */
+.ui-tabs {
+  display: grid;
+  gap: 16px;
+  width: 100%;
+}
+
+.ui-tabs__list {
+  display: flex;
+  gap: 6px;
+  padding: 4px;
+  overflow-x: auto;
+  border-radius: var(--forja-radius-md, 8px);
+  background: color-mix(in srgb, var(--forja-gray-light) 40%, var(--forja-white));
+  scrollbar-width: none;
+}
+
+.ui-tabs__list::-webkit-scrollbar {
+  display: none;
+}
+
+.ui-tabs__tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: var(--forja-touch-min, 44px);
+  padding: 0 16px;
+  border: 0;
+  border-radius: var(--forja-radius-sm, 6px);
+  color: var(--forja-gray-mid);
+  background: transparent;
+  font-family: inherit;
+  font-size: var(--forja-text-sm, 13px);
+  font-weight: 750;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.ui-tabs__tab:hover:not(:disabled) {
+  color: var(--forja-primary);
+}
+
+.ui-tabs__tab:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--forja-secondary) 25%, transparent);
+  outline-offset: 1px;
+}
+
+.ui-tabs__tab--active {
+  color: var(--forja-primary);
+  background: var(--forja-white);
+  box-shadow: 0 2px 6px color-mix(in srgb, var(--forja-primary) 8%, transparent);
+}
+
+.ui-tabs__panel {
+  outline: none;
+}
+
+.ui-tabs__panel:focus-visible {
+  outline: 2px dashed var(--forja-secondary);
+  outline-offset: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   4. Plegable (.ui-collapsible)
+   -------------------------------------------------------------------------- */
+.ui-collapsible {
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--forja-primary) 12%, var(--forja-white));
+  border-radius: var(--forja-radius-md, 8px);
+  background: var(--forja-white);
+  transition: border-color 0.15s ease;
+}
+
+.ui-collapsible--open {
+  border-color: color-mix(in srgb, var(--forja-secondary) 35%, var(--forja-white));
+}
+
+.ui-collapsible__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  width: 100%;
+  min-height: var(--forja-touch-field, 48px);
+  padding: 14px 18px;
+  border: 0;
+  color: var(--forja-primary);
+  background: transparent;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.ui-collapsible__trigger:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--forja-secondary) 25%, transparent);
+  outline-offset: -2px;
+}
+
+.ui-collapsible__heading {
+  display: grid;
+  gap: 2px;
+}
+
+.ui-collapsible__title {
+  font-size: var(--forja-text-base, 15px);
+  font-weight: 750;
+}
+
+.ui-collapsible__subtitle {
+  color: var(--forja-gray-mid);
+  font-size: var(--forja-text-xs, 12px);
+}
+
+.ui-collapsible__chevron {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid var(--forja-gray-mid);
+  border-bottom: 2px solid var(--forja-gray-mid);
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+.ui-collapsible__chevron--expanded {
+  transform: rotate(-135deg);
+}
+
+.ui-collapsible__panel {
+  padding: 16px 18px 20px;
+  border-top: 1px solid color-mix(in srgb, var(--forja-primary) 8%, var(--forja-white));
+  background: color-mix(in srgb, var(--forja-gray-light) 15%, var(--forja-white));
+}
+
+/* --------------------------------------------------------------------------
+   5. Hoja inferior (.ui-bottom-sheet)
+   -------------------------------------------------------------------------- */
+.ui-bottom-sheet-portal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.ui-bottom-sheet__scrim {
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, var(--forja-primary) 65%, transparent);
+  backdrop-filter: blur(2px);
+  animation: fadeIn 0.2s ease forwards;
+}
+
+.ui-bottom-sheet {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 640px;
+  max-height: 85vh;
+  border-radius: var(--forja-radius-xl, 16px) var(--forja-radius-xl, 16px) 0 0;
+  background: var(--forja-white);
+  box-shadow: 0 -8px 32px color-mix(in srgb, var(--forja-primary) 18%, transparent);
+  animation: slideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.ui-bottom-sheet__handle {
+  width: 36px;
+  height: 4px;
+  margin: 12px auto 6px;
+  border-radius: 2px;
+  background: var(--forja-gray-light);
+}
+
+.ui-bottom-sheet__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--forja-gray-light);
+}
+
+.ui-bottom-sheet__titles {
+  display: grid;
+  gap: 3px;
+}
+
+.ui-bottom-sheet__title {
+  margin: 0;
+  color: var(--forja-primary);
+  font-size: var(--forja-text-lg, 18px);
+}
+
+.ui-bottom-sheet__subtitle {
+  margin: 0;
+  color: var(--forja-gray-mid);
+  font-size: var(--forja-text-xs, 12px);
+}
+
+.ui-bottom-sheet__close {
+  display: grid;
+  place-items: center;
+  min-width: var(--forja-touch-min, 44px);
+  min-height: var(--forja-touch-min, 44px);
+  padding: 0;
+  border: 0;
+  border-radius: var(--forja-radius-xs, 5px);
+  color: var(--forja-gray-mid);
+  background: transparent;
+  cursor: pointer;
+}
+
+.ui-bottom-sheet__close:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--forja-secondary) 25%, transparent);
+}
+
+.ui-bottom-sheet__body {
+  overflow-y: auto;
+  padding: 20px;
+  -webkit-overflow-scrolling: touch;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   6. Tarjeta (.ui-card)
+   -------------------------------------------------------------------------- */
+.ui-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--forja-primary) 12%, var(--forja-white));
+  border-radius: var(--forja-radius-lg, 10px);
+  background: var(--forja-white);
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--forja-primary) 4%, transparent);
+}
+
+.ui-card--interactive {
+  cursor: pointer;
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.ui-card--interactive:hover {
+  transform: translateY(-2px);
+  border-color: var(--forja-secondary);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--forja-primary) 8%, transparent);
+}
+
+.ui-card--interactive:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--forja-secondary) 25%, transparent);
+  outline-offset: 2px;
+}
+
+.ui-card__header {
+  padding: 18px 20px 10px;
+}
+
+.ui-card__kicker {
+  margin: 0 0 4px;
+  color: var(--forja-secondary);
+  font-size: var(--forja-text-2xs, 10px);
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ui-card__title {
+  margin: 0;
+  color: var(--forja-primary);
+  font-size: var(--forja-text-lg, 18px);
+  line-height: 1.25;
+}
+
+.ui-card__body {
+  flex: 1;
+  padding: 10px 20px 18px;
+  color: var(--forja-gray-dark);
+  font-size: var(--forja-text-sm, 13px);
+  line-height: 1.5;
+}
+
+.ui-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 20px;
+  border-top: 1px solid var(--forja-gray-light);
+  color: var(--forja-gray-mid);
+  font-size: var(--forja-text-xs, 12px);
+}
+
+/* --------------------------------------------------------------------------
+   7. Barra de navegación inferior (.ui-bottom-nav)
+   -------------------------------------------------------------------------- */
+.ui-bottom-nav {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  border-top: 1px solid color-mix(in srgb, var(--forja-primary) 12%, var(--forja-white));
+  background: var(--forja-white);
+  box-shadow: 0 -4px 16px color-mix(in srgb, var(--forja-primary) 6%, transparent);
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+.ui-bottom-nav__list {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ui-bottom-nav__item {
+  display: flex;
+}
+
+.ui-bottom-nav__link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  width: 100%;
+  min-height: var(--forja-touch-field, 48px);
+  padding: 6px 4px;
+  border: 0;
+  color: var(--forja-gray-mid);
+  background: transparent;
+  font-family: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.ui-bottom-nav__link:focus-visible {
+  outline: 2px solid var(--forja-secondary);
+  outline-offset: -2px;
+}
+
+.ui-bottom-nav__link--active {
+  color: var(--forja-secondary);
+  font-weight: 750;
+}
+
+.ui-bottom-nav__icon-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ui-bottom-nav__badge {
+  position: absolute;
+  top: -4px;
+  right: -8px;
+  display: grid;
+  place-items: center;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: 8px;
+  color: var(--forja-white);
+  background: var(--forja-danger);
+  font-size: 9px;
+  font-weight: 850;
+  line-height: 1;
+}
+
+.ui-bottom-nav__label {
+  font-size: 10px;
+  letter-spacing: 0.02em;
+}

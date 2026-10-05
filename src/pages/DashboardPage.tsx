@@ -22,7 +22,7 @@ const areas: Area[] = [
     ready: true,
   },
   {
-    title: "Entrenamientos",
+    title: "Sesiones",
     description: "Consulta sesiones con contexto, dosis y adaptación.",
     icon: "time",
     to: "/sessions",

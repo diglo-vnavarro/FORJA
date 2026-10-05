@@ -13,6 +13,7 @@ import {
   IconBarrierBlock,
   IconBattery2,
   IconBolt,
+  IconBook,
   IconBox,
   IconClock,
   IconClockPause,
@@ -103,6 +104,7 @@ export const FORJA_ICON_MAP = {
   themeDark: IconMoon,
   search: IconSearch,
   close: IconX,
+  glossary: IconBook,
 } as const satisfies Record<string, IconComponent>;
 
 export type ForjaIconName = keyof typeof FORJA_ICON_MAP;
@@ -184,4 +186,5 @@ export const FORJA_ICON_LABELS: Record<ForjaIconName, string> = {
   themeDark: "Tema oscuro",
   search: "Buscar",
   close: "Cerrar",
+  glossary: "Glosario",
 };

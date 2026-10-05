@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Badge } from "@/components/ui/Badge";
 import { EmptyState } from "@/components/ui/EmptyState";
@@ -8,6 +8,10 @@ import { ExerciseOverview } from "@/features/exercises/components/ExerciseOvervi
 import { PrescriptionMetric } from "@/features/exercises/components/PrescriptionMetric";
 import type { ExerciseRelation } from "@/features/exercises/domain/exercise";
 import { getExerciseById } from "@/features/exercises/data/exercises";
+import { GlossaryDrawer } from "@/features/search/components/GlossaryDrawer";
+import { GlossaryTermChip } from "@/features/search/components/GlossaryTermChip";
+import { findGlossaryTerm } from "@/features/search/data/glossaryDocuments";
+import type { GlossaryTerm } from "@/features/search/domain/glossary";
 
 function ContentPanel({
   title,
@@ -52,18 +56,15 @@ function RelationGroup({
         <ForjaIcon name={icon} size={21} />
         {title}
       </h3>
-      {items.map((item, index) => (
-        <div className="relation" key={`${index}-${item.label}`}>
-          {item.targetId ? (
-            <Link to={`/exercises/${item.targetId}`}>
-              <strong>{item.label}</strong>
-            </Link>
-          ) : (
-            <strong>{item.label}</strong>
-          )}
-          {item.description && <p>{item.description}</p>}
-        </div>
-      ))}
+      <ul>
+        {items.map((item) => (
+          <li key={`${item.id}-${item.name}`}>
+            <strong>{item.id}</strong>
+            <p>{item.name}</p>
+            {item.note ? <small>{item.note}</small> : null}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
@@ -81,7 +82,7 @@ function DetailHeading({
     <div className="section-heading">
       <p className="eyebrow">{eyebrow}</p>
       <h2>{title}</h2>
-      {description && <p>{description}</p>}
+      {description ? <p>{description}</p> : null}
     </div>
   );
 }
@@ -103,8 +104,37 @@ const DETAIL_TABS: DetailTabItem[] = [
 export function ExerciseDetailPage() {
   const { exerciseId = "" } = useParams();
   const [activeTab, setActiveTab] = useState<TabKey>("prescription");
+  const [inspectedTerm, setInspectedTerm] = useState<GlossaryTerm | null>(null);
 
   const exercise = getExerciseById(exerciseId);
+
+  const relevantGlossaryTerms = useMemo(() => {
+    if (!exercise) return [];
+    const candidateKeywords = [
+      exercise.classification.movementPattern.label,
+      ...exercise.classification.capabilities.map((c) => c.label),
+      ...exercise.prescription.variables.map((v) => v.label),
+      "1RM",
+      "RIR",
+      "RPE",
+      "Series",
+      "Repeticiones",
+      "Intensidad",
+      "Volumen",
+      "Progresión",
+      "Regresión",
+      "Criterios de parada",
+    ];
+
+    const matched = new Map<string, GlossaryTerm>();
+    for (const kw of candidateKeywords) {
+      const found = findGlossaryTerm(kw);
+      if (found && !matched.has(found.id)) {
+        matched.set(found.id, found);
+      }
+    }
+    return Array.from(matched.values());
+  }, [exercise]);
 
   if (!exercise) {
     return (
@@ -223,26 +253,29 @@ export function ExerciseDetailPage() {
         </div>
       </header>
 
-      {/* Control de pestañas para revelación progresiva */}
+      {/* Resumen siempre visible */}
+      <ExerciseOverview exercise={exercise} />
+
+      {/* Barra de pestañas para revelación progresiva */}
       <div
-        className="detail-tabs-container"
+        className="tabs-nav detail-tabs-nav"
         role="tablist"
-        aria-label="Secciones de la ficha de ejercicio"
+        aria-label="Secciones del detalle del ejercicio"
       >
-        {DETAIL_TABS.map((tab, idx) => {
-          const isSelected = activeTab === tab.key;
+        {DETAIL_TABS.map((tab, index) => {
+          const isActive = activeTab === tab.key;
           return (
             <button
               key={tab.key}
               id={`tab-${tab.key}`}
-              role="tab"
               type="button"
-              className={`detail-tab ${isSelected ? "detail-tab--active" : ""}`}
-              aria-selected={isSelected}
-              aria-controls={`panel-${tab.key}`}
-              tabIndex={isSelected ? 0 : -1}
+              role="tab"
+              aria-selected={isActive}
+              aria-controls={`tabpanel-${tab.key}`}
+              tabIndex={isActive ? 0 : -1}
+              className={`tabs-nav__item ${isActive ? "tabs-nav__item--active" : ""}`}
               onClick={() => setActiveTab(tab.key)}
-              onKeyDown={(e) => handleTabKeyDown(e, idx)}
+              onKeyDown={(e) => handleTabKeyDown(e, index)}
             >
               <ForjaIcon name={tab.icon} size={18} />
               <span>{tab.label}</span>
@@ -251,36 +284,18 @@ export function ExerciseDetailPage() {
         })}
       </div>
 
-      {/* Pestaña 1: Prescripción, Objetivo, Criterios de Parada y Dosis */}
+      {/* Pestaña 1: Prescripción y uso */}
       {activeTab === "prescription" && (
         <section
-          id="panel-prescription"
+          id="tabpanel-prescription"
           role="tabpanel"
           aria-labelledby="tab-prescription"
           className="tab-panel"
         >
-          <ExerciseOverview exercise={exercise} />
-
           <section className="detail-section detail-section--objective">
             <DetailHeading eyebrow="Propósito" title="Objetivo" />
             <p className="objective-copy">{identity.objective}</p>
           </section>
-
-          {stopCriteriaItems.length > 0 && (
-            <section className="detail-section detail-section--stop-criteria">
-              <DetailHeading
-                eyebrow="Seguridad técnica"
-                title="Criterios de parada"
-                description="Señales para pausar o detener la serie inmediatamente antes de incurrir en fatiga descompensada."
-              />
-              <ContentPanel
-                title="Criterios de parada y seguridad"
-                icon="quality"
-                items={stopCriteriaItems}
-                tone="danger"
-              />
-            </section>
-          )}
 
           <section className="detail-section">
             <DetailHeading
@@ -311,13 +326,29 @@ export function ExerciseDetailPage() {
               </div>
             )}
           </section>
+
+          {stopCriteriaItems.length > 0 && (
+            <section className="detail-section">
+              <DetailHeading
+                eyebrow="Seguridad técnica"
+                title="Criterios de parada"
+                description="Situaciones que exigen detener la serie o la tarea de inmediato."
+              />
+              <ContentPanel
+                title="Criterios de parada y advertencias"
+                icon="quality"
+                items={stopCriteriaItems}
+                tone="danger"
+              />
+            </section>
+          )}
         </section>
       )}
 
-      {/* Pestaña 2: Técnica, Ejecución, Coaching y Preparación */}
+      {/* Pestaña 2: Técnica y claves */}
       {activeTab === "technique" && (
         <section
-          id="panel-technique"
+          id="tabpanel-technique"
           role="tabpanel"
           aria-labelledby="tab-technique"
           className="tab-panel"
@@ -385,15 +416,20 @@ export function ExerciseDetailPage() {
                 items={coaching.acceptableVariations}
                 tone="warning"
               />
+              <ContentPanel
+                title="Seguridad y parada"
+                icon="quality"
+                items={stopCriteriaItems}
+              />
             </div>
           </section>
         </section>
       )}
 
-      {/* Pestaña 3: Modificaciones, Red de Relaciones y Notas Metodológicas */}
+      {/* Pestaña 3: Modificaciones y criterio */}
       {activeTab === "relations" && (
         <section
-          id="panel-relations"
+          id="tabpanel-relations"
           role="tabpanel"
           aria-labelledby="tab-relations"
           className="tab-panel"
@@ -456,6 +492,41 @@ export function ExerciseDetailPage() {
           )}
         </section>
       )}
+
+      {/* Glosario consultable sin salir de la ficha (F3-03) */}
+      {relevantGlossaryTerms.length > 0 && (
+        <section
+          className="detail-section detail-section--glossary"
+          aria-label="Glosario metodológico"
+          role="region"
+        >
+          <DetailHeading
+            eyebrow="Metodología"
+            title="Términos del glosario en esta ficha"
+            description="Conceptos y decisiones metodológicas aplicables a esta tarea. Consulta sus definiciones oficiales sin salir de la ficha."
+          />
+          <div className="glossary-chips-grid">
+            {relevantGlossaryTerms.map((term) => (
+              <GlossaryTermChip
+                key={term.id}
+                termName={term.title}
+                onOpenTerm={setInspectedTerm}
+                label={
+                  term.acronym
+                    ? `${term.acronym} — ${term.title.split("—")[1]?.trim() ?? term.title}`
+                    : term.title
+                }
+              />
+            ))}
+          </div>
+        </section>
+      )}
+
+      <GlossaryDrawer
+        term={inspectedTerm}
+        onClose={() => setInspectedTerm(null)}
+        onSelectTerm={setInspectedTerm}
+      />
     </article>
   );
 }

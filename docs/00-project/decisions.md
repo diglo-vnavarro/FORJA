@@ -429,3 +429,54 @@ Se adoptan los siguientes principios de arquitectura para la Fase 2 (PWA):
      validado mediante esquemas con validador `isX(value: unknown)` para copias
      de seguridad y transferencia segura entre dispositivos.
 
+## D-021 — Privacidad y gobernanza de datos de deportistas menores de edad (DEC-D)
+
+Fecha: 5 de octubre de 2026.
+
+La gestión del desarrollo físico en jóvenes deportistas involucra información de
+personas menores de edad (datos relativos a la salud, maduración, historial y
+competencia motriz). El marco normativo aplicable (RGPD y LOPDGDD) exige una
+protección reforzada y principios estrictos de privacidad desde el diseño (*privacy
+by design*).
+
+Se adoptan los siguientes principios de arquitectura y gobernanza de datos para las
+Fases 4 y 5 de FORJA:
+
+1. **Almacenamiento exclusivo en el cliente (sin servidor central ni telemetría)**:
+   - FORJA no dispone de backend, base de datos remota ni servicios analíticos de
+     terceros.
+   - Toda la información registrada (perfiles mínimos de deportistas, evaluaciones
+     y sesiones asociadas) se almacena única y exclusivamente en el `localStorage`
+     del navegador del usuario mediante esquemas versionados y validados
+     (`forja.athletes.profiles.v1`, `forja.assessments.records.v1`).
+   - Ningún dato sale del dispositivo del entrenador sin una acción intencionada
+     de exportación manual por parte de la persona usuaria.
+
+2. **Minimización de datos y seudonomización**:
+   - No se solicitan ni almacenan datos identificativos innecesarios (sin DNI/NIE,
+     sin dirección postal, sin datos de contacto personal del menor ni de sus
+     tutores en la aplicación).
+   - Se emplea un identificador técnico local (`ATH-NNN` o UUID) y un alias o
+     nombre de pila editable para la identificación visual del entrenador.
+   - Solo se registran variables metodológicamente justificadas para la toma de
+     decisiones de carga y aprendizaje motor (MET-001): año/fecha de nacimiento
+     para cálculo contextual de edad cronológica, deporte principal, posición,
+     lateralidad, contexto de entrenamiento y valoraciones de competencia motriz.
+
+3. **Portabilidad y derecho de supresión total (Exportar y Borrar)**:
+   - La persona usuaria tiene el control soberano sobre los datos:
+     - **Exportación completa**: posibilidad de exportar todos los datos o un
+       deportista individual en formato JSON transparente y validado con
+       esquema, facilitando copias de seguridad locales y auditoría.
+     - **Borrado inmediato y definitivo**: opción accesible de «Borrar datos»
+       que purga completamente del almacenamiento del navegador al deportista
+       seleccionado o el histórico completo, sin conservar copias ocultas.
+
+4. **Separación estricta entre metodología canónica y casos personales**:
+   - La documentación metodológica (`docs/`) es estrictamente abstracta y no
+     contiene nombres reales ni datos personales de deportistas.
+   - Los casos de estudio y ejemplos reales o pedagógicos se ubican
+     exclusivamente en `examples/` (como `examples/proyecto-iker/`) y utilizan
+     datos anonimizados y autorizados.
+
+

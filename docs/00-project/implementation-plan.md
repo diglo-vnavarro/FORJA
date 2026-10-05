@@ -166,7 +166,7 @@ con la metodología.
 
 | ID | Tarea | Criterio de aceptación |
 | --- | --- | --- |
-| F5-01 | Registrar DEC-D. | Decisión registrada antes de escribir código. |
+| F5-01 | Registrar DEC-D. | **Hecha.** Decisión D-021 registrada en `docs/00-project/decisions.md`: almacenamiento cliente sin servidor, minimización y seudonomización, portabilidad total y derecho de supresión. |
 | F5-02 | Módulo `athletes`: perfil mínimo, sesiones ejecutadas y evaluaciones asociadas. | Cumple DEC-D; datos borrables y exportables. |
 | F5-03 | Desarrollo del caso en `examples/proyecto-iker/`. | **Contenido.** Sin datos identificables innecesarios. |
 

@@ -156,7 +156,7 @@ Objetivo: el módulo que necesita el caso Proyecto Iker.
 | ID | Tarea | Criterio de aceptación |
 | --- | --- | --- |
 | F4-01 | Contenido de `docs/08-assessments/` a partir de MET-001. | **Hecha.** Creados `assessment-standard.md` (EVAL-STD-001) y `eval-001-initial-movement-competence.md` (EVAL-001) basados en MET-001 y gobernados por D-021. |
-| F4-02 | Modelo de dominio y lectura desde Markdown de las evaluaciones. | Mismo patrón que sesiones: `problems` vacío en los tests. |
+| F4-02 | Modelo de dominio y lectura desde Markdown de las evaluaciones. | **Hecha.** Implementados tipos de dominio, parser tipado y catálogo en `src/features/assessments/`; `problems` vacío y trazabilidad con la biblioteca de ejercicios verificada en los tests. |
 | F4-03 | Registro de evaluaciones e indicadores de progreso. | Depende de DEC-D si guarda datos de un deportista concreto. |
 
 ## Fase 5 — Deportistas y Proyecto Iker

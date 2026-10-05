@@ -189,3 +189,198 @@ Se adoptan además tres normas de trabajo nuevas:
 
 La revisión previa a la pull request comprueba el código contra la lista de
 verificación de `AGENTS.md`.
+
+## D-017 — Dirección de diseño de la Fase 1 (DEC-A)
+
+Fecha: 4 de octubre de 2026.
+
+Tras la auditoría de experiencia de usuario de la Fase 1 (tarea F1-01), se
+establece la dirección de diseño oficial para las tareas F1-03 a F1-13 del
+[plan de implementación](implementation-plan.md), articulada sobre cinco
+principios operativos:
+
+1. **Patrón de navegación adaptativo:**
+   - En dispositivos móviles (anchuras de hasta 768 px), la navegación
+     principal se traslada a una **barra inferior fija** (*bottom navigation bar*)
+     con los cuatro destinos clave al alcance del pulgar:
+     1. Dashboard (`/`)
+     2. Ejercicios (`/exercises`)
+     3. Sesiones (`/sessions`)
+     4. Preparación (`/sessions/prepare`)
+     Las áreas secundarias (Planificación, Atletas, Biblioteca) se agrupan en
+     un menú complementario «Más».
+   - En tableta y escritorio (> 768 px), se mantiene la barra de navegación
+     lateral persistente, garantizando navegación completa por teclado y un
+     enlace accesible «saltar al contenido principal» (WCAG 2.4.1).
+
+2. **Revelación progresiva en la ficha de ejercicio:**
+   - Se estructura el detalle del ejercicio mediante pestañas o secciones
+     plegables («Prescripción y dosis», «Técnica y claves», «Adaptaciones y
+     progresiones»).
+   - En una pantalla de 375 px, el objetivo principal, las variables de dosis
+     y los criterios de parada técnica deben ser visibles sin desplazarse más
+     de dos pantallas.
+
+3. **Catálogo de ejercicios con filtros bajo demanda:**
+   - En móvil (375 px), los filtros de capacidad, equipamiento y patrón se
+     extraen del flujo vertical estático y se abren en una **hoja inferior**
+     (*bottom sheet*) bajo demanda mediante un botón de filtro con contador
+     activo.
+   - El número de resultados resultantes se anuncia dinámicamente mediante
+     un área `role="status"` para usuarios de tecnologías de asistencia.
+
+4. **Modo campo para la ejecución de sesiones:**
+   - La ejecución interactiva abandona el formato de tabla densa de escritorio
+     y adopta un **asistente paso a paso**: una tarea por pantalla.
+   - Botones táctiles de gran tamaño (mínimo 48 × 48 px) para confirmar
+     series o registrar incidencias con un solo toque y una mano.
+   - Temporizador de descanso integrado visible a distancia.
+   - Alto contraste optimizado para lectura en exteriores bajo luz solar.
+
+5. **Constructor de sesiones enfocado:**
+   - Flujo de preparación estructurado en pasos secuenciales legibles en
+     móvil.
+   - Barra inferior de acciones fija que muestra el estado de guardado local
+     (borrador guardado) y permite iniciar la ejecución sin desplazarse al
+     final de la página.
+
+### Prototipos de baja fidelidad (wireframes)
+
+#### 1. Navegación móvil (`AppShell` — 375 px)
+
+```text
+┌─────────────────────────────────────────┐
+│ [FORJA]                             [VN]│  <- Cabecera compacta (48 px)
+├─────────────────────────────────────────┤
+│                                         │
+│          CONTENIDO DE LA RUTA           │
+│                                         │
+├─────────────────────────────────────────┤
+│  [Inicio]  [Ejercicios]  [Sesiones] [Más]│  <- Barra inferior (56 px, zona pulgar)
+└─────────────────────────────────────────┘
+```
+
+#### 2. Catálogo de ejercicios con hoja de filtros (375 px)
+
+```text
+┌─────────────────────────────────────────┐
+│ Catálogo de ejercicios                  │
+│ [ Buscar ejercicio...                 ] │
+│ [ Filtros (2) ]          15 ejercicios  │  <- Botón que abre Bottom Sheet
+├─────────────────────────────────────────┤
+│ ┌─────────────────────────────────────┐ │
+│ │ [Miniatura]  Sentadilla goblet      │ │  <- Tarjetas compactas en móvil
+│ │ Dominancia de rodilla · EX-002      │ │
+│ └─────────────────────────────────────┘ │
+│ ┌─────────────────────────────────────┐ │
+│ │ [Miniatura]  Bisagra de cadera      │ │
+│ │ Dominancia de cadera · EX-003       │ │
+│ └─────────────────────────────────────┘ │
+└─────────────────────────────────────────┘
+```
+
+#### 3. Ficha de detalle de ejercicio con revelación progresiva (375 px)
+
+```text
+┌─────────────────────────────────────────┐
+│ ← Volver      EX-002                    │
+│ Sentadilla goblet con mancuerna         │
+│ [ Dosis y uso ] [ Técnica ] [ Cambios ] │  <- Pestañas / control segmentado
+├─────────────────────────────────────────┤
+│ • Objetivo: Fuerza submáxima y técnica  │
+│ • Criterio de parada: Pérdida de neutro │  <- Visible en < 2 pantallas
+│ • Dosis: 3 series × 8-10 reps (RIR 2)   │
+│ ┌─────────────────────────────────────┐ │
+│ │ Vídeo / Imagen master               │ │
+│ └─────────────────────────────────────┘ │
+└─────────────────────────────────────────┘
+```
+
+#### 4. Ejecución de sesión en «Modo Campo» (375 px)
+
+```text
+┌─────────────────────────────────────────┐
+│ SES-002 · Tarea 3 de 7         [X Salir]│
+│ SENTADILLA GOBLET                       │
+│ Serie 2 de 3 · 8 reps @ RIR 2           │
+├─────────────────────────────────────────┤
+│                                         │
+│            01:45 descanso               │  <- Temporizador grande
+│                                         │
+├─────────────────────────────────────────┤
+│ [    ✓ COMPLETAR SERIE (≥48px)        ] │  <- Botón gigante un toque
+│ [ Modificar / Nota ]  [ Parar ejercicio]│  <- Acciones secundarias táctiles
+└─────────────────────────────────────────┘
+```
+
+## D-018 — Tema oscuro y contraste accesible (DEC-B)
+
+Fecha: 4 de octubre de 2026.
+
+La paleta básica de FORJA se definió como cerrada en D-011 para proteger la
+identidad de marca (navy canónico, azul de acento y superficies claras). Sin
+embargo, el uso en campo (horas de baja luz, interiores de pabellones) y la
+preferencia de accesibilidad requieren un modo oscuro que reduzca la fatiga
+visual y preserve la legibilidad.
+
+Se aprueba la especificación del tema oscuro bajo las siguientes reglas:
+
+1. **Tokens contextuales para modo oscuro**:
+   Se aplican mediante el atributo `data-theme="dark"` en el elemento raíz
+   (`<html>`), y automáticamente cuando la preferencia del sistema es oscura
+   (`@media (prefers-color-scheme: dark)`) salvo anulación explícita.
+   - Fondo general: `#0B111E` (navy profundo derivado de la identidad).
+   - Fondo de tarjeta y componentes (`--forja-white` contextual): `#131E31`.
+   - Fondo sutil / contenedor neutro (`--forja-gray-light` contextual): `#1B2A43`.
+   - Texto principal (`--forja-primary` contextual): `#F1F5F9`.
+   - Texto secundario (`--forja-gray-mid` contextual): `#94A3B8`.
+   - Azul de acento / interactivo (`--forja-secondary` contextual): `#3B82F6` (brillo adaptado para contraste en fondo oscuro).
+   - Verde de éxito (`--forja-success` contextual): `#4ADE80`.
+   - Ocre de advertencia (`--forja-warning` contextual): `#FBBF24`.
+   - Rojo de peligro (`--forja-danger` contextual): `#F87171`.
+
+2. **Garantía de contraste WCAG 2.1 AA**:
+   - Todo texto normal cumple el umbral mínimo de 4.5:1.
+   - El texto principal (`#F1F5F9` sobre `#131E31` y `#0B111E`) alcanza un ratio superior a 14:1 (nivel AAA).
+   - El texto secundario (`#94A3B8` sobre `#131E31`) alcanza 4.8:1 (> 4.5:1, nivel AA).
+   - Los colores de estado (`#3B82F6`, `#4ADE80`, `#FBBF24`, `#F87171`) superan 4.5:1 sobre la superficie de tarjeta.
+   - La suite de tests automatizados (`src/design-system/forja/src/styles/themeContrast.test.ts`) verifica matemáticamente los ratios de contraste de ambos temas.
+
+3. **Persistencia y control de usuario**:
+   - Clave en `localStorage`: `forja.theme.v1`.
+   - Valores permitidos: `"light"`, `"dark"`, `"system"` (validados con `isTheme`).
+   - El valor por defecto es `"system"`, sincronizándose con la preferencia del sistema operativo/navegador.
+   - Un botón en la barra de navegación permite alternar entre modos rápidamente.
+
+## D-019 — Limpieza de binarios no referenciados en assets/ (DEC-F)
+
+Fecha: 4 de octubre de 2026.
+
+El repositorio acumulaba aproximadamente 13 MB de binarios redundantes y no
+referenciados en la carpeta `assets/`, derivados de fases intermedias de
+producción visual y paquetes comprimidos duplicados.
+
+Se aprueba la eliminación de los siguientes binarios no referenciados:
+
+1. **Paquete comprimido redundante de referencias**:
+   - `assets/references/visual/ex-002/forja-visual-reference-ex002.zip` (5,8 MB):
+     su contenido ya se encuentra descomprimido en `extracted/` para inspección.
+   - `assets/references/visual/ex-002/source/` (1,5 MB): duplicado exacto del
+     recurso en `extracted/`.
+   - `assets/references/visual/ex-002/extracted/forja_visual_pack_ex002/references/` (1,5 MB):
+     estilo infográfico de referencia no enlazado ni consumido.
+   - Directorio vacío `assets/visual/`.
+
+2. **Candidatos intermedios obsoletos en fichas de ejercicio**:
+   - `assets/exercises/ex-005/source/*candidate*.png` (3,4 MB).
+   - `assets/exercises/ex-006/source/*candidate*.png` (1,7 MB).
+   - `assets/exercises/ex-007/source/*candidate*.png` (1,8 MB).
+   Todos fueron sustituidos por los masters definitivos en WebP aprobados en QA
+   humano (`assets/exercises/ex-0NN/master/ex-0NN-*-master.webp`).
+
+3. **Criterio de preservación**:
+   Se mantienen intactos todos los masters en WebP (`assets/exercises/*/master/`),
+   los derivados web y miniaturas aprobados, los vectores oficiales de marca
+   (`assets/brand/`) y las 3 referencias de concepto formalmente listadas en
+   `assets/manifest.md` (`master-concept-v1.png`, `web-v1.png`,
+   `forja-brand-and-session-concept-v1.png`).

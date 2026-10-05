@@ -6,38 +6,65 @@ import { loadSessionDraftById, saveSessionDraft } from "@/features/session-build
 import { createSessionDraft, type SessionDraft } from "@/features/session-builder/domain/sessionDraft";
 import { sessions } from "@/features/sessions/data/sessions";
 
-const findTemplate = (templateId: string) => sessions.find((session) => session.identity.id === templateId) ?? sessions[0];
+const findTemplate = (templateId: string) =>
+  sessions.find((session) => session.identity.id === templateId) ?? sessions[0];
 
 function isCompatibleDraft(draft: SessionDraft) {
   const template = sessions.find((session) => session.identity.id === draft.templateId);
   if (!template) return false;
   const expectedKeys = new Set(createSessionDraft(template).tasks.map((task) => task.key));
-  return draft.tasks.length === expectedKeys.size
-    && draft.tasks.every((task) => expectedKeys.has(task.key) && Boolean(getExerciseById(task.exerciseId)));
+  return (
+    draft.tasks.length === expectedKeys.size &&
+    draft.tasks.every(
+      (task) => expectedKeys.has(task.key) && Boolean(getExerciseById(task.exerciseId)),
+    )
+  );
 }
+
+const STEPS = [
+  { id: 1, name: "Plantilla", label: "01. Plantilla" },
+  { id: 2, name: "Contexto", label: "02. Contexto" },
+  { id: 3, name: "Tareas", label: "03. Tareas y dosis" },
+  { id: 4, name: "Resumen", label: "04. Ficha y guardado" },
+];
 
 export function SessionBuilderPage() {
   const { draftId } = useParams();
   const navigate = useNavigate();
+  const [currentStep, setCurrentStep] = useState<number>(1);
   const [draft, setDraft] = useState<SessionDraft>(() => {
     const stored = draftId ? loadSessionDraftById(draftId) : null;
-    return stored && isCompatibleDraft(stored) ? stored : createSessionDraft(sessions[0]);
+    return stored && isCompatibleDraft(stored)
+      ? stored
+      : createSessionDraft(sessions[0]);
   });
   const [saveMessage, setSaveMessage] = useState("");
   const template = findTemplate(draft.templateId);
-  const tasksByKey = useMemo(() => new Map(draft.tasks.map((task) => [task.key, task])), [draft.tasks]);
+  const tasksByKey = useMemo(
+    () => new Map(draft.tasks.map((task) => [task.key, task])),
+    [draft.tasks],
+  );
   const reviewedCount = draft.tasks.filter((task) => task.criteriaReviewed).length;
 
   const updateDraft = (changes: Partial<SessionDraft>) => {
     setSaveMessage("");
-    setDraft((current) => ({ ...current, ...changes, updatedAt: new Date().toISOString() }));
+    setDraft((current) => ({
+      ...current,
+      ...changes,
+      updatedAt: new Date().toISOString(),
+    }));
   };
 
-  const updateTask = (key: string, changes: Partial<SessionDraft["tasks"][number]>) => {
+  const updateTask = (
+    key: string,
+    changes: Partial<SessionDraft["tasks"][number]>,
+  ) => {
     setSaveMessage("");
     setDraft((current) => ({
       ...current,
-      tasks: current.tasks.map((task) => task.key === key ? { ...task, ...changes } : task),
+      tasks: current.tasks.map((task) =>
+        task.key === key ? { ...task, ...changes } : task,
+      ),
       updatedAt: new Date().toISOString(),
     }));
   };
@@ -46,7 +73,9 @@ export function SessionBuilderPage() {
     const nextTemplate = findTemplate(templateId);
     const replacement = createSessionDraft(nextTemplate, new Date(), draft.id);
     setDraft({ ...replacement, createdAt: draft.createdAt });
-    setSaveMessage("Plantilla cargada. Guarda el borrador para conservar este cambio.");
+    setSaveMessage(
+      "Plantilla cargada. Guarda el borrador para conservar este cambio.",
+    );
   };
 
   const save = () => {
@@ -63,65 +92,436 @@ export function SessionBuilderPage() {
     setSaveMessage("Se ha restaurado la plantilla original.");
   };
 
-  return <div className="page session-builder-page">
-    <nav className="breadcrumbs" aria-label="Migas de pan"><Link to="/sessions">Sesiones</Link><span aria-hidden="true">/</span><Link to="/sessions/saved">Guardadas</Link><span aria-hidden="true">/</span><span>Preparar sesión</span></nav>
-    <header className="builder-header">
-      <div><p className="eyebrow">Constructor manual MVP</p><h1>Preparar una sesión</h1><p className="page-lead">Adapta una sesión revisada a un contexto concreto sin perder su fuente, sus criterios de calidad ni sus límites.</p></div>
-      <div className="builder-header__actions"><Link className="button button--secondary" to="/sessions/saved">Ver guardadas</Link><button className="button button--secondary" type="button" onClick={reset}>Restaurar</button><button className="button" type="button" onClick={save}>Guardar borrador</button></div>
-    </header>
+  return (
+    <div className="page session-builder-page">
+      <nav className="breadcrumbs" aria-label="Migas de pan">
+        <Link to="/sessions">Sesiones</Link>
+        <span aria-hidden="true">/</span>
+        <Link to="/sessions/saved">Guardadas</Link>
+        <span aria-hidden="true">/</span>
+        <span>Preparar sesión</span>
+      </nav>
 
-    <p className="builder-boundary"><ForjaIcon name="observe" size={20} />Esta herramienta organiza decisiones del entrenador. No evalúa al deportista ni determina automáticamente qué sesión es apropiada.</p>
-    {saveMessage && <p className="builder-message" role="status">{saveMessage}</p>}
-
-    <div className="builder-layout">
-      <main className="builder-editor">
-        <section className="builder-panel">
-          <div className="builder-panel__heading"><span>01</span><div><h2>Punto de partida</h2><p>Selecciona una sesión base ya revisada.</p></div></div>
-          <label className="builder-field"><span>Plantilla FORJA</span><select value={draft.templateId} onChange={(event) => selectTemplate(event.target.value)}>{sessions.map((session) => <option key={session.identity.id} value={session.identity.id}>{session.identity.id} — {session.identity.name}</option>)}</select></label>
-          <div className="builder-source"><strong>{template.primaryPriority}</strong><span>Fuente: {template.identity.id} · {template.traceability.sourcePath}</span></div>
-        </section>
-
-        <section className="builder-panel">
-          <div className="builder-panel__heading"><span>02</span><div><h2>Contexto del grupo</h2><p>Registra solo información necesaria para preparar esta sesión.</p></div></div>
-          <div className="builder-form-grid">
-            <label className="builder-field builder-field--wide"><span>Título de trabajo</span><input value={draft.title} onChange={(event) => updateDraft({ title: event.target.value })} /></label>
-            <label className="builder-field"><span>Fecha prevista</span><input type="date" value={draft.scheduledDate} onChange={(event) => updateDraft({ scheduledDate: event.target.value })} /></label>
-            <label className="builder-field"><span>Contexto del grupo</span><input value={draft.groupContext} onChange={(event) => updateDraft({ groupContext: event.target.value })} placeholder="Ej.: grupo sub-16, 12 participantes" /></label>
-            <label className="builder-field builder-field--wide"><span>Comprobación inicial y relación con la semana</span><textarea rows={3} value={draft.readinessNote} onChange={(event) => updateDraft({ readinessNote: event.target.value })} placeholder="Registra disponibilidad, actividad reciente, molestias comunicadas y cualquier ajuste de contexto." /></label>
-          </div>
-        </section>
-
-        <section className="builder-panel">
-          <div className="builder-panel__heading"><span>03</span><div><h2>Tareas y dosis</h2><p>Sustituye ejercicios solo de forma consciente y conserva visibles los criterios de la sesión base.</p></div></div>
-          <div className="builder-task-list">{template.blocks.flatMap((block) => block.tasks.map((sourceTask, taskIndex) => {
-            const key = `${block.id}-${taskIndex}`;
-            const task = tasksByKey.get(key);
-            if (!task) return null;
-            return <article className="builder-task" key={key}>
-              <header><div><span>{block.name}</span><h3>{getExerciseById(task.exerciseId)?.identity.displayName ?? task.exerciseId}</h3></div><small>{task.exerciseId === sourceTask.exerciseId ? `Origen: ${sourceTask.exerciseId}` : `Sustituye a ${sourceTask.exerciseId}`}</small></header>
-              <div className="builder-form-grid">
-                <label className="builder-field"><span>Ejercicio</span><select value={task.exerciseId} onChange={(event) => updateTask(key, { exerciseId: event.target.value })}>{exercises.map((exercise) => <option key={exercise.identity.id} value={exercise.identity.id}>{exercise.identity.id} — {exercise.identity.displayName}</option>)}</select></label>
-                <label className="builder-field builder-field--wide"><span>Dosis prevista</span><textarea rows={3} value={task.prescription} onChange={(event) => updateTask(key, { prescription: event.target.value })} /></label>
-                <label className="builder-field builder-field--wide"><span>Ajuste previsto, si procede</span><input value={task.adaptationNote} onChange={(event) => updateTask(key, { adaptationNote: event.target.value })} placeholder="Ej.: reducir rango o usar el extremo inferior de repeticiones" /></label>
-              </div>
-              <div className="builder-criteria"><div><strong>Calidad de la tarea original</strong><p>{sourceTask.quality}</p></div><div><strong>Parar o modificar</strong><ul>{sourceTask.stopCriteria.map((criterion) => <li key={criterion}>{criterion}</li>)}</ul></div></div>
-              {task.exerciseId !== sourceTask.exerciseId && <p className="builder-substitution-note"><ForjaIcon name="modifyTask" size={17} />La sustitución requiere revisar también la <Link to={`/exercises/${task.exerciseId}`}>ficha de {task.exerciseId}</Link>; los criterios mostrados pertenecen a la tarea original.</p>}
-              <label className="builder-check"><input type="checkbox" checked={task.criteriaReviewed} onChange={(event) => updateTask(key, { criteriaReviewed: event.target.checked })} /><span>He revisado la ficha seleccionada y los criterios de calidad y parada aplicables.</span></label>
-            </article>;
-          }))}</div>
-        </section>
-      </main>
-
-      <aside className="builder-preview" aria-label="Ficha final de la sesión">
-        <div className="builder-preview__toolbar"><span>Ficha final</span><button type="button" onClick={() => window.print()}>Imprimir</button></div>
-        <div className="builder-sheet">
-          <header><p>{template.identity.id} · Borrador local</p><h2>{draft.title || template.identity.name}</h2><span>{draft.scheduledDate || "Fecha pendiente"}{draft.groupContext ? ` · ${draft.groupContext}` : ""}</span></header>
-          <section><strong>Prioridad</strong><p>{template.primaryPriority}</p></section>
-          {draft.readinessNote && <section><strong>Contexto registrado</strong><p>{draft.readinessNote}</p></section>}
-          <section><strong>Tareas</strong><ol>{template.blocks.flatMap((block) => block.tasks.map((sourceTask, taskIndex) => { const task = tasksByKey.get(`${block.id}-${taskIndex}`); if (!task) return null; const exercise = getExerciseById(task.exerciseId); return <li key={task.key}><div><b>{exercise?.identity.displayName ?? task.exerciseId}</b><small>{block.name} · {task.exerciseId}</small></div><p>{task.prescription}</p>{task.adaptationNote && <em>Ajuste: {task.adaptationNote}</em>}</li>; }))}</ol></section>
-          <footer><span>{reviewedCount}/{draft.tasks.length} tareas con criterios revisados</span><p>{template.usageNote}</p><small>Basada en {template.identity.id}. Los cambios del borrador no modifican la sesión canónica.</small></footer>
+      <header className="builder-header">
+        <div>
+          <p className="eyebrow">Constructor de sesión</p>
+          <h1>Preparar una sesión</h1>
+          <p className="page-lead">
+            Adapta una sesión revisada a un contexto concreto sin perder su
+            fuente, sus criterios de calidad ni sus límites.
+          </p>
         </div>
-      </aside>
+        <div className="builder-header__actions">
+          <Link className="button button--secondary" to="/sessions/saved">
+            Ver guardadas
+          </Link>
+          <button
+            className="button button--secondary"
+            type="button"
+            onClick={reset}
+          >
+            Restaurar
+          </button>
+          <button className="button" type="button" onClick={save}>
+            Guardar borrador
+          </button>
+        </div>
+      </header>
+
+      <p className="builder-boundary">
+        <ForjaIcon name="observe" size={20} />
+        Esta herramienta organiza decisiones del entrenador. No evalúa al
+        deportista ni determina automáticamente qué sesión es apropiada.
+      </p>
+
+      {saveMessage && (
+        <p className="builder-message" role="status">
+          {saveMessage}
+        </p>
+      )}
+
+      {/* Navegador de pasos accesibles */}
+      <nav
+        className="builder-stepper"
+        aria-label="Pasos de preparación de la sesión"
+      >
+        <div className="builder-stepper__track">
+          {STEPS.map((step) => {
+            const isActive = currentStep === step.id;
+            return (
+              <button
+                key={step.id}
+                type="button"
+                className={`builder-stepper__item ${
+                  isActive ? "builder-stepper__item--active" : ""
+                }`}
+                aria-current={isActive ? "step" : undefined}
+                onClick={() => setCurrentStep(step.id)}
+              >
+                <span>{step.label}</span>
+              </button>
+            );
+          })}
+        </div>
+        <div className="builder-stepper__status">
+          <span className="builder-stepper__counter">
+            Paso {currentStep} de {STEPS.length}: {STEPS[currentStep - 1].name}
+          </span>
+          <div className="builder-stepper__nav">
+            <button
+              type="button"
+              className="builder-stepper__btn"
+              disabled={currentStep === 1}
+              onClick={() => setCurrentStep((s) => Math.max(1, s - 1))}
+              aria-label="Paso anterior"
+            >
+              Anterior
+            </button>
+            <button
+              type="button"
+              className="builder-stepper__btn builder-stepper__btn--primary"
+              disabled={currentStep === STEPS.length}
+              onClick={() => setCurrentStep((s) => Math.min(STEPS.length, s + 1))}
+              aria-label="Siguiente paso"
+            >
+              Siguiente
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      <div className="builder-layout">
+        <main className="builder-editor">
+          {/* Paso 1: Plantilla base */}
+          <section
+            className={`builder-panel builder-step ${
+              currentStep === 1 ? "builder-step--active" : ""
+            }`}
+          >
+            <div className="builder-panel__heading">
+              <span>01</span>
+              <div>
+                <h2>Punto de partida</h2>
+                <p>Selecciona una sesión base ya revisada.</p>
+              </div>
+            </div>
+            <label className="builder-field">
+              <span>Plantilla FORJA</span>
+              <select
+                value={draft.templateId}
+                onChange={(event) => selectTemplate(event.target.value)}
+              >
+                {sessions.map((session) => (
+                  <option key={session.identity.id} value={session.identity.id}>
+                    {session.identity.id} — {session.identity.name}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <div className="builder-source">
+              <strong>{template.primaryPriority}</strong>
+              <span>
+                Fuente: {template.identity.id} · {template.traceability.sourcePath}
+              </span>
+            </div>
+          </section>
+
+          {/* Paso 2: Contexto del grupo */}
+          <section
+            className={`builder-panel builder-step ${
+              currentStep === 2 ? "builder-step--active" : ""
+            }`}
+          >
+            <div className="builder-panel__heading">
+              <span>02</span>
+              <div>
+                <h2>Contexto del grupo</h2>
+                <p>
+                  Registra solo información necesaria para preparar esta sesión.
+                </p>
+              </div>
+            </div>
+            <div className="builder-form-grid">
+              <label className="builder-field builder-field--wide">
+                <span>Título de trabajo</span>
+                <input
+                  value={draft.title}
+                  onChange={(event) =>
+                    updateDraft({ title: event.target.value })
+                  }
+                />
+              </label>
+              <label className="builder-field">
+                <span>Fecha prevista</span>
+                <input
+                  type="date"
+                  value={draft.scheduledDate}
+                  onChange={(event) =>
+                    updateDraft({ scheduledDate: event.target.value })
+                  }
+                />
+              </label>
+              <label className="builder-field">
+                <span>Contexto del grupo</span>
+                <input
+                  value={draft.groupContext}
+                  onChange={(event) =>
+                    updateDraft({ groupContext: event.target.value })
+                  }
+                  placeholder="Ej.: grupo sub-16, 12 participantes"
+                />
+              </label>
+              <label className="builder-field builder-field--wide">
+                <span>Comprobación inicial y relación con la semana</span>
+                <textarea
+                  rows={3}
+                  value={draft.readinessNote}
+                  onChange={(event) =>
+                    updateDraft({ readinessNote: event.target.value })
+                  }
+                  placeholder="Registra disponibilidad, actividad reciente, molestias comunicadas y cualquier ajuste de contexto."
+                />
+              </label>
+            </div>
+          </section>
+
+          {/* Paso 3: Tareas y dosis */}
+          <section
+            className={`builder-panel builder-step ${
+              currentStep === 3 ? "builder-step--active" : ""
+            }`}
+          >
+            <div className="builder-panel__heading">
+              <span>03</span>
+              <div>
+                <h2>Tareas y dosis</h2>
+                <p>
+                  Sustituye ejercicios solo de forma consciente y conserva
+                  visibles los criterios de la sesión base.
+                </p>
+              </div>
+            </div>
+            <div className="builder-task-list">
+              {template.blocks.flatMap((block) =>
+                block.tasks.map((sourceTask, taskIndex) => {
+                  const key = `${block.id}-${taskIndex}`;
+                  const task = tasksByKey.get(key);
+                  if (!task) return null;
+                  return (
+                    <article className="builder-task" key={key}>
+                      <header>
+                        <div>
+                          <span>{block.name}</span>
+                          <h3>
+                            {getExerciseById(task.exerciseId)?.identity
+                              .displayName ?? task.exerciseId}
+                          </h3>
+                        </div>
+                        <small>
+                          {task.exerciseId === sourceTask.exerciseId
+                            ? `Origen: ${sourceTask.exerciseId}`
+                            : `Sustituye a ${sourceTask.exerciseId}`}
+                        </small>
+                      </header>
+                      <div className="builder-form-grid">
+                        <label className="builder-field">
+                          <span>Ejercicio</span>
+                          <select
+                            value={task.exerciseId}
+                            onChange={(event) =>
+                              updateTask(key, { exerciseId: event.target.value })
+                            }
+                          >
+                            {exercises.map((exercise) => (
+                              <option
+                                key={exercise.identity.id}
+                                value={exercise.identity.id}
+                              >
+                                {exercise.identity.id} —{" "}
+                                {exercise.identity.displayName}
+                              </option>
+                            ))}
+                          </select>
+                        </label>
+                        <label className="builder-field builder-field--wide">
+                          <span>Dosis prevista</span>
+                          <textarea
+                            rows={3}
+                            value={task.prescription}
+                            onChange={(event) =>
+                              updateTask(key, {
+                                prescription: event.target.value,
+                              })
+                            }
+                          />
+                        </label>
+                        <label className="builder-field builder-field--wide">
+                          <span>Ajuste previsto, si procede</span>
+                          <input
+                            value={task.adaptationNote}
+                            onChange={(event) =>
+                              updateTask(key, {
+                                adaptationNote: event.target.value,
+                              })
+                            }
+                            placeholder="Ej.: reducir rango o usar el extremo inferior de repeticiones"
+                          />
+                        </label>
+                      </div>
+                      <div className="builder-criteria">
+                        <div>
+                          <strong>Calidad de la tarea original</strong>
+                          <p>{sourceTask.quality}</p>
+                        </div>
+                        <div>
+                          <strong>Parar o modificar</strong>
+                          <ul>
+                            {sourceTask.stopCriteria.map((criterion) => (
+                              <li key={criterion}>{criterion}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                      {task.exerciseId !== sourceTask.exerciseId && (
+                        <p className="builder-substitution-note">
+                          <ForjaIcon name="modifyTask" size={17} />
+                          La sustitución requiere revisar también la{" "}
+                          <Link to={`/exercises/${task.exerciseId}`}>
+                            ficha de {task.exerciseId}
+                          </Link>
+                          ; los criterios mostrados pertenecen a la tarea original.
+                        </p>
+                      )}
+                      <label className="builder-check">
+                        <input
+                          type="checkbox"
+                          checked={task.criteriaReviewed}
+                          onChange={(event) =>
+                            updateTask(key, {
+                              criteriaReviewed: event.target.checked,
+                            })
+                          }
+                        />
+                        <span>
+                          He revisado la ficha seleccionada y los criterios de
+                          calidad y parada aplicables.
+                        </span>
+                      </label>
+                    </article>
+                  );
+                }),
+              )}
+            </div>
+          </section>
+        </main>
+
+        {/* Paso 4 / Ficha final en aside */}
+        <aside
+          className={`builder-preview builder-step ${
+            currentStep === 4 ? "builder-step--active" : ""
+          }`}
+          aria-label="Ficha final de la sesión"
+        >
+          <div className="builder-preview__toolbar">
+            <span>Ficha final</span>
+            <button type="button" onClick={() => window.print()}>
+              Imprimir
+            </button>
+          </div>
+          <div className="builder-sheet">
+            <header>
+              <p>{template.identity.id} · Borrador local</p>
+              <h2>{draft.title || template.identity.name}</h2>
+              <span>
+                {draft.scheduledDate || "Fecha pendiente"}
+                {draft.groupContext ? ` · ${draft.groupContext}` : ""}
+              </span>
+            </header>
+            <section>
+              <strong>Prioridad</strong>
+              <p>{template.primaryPriority}</p>
+            </section>
+            {draft.readinessNote && (
+              <section>
+                <strong>Contexto registrado</strong>
+                <p>{draft.readinessNote}</p>
+              </section>
+            )}
+            <section>
+              <strong>Tareas</strong>
+              <ol>
+                {template.blocks.flatMap((block) =>
+                  block.tasks.map((sourceTask, taskIndex) => {
+                    const task = tasksByKey.get(`${block.id}-${taskIndex}`);
+                    if (!task) return null;
+                    const exercise = getExerciseById(task.exerciseId);
+                    return (
+                      <li key={task.key}>
+                        <div>
+                          <b>
+                            {exercise?.identity.displayName ?? task.exerciseId}
+                          </b>
+                          <small>
+                            {block.name} · {task.exerciseId}
+                          </small>
+                        </div>
+                        <p>{task.prescription}</p>
+                        {task.adaptationNote && (
+                          <em>Ajuste: {task.adaptationNote}</em>
+                        )}
+                      </li>
+                    );
+                  }),
+                )}
+              </ol>
+            </section>
+            <footer>
+              <span>{reviewedCount}/{draft.tasks.length} tareas con criterios revisados</span>
+              <p>{template.usageNote}</p>
+              <small>
+                Basada en {template.identity.id}. Los cambios del borrador no
+                modifican la sesión canónica.
+              </small>
+            </footer>
+          </div>
+        </aside>
+      </div>
+
+      {/* Barra de guardado visible persistente en móvil y escritorio */}
+      <div className="builder-sticky-bar" role="toolbar" aria-label="Acciones de guardado del borrador">
+        <div className="builder-sticky-bar__status">
+          <span className="builder-sticky-bar__badge">
+            {reviewedCount}/{draft.tasks.length} revisadas
+          </span>
+          {saveMessage ? (
+            <span className="builder-sticky-bar__msg" role="status">
+              {saveMessage}
+            </span>
+          ) : (
+            <span className="builder-sticky-bar__meta">
+              Plantilla {template.identity.id}
+            </span>
+          )}
+        </div>
+        <div className="builder-sticky-bar__actions">
+          <button
+            className="button button--secondary"
+            type="button"
+            onClick={reset}
+          >
+            Restaurar
+          </button>
+          <button className="button" type="button" onClick={save}>
+            Guardar borrador
+          </button>
+          <Link
+            className="button button--secondary"
+            to={`/sessions/execute/${draft.id}`}
+          >
+            Ejecutar
+          </Link>
+        </div>
+      </div>
     </div>
-  </div>;
+  );
 }

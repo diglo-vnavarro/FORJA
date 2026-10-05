@@ -38,6 +38,8 @@ chore: fix documentation links
 
 ## Criterios mínimos de aceptación
 
+Las normas completas se detallan en
+[`docs/01-foundations/editorial-standards.md`](docs/01-foundations/editorial-standards.md).
 Un documento debe:
 
 * tener un propósito claro;

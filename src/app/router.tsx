@@ -19,6 +19,8 @@ export const router = createBrowserRouter([
     { path: "sessions/:sessionId", lazy: lazyComponent(() => import("@/features/sessions/pages/SessionDetailPage"), "SessionDetailPage") },
     { path: "glossary", lazy: lazyComponent(() => import("@/features/search/pages/GlossaryPage"), "GlossaryPage") },
     { path: "glossary/:slug", lazy: lazyComponent(() => import("@/features/search/pages/GlossaryPage"), "GlossaryPage") },
+    { path: "assessments", lazy: lazyComponent(() => import("@/features/assessments/pages/AssessmentCatalogPage"), "AssessmentCatalogPage") },
+    { path: "assessments/:assessmentId/record", lazy: lazyComponent(() => import("@/features/assessments/pages/AssessmentRecordPage"), "AssessmentRecordPage") },
     ...["planning", "athletes", "library"].map((path) => ({ path, lazy: comingSoon })),
     { path: "*", lazy: lazyComponent(() => import("@/pages/NotFoundPage"), "NotFoundPage") },
   ],

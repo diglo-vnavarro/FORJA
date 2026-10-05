@@ -1,0 +1,222 @@
+/* ==========================================================================
+   FORJA - Estilos del Shell Adaptativo (F1-06)
+   ========================================================================== */
+
+/* Enlace accesible para saltar directamente al contenido principal */
+.skip-link {
+  position: absolute;
+  top: -120px;
+  left: 16px;
+  z-index: 9999;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--forja-touch-min, 44px);
+  padding: 0 20px;
+  border-radius: var(--forja-radius-sm, 7px);
+  color: var(--forja-white);
+  background: var(--forja-secondary);
+  font-size: var(--forja-text-sm, 14px);
+  font-weight: 750;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  transition: top 0.15s ease;
+}
+
+.skip-link:focus {
+  top: 14px;
+  outline: 3px solid var(--forja-white);
+  outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   Barra de navegación inferior para móvil (< 768px)
+   -------------------------------------------------------------------------- */
+.mobile-bottom-nav {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 50;
+  border-top: 1px solid color-mix(in srgb, var(--forja-primary) 12%, var(--forja-white));
+  background: var(--forja-white);
+  box-shadow: 0 -4px 16px color-mix(in srgb, var(--forja-primary) 8%, transparent);
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+.mobile-bottom-nav__list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mobile-bottom-nav__item {
+  display: flex;
+}
+
+.mobile-bottom-nav__link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  width: 100%;
+  min-height: var(--forja-touch-field, 48px);
+  padding: 6px 4px;
+  border: 0;
+  color: var(--forja-gray-mid);
+  background: transparent;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.mobile-bottom-nav__link:focus-visible {
+  outline: 2px solid var(--forja-secondary);
+  outline-offset: -2px;
+}
+
+.mobile-bottom-nav__link--active {
+  color: var(--forja-secondary);
+  font-weight: 800;
+}
+
+.mobile-bottom-nav__more-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+  width: 20px;
+  height: 20px;
+}
+
+.mobile-bottom-nav__more-icon span {
+  width: 100%;
+  height: 2px;
+  border-radius: 1px;
+  background: currentColor;
+}
+
+/* --------------------------------------------------------------------------
+   Hoja modal de navegación secundaria ("Más") para móvil
+   -------------------------------------------------------------------------- */
+.mobile-more-sheet-portal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.mobile-more-sheet__scrim {
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, var(--forja-primary) 65%, transparent);
+  backdrop-filter: blur(2px);
+}
+
+.mobile-more-sheet {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+  border-radius: var(--forja-radius-xl, 16px) var(--forja-radius-xl, 16px) 0 0;
+  background: var(--forja-white);
+  box-shadow: 0 -8px 32px color-mix(in srgb, var(--forja-primary) 20%, transparent);
+  padding-bottom: calc(16px + env(safe-area-inset-bottom, 0));
+}
+
+.mobile-more-sheet__handle {
+  width: 36px;
+  height: 4px;
+  margin: 12px auto 4px;
+  border-radius: 2px;
+  background: var(--forja-gray-light);
+}
+
+.mobile-more-sheet__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px 14px;
+  border-bottom: 1px solid var(--forja-gray-light);
+}
+
+.mobile-more-sheet__title {
+  margin: 0;
+  color: var(--forja-primary);
+  font-size: var(--forja-text-base, 16px);
+  font-weight: 750;
+}
+
+.mobile-more-sheet__close {
+  display: grid;
+  place-items: center;
+  min-width: var(--forja-touch-min, 44px);
+  min-height: var(--forja-touch-min, 44px);
+  border: 0;
+  border-radius: var(--forja-radius-xs, 5px);
+  color: var(--forja-gray-mid);
+  background: transparent;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.mobile-more-sheet__close:focus-visible {
+  outline: 2px solid var(--forja-secondary);
+}
+
+.mobile-more-sheet__nav {
+  display: grid;
+  gap: 4px;
+  padding: 14px 16px;
+}
+
+.mobile-more-sheet__link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: var(--forja-touch-field, 48px);
+  padding: 10px 16px;
+  border-radius: var(--forja-radius-sm, 7px);
+  color: var(--forja-primary);
+  font-size: var(--forja-text-sm, 14px);
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.mobile-more-sheet__link:hover {
+  background: color-mix(in srgb, var(--forja-gray-light) 40%, var(--forja-white));
+}
+
+.mobile-more-sheet__link--active {
+  color: var(--forja-secondary);
+  background: color-mix(in srgb, var(--forja-secondary) 8%, var(--forja-white));
+}
+
+/* --------------------------------------------------------------------------
+   Consultas de medios (Breakpoints adaptativos)
+   -------------------------------------------------------------------------- */
+/* Escritorio y Tableta (>= 768px): ocultar barra inferior y modal secundario */
+@media (min-width: 768px) {
+  .mobile-bottom-nav,
+  .mobile-more-sheet-portal {
+    display: none !important;
+  }
+}
+
+/* Móvil (< 768px): añadir espacio inferior en el contenido para que la barra fija no tape nada */
+@media (max-width: 767px) {
+  .app-content {
+    padding-bottom: calc(var(--forja-touch-field, 48px) + 36px + env(safe-area-inset-bottom, 0)) !important;
+  }
+}

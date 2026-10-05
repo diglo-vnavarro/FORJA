@@ -1,0 +1,139 @@
+/* ==========================================================================
+   FORJA - Estilos del Módulo Dashboard
+   ========================================================================== */
+
+.dashboard-intro {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 22px;
+  padding: var(--forja-space-page-block, clamp(24px, 4vw, 42px));
+  border-radius: var(--forja-radius-xl, 12px);
+  color: var(--forja-white);
+  background: var(--forja-primary);
+}
+
+.dashboard-intro::after {
+  content: "";
+  position: absolute;
+  right: -70px;
+  bottom: -100px;
+  width: 300px;
+  height: 300px;
+  border: 54px solid color-mix(in srgb, var(--forja-secondary) 45%, transparent);
+  transform: rotate(20deg);
+  opacity: 0.55;
+}
+
+.dashboard-intro > * {
+  position: relative;
+  z-index: 1;
+}
+
+.dashboard-intro > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--forja-text-xs, 12px);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--forja-radius-circle, 50%);
+  background: var(--forja-success);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--forja-success) 22%, transparent);
+}
+
+.dashboard-intro h2 {
+  max-width: 640px;
+  margin: 25px 0 10px;
+  font-size: var(--forja-text-2xl, clamp(23px, 3vw, 34px));
+  line-height: var(--forja-leading-tight, 1.15);
+}
+
+.dashboard-intro p {
+  max-width: 620px;
+  margin: 0 0 24px;
+  color: color-mix(in srgb, var(--forja-white) 76%, transparent);
+  line-height: var(--forja-leading-normal, 1.55);
+}
+
+.dashboard-intro .button {
+  color: var(--forja-primary);
+  background: var(--forja-white);
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.area-card {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-height: 210px;
+  padding: 22px;
+  border: 1px solid color-mix(in srgb, var(--forja-primary) 13%, var(--forja-white));
+  border-radius: var(--forja-radius-lg, 10px);
+  background: var(--forja-white);
+  text-decoration: none;
+  transition: transform 0.18s, border-color 0.18s;
+}
+
+.area-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--forja-secondary);
+}
+
+.area-card .forja-icon {
+  color: var(--forja-primary);
+}
+
+.area-card span {
+  color: var(--forja-gray-mid);
+  font-size: var(--forja-text-2xs, 10px);
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.area-card h2 {
+  margin: 5px 0 7px;
+  color: var(--forja-primary);
+  font-size: var(--forja-text-xl, 19px);
+}
+
+.area-card p {
+  margin: 0;
+  color: var(--forja-gray-mid);
+  font-size: var(--forja-text-sm, 13px);
+  line-height: var(--forja-leading-normal, 1.5);
+}
+
+/* Responsive: Dashboard */
+@media (max-width: 1020px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 760px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+  .area-card {
+    min-height: 0;
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 520px) {
+  .dashboard-intro {
+    margin-inline: -4px;
+  }
+}

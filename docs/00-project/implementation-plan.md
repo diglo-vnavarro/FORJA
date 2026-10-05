@@ -134,7 +134,7 @@ Objetivo: que FORJA funcione en el campo sin cobertura.
 | ID | Tarea | Criterio de aceptación |
 | --- | --- | --- |
 | F2-01 | Registrar DEC-C. | **Hecha.** Registrada como decisión D-020 en `decisions.md`. |
-| F2-02 | *Service worker* con caché de la aplicación, el contenido y las imágenes de ejercicios. | La aplicación abre y navega sin conexión tras una primera visita. |
+| F2-02 | *Service worker* con caché de la aplicación, el contenido y las imágenes de ejercicios. | **Hecha.** Service worker nativo (`sw.js`) con estrategias Cache-first (assets inmutables e imágenes) y Network-first con fallback (HTML), ciclo de vida controlado y tests de offline. |
 | F2-03 | Aviso de nueva versión disponible. | La persona usuaria decide cuándo actualizar; un borrador abierto no se pierde. |
 | F2-04 | Exportar e importar borradores y ejecuciones (JSON). | Los datos de `localStorage` pueden salvarse y restaurarse en otro dispositivo. |
 

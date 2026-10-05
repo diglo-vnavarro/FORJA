@@ -5,6 +5,22 @@ import { describe, expect, it } from "vitest";
 import { AppShell } from "./AppShell";
 
 describe("Adaptive AppShell component (F1-06)", () => {
+  it("renders a neutral profile placeholder without fixed personal initials", () => {
+    const { container } = render(
+      <MemoryRouter initialEntries={["/"]}>
+        <AppShell />
+      </MemoryRouter>,
+    );
+
+    const placeholder = screen.getByLabelText("Perfil no configurado");
+    expect(placeholder).toBeInTheDocument();
+    expect(screen.queryByText("VN")).not.toBeInTheDocument();
+
+    const icon = placeholder.querySelector("svg");
+    expect(icon).toBeInTheDocument();
+    expect(container.querySelector(".profile-placeholder > span")?.textContent).toBe("");
+  });
+
   it("contiene el enlace accesible para saltar al contenido principal", () => {
     render(
       <MemoryRouter initialEntries={["/"]}>

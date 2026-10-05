@@ -11,10 +11,8 @@ El trabajo pendiente, ordenado en fases ejecutables, está en el
 - [Manifiesto](../01-foundations/manifesto.md) — Primera versión, en revisión.
 - [Principios](../01-foundations/principles.md) — Primera versión, en revisión.
 - [Glosario](../01-foundations/glossary.md) — Primera versión, en revisión.
-- [Niveles de evidencia en FORJA](../01-foundations/evidence-levels.md).
-- Normas editoriales — Pendiente de documento propio. Las reglas vigentes
-  están en [`AGENTS.md`](../../AGENTS.md) y
-  [`CONTRIBUTING.md`](../../CONTRIBUTING.md).
+- [Normas editoriales](../01-foundations/editorial-standards.md) — Documento
+  oficial de normas editoriales y de contenido.
 
 ## Fase 1 — Fundamentos científicos
 

@@ -74,7 +74,7 @@ export function AppShell() {
         </button>
 
         <div className="profile-placeholder" aria-label="Perfil no configurado">
-          <span aria-hidden="true">VN</span>
+          <span aria-hidden="true"><ForjaIcon name="bodyweight" size={20} /></span>
           <div>
             <strong>Entrenador</strong>
             <small>Perfil en preparación</small>

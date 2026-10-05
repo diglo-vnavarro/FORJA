@@ -1,0 +1,1055 @@
+/* ==========================================================================
+   FORJA - Componentes de Interfaz Compartidos (Botones, Badges, Estados, Controles)
+   ========================================================================== */
+
+/* Botones */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: var(--forja-touch-min, 44px);
+  padding: 0 18px;
+  border: 0;
+  border-radius: var(--forja-radius-sm, 7px);
+  color: var(--forja-white);
+  background: var(--forja-secondary);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.button--secondary {
+  border: 1px solid color-mix(in srgb, var(--forja-primary) 18%, var(--forja-white));
+  color: var(--forja-primary);
+  background: var(--forja-white);
+}
+
+/* Badges y etiquetas */
+.badge-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 28px;
+  padding: 4px 8px;
+  border-radius: var(--forja-radius-xs, 5px);
+  color: var(--forja-primary);
+  background: color-mix(in srgb, var(--forja-gray-light) 52%, var(--forja-white));
+  font-size: var(--forja-text-xs, 11px);
+  font-weight: 700;
+}
+
+.badge .forja-icon {
+  color: currentColor;
+}
+
+.badge--blue {
+  color: var(--forja-secondary);
+  background: color-mix(in srgb, var(--forja-secondary) 8%, var(--forja-white));
+}
+
+.badge--green {
+  color: var(--forja-success);
+}
+
+/* Enlaces y textos de apoyo */
+.card-kicker {
+  margin: 0;
+  color: var(--forja-secondary);
+  font-size: var(--forja-text-xs, 12px);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 19px;
+  padding-top: 15px;
+  border-top: 1px solid var(--forja-gray-light);
+  color: var(--forja-gray-mid);
+  font-size: var(--forja-text-xs, 11px);
+}
+
+.text-link {
+  flex: none;
+  color: var(--forja-secondary);
+  text-decoration: none;
+  font-weight: 800;
+}
+
+/* Estado vacío */
+.empty-state {
+  display: grid;
+  justify-items: center;
+  padding: 70px 24px;
+  border: 1px dashed color-mix(in srgb, var(--forja-primary) 23%, var(--forja-white));
+  border-radius: var(--forja-radius-lg, 10px);
+  background: color-mix(in srgb, var(--forja-white) 72%, transparent);
+  text-align: center;
+}
+
+.empty-state .forja-icon {
+  color: var(--forja-gray-mid);
+}
+
+.empty-state h2 {
+  margin: 15px 0 6px;
+  color: var(--forja-primary);
+}
+
+.empty-state p {
+  max-width: 480px;
+  margin: 0;
+  color: var(--forja-gray-mid);
+  line-height: var(--forja-leading-normal, 1.5);
+}
+
+.empty-state + .button {
+  margin: 18px auto 0;
+}
+
+/* Controles de catálogo, búsqueda y selección */
+.catalog-controls {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) repeat(3, minmax(145px, 180px));
+  gap: 12px;
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid color-mix(in srgb, var(--forja-primary) 12%, var(--forja-white));
+  border-radius: var(--forja-radius-lg, 10px);
+  background: var(--forja-white);
+}
+
+.search-control {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-control .forja-icon {
+  position: absolute;
+  left: 14px;
+  color: var(--forja-gray-mid);
+}
+
+.search-control input,
+.select-control select {
+  width: 100%;
+  height: var(--forja-touch-field, 48px);
+  border: 1px solid color-mix(in srgb, var(--forja-primary) 19%, var(--forja-white));
+  border-radius: var(--forja-radius-sm, 7px);
+  color: var(--forja-gray-dark);
+  background: var(--forja-white);
+}
+
+.search-control input {
+  padding: 0 14px 0 44px;
+}
+
+.select-control {
+  display: grid;
+  gap: 4px;
+}
+
+.select-control span {
+  font-size: var(--forja-text-2xs, 10px);
+  color: var(--forja-gray-mid);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.select-control select {
+  height: 30px;
+  padding: 0 28px 0 9px;
+}
+
+.result-summary {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  margin: 0 2px 14px;
+  color: var(--forja-gray-mid);
+  font-size: var(--forja-text-sm, 13px);
+}
+
+.result-summary strong {
+  color: var(--forja-primary);
+  font-size: var(--forja-text-xl, 20px);
+}
+
+.result-summary span {
+  margin-left: auto;
+  font-size: var(--forja-text-xs, 11px);
+}
+
+/* Migas de pan */
+.breadcrumbs {
+  display: flex;
+  gap: 9px;
+  margin-bottom: 20px;
+  color: var(--forja-gray-mid);
+  font-size: var(--forja-text-xs, 12px);
+}
+
+.breadcrumbs a {
+  color: var(--forja-secondary);
+  font-weight: 700;
+}
+
+.breadcrumbs__action {
+  margin-left: auto;
+}
+
+/* Responsive: Controles y tarjetas */
+@media (max-width: 760px) {
+  .catalog-controls {
+    grid-template-columns: 1fr 1fr;
+  }
+  .search-control {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 520px) {
+  .catalog-controls {
+    grid-template-columns: 1fr;
+  }
+  .search-control {
+    grid-column: auto;
+  }
+  .select-control select {
+    height: var(--forja-touch-min, 44px);
+  }
+  .result-summary span {
+    display: none;
+  }
+  .card-footer {
+    align-items: flex-end;
+  }
+}
+
+/* ==========================================================================
+   F2-03: Aviso de actualización de la aplicación (PWA)
+   ========================================================================== */
+.update-prompt {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 24px;
+  background-color: var(--forja-surface);
+  border-bottom: 2px solid var(--forja-primary);
+  box-shadow: 0 4px 12px rgba(11, 42, 74, 0.08);
+  position: relative;
+  z-index: 80;
+}
+
+.update-prompt__content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--forja-text);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.update-prompt__icon {
+  color: var(--forja-primary);
+  flex-shrink: 0;
+}
+
+.update-prompt__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.update-prompt__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+  border: 1px solid transparent;
+}
+
+.update-prompt__btn--primary {
+  background-color: var(--forja-primary);
+  color: var(--forja-white);
+}
+
+.update-prompt__btn--primary:hover {
+  background-color: var(--forja-primary-dark);
+}
+
+.update-prompt__btn--ghost {
+  background-color: transparent;
+  color: var(--forja-text-muted);
+  border-color: var(--forja-border);
+}
+
+.update-prompt__btn--ghost:hover {
+  background-color: var(--forja-surface-subtle);
+  color: var(--forja-text);
+}
+
+@media (max-width: 640px) {
+  .update-prompt {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 12px 16px;
+  }
+  .update-prompt__actions {
+    justify-content: flex-end;
+  }
+}
+
+/* ==========================================================================
+   Global Search Interface (F3-02)
+   ========================================================================== */
+
+.global-search-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  width: min(300px, 32vw);
+  padding: 0 12px;
+  border: 1px solid var(--forja-border-soft);
+  border-radius: var(--forja-radius-md);
+  background: var(--forja-surface-card-subtle);
+  color: var(--forja-text-muted);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.global-search-trigger:hover {
+  border-color: var(--forja-border-strong);
+  color: var(--forja-text-body);
+}
+
+.global-search-trigger__icon {
+  flex-shrink: 0;
+  color: var(--forja-text-muted);
+}
+
+.global-search-trigger__text {
+  flex: 1;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.global-search-trigger__kbd {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 6px;
+  font-size: 11px;
+  font-family: inherit;
+  font-weight: 600;
+  color: var(--forja-text-muted);
+  background: var(--forja-surface-ground);
+  border: 1px solid var(--forja-border-soft);
+  border-radius: var(--forja-radius-sm);
+}
+
+.global-search-mobile-trigger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: var(--forja-radius-md);
+  background: transparent;
+  color: var(--forja-text-title);
+  cursor: pointer;
+}
+
+.global-search-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 8vh;
+}
+
+.global-search-modal {
+  width: min(640px, 94vw);
+  max-height: 80vh;
+  background: var(--forja-surface-card);
+  border: 1px solid var(--forja-border-soft);
+  border-radius: var(--forja-radius-lg);
+  box-shadow: var(--forja-shadow-floating);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: search-fade-in 0.15s ease-out;
+}
+
+@keyframes search-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.global-search-modal__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--forja-border-soft);
+}
+
+.global-search-modal__search-icon {
+  color: var(--forja-text-muted);
+  flex-shrink: 0;
+}
+
+.global-search-modal__input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  color: var(--forja-text-title);
+  outline: none;
+  font-family: inherit;
+}
+
+.global-search-modal__close-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: var(--forja-radius-sm);
+  background: transparent;
+  color: var(--forja-text-muted);
+  cursor: pointer;
+}
+
+.global-search-modal__close-btn:hover {
+  background: var(--forja-surface-ground);
+  color: var(--forja-text-title);
+}
+
+.global-search-modal__filters {
+  display: flex;
+  gap: 6px;
+  padding: 8px 18px;
+  background: var(--forja-surface-ground);
+  border-bottom: 1px solid var(--forja-border-soft);
+}
+
+.global-search-filter-tab {
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--forja-text-muted);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.global-search-filter-tab:hover {
+  color: var(--forja-text-title);
+}
+
+.global-search-filter-tab--active {
+  background: var(--forja-surface-card);
+  color: var(--forja-text-title);
+  border-color: var(--forja-border-soft);
+  font-weight: 600;
+}
+
+.global-search-modal__body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px 18px;
+  max-height: calc(80vh - 150px);
+}
+
+.global-search-hint {
+  padding: 24px 8px;
+  text-align: center;
+}
+
+.global-search-hint__text {
+  font-size: 14px;
+  color: var(--forja-text-muted);
+  margin-bottom: 12px;
+}
+
+.global-search-hint__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.global-search-hint__chips button {
+  padding: 4px 10px;
+  border-radius: var(--forja-radius-md);
+  border: 1px solid var(--forja-border-soft);
+  background: var(--forja-surface-ground);
+  color: var(--forja-text-body);
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.global-search-hint__chips button:hover {
+  background: var(--forja-surface-card-subtle);
+  border-color: var(--forja-border-strong);
+}
+
+.global-search-empty {
+  padding: 32px 16px;
+  text-align: center;
+  color: var(--forja-text-muted);
+}
+
+.global-search-empty p {
+  font-size: 15px;
+  color: var(--forja-text-title);
+  margin-bottom: 6px;
+}
+
+.global-search-group {
+  margin-bottom: 16px;
+}
+
+.global-search-group:last-child {
+  margin-bottom: 0;
+}
+
+.global-search-group__title {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--forja-text-muted);
+  padding: 4px 8px;
+  margin-bottom: 6px;
+}
+
+.global-search-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px 12px;
+  border-radius: var(--forja-radius-md);
+  cursor: pointer;
+  outline: none;
+  transition: background 0.15s ease;
+}
+
+.global-search-item:hover,
+.global-search-item--active {
+  background: var(--forja-surface-card-subtle);
+}
+
+.global-search-item__header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.global-search-item__title {
+  font-size: 14px;
+  color: var(--forja-text-title);
+}
+
+.global-search-item__subtitle {
+  font-size: 12px;
+  color: var(--forja-text-muted);
+  margin-left: auto;
+}
+
+.global-search-item__desc {
+  font-size: 12px;
+  color: var(--forja-text-muted);
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.global-search-item__meta {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.meta-tag {
+  display: inline-flex;
+  padding: 2px 6px;
+  border-radius: var(--forja-radius-sm);
+  font-size: 11px;
+  background: var(--forja-surface-ground);
+  color: var(--forja-text-muted);
+}
+
+.meta-tag--alt {
+  background: color-mix(in srgb, var(--forja-secondary) 10%, transparent);
+  color: var(--forja-secondary);
+}
+
+.global-search-modal__footer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 18px;
+  background: var(--forja-surface-ground);
+  border-top: 1px solid var(--forja-border-soft);
+  font-size: 12px;
+  color: var(--forja-text-muted);
+}
+
+.global-search-modal__footer kbd {
+  display: inline-block;
+  padding: 1px 4px;
+  border-radius: 3px;
+  border: 1px solid var(--forja-border-soft);
+  background: var(--forja-surface-card);
+  font-size: 10px;
+  font-family: inherit;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .global-search-trigger {
+    display: none;
+  }
+
+  .global-search-mobile-trigger {
+    display: inline-flex;
+  }
+
+  .global-search-overlay {
+    padding-top: 0;
+  }
+
+  .global-search-modal {
+    width: 100vw;
+    height: 100dvh;
+    max-height: 100dvh;
+    border-radius: 0;
+    border: none;
+  }
+
+  .global-search-modal__body {
+    max-height: none;
+  }
+
+  .global-search-modal__footer {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   Glossary Navigation & In-page Consultation (F3-03)
+   ========================================================================== */
+
+.glossary-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.glossary-drawer {
+  width: min(480px, 100vw);
+  height: 100dvh;
+  background: var(--forja-surface-card);
+  box-shadow: var(--forja-shadow-floating);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: drawer-slide-in 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+}
+
+@keyframes drawer-slide-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.glossary-drawer__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--forja-border-soft);
+  background: var(--forja-surface-ground);
+}
+
+.glossary-drawer__badges {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.glossary-drawer__close-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: var(--forja-radius-sm);
+  background: transparent;
+  color: var(--forja-text-muted);
+  cursor: pointer;
+}
+
+.glossary-drawer__close-btn:hover {
+  background: var(--forja-surface-card-subtle);
+  color: var(--forja-text-title);
+}
+
+.glossary-drawer__content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.glossary-drawer__title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--forja-text-title);
+  line-height: 1.3;
+}
+
+.glossary-drawer__summary {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--forja-text-body);
+}
+
+.glossary-drawer__decision {
+  padding: 14px 16px;
+  border-radius: var(--forja-radius-md);
+  background: color-mix(in srgb, var(--forja-secondary) 8%, var(--forja-surface-ground));
+  border-left: 3px solid var(--forja-secondary);
+}
+
+.glossary-drawer__decision-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--forja-secondary);
+  margin-bottom: 6px;
+}
+
+.glossary-drawer__decision p {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--forja-text-body);
+  margin: 0;
+}
+
+.glossary-drawer__see-also h4 {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--forja-text-muted);
+  margin-bottom: 8px;
+}
+
+.glossary-drawer__see-also-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.glossary-chip {
+  padding: 4px 10px;
+  border-radius: var(--forja-radius-sm);
+  font-size: 12px;
+  border: 1px solid var(--forja-border-soft);
+  background: var(--forja-surface-ground);
+  color: var(--forja-secondary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.glossary-chip:hover {
+  border-color: var(--forja-secondary);
+  background: var(--forja-surface-card-subtle);
+}
+
+.glossary-chip--plain {
+  color: var(--forja-text-muted);
+  cursor: default;
+}
+
+.glossary-drawer__source {
+  font-size: 12px;
+  color: var(--forja-text-muted);
+  padding-top: 12px;
+  border-top: 1px solid var(--forja-border-soft);
+}
+
+.glossary-drawer__footer {
+  padding: 14px 20px;
+  border-top: 1px solid var(--forja-border-soft);
+  background: var(--forja-surface-ground);
+}
+
+.glossary-drawer__full-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--forja-secondary);
+  text-decoration: none;
+}
+
+.glossary-drawer__full-link:hover {
+  text-decoration: underline;
+}
+
+/* Term chips in exercise detail */
+.glossary-chips-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.glossary-term-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--forja-radius-md);
+  border: 1px solid var(--forja-border-soft);
+  background: var(--forja-surface-card);
+  color: var(--forja-text-title);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.glossary-term-chip:hover {
+  border-color: var(--forja-secondary);
+  color: var(--forja-secondary);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.glossary-term-chip__icon {
+  color: var(--forja-secondary);
+}
+
+/* Glossary Page */
+.glossary-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 16px 0 24px;
+}
+
+.glossary-search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 14px;
+  height: 42px;
+  border: 1px solid var(--forja-border-soft);
+  border-radius: var(--forja-radius-md);
+  background: var(--forja-surface-card);
+}
+
+.glossary-search-bar__icon {
+  color: var(--forja-text-muted);
+}
+
+.glossary-search-bar__input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 14px;
+  color: var(--forja-text-title);
+  font-family: inherit;
+}
+
+.glossary-search-bar__clear {
+  border: none;
+  background: transparent;
+  color: var(--forja-text-muted);
+  cursor: pointer;
+}
+
+.glossary-letters-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.glossary-letter-btn {
+  padding: 4px 10px;
+  border-radius: var(--forja-radius-sm);
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid var(--forja-border-soft);
+  background: var(--forja-surface-card);
+  color: var(--forja-text-muted);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.glossary-letter-btn:hover {
+  color: var(--forja-text-title);
+  border-color: var(--forja-border-strong);
+}
+
+.glossary-letter-btn--active {
+  background: var(--forja-secondary);
+  color: var(--forja-white);
+  border-color: var(--forja-secondary);
+}
+
+.glossary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+}
+
+.glossary-card {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  border: 1px solid var(--forja-border-soft);
+  border-radius: var(--forja-radius-md);
+  background: var(--forja-surface-card);
+  gap: 10px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.glossary-card:hover {
+  border-color: var(--forja-border-strong);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.glossary-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.glossary-card__badges {
+  display: flex;
+  gap: 6px;
+}
+
+.glossary-card__open-btn {
+  border: none;
+  background: transparent;
+  color: var(--forja-text-muted);
+  cursor: pointer;
+}
+
+.glossary-card__open-btn:hover {
+  color: var(--forja-secondary);
+}
+
+.glossary-card__title {
+  margin: 0;
+  font-size: 16px;
+}
+
+.glossary-card__title-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--forja-text-title);
+  text-align: left;
+  cursor: pointer;
+}
+
+.glossary-card__title-btn:hover {
+  color: var(--forja-secondary);
+}
+
+.glossary-card__summary {
+  font-size: 13px;
+  color: var(--forja-text-body);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.glossary-card__decision {
+  font-size: 12px;
+  padding: 8px 10px;
+  border-radius: var(--forja-radius-sm);
+  background: color-mix(in srgb, var(--forja-secondary) 8%, transparent);
+  border-left: 2px solid var(--forja-secondary);
+  color: var(--forja-text-body);
+}
+
+.glossary-card__see-also {
+  font-size: 11px;
+  color: var(--forja-text-muted);
+  margin-top: auto;
+}
+
+.glossary-empty {
+  padding: 32px 16px;
+  text-align: center;
+  color: var(--forja-text-muted);
+}
+
+.glossary-empty p {
+  margin-bottom: 12px;
+  font-size: 15px;
+}

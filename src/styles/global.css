@@ -9,6 +9,7 @@
 @import "./base.css";
 @import "./layout.css";
 @import "./components.css";
+@import "./ui-components.css";
 @import "./dashboard.css";
 @import "./exercises.css";
 @import "./sessions.css";

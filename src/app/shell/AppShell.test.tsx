@@ -1,10 +1,16 @@
 import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { MemoryRouter } from "react-router-dom";
-import { describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, it } from "vitest";
 import { AppShell } from "./AppShell";
+import { THEME_STORAGE_KEY } from "@/app/theme";
 
-describe("Adaptive AppShell component (F1-06)", () => {
+describe("Adaptive AppShell component with Theme Toggle (F1-06 / F1-07)", () => {
+  beforeEach(() => {
+    localStorage.clear();
+    document.documentElement.removeAttribute("data-theme");
+  });
+
   it("renders a neutral profile placeholder without fixed personal initials", () => {
     const { container } = render(
       <MemoryRouter initialEntries={["/"]}>
@@ -94,5 +100,26 @@ describe("Adaptive AppShell component (F1-06)", () => {
     await user.keyboard("{Escape}");
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
     expect(moreButton).toHaveAttribute("aria-expanded", "false");
+  });
+
+  it("renders the theme toggle button and toggles theme on click", async () => {
+    const user = userEvent.setup();
+
+    render(
+      <MemoryRouter initialEntries={["/"]}>
+        <AppShell />
+      </MemoryRouter>,
+    );
+
+    const toggleBtn = screen.getByRole("button", { name: /cambiar a tema (oscuro|claro)/i });
+    expect(toggleBtn).toBeInTheDocument();
+
+    await user.click(toggleBtn);
+    expect(localStorage.getItem(THEME_STORAGE_KEY)).toBe("dark");
+    expect(document.documentElement.getAttribute("data-theme")).toBe("dark");
+
+    await user.click(toggleBtn);
+    expect(localStorage.getItem(THEME_STORAGE_KEY)).toBe("light");
+    expect(document.documentElement.getAttribute("data-theme")).toBe("light");
   });
 });

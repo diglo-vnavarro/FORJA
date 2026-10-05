@@ -20,12 +20,13 @@ describe("design tokens (F1-03 / D-011)", () => {
       "--forja-white": "#FFFFFF",
     };
 
-    // Extract all hex colors declared in forja-tokens.css
+    // Extract canonical brand colors declared in the base :root block of forja-tokens.css
+    const baseRootBlock = tokensContent.split(":root[")[0];
     const hexColorRegex = /--forja-([a-z-]+):\s*(#[0-9A-Fa-f]{6})/g;
     const foundColors: Record<string, string> = {};
     let match: RegExpExecArray | null;
 
-    while ((match = hexColorRegex.exec(tokensContent)) !== null) {
+    while ((match = hexColorRegex.exec(baseRootBlock)) !== null) {
       foundColors[`--forja-${match[1]}`] = match[2].toUpperCase();
     }
 

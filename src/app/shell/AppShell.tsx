@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { ForjaIcon, type ForjaIconName } from "@/design-system/forja/src/icons";
 import { ForjaLogo } from "@/components/ui/ForjaLogo";
+import { useTheme } from "@/app/theme";
 
 interface NavItemConfig {
   to: string;
@@ -30,6 +31,7 @@ const ALL_NAV_ITEMS: NavItemConfig[] = [
 export function AppShell() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [moreSheetOpen, setMoreSheetOpen] = useState(false);
+  const { isDark, toggleTheme } = useTheme();
 
   const closeAllNav = () => {
     setSidebarOpen(false);
@@ -73,11 +75,22 @@ export function AppShell() {
           <span /><span /><span />
         </button>
 
-        <div className="profile-placeholder" aria-label="Perfil no configurado">
-          <span aria-hidden="true"><ForjaIcon name="bodyweight" size={20} /></span>
-          <div>
-            <strong>Entrenador</strong>
-            <small>Perfil en preparación</small>
+        <div className="app-bar-actions">
+          <button
+            type="button"
+            className="theme-toggle-btn"
+            onClick={toggleTheme}
+            aria-label={isDark ? "Cambiar a tema claro" : "Cambiar a tema oscuro"}
+            title={isDark ? "Cambiar a tema claro" : "Cambiar a tema oscuro"}
+          >
+            <ForjaIcon name={isDark ? "themeLight" : "themeDark"} size={20} />
+          </button>
+          <div className="profile-placeholder" aria-label="Perfil no configurado">
+            <span aria-hidden="true"><ForjaIcon name="bodyweight" size={20} /></span>
+            <div>
+              <strong>Entrenador</strong>
+              <small>Perfil en preparación</small>
+            </div>
           </div>
         </div>
       </header>

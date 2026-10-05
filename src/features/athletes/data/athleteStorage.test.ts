@@ -111,6 +111,15 @@ describe("athlete domain and storage under D-021", () => {
     expect(loadAssessmentRecords()).toHaveLength(0);
   });
 
+  it("validates and imports the official example project data (examples/proyecto-iker)", () => {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const example = require("../../../../examples/proyecto-iker/iker-perfil-export.json");
+    expect(isAthleteExportData(example)).toBe(true);
+    const ok = importAthleteData(example);
+    expect(ok).toBe(true);
+    expect(getAthleteById("ath-iker-01")?.alias).toBe("Iker");
+  });
+
   it("handles corrupted storage data gracefully", () => {
     localStorage.setItem(ATHLETES_STORAGE_KEY, "invalid json");
     expect(loadAthletes()).toEqual([]);

@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "exportedAt": "2026-10-05T12:00:00.000Z",
+  "athlete": {
+    "id": "ath-iker-01",
+    "alias": "Iker",
+    "sport": "Fútbol",
+    "stage": "circa_phv",
+    "notes": "Futbolista sub-14 en ventana circa-PHV. Prioridad en control técnico, aterrizajes y estabilización lumbo-pélvica.",
+    "createdAt": "2026-10-01T09:00:00.000Z",
+    "updatedAt": "2026-10-05T10:00:00.000Z"
+  },
+  "evaluations": [
+    {
+      "id": "rec-iker-eval-001",
+      "athleteId": "ath-iker-01",
+      "assessmentId": "EVAL-001",
+      "date": "2026-10-02T16:30:00.000Z",
+      "taskResults": {
+        "task-1": {
+          "taskId": "task-1",
+          "competence": "sufficient",
+          "selectedExerciseId": "EX-002",
+          "notes": "Profundidad paralela correcta y alineación de rodillas estable."
+        },
+        "task-2": {
+          "taskId": "task-2",
+          "competence": "partial",
+          "selectedExerciseId": "EX-003",
+          "notes": "Tendencia a adelantar rodillas; requiere refuerzo con pica."
+        },
+        "task-3": {
+          "taskId": "task-3",
+          "competence": "sufficient",
+          "selectedExerciseId": "EX-005",
+          "notes": "Buen control lumbopélvico en ambos lados."
+        },
+        "task-4": {
+          "taskId": "task-4",
+          "competence": "partial",
+          "selectedExerciseId": "EX-008",
+          "notes": "Fatiga en el tronco al final de la serie."
+        },
+        "task-5": {
+          "taskId": "task-5",
+          "competence": "sufficient",
+          "selectedExerciseId": "EX-011",
+          "notes": "Retracción y depresión escapular simétricas."
+        },
+        "task-6": {
+          "taskId": "task-6",
+          "competence": "partial",
+          "selectedExerciseId": "EX-013",
+          "notes": "Series breves de 15 a 20 segundos para evitar arqueo lumbar."
+        },
+        "task-7": {
+          "taskId": "task-7",
+          "competence": "sufficient",
+          "selectedExerciseId": "EX-014",
+          "notes": "Anti-rotación firme con el torso vertical."
+        },
+        "task-8": {
+          "taskId": "task-8",
+          "competence": "sufficient",
+          "notes": "Recepción amortiguada en flexión triple."
+        }
+      },
+      "recommendedExerciseIds": [
+        "EX-002",
+        "EX-003",
+        "EX-005",
+        "EX-008",
+        "EX-011",
+        "EX-013",
+        "EX-014"
+      ],
+      "coachNotes": "Nivel técnico muy receptivo. Vigilar cargas excéntricas por el ritmo de crecimiento óseo."
+    }
+  ],
+  "sessionExecutions": []
+}

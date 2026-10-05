@@ -40,7 +40,7 @@ const areas: Area[] = [
     description: "Contexto individual y toma de decisiones.",
     icon: "bodyweight",
     to: "/athletes",
-    ready: false,
+    ready: true,
   },
 ];
 

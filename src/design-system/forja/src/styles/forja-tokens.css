@@ -1,4 +1,7 @@
 :root {
+  /* ==========================================================================
+     1. Colores canónicos y semánticos (D-011: paleta cerrada)
+     ========================================================================== */
   --forja-navy: #0B2A4A;
   --forja-blue: #1D5AD8;
   --forja-blue-light: #E6F0FB;
@@ -17,12 +20,143 @@
   --forja-danger: var(--forja-red);
   --forja-warning: var(--forja-ochre);
 
+  /* Superficies y bordes con la paleta cerrada D-011 */
+  --forja-surface-page: color-mix(in srgb, var(--forja-gray-light) 42%, var(--forja-white));
+  --forja-surface-card: var(--forja-white);
+  --forja-surface-subtle: color-mix(in srgb, var(--forja-gray-light) 30%, var(--forja-white));
+  --forja-border-subtle: color-mix(in srgb, var(--forja-primary) 12%, var(--forja-white));
+  --forja-border-focus: color-mix(in srgb, var(--forja-secondary) 42%, var(--forja-white));
+
+  /* ==========================================================================
+     2. Tipografía e Inter (D-006) y escala fluida (clamp)
+     ========================================================================== */
   --forja-font-sans: "Inter Variable", Inter, "Segoe UI", Arial, sans-serif;
 
+  /* Escala tipográfica fluida entre 375 px y 1280 px */
+  --forja-text-2xs: clamp(0.5625rem, 0.54rem + 0.1vw, 0.625rem); /* 9px - 10px */
+  --forja-text-xs: clamp(0.6875rem, 0.65rem + 0.15vw, 0.75rem);   /* 11px - 12px */
+  --forja-text-sm: clamp(0.8125rem, 0.78rem + 0.15vw, 0.875rem);  /* 13px - 14px */
+  --forja-text-base: clamp(0.9375rem, 0.9rem + 0.2vw, 1rem);      /* 15px - 16px */
+  --forja-text-lg: clamp(1.0625rem, 1rem + 0.3vw, 1.125rem);      /* 17px - 18px */
+  --forja-text-xl: clamp(1.1875rem, 1.1rem + 0.45vw, 1.375rem);   /* 19px - 22px */
+  --forja-text-2xl: clamp(1.4375rem, 1.3rem + 0.7vw, 1.75rem);    /* 23px - 28px */
+  --forja-text-3xl: clamp(1.875rem, 1.6rem + 1.2vw, 2.375rem);    /* 30px - 38px */
+  --forja-text-hero: clamp(2.125rem, 1.75rem + 2vw, 3.875rem);    /* 34px - 62px */
+
+  --forja-leading-tight: 1.15;
+  --forja-leading-snug: 1.35;
+  --forja-leading-normal: 1.5;
+  --forja-tracking-tight: -0.035em;
+  --forja-tracking-wide: 0.08em;
+
+  /* ==========================================================================
+     3. Espaciado consistente y fluido
+     ========================================================================== */
+  --forja-space-1: 4px;
+  --forja-space-2: 8px;
+  --forja-space-3: 12px;
+  --forja-space-4: 16px;
+  --forja-space-5: 20px;
+  --forja-space-6: 24px;
+  --forja-space-8: 32px;
+  --forja-space-10: 40px;
+  --forja-space-12: 48px;
+  --forja-space-16: 64px;
+
+  /* Espaciados adaptativos */
+  --forja-space-page-inline: clamp(16px, 4vw, 64px);
+  --forja-space-page-block: clamp(24px, 4vw, 42px);
+  --forja-space-card-padding: clamp(16px, 2.5vw, 24px);
+  --forja-space-hero-padding: clamp(24px, 4vw, 48px);
+
+  /* ==========================================================================
+     4. Radios de curvatura (border-radius)
+     ========================================================================== */
+  --forja-radius-xs: 4px;
+  --forja-radius-sm: 6px;
+  --forja-radius-md: 8px;
+  --forja-radius-lg: 10px;
+  --forja-radius-xl: 12px;
+  --forja-radius-2xl: 18px;
+  --forja-radius-full: 9999px;
+  --forja-radius-circle: 50%;
+
+  /* ==========================================================================
+     5. Sombras de elevación (con paleta cerrada D-011)
+     ========================================================================== */
+  --forja-shadow-sm: 0 1px 3px 0 color-mix(in srgb, var(--forja-primary) 8%, transparent);
+  --forja-shadow-md: 0 4px 14px 0 color-mix(in srgb, var(--forja-primary) 6%, transparent);
+  --forja-shadow-card: 0 7px 22px 0 color-mix(in srgb, var(--forja-primary) 5%, transparent);
+  --forja-shadow-lg: 0 8px 26px 0 color-mix(in srgb, var(--forja-primary) 7%, transparent);
+
+  /* ==========================================================================
+     6. Puntos de ruptura (breakpoints de referencia para CSS / container)
+     ========================================================================== */
+  --forja-breakpoint-mobile: 375px;
+  --forja-breakpoint-compact: 520px;
+  --forja-breakpoint-tablet: 760px;
+  --forja-breakpoint-desktop: 1020px;
+  --forja-breakpoint-wide: 1280px;
+
+  /* ==========================================================================
+     7. Tamaños táctiles y alturas clave (accesibilidad y Modo Campo D-017)
+     ========================================================================== */
+  --forja-touch-min: 44px;      /* WCAG 2.5.8 */
+  --forja-touch-field: 48px;    /* Modo Campo en exteriores D-017 */
+  --forja-touch-lg: 56px;       /* Barra inferior móvil */
+  --forja-app-bar-height: 72px;
+  --forja-app-bar-mobile-height: 64px;
+  --forja-bottom-nav-height: 56px;
+
+  /* ==========================================================================
+     8. Iconografía FORJA (D-014)
+     ========================================================================== */
   --forja-icon-stroke: 1.8;
   --forja-icon-sm: 16px;
   --forja-icon-md: 24px;
   --forja-icon-lg: 32px;
+}
+
+:root[data-theme="dark"] {
+  --forja-navy: #F1F5F9;
+  --forja-blue: #3B82F6;
+  --forja-blue-light: #162642;
+  --forja-gray-dark: #E2E8F0;
+  --forja-gray-mid: #94A3B8;
+  --forja-gray-light: #1B2A43;
+  --forja-green: #4ADE80;
+  --forja-red: #F87171;
+  --forja-ochre: #FBBF24;
+  --forja-white: #131E31;
+
+  --forja-primary: #F1F5F9;
+  --forja-secondary: #3B82F6;
+  --forja-icon-color: #F1F5F9;
+  --forja-success: #4ADE80;
+  --forja-danger: #F87171;
+  --forja-warning: #FBBF24;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --forja-navy: #F1F5F9;
+    --forja-blue: #3B82F6;
+    --forja-blue-light: #162642;
+    --forja-gray-dark: #E2E8F0;
+    --forja-gray-mid: #94A3B8;
+    --forja-gray-light: #1B2A43;
+    --forja-green: #4ADE80;
+    --forja-red: #F87171;
+    --forja-ochre: #FBBF24;
+    --forja-white: #131E31;
+
+    --forja-primary: #F1F5F9;
+    --forja-secondary: #3B82F6;
+    --forja-icon-color: #F1F5F9;
+    --forja-success: #4ADE80;
+    --forja-danger: #F87171;
+    --forja-warning: #FBBF24;
+  }
 }
 
 .forja-icon {

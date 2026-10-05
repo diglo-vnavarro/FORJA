@@ -64,12 +64,12 @@ pequeñas e independientes.
 
 | ID | Tarea | Criterio de aceptación |
 | --- | --- | --- |
-| F0-01 | Unificar «Entrenamientos» (tarjeta del Dashboard) y «Sesiones» (navegación). | Un solo término en toda la interfaz, coherente con el glosario. |
-| F0-02 | Las listas dentro de la descripción de un ejercicio se muestran aplanadas («mancuerna; - kettlebell»). Corregir en `documentAdapter.ts`. | La descripción de EX-002 se muestra sin guiones sueltos; test que lo cubra. |
-| F0-03 | El catálogo de ejercicios muestra «15 fichas» como texto fijo. | El número sale de los datos; test que lo cubra. |
-| F0-04 | El perfil de la barra superior muestra unas iniciales fijas. | Sustituir por un marcador neutro hasta que exista el módulo de perfil. |
-| F0-05 | Normas editoriales sin documento propio (hoja de ruta, Fase 0). | **Contenido.** Documento en `docs/01-foundations/` que reúna las reglas hoy repartidas entre `AGENTS.md` y `CONTRIBUTING.md`, sin duplicarlas. |
-| F0-06 | Binarios no referenciados en `assets/`. | **Decisión DEC-F.** Inventario de archivos sin referencias y eliminación de los aprobados. |
+| F0-01 | Unificar «Entrenamientos» (tarjeta del Dashboard) y «Sesiones» (navegación). | **Hecha.** Un solo término en toda la interfaz, coherente con el glosario. |
+| F0-02 | Las listas dentro de la descripción de un ejercicio se muestran aplanadas («mancuerna; - kettlebell»). Corregir en `documentAdapter.ts`. | **Hecha.** La descripción de EX-002 se muestra sin guiones sueltos; test que lo cubra. |
+| F0-03 | El catálogo de ejercicios muestra «15 fichas» como texto fijo. | **Hecha.** El número sale de los datos; test que lo cubra. |
+| F0-04 | El perfil de la barra superior muestra unas iniciales fijas. | **Hecha.** Sustituir por un marcador neutro hasta que exista el módulo de perfil. |
+| F0-05 | Normas editoriales sin documento propio (hoja de ruta, Fase 0). | **Contenido.** Documento en `docs/01-foundations/` que reúna las reglas hoy repartidas entre `AGENTS.md` y `CONTRIBUTING.md`, sin duplicarlas. ✅ Hecha en rama docs/f0-05-editorial-standards. |
+| F0-06 | Binarios no referenciados en `assets/`. | **Decisión DEC-F.** Inventario de archivos sin referencias y eliminación de los aprobados. ✅ Hecha en rama fix/f0-06-cleanup-unreferenced-binaries-dec-f. |
 
 ## Fase 1 — Rediseño de la experiencia de uso
 

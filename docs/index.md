@@ -52,10 +52,19 @@ Las secciones siguientes recogen los documentos disponibles y su estado.
 - [SES-002 — Fuerza general con carga externa](06-sessions/ses-002-general-strength.md) — Utilizable, primera versión.
 - [SES-003 — Fuerza breve compatible con una semana de fútbol](06-sessions/ses-003-short-football-compatible-strength.md) — Utilizable, primera versión.
 
-## 07 a 09 — Programas, evaluación y referencias
+## 07 — Programas
 
-- [Programas](07-programs/README.md) — Pendiente de desarrollo.
-- [Evaluación y seguimiento](08-assessments/README.md) — Pendiente de desarrollo.
+- [PROG-STD-001 — Estándar de programa y microciclo semanal](07-programs/program-standard.md) — Primera versión completa, en revisión.
+- [PROG-001 — Microciclo competitivo estándar (1 partido)](07-programs/prog-001-in-season-single-match.md) — Utilizable, primera versión.
+- [PROG-002 — Microciclo preparatorio de pretemporada](07-programs/prog-002-preseason-development.md) — Utilizable, primera versión.
+
+## 08 — Evaluación
+
+- [EVAL-STD-001 — Estándar de evaluación FORJA](08-assessments/assessment-standard.md) — Primera versión completa, en revisión.
+- [EVAL-001 — Batería inicial de competencia motriz](08-assessments/eval-001-initial-movement-competence.md) — Utilizable, primera versión.
+
+## 09 — Referencias
+
 - [Referencias](09-references/README.md) — Pendiente de desarrollo. Hasta
   entonces, cada documento científico incluye sus propias referencias.
 

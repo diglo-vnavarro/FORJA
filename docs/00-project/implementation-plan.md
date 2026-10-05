@@ -176,7 +176,7 @@ Objetivo: activar la ruta «Programación» con planificación semanal.
 
 | ID | Tarea | Criterio de aceptación |
 | --- | --- | --- |
-| F6-01 | Contenido de `docs/07-programs/` a partir de MET-005. | **Contenido.** Documentos revisados. |
+| F6-01 | Contenido de `docs/07-programs/` a partir de MET-005. | **Hecha.** Definido estándar `PROG-STD-001`, programas canónicos `PROG-001` (microciclo competitivo 1 partido) y `PROG-002` (pretemporada sin competición), e índice en `docs/07-programs/README.md`. |
 | F6-02 | Vista semanal que coloca sesiones respecto al calendario deportivo (MD-1, MD+1…). | Las etiquetas siguen el glosario y MET-005. |
 
 ## Fase 7 — Motor de adaptación
